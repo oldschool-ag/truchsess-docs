@@ -39,7 +39,9 @@ The box makes no backup until a recovery key exists: "No recovery key yet: the b
 
 ## Download a backup
 
-In **Backups on this box**, press **Download** on a backup. The file is called `truchsess-backup-` plus the time, and ends in `.age`. It is encrypted with the recovery key. Keep it outside the box.
+In **Backups on this box**, press **Download** on a backup. The progress shows under the link, for example "Downloading: 120.0 MiB of 412.3 MiB (29%)". The browser saves the file when it is complete. The file is called `truchsess-backup-` plus the time, and ends in `.age`. It is encrypted with the recovery key. Keep it outside the box.
+
+If the connection breaks, the line says "The download broke ..." and nothing is saved. Press **Download** again.
 
 ## Restore on the same box
 
@@ -76,7 +78,7 @@ The table **Enter these again** lists only what this box does not hold:
 
 | What | Where |
 | --- | --- |
-| The AI provider key | Administration, General. The table says "Connect an AI provider"; the button is **Change AI provider** in the panel **People**. |
+| The AI provider key | Administration, General. The table says "Connect an AI provider"; the button is **Change AI provider** in the panel **People and access**. |
 | GitHub | Administration, Connections: **Connect GitHub** |
 | The API key for a service | Administration, Connections |
 | The store enrolment | Administration, Packages, Store: **Enrol** |

@@ -3,7 +3,6 @@ title: Troubleshooting
 description: Common problems with the box, the messages you see, and what to do.
 ---
 import SupportContact from '~/components/SupportContact.astro';
-import ComingNext from '~/components/ComingNext.astro';
 
 Find the message you see, then follow the advice. If nothing helps, see [Report a problem](/use/report-a-problem/). Support: <SupportContact />
 
@@ -21,14 +20,15 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 
 | What you see | What to do |
 | --- | --- |
-| "Email or password is incorrect." | Check the e-mail and the password. Upper and lower case count. |
+| "Email or password is incorrect." | Check the e-mail and the password. Upper and lower case count. A disabled account also gets this message: ask your administrator. |
 | "Too many login attempts. Wait 15 minutes and try again." | Wait 15 minutes. |
 | "Change the temporary password before continuing." | Set your own password on **Change your temporary password**. |
 | "The security token is missing or expired. Refresh the page and try again." | Reload the page. |
 | You are signed out after some hours. | A session lasts 12 hours. Sign in again. |
 | "Enter this in the office, on the local address." | You are on the remote address. Do this in the office on **https://myai.local/**. See [Remote access](/admin/remote-access/#what-works-where). |
-| "Your e-mail is not a member of this Truchsess. Ask your admin." | The remote address knows only accounts of the box. Ask your administrator. |
-| Forgot your password. | See [Not possible yet](/not-yet/). |
+| "Your e-mail is not a member of this Truchsess. Ask your admin." | The remote address lets in only active accounts of the box. Your account may be unknown, disabled or removed, or its e-mail address was changed. Ask your administrator. |
+| Forgot your password. | Ask your administrator for a one-time password. See [Users](/admin/users/#reset-a-forgotten-password). The administrator's own password: see [Administrator password](/admin/administrator-password/). |
+| You were signed out right after a password change. | Changing your password signs out your other browsers. Sign in with the new password. |
 
 ## Tasks
 
@@ -65,9 +65,11 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "GitHub is not connected on this appliance. Connect it under Administration > Connections, then install again." | Connect GitHub first. |
 | "The GitHub connection lists no repositories yet. Press Refresh under Administration > Connections." | Choose repositories on GitHub, then **Refresh**. |
 | "This appliance has no products yet. Add one on the Products tab, then install again." | Add a product. |
-| An install shows "failed". | Read the error on the row. Press **Retry**. For a signed package file you can also **Remove** it and start again; for a store install, use **Retry** only (see [Packages](/admin/packages/#failed-install-retry-or-remove)). |
+| An install shows "failed" and "Not running". | Read the error on the row. Press **Retry**, or **Remove** it and start again. See [Packages](/admin/packages/#failed-install-retry-or-remove). |
 | An install failed with "duplicate permission". | Fixed in the current release: update the box (see [Updates](/admin/updates/)), then press **Retry** on the row. |
-| A store install is refused as already installed, after **Remove** of a failed install. | The store still holds the removed install. Ask support. |
+| The store card says "The store still holds an install from this box that never finished." | Press **Install**: it takes that install over with your answers. See [Store](/admin/store/#an-install-the-store-still-holds). |
+| A removed store install says "The store could not be reached to check whether it still holds this install." | Press **Check with the store again** when the box is online. |
+| Chat says "The subscription for ... has ended. Subscribe again to use this worker." | The function's subscription ended; the worker is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-worker). |
 | "GitHub has not granted ... to this box yet." | Follow the steps on the card. See [Connections](/admin/connections/#when-the-box-asks-for-new-github-permissions). |
 | "Check for updates first: the last check is too old to know the newest release." | Press **Check for updates**, then **Update now**. |
 | "An update is already running or waiting; wait for it to finish." | Wait. |
@@ -76,15 +78,11 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "No recovery key yet: the box makes no backup until one exists." | Create the recovery key. See [Backup](/setup/backup/). |
 | "This recovery key does not open this backup. ..." | Use the key that was current when the backup was made. |
 | "This backup comes from a newer release (...). Update this box first, then restore." | Update the box, then restore. |
-| An upload (a backup file, a package file or knowledge files) ends with a connection error instead of a message. | The box refused the upload, for example because of a wrong setup code, or because you are not signed in. Check the code and that you are signed in, then try again. See the note below the table. |
-| **Download** of a backup fails in Chrome ("Check Internet connection") on the office address. | Cause: the box's own certificate; Chrome shows the address as "Not secure" and blocks the download. Workaround: download the backup with Safari until a coming update fixes it. |
-| After a restore, **Enter these again** says "Connect an AI provider". | The button is **Change AI provider** in the panel **People**. |
+| An upload (a backup file, a package file or knowledge files) is refused. | The box says why in words, for example a wrong setup code, or that you are not signed in. Fix it, then try again. A file above the upload limit can still end with a connection error. |
+| "The download broke after ...: the connection to the box was lost. Nothing was saved." | Check that the computer is still on the office network, then press **Download** again. |
+| After a restore, **Enter these again** says "Connect an AI provider". | The button is **Change AI provider** in the panel **People and access**. |
 | "Tick “I have read what passes through Cloudflare” to switch remote access on." | Tick the box, then **Switch on**. |
 | **Not from a run (unattributed)** is above 0. | AI use happened outside a task. Tell support. |
-
-<ComingNext>
-A refused upload (for example a backup with a wrong setup code, or a package or knowledge file with a name the box refuses) shows the box's reason in words instead of a connection error.
-</ComingNext>
 
 ## Related pages
 

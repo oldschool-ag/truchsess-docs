@@ -16,7 +16,7 @@ const PLACEHOLDER = /\{\s*[A-Za-z][A-Za-z0-9_ .\-]{0,60}\}/g;
 // or a note left for later). Checked in the built pages and in src/.
 // Internal task numbers (T37, T16c.1) stay in docs/ (the inventory); a reader page never shows one.
 const TASK_NUMBER = /\bT[0-9]{1,2}[a-z]?(?:\.[0-9]+)?\b/;
-const PLACEHOLDER_WORDS = [/SUPPORT CONTACT NOT SET/i, /placeholder,? to be filled in/i, /\bTODO\b/, /\bTBD\b/, /\bFIXME\b/, /\bXXX\b(?!X)/];
+const PLACEHOLDER_WORDS = [/SUPPORT CONTACT NOT SET/i, /placeholder,? to be filled in/i, /\bTODO\b/, /\bTBD\b/, /\bFIXME\b/, /\bXXX\b(?!X)/, /[A-Z]+_PENDING\b/];
 const SKIP_DIRS = new Set(['node_modules', '.git', '.astro', 'dist']);
 const SOURCE_EXT = new Set(['.md', '.mdx', '.astro', '.mjs', '.js', '.ts', '.json', '.yml', '.yaml', '.css', '.txt']);
 
