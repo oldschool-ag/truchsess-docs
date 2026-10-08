@@ -57,20 +57,16 @@ Hand-offs: it may hand work to these workers during a task, if they are installe
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
-| Renders web pages in its sandbox | Runs on its own | cannot be raised |
-| Reads company knowledge | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Renders web pages in its sandbox | Runs on its own | cannot be raised (Fixed) |
+| Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
 | Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
-</ComingNext>
 
 ## What every worker can never do
 

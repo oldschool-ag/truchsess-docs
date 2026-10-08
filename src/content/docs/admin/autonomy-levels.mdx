@@ -1,98 +1,128 @@
 ---
 title: Autonomy levels
-description: What a worker may do on its own today, the default for each kind of action, and standing approvals.
+description: The five levels, the default for each kind of action, raising a level, and standing approvals.
 ---
 import NotYet from '~/components/NotYet.astro';
 import ComingNext from '~/components/ComingNext.astro';
 
-An [autonomy level](/start/glossary/#autonomy-level) says how much a worker may do on its own before a person looks at it.
+An [autonomy level](/start/glossary/#autonomy-level) says how much a worker does on its own before a person looks at it. Every kind of action of every installed worker has one level.
 
 ## Who can do this
 
-The administrator sets what workers may do. Members cannot change it.
+- The administrator sees and raises the levels.
+- Members see the level of their runs on the run card, and "Waiting for the owner's check" when a result is held.
 
 ## Before you start
 
-Read [Approvals and checks](/use/approvals-and-checks/).
+At least one worker is installed. See [First worker](/setup/first-worker/).
 
-## The levels in this release
+## The five levels
 
-This release has one fixed set of rules. There is no setting to choose a level per action yet: it comes with the next update (see the end of this page). The rules, from "on its own" to "asks every time":
+Each level is shown as a colored label on run cards, approval cards and in the panel **Autonomy levels**.
 
-| Kind of action | What the worker does today | Where you control it |
+| Level | Color | What happens |
 | --- | --- | --- |
-| Read and write files in its own workspace, run commands in its sandbox | On its own. | [Owner policy](/admin/packages/#owner-policy) |
-| Reach the internet through the allowlist, render web pages | On its own, only to allowed hosts. | Owner policy, install questions |
-| Read a repository, read test results | On its own, only its own repositories. | Owner policy, install questions |
-| Push its own branches, open pull requests, comment, review, create issues | On its own, only its own repositories. It can never merge, push to the default branch, or create tags or releases. | Owner policy, install questions |
-| Read and write knowledge, read and change the workboard | On its own. Every write keeps the earlier knowledge version. Every call is in the run's audit trail. | Owner policy |
-| Publish, send messages outside, spend money, use credentials, deploy, chain actions | **Asks the administrator first, every time.** | [Approvals](/use/approvals-and-checks/) |
+| **Runs on its own** | green | It runs and is recorded. |
+| **Tells you after** | blue | It runs. Afterwards you get a notice: on the run card ("Told you after: ...") and on the tab **Approvals**, panel **Tells you after**. |
+| **Waits for your check** | yellow | The run finishes, but its result is held until you press **Accept**, or **Send back** with a note. See [Checks](/use/approvals-and-checks/#checks). |
+| **Asks you first** | orange | You approve before the action happens. |
+| **Always asks, with a reason** | red | You approve before the action, every time, and your decision needs a reason. A standing approval never covers it. |
 
-The default for every protected action is "ask every time". The administrator can change this for one worker and one action with a standing approval.
+## The default for each kind of action
+
+Each kind of action starts at its default, the floor. You can raise it for one worker. You can never set it below the floor.
+
+| Kind of action (as the panel names it) | Default | You can raise it to |
+| --- | --- | --- |
+| Reads its own workspace | Runs on its own | cannot be raised |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised |
+| Renders web pages in its sandbox | Runs on its own | cannot be raised |
+| Reads repositories | Runs on its own | cannot be raised |
+| Reads test results | Runs on its own | cannot be raised |
+| Reads company knowledge | Runs on its own | cannot be raised |
+| Reads the workboard | Runs on its own | cannot be raised |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Writes company knowledge | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Comments on and reviews pull requests | Tells you after | Waits for your check |
+| Creates and updates issues | Tells you after | Waits for your check |
+| Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
+| Publishes | Asks you first | Always asks, with a reason |
+| Sends messages outside the box | Asks you first | Always asks, with a reason |
+| Chains further actions | Asks you first | Always asks, with a reason |
+| Spends money (within its limit) | Asks you first | Always asks, with a reason |
+| Uses credentials | Always asks, with a reason | cannot be raised |
+| Deploys | Always asks, with a reason | cannot be raised |
+
+The panel lists only the kinds of action a worker actually has permission for.
+
+Some things are stronger than any level: spending above the worker's per-action limit is refused outright, and no worker can ever merge on GitHub.
 
 ## Steps
 
-### Let a worker do one protected action without asking
+### Raise a level
+
+1. Open **Administration**, sub-tab **Packages**.
+2. Scroll to the panel **Autonomy levels**. Each installed package has its own table: **What it does**, **Now**, **Level**, **Floor**.
+3. In the row you want to change, open the menu in the column **Level** and choose the new level. A row that shows "Fixed" cannot be changed.
+4. Press **Save levels** under that package.
+
+The box shows "Saved for" the package, with each change. The column **Now** shows the new level.
+
+A level belongs to the package: every install of the same package gets the same levels.
+
+### Go back to the default
+
+Choose the floor (the level in the column **Floor**) in the same menu and press **Save levels**.
+
+### Let a worker do one action without asking
+
+A standing approval moves "Asks you first" to "Runs on its own" for one installed worker and one action, within a monthly limit and until a date.
 
 1. Open the tab **Approvals**, panel **Grant a standing approval**.
-2. Choose the **Package**, the **Action**, the **Limit per calendar month** and **Expires on**.
+2. Choose the **Package**, the **Action** (**Publish**, **Send messages outside**, **Spend money** or **Chain actions**), the **Limit per calendar month** and **Expires on**.
 3. Press **Grant**.
 
-Over the limit, after the expiry, or after **Revoke**, the worker asks again.
+Over the limit, after the expiry, or after **Revoke**, the worker asks again. "Uses credentials" and "Deploys" always ask, so they cannot get a standing approval. A grant for them made in an earlier release shows "not used: this action always asks".
 
 ### Make a worker do less
 
-1. Remove the permission in **Owner policy** and press **Save policy**. This affects workers installed afterwards.
-2. For an installed worker: press **Change** and skip an optional install question, or **Uninstall** it and install it again.
+- Raise a level, as above.
+- Or remove the permission in **Owner policy** and press **Save policy**. This affects workers installed afterwards. For an installed worker, press **Change** and skip an optional install question, or uninstall and install it again.
 
 ## What you see afterwards
 
-- Each run card shows every decision: "approved by ...", "refused by ..." or "covered by a standing approval".
-- The audit trail of each run lists its steps, each approval decision, and each knowledge or workboard call.
+- Each run card shows the highest level the run reached, as a colored label.
+- At "Tells you after": "Told you after: ..." on the run card, and a line in the panel **Tells you after** on the tab **Approvals**. Press **Mark all as seen** when you have read them.
+- At "Waits for your check": "Waiting for your check" on the run card and on the tab **Approvals**.
+- At "Asks you first" or "Always asks, with a reason": an approval card with the level label.
+- The audit trail of each run records each held result, each check decision, each approval decision and each level change.
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| Ask every time (default) | The run waits for your decision. | New workers, risky actions. | n/a |
-| Standing approval | The worker does one action without asking, within a monthly limit and until a date. | A repeated action you trust. | Yes: **Revoke**. |
-| Remove a permission | The worker cannot do it at all. | You never want it. | Yes: allow it again (for new installs). |
+| **Tells you after** | The worker acts, and you read a notice afterwards. | You trust it, but want to know. | Yes: choose the floor again. |
+| **Waits for your check** | You read every result before others see it. | A new worker, or important results. | Yes. |
+| **Asks you first** (knowledge and workboard writes) | Nothing is written before you approve. | Sensitive documents or boards. | Yes. |
+| **Always asks, with a reason** | Every time, with a reason in the audit trail. | The most sensitive actions. | Yes. |
+| Standing approval | One protected action without asking, within a limit. | A repeated action you trust. | Yes: **Revoke**. |
+
+Raising "Writes files in its own workspace" to "Waits for your check" holds every result of that worker, because every run writes its result file. Raising a repository action to "Waits for your check" also holds every run of that worker.
+
+A check holds the result, not what the worker already did: a pushed branch, a comment, an issue, a knowledge revision or a workboard change stays. To stop such writes before they happen, use "Asks you first" for knowledge and workboard writes, or remove the repository permission.
 
 <ComingNext>
-**Five autonomy levels.** The next update adds a panel **Autonomy levels** under **Administration**, **Packages**. It lists each installed worker and each kind of action with its level, shown as a colored label:
-
-| Level | Meaning |
-| --- | --- |
-| Runs on its own | It runs and is recorded. |
-| Tells you after | It runs; you get a notice afterwards, on the tab **Approvals**, panel **Tells you after** (**Mark all as seen**). |
-| Waits for your check | The run finishes, but its result is held until you press **Accept**, or **Send back** with a note. The member who started the run sees "Waiting for the owner's check". |
-| Asks you first | Approval before the action. |
-| Always asks, with a reason | Approval before the action, every time, with a reason. No standing approval. |
-
-Each kind of action starts at its default (the floor). You can raise a level for one worker, never lower it below the floor:
-
-| Kind of action | Default | You can raise it to |
-| --- | --- | --- |
-| Reads its own workspace, the internet through the box's list, web pages, repositories, test results, knowledge, the workboard | Runs on its own | cannot be raised |
-| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
-| Writes company knowledge, changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
-| Comments on and reviews pull requests, creates and updates issues, pushes its own branches and opens pull requests | Tells you after | Waits for your check |
-| Publishes, sends messages outside the box, chains further actions, spends money (within its limit) | Asks you first | Always asks, with a reason |
-| Uses credentials, deploys | Always asks, with a reason | cannot be raised |
-
-Standing approvals then no longer cover "Uses credentials" and "Deploys": those always ask.
-</ComingNext>
-
-<ComingNext>
-Hand-offs from one worker to another inside a task come with the next update. Until then, start a second task with the other worker.
+Hand-offs from one worker to another inside a task come with the next update, and with them the levels "Asks you first" and "Always asks, with a reason" for "Hands work to other packages". Until then, start a second task with the other worker.
 </ComingNext>
 
 <NotYet>
-In this release there are no levels to choose and no step that holds a finished result for your check. Every protected action asks first, standing approvals cover repeated actions, and you read results before you use them.
+You cannot set a level for one install only (a level applies to every install of the package), lower a level below its floor, or make a repository action ask before it happens. To approve each repository change, remove the repository permission and ask the worker to describe the change in its answer.
 </NotYet>
 
 ## Related pages
 
 - [Approvals and checks](/use/approvals-and-checks/)
 - [Packages](/admin/packages/)
+- [Workers](/workers/)

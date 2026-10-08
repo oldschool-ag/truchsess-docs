@@ -6,20 +6,19 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261008-f6fb33a` (published 2026-10-08, source
-  commit `f6fb33a`, which is also the newest commit of the main line on that day). The release before it,
-  `truchsess-iso-20261008-19aad3e`, has everything below except **Administration, Knowledge**
-  (document import), which `f6fb33a` added.
+- **Checked against:** box release `truchsess-iso-20261008-f1af221` (published 2026-10-08,
+  source commit `f1af221`). It is the release `truchsess-iso-20261008-f6fb33a` plus the five
+  autonomy levels (task T11, section 17). Earlier releases: `f6fb33a` added **Administration,
+  Knowledge**; `19aad3e` has everything else below.
 - **Sources read:** the portal page (markup and script), the portal server (routes and
   messages), the modules behind it (accounts, packages, connections, data rule, budget, backups,
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Coming with the next update:** the five autonomy levels (task T11), merged into the main
-  line as commit `f1af221` after the checked release. They are in section 17 and marked "Coming
-  with the next update" on the pages until a release that carries them is published. Hand-offs
-  between workers inside a task (task T22b) are not on the main line yet; the pages that mention
-  hand-offs also mark them "Coming with the next update", as the supervisor decided.
+- **Coming with the next update:** hand-offs between workers inside a task (task T22b), merged
+  into the main line as `12b3acf` but not in a published release yet. The pages that mention
+  hand-offs mark them "Coming with the next update". (Task T16c.0, also on the main line, is a
+  design document only and changes nothing people see.)
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
@@ -107,7 +106,10 @@ Facts used by the pages:
 | File panel: "Open raw", "Close" | Both | Shows a Markdown file or an image from a run next to the chat. | n/a |
 
 Run states (exact words): "Created, waiting for the worker", "Running in the package sandbox",
-"Running", "Waiting for your approval", "Finished", "Failed", "Cancelled".
+"Running", "Waiting for your approval", "Waiting for your check" (a member sees "Waiting for the
+owner's check"), "Finished", "Failed", "Cancelled". Each run card also shows its autonomy level as
+a colored label, notices as "Told you after: ...", and check decisions ("Result accepted by ...",
+"Sent back for one rework turn by ...").
 
 Time limits: one turn may take 600 seconds, or 1800 seconds for a worker that uses the browser.
 A timed-out turn is retried at most once.
@@ -129,8 +131,10 @@ A timed-out turn is retried at most once.
 | "Waiting for your decision" | Admin | Every run that waits for an approval, as run cards. "Nothing is waiting." when empty. | n/a |
 | "Approve" / "Refuse" (two clicks, reason field) | Admin | Approve: the worker carries out exactly the approved action in a new turn. Refuse: the run fails with "Refused by <name>: <reason>". | No. |
 | "Grant a standing approval": "Package", "Action", "Limit per calendar month (times)" (for Spend money: amount), "Expires on" (default three months), "Note (optional)", "Grant" | Admin | The chosen install may do this action without asking, within the limit, until the expiry. Over the limit it asks again. | Yes: "Revoke". |
-| Actions offered: "Publish", "Send messages outside", "Spend money", "Use credentials", "Deploy", "Chain actions" | Admin | The six protected actions. | n/a |
-| "Standing approvals" table: Package, Action, Limit, Used, Expires, Granted by, Status, "Revoke" | Admin | "Revocation takes effect immediately." | No: grant a new one instead. |
+| Actions offered: "Publish", "Send messages outside", "Spend money", "Chain actions" | Admin | The protected actions a standing approval may cover. "Use credentials" and "Deploy" always ask, with a reason. | n/a |
+| "Standing approvals" table: Package, Action, Limit, Used, Expires, Granted by, Status, "Revoke" | Admin | "Revocation takes effect immediately." A grant for an action that always asks shows "not used: this action always asks". | No: grant a new one instead. |
+| Panel "Tells you after", "Mark all as seen" | Admin | Notices of what workers did at "Tells you after" (knowledge and workboard writes, repository comments, issues and pushes). "Nothing new." when empty. | n/a |
+| Checks in "Waiting for your decision": "Waiting for your check", "Accept" (with "Note (optional)"), "Send back" (with "Note for the package", required) | Admin | See section 17. | No, once decided. |
 
 A member never decides an approval. Every decision is in the run's audit trail with the name.
 
@@ -307,6 +311,13 @@ A store package can be installed only once per box.
 
 A policy change does not reach a worker that is already installed.
 
+### Autonomy levels
+
+| Label | What it does | Undo |
+| --- | --- | --- |
+| One table per installed package: "What it does", "Now", "Level", "Floor"; a menu per row, or "Fixed" | Shows and raises the level of each kind of action the package has permission for. A raise applies to every install of the package. | Yes: choose the floor again. |
+| "Save levels" | Saves the changed rows. "Saved for <package>. ..." or "Nothing changed." A level below the floor is refused. | Yes. |
+
 ### Install a package
 
 | Label | What it does | Undo |
@@ -419,8 +430,6 @@ run `npm run sync:not-yet` after a change (CI fails when the page and this table
 | G5 | Accounts and roles | Limit which workers a member sees in Chat. | Every member sees every installed worker. Install only workers everyone may use. | Administrator. |
 | G6 | Accounts and roles | See other people's runs as a member, or share a run. | Members see own runs only. Share the result file or text another way. | Administrator (sees all runs). |
 | G7 | Approvals and autonomy | Approve or refuse as a member, or as a product owner. | Only the CEO administrator decides. | Administrator. |
-| G8 | Approvals and autonomy | Five autonomy levels per action ("runs on its own" to "always asks"). | Every protected action asks the admin first. Standing approvals let one install do one action without asking, within a monthly limit. | Administrator. |
-| G9 | Approvals and autonomy | A "check" step: hold a finished result until a person accepts it. | Coming with the next update ("Waits for your check"). Until then, read the result before using it; for outside effects, the protected actions ask first. | Administrator. |
 | G10 | Approvals and autonomy | Hand-offs between workers (delegation) in a task. | Coming with the next update. Until then, start a second task with the other worker yourself. | Administrator. |
 | G11 | Knowledge, workboard and products | See, search or edit the company knowledge in the portal, or look at older revisions. | Ask a worker with knowledge permission to search, read or quote a document (it can also read an older revision). | Administrator. |
 | G12 | Knowledge, workboard and products | Delete a knowledge document. | Import a corrected version (it becomes the current one). A document cannot be removed. | Support. |
@@ -440,9 +449,11 @@ run `npm run sync:not-yet` after a change (CI fails when the page and this table
 | G26 | The box | Remote sign-in for secrets (passwords, keys, updates, knowledge import). | Do these in the office on the local address. | Administrator. |
 | G27 | Workers and the store | The LinkedIn posting worker. | Planned, not in the store yet. | Support. |
 | G28 | Workers and the store | Change the owner policy for an already installed worker. | Use "Change" for the install questions, or uninstall and install again. | Administrator. |
-| G29 | Approvals and autonomy | Notifications (e-mail or chat) when an approval waits or a run ends. | Open the Approvals tab or the run card. | Administrator. |
+| G29 | Approvals and autonomy | Notifications (e-mail or chat) when an approval or a check waits, or a run ends. | Open the tab Approvals (panels "Waiting for your decision" and "Tells you after") or the run card. | Administrator. |
 | G30 | The box | A language other than English in the portal. | None. | Support. |
 | G31 | The box | Show the certificate fingerprint on the very first screen. | Read it on the box's console (screen and keyboard) after the automatic login. | Support. |
+| G32 | Approvals and autonomy | A different autonomy level for one install of a package. | A level applies to every install of the package. Install a separate package if you need different levels. | Administrator. |
+| G33 | Approvals and autonomy | Approve a repository comment, issue or push before it happens. | Repository actions can be raised to "Waits for your check" only. To approve each change, remove the repository permission and ask the worker to describe the change in its answer. | Administrator. |
 
 ## 16. Workers (store functions)
 
@@ -469,28 +480,35 @@ activator: an answer is added to the owner's allow list for that install). No pa
 protected action, so none asks for an approval in this release. Prices are not written on the
 pages; each links to its catalog page.
 
-## 17. Coming with the next update
-
-On the main line as `f1af221` (task T11), not in a published release yet.
+## 17. Autonomy levels (in the release since `f1af221`)
 
 | Label | Who | What it does | Undo |
 | --- | --- | --- | --- |
-| Levels "Runs on its own", "Tells you after", "Waits for your check", "Asks you first", "Always asks, with a reason" (colored labels on task and approval cards) | Both see them | How much a worker does on its own per kind of action. | n/a |
-| Panel "Autonomy levels" (Administration, Packages) | Admin | Each installed package, each kind of action, its level and a menu to raise it. A level cannot go below its floor. | Yes: choose the floor again. |
-| "Waiting for your check" / "Waiting for the owner's check", "Accept", "Send back" | Admin decides; the member sees the waiting line | A run at "Waits for your check" is held until Accept. Send back gives the worker one more turn with a note. | No, once decided. |
-| Panel "Tells you after", "Mark all as seen" (tab Approvals) | Admin | Notices of what workers did at "Tells you after". | n/a |
-| Standing approvals no longer offer "Use credentials" and "Deploy"; older grants show "not used: this action always asks" | Admin | Those actions always ask, with a reason. | n/a |
+| Levels "Runs on its own" (green), "Tells you after" (blue), "Waits for your check" (yellow), "Asks you first" (orange), "Always asks, with a reason" (red) | Both see them on cards | How much a worker does on its own per kind of action. | n/a |
+| "Waiting for your check" / "Waiting for the owner's check" | Admin decides; the member sees the waiting line and "The result waits for the owner's check. You see it once the owner accepts it." | The run finished; its result and files are hidden from everyone but the administrator until Accept. A run cancelled before Accept keeps them hidden. | n/a |
+| "Accept", "Confirm accept", "Note (optional)" | Admin | Releases the result: "The run is finished and its result is shown to everyone who may see the run." | No. |
+| "Send back", "Confirm send back", "Note for the package" (required: "Write what the package should change first.") | Admin | One rework turn with the note, then held again. Once per run: "Sent back once already: accept it, or cancel the run." | No. |
+| Approval card with a level label; "Reason (required)" and "This action always asks, and your decision needs a reason." | Admin | For "Always asks, with a reason". | No. |
+| Held write: "Nothing is written yet. Approve writes it exactly as shown; Refuse writes nothing." | Admin | A knowledge or workboard write raised to "Asks you first" or higher waits for the decision. | No. |
 
-Floors: reading, the internet list, web pages, test results, knowledge and workboard reads: Runs
-on its own (cannot be raised). Workspace writes and hand-offs: Runs on its own (raise to Tells you
-after or Waits for your check). Knowledge and workboard writes: Tells you after (raise up to
-Always asks, with a reason). Pull request reviews, issues and pushes: Tells you after (raise to
-Waits for your check). Publish, messages, chain, spend: Asks you first (raise to Always asks, with
-a reason). Credentials and deploy: Always asks, with a reason.
+Floors and raises (the panel's own words):
+
+| Kind of action | Floor | Can be raised to |
+| --- | --- | --- |
+| Reads its own workspace; Reaches the internet through the box's list; Renders web pages in its sandbox; Reads repositories; Reads test results; Reads company knowledge; Reads the workboard | Runs on its own | Fixed |
+| Writes files in its own workspace; Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Writes company knowledge; Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Comments on and reviews pull requests; Creates and updates issues; Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
+| Publishes; Sends messages outside the box; Chains further actions; Spends money (within its limit) | Asks you first | Always asks, with a reason |
+| Uses credentials; Deploys | Always asks, with a reason | Fixed |
+
+A check holds the result, not the writes: workspace files, knowledge revisions, workboard changes
+and repository comments, issues and pushes stay. Spending above the per-action limit stays
+refused, and merges stay impossible.
 
 ## 18. Notes for the Website Owner
 
-- When the release with `f1af221` is published, remove the "Coming with the next update" boxes
-  about autonomy levels and checks, close gaps G8 and G9, and add the release entry.
+- When a release with `12b3acf` (hand-offs, T22b) is published, remove the "Coming with the next
+  update" boxes about hand-offs, close gap G10, and add the release entry.
 - The installer's own texts still name the old product ("Company OS") and an older host name on
   the setup Wi-Fi. The manual tells the reader what they will see.

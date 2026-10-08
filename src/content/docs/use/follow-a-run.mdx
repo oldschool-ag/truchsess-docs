@@ -37,6 +37,7 @@ You have started a task. See [Start a task](/use/start-a-task/).
 ## What you see afterwards
 
 - A finished run shows "Finished", the worker's reply, the result and its files.
+- The card shows the run's [autonomy level](/admin/autonomy-levels/) as a colored label, and notices as "Told you after: ...".
 - A cancelled run shows "Cancelled" with the reason.
 - A failed run shows "Failed:" and the reason in the box's own words.
 
@@ -47,7 +48,8 @@ You have started a task. See [Start a task](/use/start-a-task/).
 | Created, waiting for the worker | The box has the task and is starting the worker. |
 | Running in the package sandbox | The worker is working in its own closed workspace. |
 | Running | The run is in progress. |
-| Waiting for your approval | The worker asked for a protected action. The administrator decides. See [Approvals and checks](/use/approvals-and-checks/). |
+| Waiting for your approval | The worker asked before an action. The administrator decides. See [Approvals and checks](/use/approvals-and-checks/). |
+| Waiting for your check | The run is done, but its result waits for the administrator's check. A member sees "Waiting for the owner's check" and gets the result after **Accept**. |
 | Finished | Done. Read the result. |
 | Failed | Stopped with an error. The reason is on the card. |
 | Cancelled | Someone cancelled it. |
