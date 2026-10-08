@@ -3,6 +3,7 @@ title: Autonomy levels
 description: What a worker may do on its own today, the default for each kind of action, and standing approvals.
 ---
 import NotYet from '~/components/NotYet.astro';
+import ComingNext from '~/components/ComingNext.astro';
 
 An [autonomy level](/start/glossary/#autonomy-level) says how much a worker may do on its own before a person looks at it.
 
@@ -16,7 +17,7 @@ Read [Approvals and checks](/use/approvals-and-checks/).
 
 ## The levels in this release
 
-This release has one fixed set of rules. There is no setting to choose a level per action. The rules, from "on its own" to "asks every time":
+This release has one fixed set of rules. There is no setting to choose a level per action yet: it comes with the next update (see the end of this page). The rules, from "on its own" to "asks every time":
 
 | Kind of action | What the worker does today | Where you control it |
 | --- | --- | --- |
@@ -57,8 +58,38 @@ Over the limit, after the expiry, or after **Revoke**, the worker asks again.
 | Standing approval | The worker does one action without asking, within a monthly limit and until a date. | A repeated action you trust. | Yes: **Revoke**. |
 | Remove a permission | The worker cannot do it at all. | You never want it. | Yes: allow it again (for new installs). |
 
+<ComingNext>
+**Five autonomy levels.** The next update adds a panel **Autonomy levels** under **Administration**, **Packages**. It lists each installed worker and each kind of action with its level, shown as a colored label:
+
+| Level | Meaning |
+| --- | --- |
+| Runs on its own | It runs and is recorded. |
+| Tells you after | It runs; you get a notice afterwards, on the tab **Approvals**, panel **Tells you after** (**Mark all as seen**). |
+| Waits for your check | The run finishes, but its result is held until you press **Accept**, or **Send back** with a note. The member who started the run sees "Waiting for the owner's check". |
+| Asks you first | Approval before the action. |
+| Always asks, with a reason | Approval before the action, every time, with a reason. No standing approval. |
+
+Each kind of action starts at its default (the floor). You can raise a level for one worker, never lower it below the floor:
+
+| Kind of action | Default | You can raise it to |
+| --- | --- | --- |
+| Reads its own workspace, the internet through the box's list, web pages, repositories, test results, knowledge, the workboard | Runs on its own | cannot be raised |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Writes company knowledge, changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Comments on and reviews pull requests, creates and updates issues, pushes its own branches and opens pull requests | Tells you after | Waits for your check |
+| Publishes, sends messages outside the box, chains further actions, spends money (within its limit) | Asks you first | Always asks, with a reason |
+| Uses credentials, deploys | Always asks, with a reason | cannot be raised |
+
+Standing approvals then no longer cover "Uses credentials" and "Deploys": those always ask.
+</ComingNext>
+
+<ComingNext>
+Hand-offs from one worker to another inside a task come with the next update. Until then, start a second task with the other worker.
+</ComingNext>
+
 <NotYet>
-A setting with several autonomy levels per action (for example "tells you after", or "waits for your check before the result counts") is being built and is not in this release. Until then: every protected action asks first, use standing approvals for repeated actions, and read results before you use them. Hand-offs from one worker to another inside a task are also not in this release; start a second task with the other worker.
+In this release there are no levels to choose and no step that holds a finished result for your check. Every protected action asks first, standing approvals cover repeated actions, and you read results before you use them.
 </NotYet>
 
 ## Related pages

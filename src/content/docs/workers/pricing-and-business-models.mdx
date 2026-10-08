@@ -1,80 +1,85 @@
 ---
 title: "Pricing and business models"
-description: "What the Pricing and business models function is for, its permissions, install questions, default autonomy and example tasks."
+description: "What the Pricing and business models function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
-import Unconfirmed from '~/components/Unconfirmed.astro';
+import ComingNext from '~/components/ComingNext.astro';
 
 Store function id: `pricing-and-business-models`. Price and full description: [Pricing and business models in the store catalog](https://faivr.ai/catalog/pricing-and-business-models).
 
 ## What it is for
 
-Workers for prices and business models: they compare options and calculate simple scenarios.
+One worker for prices and business models: pricing, packages, the value metric, unit economics, with scenarios and the next step to test them. It works from the facts you give it and does not reach the internet.
 
 ## Who can do this
 
-- The administrator subscribes, installs and sets its permissions.
-- Administrators and members give it tasks in **Chat**.
+- The administrator subscribes, answers the install questions and allows the permissions.
+- Administrators and members give the workers tasks in **Chat**.
 
 ## Before you start
 
 - The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
-- The owner policy allows the permissions the worker asks for. See [Owner policy](/admin/packages/#owner-policy).
+- In **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
 
-## Permissions in plain words
+Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
 
-Your box shows the exact list before you install: **Administration**, **Packages**, **Store**, open **Permissions** under the worker. You see **Requires** (what it asks for), **Will be granted**, **Declined** and **You choose at install**, in plain words such as "Read one repository" or "Publish content outside (asks first)".
+## The worker
 
-Whatever it asks for, the box guarantees:
+### Cora
 
-- it works only in its own closed workspace on the box;
-- it reaches only the hosts, repositories and products it was given;
-- it can never merge on GitHub, push to the default branch, or create tags or releases;
-- it can never read a stored key or password;
-- every protected action (publish, send, spend, use credentials, deploy) asks the administrator first.
+Package id `faivr.agent.pricing-models`, version 1.0.0.
 
-<Unconfirmed>
-The worker's exact permission list comes from the store catalog and is not copied here yet. Read it on your box or on the [catalog page](https://faivr.ai/catalog/pricing-and-business-models) before you install.
-</Unconfirmed>
+Turns the business facts you give it into clear recommendations for pricing, packaging, the value metric, how to earn money and the unit economics, with facts, assumptions, scenarios, trade-offs and the next step to test them.
 
-## Install questions
+**Permissions in plain words**
 
-The box asks these under "This package asks you to choose:". What you can expect:
+| Permission | Install question | In **Owner policy** |
+| --- | --- | --- |
+| Read files in its own workspace | None | Tick it |
+| Create and change files in its own workspace | None | Tick it |
+| Run commands inside its sandbox | None | Tick it |
+| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Run in one model lane: **Standard** | None | **Run in one model lane**: choose `standard` and press **Allow** |
 
-- The product, if the worker asks for one.
+**Install questions**
 
-<Unconfirmed>
-The exact questions come from the store catalog. Your box shows them before **Install**. Optional questions offer **Skip (the permission is declined)**.
-</Unconfirmed>
+- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
-## Default autonomy levels
+**Default autonomy levels**
 
-The same for every worker in this release:
+Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
 
-| Kind of action | Default |
-| --- | --- |
-| Work in its own workspace, read what it was given | On its own |
-| Write what it was given (its own branches and pull requests, knowledge, workboard cards) | On its own. Knowledge and workboard changes are listed in the run's audit trail. |
-| Protected actions | Asks the administrator first, every time |
+<ComingNext>
+The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
 
-A standing approval can let it do one protected action without asking. See [Autonomy levels](/admin/autonomy-levels/).
+| Kind of action | Default level | You can raise it to |
+| --- | --- | --- |
+| Reads its own workspace | Runs on its own | cannot be raised |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Reads company knowledge | Runs on its own | cannot be raised |
+</ComingNext>
+
+## What every worker can never do
+
+- Work outside its own closed workspace on the box.
+- Reach hosts, repositories or products it was not given.
+- Merge on GitHub, push to the default branch, or create tags or releases.
+- Read a stored key or password.
 
 ## Example tasks
 
 Write these in **Chat** after choosing the worker. Change the details to your company.
 
-1. "Compare a monthly subscription with a one-time price for our product, with the pros and cons of each."
-2. "Our costs are in the attached file. Calculate the price we need for a 30 percent margin at 100, 500 and 1,000 customers."
-3. "List three business models that companies like ours use, and which one fits us best and why."
-
-If the worker lacks a permission for a task, it says so, or the box refuses the action in plain words.
+1. "Our costs and customer numbers are attached. Recommend a price with three scenarios."
+2. "Compare a monthly subscription with a price per user for our product."
+3. "What is the next small test that would tell us if customers accept a higher price?"
 
 <NotYet>
-The levels per action and hand-offs to other workers are not in this release. See [Not possible yet](/not-yet/).
+A store worker can be installed only once per box, and store workers cannot be updated from the box. See [Not possible yet](/not-yet/).
 </NotYet>
 
 ## Related pages
 
 - [All workers](/workers/)
 - [First worker](/setup/first-worker/)
-- [Start a task](/use/start-a-task/)
+- [Autonomy levels](/admin/autonomy-levels/)

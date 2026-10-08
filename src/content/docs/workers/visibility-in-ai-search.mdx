@@ -1,80 +1,98 @@
 ---
 title: "Visibility in AI search"
-description: "What the Visibility in AI search function is for, its permissions, install questions, default autonomy and example tasks."
+description: "What the Visibility in AI search function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
-import Unconfirmed from '~/components/Unconfirmed.astro';
+import ComingNext from '~/components/ComingNext.astro';
 
 Store function id: `visibility-in-ai-search`. Price and full description: [Visibility in AI search in the store catalog](https://faivr.ai/catalog/visibility-in-ai-search).
 
 ## What it is for
 
-Workers that look at how your company and website show up in answers of AI search tools, and suggest changes to your website's content.
+One worker that checks how one website is found, described and recommended by search engines and AI answer tools, and writes fixes ready to hand over.
 
 ## Who can do this
 
-- The administrator subscribes, installs and sets its permissions.
-- Administrators and members give it tasks in **Chat**.
+- The administrator subscribes, answers the install questions and allows the permissions.
+- Administrators and members give the workers tasks in **Chat**.
 
 ## Before you start
 
 - The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
-- The owner policy allows the permissions the worker asks for. See [Owner policy](/admin/packages/#owner-policy).
+- In **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
+- Answer the website question at install. The worker reaches exactly that host and a web search page.
 
-## Permissions in plain words
+Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
 
-Your box shows the exact list before you install: **Administration**, **Packages**, **Store**, open **Permissions** under the worker. You see **Requires** (what it asks for), **Will be granted**, **Declined** and **You choose at install**, in plain words such as "Read one repository" or "Publish content outside (asks first)".
+## The worker
 
-Whatever it asks for, the box guarantees:
+### Gideon
 
-- it works only in its own closed workspace on the box;
-- it reaches only the hosts, repositories and products it was given;
-- it can never merge on GitHub, push to the default branch, or create tags or releases;
-- it can never read a stored key or password;
-- every protected action (publish, send, spend, use credentials, deploy) asks the administrator first.
+Package id `faivr.agent.ai-visibility`, version 1.0.0.
 
-<Unconfirmed>
-The worker's exact permission list comes from the store catalog and is not copied here yet. Read it on your box or on the [catalog page](https://faivr.ai/catalog/visibility-in-ai-search) before you install.
-</Unconfirmed>
+Checks and improves how one website is found, described, cited and recommended by search engines and AI answer tools. Each finding says how strong its evidence is, and each fix is ready to hand over.
 
-## Install questions
+**Permissions in plain words**
 
-The box asks these under "This package asks you to choose:". What you can expect:
+| Permission | Install question | In **Owner policy** |
+| --- | --- | --- |
+| Read files in its own workspace | None | Tick it |
+| Create and change files in its own workspace | None | Tick it |
+| Run commands inside its sandbox | None | Tick it |
+| Reach the internet through the allowlist proxy | None | Tick it |
+| Render web pages and take screenshots with the browser inside its sandbox | None | Tick it |
+| Reach one named host | "Which website should it audit for AI search visibility?" | Allowed by your answer |
+| Reach one named host: `html.duckduckgo.com` (a web search page) | None | **Reach one named host**: enter `html.duckduckgo.com` and press **Allow** |
+| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Run in one model lane: **Standard** | None | **Run in one model lane**: choose `standard` and press **Allow** |
 
-- The website the worker looks at.
+**Install questions**
 
-<Unconfirmed>
-The exact questions come from the store catalog. Your box shows them before **Install**. Optional questions offer **Skip (the permission is declined)**.
-</Unconfirmed>
+- "Which website should it audit for AI search visibility?" Required. You choose one website address, for example `www.example.com`.
+- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
-## Default autonomy levels
+<ComingNext>
+Hand-offs: it may hand work to these workers during a task, if they are installed: Website Owner, Ivy. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.website-owner`. Hand-offs inside a task come with the next update; until then, give the other worker its own task.
+</ComingNext>
 
-The same for every worker in this release:
+**Default autonomy levels**
 
-| Kind of action | Default |
-| --- | --- |
-| Work in its own workspace, read what it was given | On its own |
-| Write what it was given (its own branches and pull requests, knowledge, workboard cards) | On its own. Knowledge and workboard changes are listed in the run's audit trail. |
-| Protected actions | Asks the administrator first, every time |
+Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
 
-A standing approval can let it do one protected action without asking. See [Autonomy levels](/admin/autonomy-levels/).
+<ComingNext>
+The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+
+| Kind of action | Default level | You can raise it to |
+| --- | --- | --- |
+| Reads its own workspace | Runs on its own | cannot be raised |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised |
+| Renders web pages in its sandbox | Runs on its own | cannot be raised |
+| Reads company knowledge | Runs on its own | cannot be raised |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+</ComingNext>
+
+## What every worker can never do
+
+- Work outside its own closed workspace on the box.
+- Reach hosts, repositories or products it was not given.
+- Merge on GitHub, push to the default branch, or create tags or releases.
+- Read a stored key or password.
 
 ## Example tasks
 
 Write these in **Chat** after choosing the worker. Change the details to your company.
 
-1. "Check how our website describes what we do, and suggest clearer text for the home page."
-2. "List the questions customers might ask an AI assistant about our product, and say which ones our website answers."
-3. "Suggest three new pages for our website that would help AI search tools understand our offer."
-
-If the worker lacks a permission for a task, it says so, or the box refuses the action in plain words.
+1. "Audit our website for AI search visibility and list the findings with how strong the evidence is."
+2. "Search for our company name and tell us how the results describe us."
+3. "Write the three most important fixes for our home page as ready-to-use text."
 
 <NotYet>
-The levels per action and hand-offs to other workers are not in this release. See [Not possible yet](/not-yet/).
+A store worker can be installed only once per box, and store workers cannot be updated from the box. See [Not possible yet](/not-yet/).
 </NotYet>
 
 ## Related pages
 
 - [All workers](/workers/)
 - [First worker](/setup/first-worker/)
-- [Start a task](/use/start-a-task/)
+- [Autonomy levels](/admin/autonomy-levels/)

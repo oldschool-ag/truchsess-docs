@@ -3,6 +3,7 @@ title: Approvals and checks
 description: How a worker asks before a protected action, how the administrator decides, and standing approvals.
 ---
 import NotYet from '~/components/NotYet.astro';
+import ComingNext from '~/components/ComingNext.astro';
 
 A worker always asks before a [protected action](/start/glossary/#protected-action): publish, send messages outside, spend money, use credentials, deploy, or chain actions. The run then waits for the administrator.
 
@@ -63,8 +64,12 @@ A standing approval covers one installed worker. A second install of the same pa
 
 A check is a person looking at a finished result before it counts. In this release the box has no separate check step: the result is shown as soon as the run is finished. Read it before you use it. For anything that leaves the box, the approval above is the stop.
 
+<ComingNext>
+**Checks.** With the next update, the administrator can set a worker's action to "Waits for your check". The run then finishes, but its result is held. The administrator sees "Waiting for your check" on the run card and on the tab **Approvals**, and presses **Accept** or **Send back** with a note (the worker then works on it once more). The member who started the run sees "Waiting for the owner's check" and gets the result after **Accept**. A panel **Tells you after** on the tab **Approvals** lists what workers did at the level "Tells you after". See [Autonomy levels](/admin/autonomy-levels/).
+</ComingNext>
+
 <NotYet>
-There are no levels between "asks every time" and "standing approval", no step that holds a finished result until someone accepts it, and members or product owners cannot decide approvals. The box also sends no message when an approval is waiting: the administrator looks at the tab **Approvals**. See [Autonomy levels](/admin/autonomy-levels/).
+Members and product owners cannot decide approvals, and the box sends no e-mail or chat message when an approval is waiting: the administrator looks at the tab **Approvals**.
 </NotYet>
 
 ## Related pages

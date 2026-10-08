@@ -15,9 +15,11 @@ changes first, then the pages.
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Coming with the next update:** nothing on the main line is newer than the checked release.
-  Work that exists only on unfinished branches (for example the five autonomy levels and
-  hand-offs between workers) is **not** in this list as a feature; it is listed under gaps.
+- **Coming with the next update:** the five autonomy levels (task T11), merged into the main
+  line as commit `f1af221` after the checked release. They are in section 17 and marked "Coming
+  with the next update" on the pages until a release that carries them is published. Hand-offs
+  between workers inside a task (task T22b) are not on the main line yet; the pages that mention
+  hand-offs also mark them "Coming with the next update", as the supervisor decided.
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
@@ -418,8 +420,8 @@ run `npm run sync:not-yet` after a change (CI fails when the page and this table
 | G6 | Accounts and roles | See other people's runs as a member, or share a run. | Members see own runs only. Share the result file or text another way. | Administrator (sees all runs). |
 | G7 | Approvals and autonomy | Approve or refuse as a member, or as a product owner. | Only the CEO administrator decides. | Administrator. |
 | G8 | Approvals and autonomy | Five autonomy levels per action ("runs on its own" to "always asks"). | Every protected action asks the admin first. Standing approvals let one install do one action without asking, within a monthly limit. | Administrator. |
-| G9 | Approvals and autonomy | A "check" step: hold a finished result until a person accepts it. | Read the result before using it. For outside effects, the protected actions ask first. | Administrator. |
-| G10 | Approvals and autonomy | Hand-offs between workers (delegation) in a task. | The permission exists, but hand-offs inside a task are not in this release. Start a second task with the other worker yourself. | Administrator. |
+| G9 | Approvals and autonomy | A "check" step: hold a finished result until a person accepts it. | Coming with the next update ("Waits for your check"). Until then, read the result before using it; for outside effects, the protected actions ask first. | Administrator. |
+| G10 | Approvals and autonomy | Hand-offs between workers (delegation) in a task. | Coming with the next update. Until then, start a second task with the other worker yourself. | Administrator. |
 | G11 | Knowledge, workboard and products | See, search or edit the company knowledge in the portal, or look at older revisions. | Ask a worker with knowledge permission to search, read or quote a document (it can also read an older revision). | Administrator. |
 | G12 | Knowledge, workboard and products | Delete a knowledge document. | Import a corrected version (it becomes the current one). A document cannot be removed. | Support. |
 | G13 | Knowledge, workboard and products | See the workboard in the portal. | Ask a worker with workboard permission to list or update cards in a task. | Administrator. |
@@ -442,11 +444,53 @@ run `npm run sync:not-yet` after a change (CI fails when the page and this table
 | G30 | The box | A language other than English in the portal. | None. | Support. |
 | G31 | The box | Show the certificate fingerprint on the very first screen. | Read it on the box's console (screen and keyboard) after the automatic login. | Support. |
 
-## 16. Notes for the Website Owner
+## 16. Workers (store functions)
 
-- Facts that need a person to confirm, not the source: the per-worker descriptions,
-  permissions, install questions and example tasks come from the store catalog, which is not in
-  the box source. The worker pages say where to read them on the box. Fill in the details when
-  the catalog pages are published.
+Source: the packages' own definitions (`agent-definition.json` on the main line of the package
+repository), given by the supervisor on 2026-10-08. This session could not read that repository;
+the box shows the same facts before **Install**. Function to package:
+
+| Store function id | Packages |
+| --- | --- |
+| software-delivery | build-issue-writer, build-instructions-keeper, build-qa-reviewer, build-security-reviewer, build-ci-fixer, build-merge-gate |
+| product-ownership | product-owner |
+| website-care | website-owner |
+| design-review | ivo-design-v2 |
+| marketing-planning | marketing-planner |
+| strategy-and-challenge | strategy, challenger |
+| pricing-and-business-models | pricing-models |
+| visibility-in-ai-search | ai-visibility |
+| linkedin-posting | planned, no package yet |
+
+Each worker page lists every permission in the portal's plain words, the install question that
+fills each permission with a value chosen at install, and whether the permission must be allowed
+in **Owner policy** (fixed permissions) or is allowed by the install answer (verified in the
+activator: an answer is added to the owner's allow list for that install). No package has a
+protected action, so none asks for an approval in this release. Prices are not written on the
+pages; each links to its catalog page.
+
+## 17. Coming with the next update
+
+On the main line as `f1af221` (task T11), not in a published release yet.
+
+| Label | Who | What it does | Undo |
+| --- | --- | --- | --- |
+| Levels "Runs on its own", "Tells you after", "Waits for your check", "Asks you first", "Always asks, with a reason" (colored labels on task and approval cards) | Both see them | How much a worker does on its own per kind of action. | n/a |
+| Panel "Autonomy levels" (Administration, Packages) | Admin | Each installed package, each kind of action, its level and a menu to raise it. A level cannot go below its floor. | Yes: choose the floor again. |
+| "Waiting for your check" / "Waiting for the owner's check", "Accept", "Send back" | Admin decides; the member sees the waiting line | A run at "Waits for your check" is held until Accept. Send back gives the worker one more turn with a note. | No, once decided. |
+| Panel "Tells you after", "Mark all as seen" (tab Approvals) | Admin | Notices of what workers did at "Tells you after". | n/a |
+| Standing approvals no longer offer "Use credentials" and "Deploy"; older grants show "not used: this action always asks" | Admin | Those actions always ask, with a reason. | n/a |
+
+Floors: reading, the internet list, web pages, test results, knowledge and workboard reads: Runs
+on its own (cannot be raised). Workspace writes and hand-offs: Runs on its own (raise to Tells you
+after or Waits for your check). Knowledge and workboard writes: Tells you after (raise up to
+Always asks, with a reason). Pull request reviews, issues and pushes: Tells you after (raise to
+Waits for your check). Publish, messages, chain, spend: Asks you first (raise to Always asks, with
+a reason). Credentials and deploy: Always asks, with a reason.
+
+## 18. Notes for the Website Owner
+
+- When the release with `f1af221` is published, remove the "Coming with the next update" boxes
+  about autonomy levels and checks, close gaps G8 and G9, and add the release entry.
 - The installer's own texts still name the old product ("Company OS") and an older host name on
   the setup Wi-Fi. The manual tells the reader what they will see.
