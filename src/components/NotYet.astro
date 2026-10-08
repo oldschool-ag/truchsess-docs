@@ -3,8 +3,9 @@
 // The support contact comes from src/config/support.mjs, the one place it is set.
 import { Aside } from '@astrojs/starlight/components';
 import { SUPPORT_CONTACT } from '../config/support.mjs';
+const isMail = SUPPORT_CONTACT.includes('@');
 ---
 <Aside type="caution" title="Not possible yet">
   <slot />
-  <p class="support-contact"><strong>Who to ask:</strong> your Truchsess administrator, or support: {SUPPORT_CONTACT}</p>
+  <p class="support-contact-line"><strong>Who to ask:</strong> your Truchsess administrator, or support: {isMail ? <a class="support-contact" href={`mailto:${SUPPORT_CONTACT}`}>{SUPPORT_CONTACT}</a> : <span class="support-contact">{SUPPORT_CONTACT}</span>}</p>
 </Aside>

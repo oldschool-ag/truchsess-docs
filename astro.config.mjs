@@ -33,6 +33,7 @@ export default defineConfig({
         {
           label: 'Start',
           items: [
+            { label: 'Your first day as a member', slug: 'start/member' },
             { label: 'Roles: who can do what', slug: 'start/roles' },
             { label: 'Glossary', slug: 'start/glossary' },
           ],

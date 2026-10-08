@@ -1,0 +1,25 @@
+---
+title: Your first day as a member
+description: Sign in to Truchsess for the first time, give an agent a task, and follow it.
+---
+import SupportContact from '~/components/SupportContact.astro';
+
+Truchsess is a small computer in your office that runs AI agents for your company. You give an agent a task in plain words, and you see the work and the result. Your administrator set it up and created your account.
+
+1. **Open the box.** In the office, on the office network, open **https://myai.local/** in your browser.
+2. **Accept the certificate warning, once.** The box makes its own security certificate, so your browser warns that the connection is not private. This is expected on this box.
+   - **Chrome:** press **Advanced**, then **Proceed to myai.local (unsafe)**.
+   - **Safari:** press **Show Details**, then **visit this website**, then confirm.
+   
+   To be sure it is your box, the **Sign in** screen shows "This appliance's certificate fingerprint". Your administrator can compare it with the box.
+3. **Sign in.** Enter your **Work email** and the temporary **Password** from your administrator. Press **Sign in**.
+4. **Choose your password.** On **Change your temporary password**, enter the temporary password, then a **New password**: at least 12 characters, with upper-case and lower-case letters and at least one number. Press **Change password**. You stay signed in for 12 hours, then you sign in again.
+5. **Give a task.** Open the tab **Chat**. Choose an agent in the list **Package**. Describe the work in the message box, then press **Send** (or Enter; Shift+Enter is a new line). Each message is one run: one task for one agent. Put links into the text. **Attach** takes text files only (up to 5 files, 48 KB each), not pictures or PDFs. Never paste a password or a key: the box refuses to send it.
+6. **Follow the run.** The run's card shows its state: "Created, waiting for the worker", "Running in the package sandbox", "Running", then "Finished" with the answer and the files. "Failed" or "Cancelled" show the reason. Your own runs are also on the tab **Runs**. A run can wait for your administrator:
+   - "Waiting for the CEO administrator to decide.": the agent wants to do something outside the box, for example publish or send a message. It always asks first.
+   - "Waiting for the owner's check": the agent finished, but your administrator reads the result first. You see it once it is accepted.
+7. **Know what only the administrator does.** Approving actions, checking results, settings, installing or removing agents, connections and accounts. Ask your administrator for these. You can request a new product or another agent on the tab **Products**.
+8. **Forgot your password?** Ask your administrator. In this release the administrator cannot reset a password; they create a new account for you with a different e-mail address. Your earlier runs stay with the old account.
+9. **Learn more.** [Start a task](/use/start-a-task/), [Follow a run](/use/follow-a-run/), [Approvals and checks](/use/approvals-and-checks/), [Knowledge](/use/knowledge/), [Workboard](/use/workboard/), [Report a problem](/use/report-a-problem/). Words are explained in the [Glossary](/start/glossary/). Support: <SupportContact />
+
+Outside the office: if your administrator switched on remote access, you get a second address. There you sign in with your e-mail and a one-time code that arrives by e-mail. Do your first sign-in and your password change in the office. See [Remote access](/admin/remote-access/#use-the-remote-address-everyone).

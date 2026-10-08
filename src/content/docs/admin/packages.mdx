@@ -106,6 +106,8 @@ A failed install never stays half installed. Its row shows "failed" and the erro
 - **Retry** runs the install again from the stored file.
 - **Remove** closes it: "Nothing of it is active; what the failed attempt left behind is reverted and its record is closed."
 
+For a store install, use **Retry**, not **Remove**. **Remove** closes the install only on the box: the store still holds it and refuses a new install of the same package ("already installed"). If that happened, ask support.
+
 ## Uninstall
 
 1. In **Installed packages**, press **Uninstall** on the row.
@@ -115,7 +117,7 @@ Every binding is reversed and the worker's workspace is deleted. The box keeps a
 
 ## What you see afterwards
 
-An uninstalled store package can still be listed under **Installed packages**, with the state "uninstalled", a **Ready** badge and no buttons. It is a finished record and harmless. It disappears with a coming change to the Packages page (task T38).
+An uninstalled store package can still be listed under **Installed packages**, with the state "uninstalled", a **Ready** badge and no buttons. It is a finished record and harmless. It disappears with a coming change to the Packages page.
 
 The table **Installed packages** shows each install: **Package**, **State** ("active", "failed", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
 

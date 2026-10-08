@@ -12,6 +12,11 @@ import { join, relative, extname } from 'node:path';
 const root = new URL('..', import.meta.url).pathname;
 const EM_DASH = '—';
 const PLACEHOLDER = /\{\s*[A-Za-z][A-Za-z0-9_ .\-]{0,60}\}/g;
+// Placeholder wording that must never reach a reader (the support contact before it was set,
+// or a note left for later). Checked in the built pages and in src/.
+// Internal task numbers (T37, T16c.1) stay in docs/ (the inventory); a reader page never shows one.
+const TASK_NUMBER = /\bT[0-9]{1,2}[a-z]?(?:\.[0-9]+)?\b/;
+const PLACEHOLDER_WORDS = [/SUPPORT CONTACT NOT SET/i, /placeholder,? to be filled in/i, /\bTODO\b/, /\bTBD\b/, /\bFIXME\b/, /\bXXX\b(?!X)/];
 const SKIP_DIRS = new Set(['node_modules', '.git', '.astro', 'dist']);
 const SOURCE_EXT = new Set(['.md', '.mdx', '.astro', '.mjs', '.js', '.ts', '.json', '.yml', '.yaml', '.css', '.txt']);
 
@@ -43,6 +48,12 @@ for (const file of walk(root)) {
     problems.push(`${rel}:${lineOf(text, at)}: em dash`);
     at = text.indexOf(EM_DASH, at + 1);
   }
+  if (rel.startsWith('src/')) {
+    for (const pattern of PLACEHOLDER_WORDS) {
+      const match = pattern.exec(text);
+      if (match) problems.push(`${rel}:${lineOf(text, match.index)}: placeholder text "${match[0]}"`);
+    }
+  }
   if (extname(file) === '.md') {
     // Fenced code blocks are left out: a code example may show braces on purpose.
     const prose = text.replace(/```[\s\S]*?```/g, block => block.replace(/[^\n]/g, ' '));
@@ -73,6 +84,12 @@ if (!existsSync(dist)) {
     for (const match of visible.matchAll(PLACEHOLDER)) {
       problems.push(`${rel}: raw placeholder ${match[0]} in the built page`);
     }
+    const task = TASK_NUMBER.exec(visible);
+    if (task) problems.push(`${rel}: internal task number "${task[0]}" in the built page`);
+    for (const pattern of PLACEHOLDER_WORDS) {
+      const match = pattern.exec(visible);
+      if (match) problems.push(`${rel}: placeholder text "${match[0]}" in the built page`);
+    }
   }
 }
 
@@ -81,4 +98,4 @@ if (problems.length) {
   for (const line of problems) console.error(`  ${line}`);
   process.exit(1);
 }
-console.log('check-text: no em dash and no raw placeholder found');
+console.log('check-text: no em dash, no raw placeholder and no placeholder text found');
