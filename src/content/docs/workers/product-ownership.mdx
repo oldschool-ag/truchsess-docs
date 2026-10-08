@@ -1,0 +1,106 @@
+---
+title: "Product ownership"
+description: "What the Product ownership function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
+---
+import NotYet from '~/components/NotYet.astro';
+import ComingNext from '~/components/ComingNext.astro';
+
+Store function id: `product-ownership`. Price and full description: [Product ownership in the store catalog](https://faivr.ai/catalog/product-ownership).
+
+## What it is for
+
+One worker that owns one product: it keeps the problem, users, requirements, priorities, roadmap and backlog, and it checks the work of other workers before it counts.
+
+## Who can do this
+
+- The administrator subscribes, answers the install questions and allows the permissions.
+- Administrators and members give the workers tasks in **Chat**.
+
+## Before you start
+
+- The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
+- In **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
+- Import the product's documents first, so it has something to read. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
+
+Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
+
+## The worker
+
+### Product Owner
+
+Package id `faivr.agent.product-owner`, version 1.2.0.
+
+Owns one product as its accountable product owner: the problem, the users, the value proposition, requirements, scope, priorities, roadmap, backlog, risks and the integrated outcome. It routes specialist work to the right worker and checks that work before it counts.
+
+**Permissions in plain words**
+
+| Permission | Install question | In **Owner policy** |
+| --- | --- | --- |
+| Read files in its own workspace | None | Tick it |
+| Create and change files in its own workspace | None | Tick it |
+| Run commands inside its sandbox | None | Tick it |
+| Reach the internet through the allowlist proxy | None | Tick it |
+| Read one product's knowledge | "Which product does this product owner own?" | Allowed by your answer |
+| Write one product's knowledge | "Which product does this product owner own?" | Allowed by your answer |
+| Read one repository | "Which repository holds the product's code and documents (read only)?" (optional) | Allowed by your answer |
+| Read one repository | "In which repository does it track issues (it reads them and may file and update issues there)?" (optional) | Allowed by your answer |
+| Create and update issues in one repository | "In which repository does it track issues (it reads them and may file and update issues there)?" (optional) | Allowed by your answer |
+| Read the workboard | None | Tick it |
+| Change the workboard | None | Tick it |
+| Run in one model lane: **Frontier** (the strongest model lane) | None | **Run in one model lane**: choose `frontier` and press **Allow** |
+
+**Install questions**
+
+- "Which product does this product owner own?" Required. You choose a product of the box.
+- "Which repository holds the product's code and documents (read only)?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
+- "In which repository does it track issues (it reads them and may file and update issues there)?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
+
+<ComingNext>
+Hand-offs: it may hand work to these workers during a task, if they are installed: Website Owner, Bob - Issue Writer, Bob - Instructions Keeper, Bob - QA Reviewer, Bob - Security Reviewer, Bob - CI Fixer, Bob - Merge Gate, Ivy, Strategy, Challenger, Cora, Gideon, Ivo V2. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.website-owner`. Hand-offs inside a task come with the next update; until then, give the other worker its own task.
+</ComingNext>
+
+**Default autonomy levels**
+
+Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
+
+<ComingNext>
+The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+
+| Kind of action | Default level | You can raise it to |
+| --- | --- | --- |
+| Reads its own workspace | Runs on its own | cannot be raised |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised |
+| Reads company knowledge | Runs on its own | cannot be raised |
+| Writes company knowledge | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Reads repositories | Runs on its own | cannot be raised |
+| Creates and updates issues | Tells you after | Waits for your check |
+| Reads the workboard | Runs on its own | cannot be raised |
+| Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+</ComingNext>
+
+## What every worker can never do
+
+- Work outside its own closed workspace on the box.
+- Reach hosts, repositories or products it was not given.
+- Merge on GitHub, push to the default branch, or create tags or releases.
+- Read a stored key or password.
+
+## Example tasks
+
+Write these in **Chat** after choosing the worker. Change the details to your company.
+
+1. "Read the product knowledge and write the top five priorities for next quarter, with the reason for each."
+2. "List the open issues in our issue repository and create workboard cards for the three most urgent ones."
+3. "Write the requirements for the new invoice export into the product knowledge."
+
+<NotYet>
+A store worker can be installed only once per box, and store workers cannot be updated from the box. See [Not possible yet](/not-yet/).
+</NotYet>
+
+## Related pages
+
+- [All workers](/workers/)
+- [First worker](/setup/first-worker/)
+- [Autonomy levels](/admin/autonomy-levels/)

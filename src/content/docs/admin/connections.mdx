@@ -1,0 +1,93 @@
+---
+title: Connections
+description: The GitHub App and its permissions, API keys, and what "ready" means.
+---
+import NotYet from '~/components/NotYet.astro';
+
+"Packages never come with connections. The appliance holds every connection here." A worker can use a connection within its permissions. It can never read or copy the secret.
+
+## Who can do this
+
+The administrator, in the office on **https://myai.local/**. The sub-tab **Connections** cannot be used from the remote address.
+
+## Before you start
+
+- For GitHub: you can create GitHub Apps in your organisation.
+- For an API key: the key from the service.
+
+## GitHub
+
+### Connect
+
+See [Connections setup](/setup/connections/#connect-github) for the steps.
+
+### What the GitHub App may do
+
+The box creates one GitHub App for your organisation. It asks GitHub for these permissions: read metadata, write contents, write pull requests, write issues, and read checks, statuses and actions.
+
+Each worker gets a key that is narrowed to the repositories of its own permissions. So:
+
+- a worker reaches only the repositories it was given;
+- a worker pushes only to its own branches and opens pull requests;
+- no worker can merge, push to the default branch, or create tags or releases.
+
+### When the box asks for new GitHub permissions
+
+After an update, the card may say "GitHub has not granted ... to this box yet." and list steps on GitHub:
+
+1. Open the App's settings on GitHub (the box shows the link). Under **Repository permissions**, set what the box names. Change nothing else. Press **Save changes**.
+2. Open the App's installation (link). Press **Review request**, then **Accept new permissions**.
+3. Come back to the box and press **Check again**.
+
+### Manage
+
+| Button | What it does |
+| --- | --- |
+| **Change repositories** | Opens GitHub, where you choose which repositories the App may reach. |
+| **Refresh** | Reads the list of repositories again. Press it after **Change repositories**. |
+| **Disconnect** | "The stored key is removed from this appliance and every package with repository permissions stops reaching GitHub." Then press **Delete the App on GitHub**. |
+
+## API keys
+
+The panel **API keys** shows one card for each key that an installed worker needs. "A key is attached only to the hosts the package declared, by the appliance, and is never readable by the package."
+
+1. Press **Add key** (or **Replace** for a stored key).
+2. Paste the key and press **Save**.
+
+**Remove** deletes the key: "Packages that need it refuse tasks until a new key is added."
+
+## What "ready" means
+
+In **Administration**, **Packages**, **Installed packages**, the column **Ready** shows:
+
+- **Ready**: every connection the worker needs is stored.
+- **Needs ... from the admin** (for example "Needs GitHub from the admin"): a connection is missing. Press **Open Connections**.
+- **Needs new GitHub permissions from the admin**: see [above](#when-the-box-asks-for-new-github-permissions).
+
+A worker that is not ready refuses every task before anything starts: "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections." Nothing is charged.
+
+## What you see afterwards
+
+- Status words: "connected", "App created, repositories not chosen yet", "failing (the host refused the last request)", "needed", "stored, no installed package needs it".
+- **Last used** shows the last time a worker used the connection.
+- **Recent changes** lists who connected, replaced or removed what. "Never a secret."
+- The panel at the top says how the secrets are protected on this computer.
+- After a failed attempt to connect GitHub, the card names the App the attempt may have left on GitHub, with a link to delete it. Delete it, then press **Connect GitHub** again.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Connect GitHub** | Creates the box's GitHub App. | Workers that work on code. | Yes: **Disconnect**. |
+| **Advanced: use an existing GitHub App** | Uses an App made elsewhere. | Your IT asks for it. | Yes: **Disconnect**. |
+| **Add key** / **Replace** | Stores an API key. | A worker needs it. | Yes: **Remove**. |
+| **Remove** | Deletes the key. | The key is no longer needed or was leaked. | Add a new key. |
+
+<NotYet>
+Only GitHub and API keys can be connected. Mail, calendars and other accounts are not possible yet.
+</NotYet>
+
+## Related pages
+
+- [Connections setup](/setup/connections/)
+- [Packages](/admin/packages/)

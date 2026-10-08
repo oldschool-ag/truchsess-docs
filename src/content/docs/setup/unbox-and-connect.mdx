@@ -1,0 +1,96 @@
+---
+title: "Step 1: Unbox and connect"
+description: Connect the box to your office network and install Truchsess on it from the USB stick.
+---
+import NotYet from '~/components/NotYet.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+## Who can do this
+
+The person who will be the administrator of the box.
+
+## Before you start
+
+- The box (a small computer) and its power supply.
+- The Truchsess USB installer stick.
+- A network cable to your office network. This is the easiest way. Wi-Fi also works.
+- A laptop or phone with a web browser on the same office network.
+- Recommended: a screen and a keyboard for the box, for this step only. The screen shows the addresses and the [certificate fingerprint](#check-the-certificate) you need. You can do everything else in the browser.
+
+<Aside type="danger" title="This erases the box's disk">
+Installing erases every file on the disk you choose. Do this only on a box that has nothing you need on it.
+</Aside>
+
+## Steps
+
+1. Connect the network cable and, if you have them, the screen and the keyboard.
+2. Put the **USB installer stick** into the box.
+3. Switch the box on. It starts from the stick. If it does not, open the computer's boot menu and choose the USB stick. The computer must start in UEFI mode.
+4. Wait until the box has a network address. With a cable this takes about half a minute.
+5. On your laptop, open the address that the box shows. The screen of the box lists it. Without a screen, find the box in your router's list of connected devices and open its address with `http://`.
+6. The page **Company OS Appliance setup** opens. Look at the panel **Access**. Press **Refresh** if a value is missing.
+7. No cable? See [Use Wi-Fi instead of a cable](#use-wi-fi-instead-of-a-cable) first.
+8. In the panel **Target disk**, choose the disk. Only built-in disks are shown.
+9. In the panel **Install**, tick **I understand this will erase every partition and file on the selected disk.**
+10. Press **Erase and install**.
+11. In the box **Erase and install?**, press **Yes, erase this disk and continue**.
+12. Wait until the panel **Installation complete** appears.
+13. Write down the **CEO bootstrap code** shown on the page. It looks like `ABCD-EFGH-JKLM`. You need it once, in the next step.
+14. Remove the USB stick. The box restarts by itself from its own disk.
+
+### Use Wi-Fi instead of a cable
+
+If the box finds no cable network, it opens its own setup Wi-Fi. Its name starts with **CompanyOS-Setup-**. It has no password.
+
+1. Join the setup Wi-Fi with your laptop or phone.
+2. Open the setup page. Its address is shown on the box's screen (row **Setup AP URL**).
+3. In the panel **WiFi**, press **Scan**.
+4. Choose your office Wi-Fi under **Network**, or type its name under **Manual network name**.
+5. Enter the **Password**.
+6. Press **Connect WiFi**. The setup Wi-Fi turns off after about 12 seconds.
+7. Join your office Wi-Fi again with your laptop and open the address the page showed you.
+8. Continue with step 8 above.
+
+## What you see afterwards
+
+After the restart, the box is installed. Its address in your office is always:
+
+**https://myai.local/**
+
+Open it in your browser. You continue in [First run](/setup/first-run/).
+
+### Check the certificate
+
+The box makes its own security certificate. Your browser warns you once on each device, because it does not know this certificate yet.
+
+Before you accept the warning, compare the certificate's fingerprint (a long code of letters and numbers) with the one the box shows:
+
+- on the box's screen, after the box has started: a line that begins with "Portal: https://myai.local/  certificate fingerprint";
+- later, on the **Sign in** screen: "This appliance's certificate fingerprint: ...".
+
+If the two match, accept the warning. If they do not match, stop and ask support.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| Network cable | The box gets its address from your router. | Always, if you can. | Yes. |
+| Wi-Fi | The box joins your office Wi-Fi. | When there is no cable. | Yes: connect again with other details. |
+| Target disk | The disk Truchsess is installed on. Everything on it is erased. | The box's built-in disk. | Until you press **Yes, erase this disk and continue**. After that, no. |
+| **Write install plan** | Saves the plan first. Optional: **Erase and install** does this too. | You do not need it. | Yes. |
+
+## If something goes wrong
+
+- "No built-in installable disk detected.": the box has no disk Truchsess can use. Ask support.
+- "The WiFi network '...' requires a password.": enter the Wi-Fi password and press **Connect WiFi** again.
+- "Install failed. ...": press **Copy logs** or **Download log file** in the panel **Logs** and send the file to support. The log contains your bootstrap code; do not share it with anyone else.
+- The installer appears again after the restart: open the boot menu and choose **Linux Boot Manager** or the internal disk.
+
+<NotYet>
+You cannot choose another name or address for the box: it is always `myai.local`. You also cannot check the certificate fingerprint in the browser before the first account exists; use the box's screen for that.
+</NotYet>
+
+## Related pages
+
+- Next step: [First run](/setup/first-run/)
+- [Troubleshooting](/troubleshooting/)

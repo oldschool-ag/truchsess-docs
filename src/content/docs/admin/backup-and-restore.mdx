@@ -1,0 +1,109 @@
+---
+title: Backup and restore
+description: The recovery key, nightly backups, downloading a backup, and restoring on the same box or a new one.
+---
+import NotYet from '~/components/NotYet.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+## Who can do this
+
+The administrator, in the office on **https://myai.local/**. Backups cannot be made, downloaded or restored from the remote address.
+
+## Before you start
+
+- The recovery key that was current when the backup was made.
+- For a restore: a moment when nobody works on the box. Everyone is signed out afterwards.
+
+## The recovery key
+
+The box makes no backup until a recovery key exists: "No recovery key yet: the box makes no backup until one exists."
+
+1. Open **Administration**, sub-tab **General**, panel **Backups**.
+2. Press **Create the recovery key**.
+3. Save the key: **Copy**, or **Download as a file**.
+4. Press **I have saved it**.
+
+"This is the only time the box shows this key." The box keeps only the key's fingerprint.
+
+**Create a new recovery key** replaces the key. "Backups made before it can then only be opened with the old key; keep the old key as long as you keep those backups." The table shows which key each backup needs: "current" or "earlier key" and its fingerprint.
+
+## Nightly backups
+
+- Every night at 03:30 by the box's clock, the box makes an encrypted backup.
+- Nightly and manual backups together: the newest 7 are kept.
+- In a backup: tasks and their history, users (with their passwords in protected form), installed workers and their answers, settings, the owner policy, the workers' workspaces, the SSH keys.
+- Never in a backup: the AI provider key, connection secrets (GitHub, API keys), the store enrolment, the remote access code.
+- Tasks that are running when a backup starts are waited for up to 5 minutes. After that, the backup notes that their unfinished files may be incomplete.
+
+**Back up now** makes a backup at once, for example before an update.
+
+## Download a backup
+
+In **Backups on this box**, press **Download** on a backup. The file is called `truchsess-backup-` plus the time, and ends in `.age`. It is encrypted with the recovery key. Keep it outside the box.
+
+## Restore on the same box
+
+<Aside type="caution">
+A restore puts the box back to the backup's state: "tasks, packages, users and settings made after it are gone, and everyone signs in again."
+</Aside>
+
+1. In the panel **Backups**, section **Restore**, choose the **Backup**: one of the box's backups, or **A backup file from this computer** and then the **Backup file**.
+2. Paste the **Recovery key**, or choose it under **or the recovery key file**.
+3. Press **Restore**, then **Confirm restore** within 10 seconds.
+4. Follow the steps: "Open the backup with the recovery key", "Check the release and every file", "Keep a safety copy of the box", "Stop the services", "Put the backup in place", "Update the database to this release", "Start the services", "Check that everything runs".
+5. The box signs everyone out: "The restore has finished its work and signed everyone out." Sign in again with an account from the backup.
+6. Read the table **Enter these again** and enter each secret where it says.
+
+If a step fails, the box returns to how it was before.
+
+## Restore on a new box
+
+Use this when you move to a new box or replace a broken one.
+
+1. Install the new box. See [Unbox and connect](/setup/unbox-and-connect/).
+2. Open **https://myai.local/**. On **Create the CEO administrator**, press the link **Restore from a backup**. Do not create an account first.
+3. Enter the **Bootstrap code**.
+4. Choose the **Backup file**.
+5. Paste the **Recovery key**, or choose the key file.
+6. Press **Restore**.
+7. When it is done, read **Enter these again** and press **Sign in**. Sign in with an account from the backup.
+
+On a box that is already set up this is refused: "This box is already set up: restore under Administration, General, Backups."
+
+## What you see afterwards
+
+The table **Enter these again** lists only what this box does not hold:
+
+| What | Where |
+| --- | --- |
+| The AI provider key | Administration, General. The table says "Connect an AI provider"; the button is **Change AI provider** in the panel **People**. |
+| GitHub | Administration, Connections: **Connect GitHub** |
+| The API key for a service | Administration, Connections |
+| The store enrolment | Administration, Packages, Store: **Enrol** |
+| Remote access (it is switched off) | Administration, Remote access |
+
+"Nothing: this box still holds every secret the backup's box had." means there is nothing to enter.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Back up now** | A backup at once. | Before big changes. | n/a |
+| **Download** | Saves a backup file. | Regularly. | n/a |
+| **Restore** (same box) | Puts the box back to the backup. | After a mistake you cannot fix otherwise. | No. Make a backup first, so you can restore that one. |
+| **Restore from a backup** (new box) | Moves a box's work to a new box. | New or replacement box. | No. |
+
+If something goes wrong:
+
+- "This recovery key does not open this backup. Use the recovery key that was current when the backup was made. Nothing was changed."
+- "This backup comes from a newer release (...). Update this box first, then restore."
+- "The disk is full: the restore stopped and the box was put back. Free some space and try again."
+
+<NotYet>
+You cannot choose the backup time, keep more than 7 backups, or send backups to another place automatically. Download backups yourself and keep them safe. A backup file can be up to 16 GiB for an upload.
+</NotYet>
+
+## Related pages
+
+- [Backup setup](/setup/backup/)
+- [Updates](/admin/updates/)

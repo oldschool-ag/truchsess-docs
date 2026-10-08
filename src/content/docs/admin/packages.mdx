@@ -1,0 +1,141 @@
+---
+title: Packages
+description: Install, update, change and uninstall workers from the store or from a signed file, and set what they may do.
+---
+import NotYet from '~/components/NotYet.astro';
+
+A package is a signed file that contains a [worker](/start/glossary/#worker). Everything about packages is on **Administration**, sub-tab **Packages**. Members do not see this sub-tab.
+
+The panels, from top to bottom: **Store**, **Trusted publishers**, **Which AI providers may see your data**, **Owner policy**, **Install a package**, **Installed packages**, **Model lanes**, **Self-tests**.
+
+How the store checks publishers and packages before they reach you: [Trust](https://faivr.ai/docs/trust) in the store's documentation.
+
+## Who can do this
+
+The administrator. Registering a publisher works only in the office.
+
+## Before you start
+
+- For a store worker: the box is enrolled and the function is subscribed. See [Store](/admin/store/).
+- For a signed file: the file ends in `.truchsess-bundle.tar` and you have its publisher's key (a `.pub` file).
+
+## Trusted publishers
+
+A package is installed only when it is signed by a publisher in this list. A new box trusts nobody: "Every install fails closed until one is registered."
+
+1. Paste the key under **Public key (PEM, from the .pub file)**, or choose the file under **Or upload the .pub file**.
+2. Enter a **Label**, for example the publisher's name.
+3. Press **Add publisher**.
+
+**Remove** stops new installs signed with that key: "Bundles signed with it are refused from now on; installed packages keep running."
+
+## Owner policy
+
+The owner policy is the list of permissions any worker may receive. A worker receives exactly the permissions it asks for that are also on this list. Everything else is declined at install. A new box allows nothing.
+
+1. Read the families: **Workspace**, **Commands**, **Internet**, **Repositories**, **Knowledge**, **Workboard**, **Delegation**, **Protected actions**, **Model lane**, **Browser**.
+2. Tick a permission to allow it. For a permission with a value (a host, a repository, a product, an amount, a lane), enter the value and press **Allow**. Press **×** on a value to remove it.
+3. Press **Save policy**. Next to the button you see "Saved" and the time, or "Not saved:" and the reason.
+
+The words the portal shows, for example:
+
+| Permission | In plain words |
+| --- | --- |
+| Workspace | "Read files in its own workspace", "Create and change files in its own workspace" |
+| Commands | "Run commands inside its sandbox" (never on the box itself) |
+| Internet | "Reach the internet through the allowlist proxy", "Reach one named host" |
+| Repositories | "Read one repository", "Push its own branches and open pull requests on one repository, never merges (includes read)", "Read test results and logs in one repository", "Comment on and review pull requests in one repository", "Create and update issues in one repository" |
+| Knowledge | "Read one product's knowledge", "Write one product's knowledge" |
+| Workboard | "Read the workboard", "Change the workboard" |
+| Delegation | "Hand work to one other installed package" |
+| Protected actions | "Publish content outside (asks first)", "Send a message to a person or an external system (asks first)", "Spend money up to a per-action limit (asks first)", "Read or use a stored credential (asks first)", "Deploy or release (asks first)", "Submit an on-chain transaction (asks first)" |
+| Model lane | "Run in one model lane" |
+| Browser | "Render web pages and take screenshots with the browser inside its sandbox" |
+
+A repository chosen as an install answer is allowed by that answer. You do not have to list every repository in the owner policy.
+
+## Install questions
+
+Some workers ask questions at install, under "This package asks you to choose:".
+
+| Kind | What you choose | Notes |
+| --- | --- | --- |
+| Repository | One repository from your GitHub connection. | If GitHub is not connected, the box says so and offers **Open Connections**. |
+| Product | One of the box's products. | Add a product first if the list is empty. |
+| Website | One website address, for example `www.example.com`. | The worker reaches exactly this host. Wildcards, IP addresses and local names are refused. |
+
+An optional question offers **Skip (the permission is declined)**. The Install button stays greyed out until every required question is answered: "Answer the questions above first."
+
+## Install a signed package file
+
+1. In **Install a package**, choose the **Bundle file** (up to 64 MB).
+2. Press **Upload and inspect**.
+3. Read the inspection: **Package id**, **Version**, **Publisher** ("trusted" or "NOT trusted on this appliance"), **Signature** ("verified"), **Declares**, **Will be granted (declared and allowed by the owner policy)**, **Declined (declared but not allowed)**.
+4. Enter the **Name for this install**. The chat shows this name.
+5. Answer the install questions.
+6. Press **Install**.
+7. Follow the steps: "Write the install record", "Verify, unpack and bind the package".
+8. If the box asks "Product mapping needed for ...", choose an existing product for each name or **Create a new product**, then press **Resume the install**.
+
+A store worker is installed from the **Store** panel instead. See [Store](/admin/store/#install-a-store-worker).
+
+An uploaded file that you did not install is listed under "Uploaded, not installed:". Press **discard** to delete it.
+
+## Install the same package again
+
+A signed package file can be installed several times, for example one worker per website. Upload the file again. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory.
+
+## Update
+
+Upload the newer file of an installed package. The inspection offers **Update the install to version X**, or **Update all N installs to version X** when there are several. Press it.
+
+Each install keeps its name, answers and workspace. If the new version adds a required question, that install waits: its row shows "needs_slot_choices" and **Choose**. A failure in one install does not stop the others.
+
+## Change an install
+
+1. In **Installed packages**, press **Change** on the row.
+2. Change the **Name** or the answers.
+3. Press **Save and apply**.
+
+"The install keeps its workspace, memory and identity; its grants, website, repository token and product knowledge follow the new answers."
+
+## Failed install: Retry or Remove
+
+A failed install never stays half installed. Its row shows "failed" and the error.
+
+- **Retry** runs the install again from the stored file.
+- **Remove** closes it: "Nothing of it is active; what the failed attempt left behind is reverted and its record is closed."
+
+## Uninstall
+
+1. In **Installed packages**, press **Uninstall** on the row.
+2. Press **Confirm uninstall**.
+
+Every binding is reversed and the worker's workspace is deleted. The box keeps a signed receipt and shows each checked effect as "verified". For a store worker the receipt goes to the store. See [Store](/admin/store/#what-happens-to-an-installed-worker).
+
+## What you see afterwards
+
+The table **Installed packages** shows each install: **Package**, **State** ("active", "failed", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Add publisher** | Trusts a publisher's signature. | Before the first install from that publisher. | Yes: **Remove**. |
+| **Save policy** | Sets what workers may receive. | Before installing. | Yes, for future installs. Installed workers keep their permissions until **Change** or a new install. |
+| **Install** / **Install another** | Installs a worker. | | Yes: **Uninstall** (the workspace is deleted). |
+| **Update all N installs** | Moves every install to the new version. | A new version from the publisher. | No direct way back. |
+| **Change** | New answers or a new name. | A worker should work on another repository, product or website. | Yes: **Change** again. |
+| **Retry** / **Remove** | Repeats or closes a failed install. | After a failed install. | n/a |
+| **Uninstall** | Removes the worker and its workspace. | The worker is no longer needed. | No. Install again for a fresh start. |
+
+<NotYet>
+You cannot go back to an earlier version of a worker, update a store worker from the box, install a store worker twice, or change the permissions of an installed worker through the owner policy. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed file; for new permissions, use **Change** or install again.
+</NotYet>
+
+## Related pages
+
+- [Store](/admin/store/)
+- [Connections](/admin/connections/)
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)
+- [Workers](/workers/)

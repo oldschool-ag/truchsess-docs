@@ -1,0 +1,39 @@
+---
+title: Releases
+description: What changed for users in each box release, newest first.
+---
+
+Each box release has a name like `truchsess-iso-20261008-f6fb33a`: the date, then a short code. Your box shows its release under **Administration**, **General**, **System**, **Running release**. To install a newer one, see [Updates](/admin/updates/).
+
+Only changes people can see or use are listed here.
+
+## truchsess-iso-20261008-f6fb33a
+
+Published 8 October 2026. The current release.
+
+- New: **Administration**, sub-tab **Knowledge**. The administrator imports a product's documents (one `.zip`, or `.md` and `.txt` files), reviews every document first, and imports the chosen ones. Workers on the product read them during a task. Earlier versions of changed documents stay readable. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
+
+## truchsess-iso-20261008-19aad3e
+
+Published 8 October 2026.
+
+- New: encrypted backups. The administrator creates a recovery key; the box then makes a backup every night and keeps the newest 7. Backups can be downloaded and restored, on the same box or on a new box from its first screen. See [Backup and restore](/admin/backup-and-restore/).
+
+## truchsess-iso-20261008-153e9ac
+
+Published 8 October 2026.
+
+- New: workers can search, read and write company knowledge and read and change workboard cards during a task, when they have the permission. Each call is listed in the run's audit trail. Every knowledge write keeps the earlier version. See [Knowledge](/use/knowledge/) and [Workboard](/use/workboard/).
+
+## truchsess-iso-20261008-8dfc38e
+
+Published 8 October 2026. The first release listed in this manual. It contains, among others:
+
+- The data rule: which AI providers may see your data, and where it may be processed. See [AI providers and lanes](/admin/ai-providers-and-lanes/#the-data-rule).
+- The Swiss-only option with **PHOENIQS (Switzerland)**. See [The Swiss-only option](/admin/ai-providers-and-lanes/#the-swiss-only-option).
+- Model lanes as lists of the provider's models, with **Other model...**. Automatic models are refused.
+- **Save policy** shows its result next to the button.
+- Remote access with an e-mail code. See [Remote access](/admin/remote-access/).
+- Workers on GitHub push only their own branches and open pull requests; they never merge. Workers can read test results, review pull requests and work on issues when they have the permission.
+- Updates show the download progress and can be cancelled before the switch. **Update now** always checks for the newest release first.
+- One package can be installed several times under different names, with a website as an install question.

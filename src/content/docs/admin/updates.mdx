@@ -1,0 +1,74 @@
+---
+title: Updates
+description: Check for a new box release, update, cancel, roll back, and what happens during an update.
+---
+import NotYet from '~/components/NotYet.astro';
+
+"Every change on this appliance comes from a signed release the box verifies before switching. No files are edited by hand."
+
+## Who can do this
+
+The administrator, in the office on **https://myai.local/**.
+
+## Before you start
+
+- No task is running. The AI part of the box restarts during an update, and running tasks may fail.
+- Recommended: press **Back up now** in the panel **Backups**.
+
+## Steps
+
+### Update
+
+1. Open **Administration**, sub-tab **General**, panel **System**.
+2. Press **Check for updates**.
+3. **Newest available** shows the newest release. The button now reads **Update now to** and the release name.
+4. Press it, then **Confirm update** within 10 seconds.
+5. The box checks once more for the newest release. If a newer one appeared meanwhile, nothing is installed and the button offers the newer one. Press it again.
+6. Follow the steps: "Verify the release signature", "Download the system closure", "Verify the closure (sha256 and signature)", "Import the closure into the Nix store", "Switch to the new system generation", "Restart the assistant runtime", "Self-check (services and health endpoints)", "Record the release and prune old generations".
+7. During the switch the page shows "Portal restarting, reconnecting". Wait. It continues by itself.
+
+### Cancel an update
+
+**Cancel update** is shown while the update downloads and checks. Press it, then **Confirm stop**. "It stops before switching: nothing changes on the appliance, and what was downloaded is kept for the next Update now." After the switch has started, an update cannot be cancelled.
+
+### Roll back
+
+1. Press **Roll back**, then **Confirm roll back**.
+2. The box switches to the previous version. The portal and the AI part restart.
+
+**Roll back** is greyed out when there is no previous version, for example on a box that was never updated.
+
+## What you see afterwards
+
+- **Running release** shows the new release.
+- The outcome line, for example "Now running ..., generation ..., took ... min ... s".
+- "reboot pending (new kernel)": the update is active, but part of it needs a restart of the computer. Restart the box when convenient.
+
+## What happens by itself
+
+- The box looks for a new release once a day. It never installs it by itself.
+- If the switch fails, or the self-check after the switch fails (it waits up to 7 minutes), the box returns to the previous version by itself.
+- The box keeps the three newest versions.
+- The box never restarts the computer during an update.
+- A slow download is retried. If it still fails: "The download from GitHub is too slow or stopped. Nothing was changed. Try again later."
+- An older release is never offered: "not offered: older than the running release".
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Check for updates** | Looks for the newest release. | Any time. | n/a |
+| **Update now** | Installs the newest release. | When no task is running. | Yes: **Roll back**. |
+| **Cancel update** | Stops before the switch. | You started at a bad time. | Press **Update now** again later. |
+| **Roll back** | Returns to the previous version. | The new version causes a problem. | Yes: update again. |
+
+If the page shows "The session ended while the update ran; sign in again to see the result.", sign in again. If it shows "The portal has not answered for 15 minutes", reload the page and look at **Details (update log)**.
+
+<NotYet>
+Updates do not install themselves, and you cannot choose an older release. To go back, use **Roll back** (one step back). For anything else, ask support. What changed in each release is listed on [Releases](/releases/).
+</NotYet>
+
+## Related pages
+
+- [Releases](/releases/)
+- [Backup and restore](/admin/backup-and-restore/)

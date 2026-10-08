@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects, copied into dist/ by the build.
+# The page addresses of this manual are a contract: the FAIVR store docs link to them.
+# When a page moves, add one line here AND the same pair under `redirects` in astro.config.mjs.
+# Format: /old-address/ /new-address/ 301

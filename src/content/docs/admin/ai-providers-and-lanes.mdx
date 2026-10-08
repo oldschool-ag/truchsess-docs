@@ -1,0 +1,94 @@
+---
+title: AI providers and lanes
+description: Change the AI provider, the Swiss-only option, the data rule, and the three model lanes.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator. Changing the provider works only in the office.
+
+## Before you start
+
+- To change the provider: the new provider's API key.
+- Know the rule for your data: may a provider keep it or train on it, and where may it be processed?
+
+## Change the AI provider
+
+1. Open **Administration**, sub-tab **General**, panel **People**, and press **Change AI provider**.
+2. Choose the **Billing mode**, the **Provider** and the **Model ID**, and enter the key.
+3. Press **Save provider**. The box restarts its AI part: "Starting the assistant".
+4. The model lanes now hold the new provider's default models. Go to [Model lanes](#model-lanes) and press **Apply to installed packages**.
+
+The choices are explained on [AI providers](/setup/ai-providers/#your-choices).
+
+## The data rule
+
+The panel **Which AI providers may see your data** is on **Administration**, sub-tab **Packages**. "Every model request of every package goes only to providers that meet this rule." A run that cannot meet it is refused before any data leaves the box.
+
+1. Under **What providers may do with your data**, choose one option.
+2. Under **Where your data may be processed**, choose one option.
+3. Press **Save data rule**.
+
+| What providers may do | Meaning |
+| --- | --- |
+| **Never kept, never trained on** (default) | "Only providers that neither keep your data nor train on it (zero data retention)." |
+| **Never trained on** | "Only providers that never train on your data. They may keep it for a while, for example for abuse monitoring." |
+| **Any provider, may keep and train on your data** | "Any provider. Some keep your data and train their models on it." |
+
+| Where | Meaning |
+| --- | --- |
+| **Any country** (default) | Providers in any country. |
+| **EU or Switzerland** | Only PHOENIQS (Switzerland) or a model on this box. OpenRouter lanes are refused. |
+| **Switzerland only** | Only PHOENIQS (Switzerland) or a model on this box. Every other lane is refused before any call. |
+| **On this box only** | Only a model running on the box. "No local model ships yet: runs are refused." |
+
+"Packages that read or write your code or knowledge, or use stored credentials, always run at least 'never trained on'."
+
+## The Swiss-only option
+
+To keep your data in Switzerland:
+
+1. Get an API key from PHOENIQS.
+2. Change the provider to **PHOENIQS (Switzerland)** with **Billing mode** **Own key** (see above).
+3. Set the data rule's **Where your data may be processed** to **Switzerland only**, and save.
+4. Check under **Model lanes** that every lane shows a PHOENIQS model and meets the rule.
+
+PHOENIQS bills you directly. The box does not meter it and does not show its cost per run.
+
+## Model lanes
+
+A [model lane](/start/glossary/#model-lane) decides which model a worker uses. Each worker has one lane permission. A worker without one runs in the fallback lane. The panel **Model lanes** is on **Administration**, sub-tab **Packages**.
+
+1. For **Cheap**, **Standard** and **Frontier**, choose a model from the list. For a model that is not listed, choose **Other model...** and type its id.
+2. Choose the **Fallback lane (no lane permission)**.
+3. Press **Save lanes**.
+4. Press **Apply to installed packages**. The box names each worker it changed.
+5. Read the table: **Lane**, **Model**, and whether it meets the data rule. Press **Check providers now** to check again.
+
+"An automatic model is not allowed: choose a fixed model for the ... lane." The box refuses models that pick a provider by themselves, because the data rule could not be checked.
+
+## What you see afterwards
+
+- The header's status line shows the provider and model.
+- Each run card shows its lane, its model and its data rule.
+- A lane that does not meet the rule refuses its runs before any model call, with a message that names the lane.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Save provider** | Switches the AI provider and resets the lanes to its defaults. | A new provider. | Yes. |
+| **Save data rule** | Sets what providers may do and where. | Before the first task, and when your rules change. | Yes. |
+| **Save lanes** | Sets the model per lane. | To use a cheaper or stronger model. | Yes. |
+| **Apply to installed packages** | Rewrites installed workers to the saved lanes. | After every lane or provider change. | Yes: change and apply again. |
+
+<NotYet>
+There is no model inside the box yet, so "On this box only" refuses every run. The box uses one AI provider at a time. You cannot set a different provider per worker.
+</NotYet>
+
+## Related pages
+
+- [AI providers](/setup/ai-providers/)
+- [Budget](/admin/budget/)
+- [Data rule](/start/glossary/#data-rule)

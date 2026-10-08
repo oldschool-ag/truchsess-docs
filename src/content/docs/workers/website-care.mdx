@@ -1,0 +1,104 @@
+---
+title: "Website care"
+description: "What the Website care function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
+---
+import NotYet from '~/components/NotYet.astro';
+import ComingNext from '~/components/ComingNext.astro';
+
+Store function id: `website-care`. Price and full description: [Website care in the store catalog](https://faivr.ai/catalog/website-care).
+
+## What it is for
+
+One worker that looks after one website: it makes changes as pull requests to the website's repository, checks them against the live site, and a person merges them.
+
+## Who can do this
+
+- The administrator subscribes, answers the install questions and allows the permissions.
+- Administrators and members give the workers tasks in **Chat**.
+
+## Before you start
+
+- The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
+- In **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
+- GitHub must be connected and list the website's repository. You can install a signed package file of this worker once per website, each with its own name. A store worker installs once per box.
+
+Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
+
+## The worker
+
+### Website Owner
+
+Package id `faivr.agent.website-owner`, version 1.1.0.
+
+Makes and checks changes to one website (content, pages, fixes, small design changes) as pull requests to the website's repository, checked against the live site. A person merges them, and the site's own hosting publishes them.
+
+**Permissions in plain words**
+
+| Permission | Install question | In **Owner policy** |
+| --- | --- | --- |
+| Read files in its own workspace | None | Tick it |
+| Create and change files in its own workspace | None | Tick it |
+| Run commands inside its sandbox | None | Tick it |
+| Reach the internet through the allowlist proxy | None | Tick it |
+| Render web pages and take screenshots with the browser inside its sandbox | None | Tick it |
+| Reach one named host | "Which website does it look after?" | Allowed by your answer |
+| Push its own branches and open pull requests on one repository, never merges (includes read) | "Which repository holds the website's source?" | Allowed by your answer |
+| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Read the workboard | None | Tick it |
+| Change the workboard | None | Tick it |
+| Run in one model lane: **Standard** | None | **Run in one model lane**: choose `standard` and press **Allow** |
+
+**Install questions**
+
+- "Which repository holds the website's source?" Required. You choose a repository of your GitHub connection.
+- "Which website does it look after?" Required. You choose one website address, for example `www.example.com`.
+- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
+
+<ComingNext>
+Hand-offs: it may hand work to these workers during a task, if they are installed: Ivo V2, Bob - QA Reviewer, Ivy. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.ivo-design-v2`. Hand-offs inside a task come with the next update; until then, give the other worker its own task.
+</ComingNext>
+
+**Default autonomy levels**
+
+Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
+
+<ComingNext>
+The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+
+| Kind of action | Default level | You can raise it to |
+| --- | --- | --- |
+| Reads its own workspace | Runs on its own | cannot be raised |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised |
+| Renders web pages in its sandbox | Runs on its own | cannot be raised |
+| Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
+| Reads company knowledge | Runs on its own | cannot be raised |
+| Reads the workboard | Runs on its own | cannot be raised |
+| Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+</ComingNext>
+
+## What every worker can never do
+
+- Work outside its own closed workspace on the box.
+- Reach hosts, repositories or products it was not given.
+- Merge on GitHub, push to the default branch, or create tags or releases.
+- Read a stored key or password.
+
+## Example tasks
+
+Write these in **Chat** after choosing the worker. Change the details to your company.
+
+1. "Check the contact page on the live site and fix any broken link as a pull request."
+2. "Update the opening hours on the home page to Monday to Friday, 8 to 17, as a pull request."
+3. "Take a screenshot of the price page on a phone-sized screen and list what looks wrong."
+
+<NotYet>
+A store worker can be installed only once per box, and store workers cannot be updated from the box. See [Not possible yet](/not-yet/).
+</NotYet>
+
+## Related pages
+
+- [All workers](/workers/)
+- [First worker](/setup/first-worker/)
+- [Autonomy levels](/admin/autonomy-levels/)

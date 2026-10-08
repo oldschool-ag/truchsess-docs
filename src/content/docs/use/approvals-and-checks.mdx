@@ -1,0 +1,78 @@
+---
+title: Approvals and checks
+description: How a worker asks before a protected action, how the administrator decides, and standing approvals.
+---
+import NotYet from '~/components/NotYet.astro';
+import ComingNext from '~/components/ComingNext.astro';
+
+A worker always asks before a [protected action](/start/glossary/#protected-action): publish, send messages outside, spend money, use credentials, deploy, or chain actions. The run then waits for the administrator.
+
+## Who can do this
+
+- Members see the request on their run card: "Waiting for the CEO administrator to decide."
+- Only the administrator approves or refuses.
+
+## Before you start
+
+The worker must hold the permission for the action. A worker without it is refused at once and the run fails.
+
+## Steps
+
+### Decide one request
+
+1. Open the run card in **Chat**, or the tab **Approvals**, panel **Waiting for your decision**.
+2. Read the block "... asks to ...": what the worker wants to do, the limit if there is one, and what it wrote.
+3. Press **Approve** or **Refuse**.
+4. A reason field appears with a default text. Change it if you want. The reason goes into the audit trail.
+5. Press **Confirm approve** or **Confirm refuse** within 10 seconds.
+
+### Grant a standing approval
+
+A [standing approval](/start/glossary/#standing-approval) lets one worker do one protected action without asking, up to a limit.
+
+1. Open the tab **Approvals**.
+2. In **Grant a standing approval**, choose the **Package** (the installed worker).
+3. Choose the **Action**: **Publish**, **Send messages outside**, **Spend money**, **Use credentials**, **Deploy** or **Chain actions**.
+4. Enter the **Limit per calendar month**: a number of times, or an amount for **Spend money**.
+5. Choose **Expires on**. The box suggests three months from today.
+6. Optional: write a **Note (optional)**.
+7. Press **Grant**.
+
+### Revoke a standing approval
+
+1. In the table **Standing approvals**, press **Revoke**.
+2. Press **Confirm revoke**. "Revocation takes effect immediately."
+
+## What you see afterwards
+
+- **Approve**: the worker continues and carries out exactly the approved action. The card shows "Action ...: approved by ...".
+- **Refuse**: the run fails with "Refused by your name: your reason".
+- A request covered by a standing approval shows "covered by a standing approval" and does not wait.
+- **Standing approvals** lists each grant with **Limit**, **Used**, **Expires**, **Granted by** and **Status**.
+
+## Standing approvals
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Approve** | The worker does the action. | You agree with exactly what is described. | No. |
+| **Refuse** | The run fails. Nothing is done. | You do not agree, or the description is unclear. | No. Start a new task. |
+| **Grant** | The worker does this action without asking until the limit or the expiry. Over the limit it asks again. | A repeated, low-risk action. | Yes: **Revoke**. |
+
+A standing approval covers one installed worker. A second install of the same package needs its own standing approval.
+
+## Checks
+
+A check is a person looking at a finished result before it counts. In this release the box has no separate check step: the result is shown as soon as the run is finished. Read it before you use it. For anything that leaves the box, the approval above is the stop.
+
+<ComingNext>
+**Checks.** With the next update, the administrator can set a worker's action to "Waits for your check". The run then finishes, but its result is held. The administrator sees "Waiting for your check" on the run card and on the tab **Approvals**, and presses **Accept** or **Send back** with a note (the worker then works on it once more). The member who started the run sees "Waiting for the owner's check" and gets the result after **Accept**. A panel **Tells you after** on the tab **Approvals** lists what workers did at the level "Tells you after". See [Autonomy levels](/admin/autonomy-levels/).
+</ComingNext>
+
+<NotYet>
+Members and product owners cannot decide approvals, and the box sends no e-mail or chat message when an approval is waiting: the administrator looks at the tab **Approvals**.
+</NotYet>
+
+## Related pages
+
+- [Autonomy levels](/admin/autonomy-levels/)
+- [Follow a run](/use/follow-a-run/)

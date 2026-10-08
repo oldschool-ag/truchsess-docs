@@ -1,0 +1,82 @@
+---
+title: Remote access
+description: The remote address with an e-mail code, what works there, what only works in the office, and switching it off.
+---
+import NotYet from '~/components/NotYet.astro';
+
+"One address for this box that works inside and outside the office: a person opens it, enters their e-mail, types the one-time code Cloudflare sends, and is in the portal as themselves. No VPN, no app. The local address keeps working unchanged. Off unless the admin switches it on here."
+
+## Who can do this
+
+- The administrator switches it on (in the office) and off.
+- Everyone with an account uses the remote address.
+
+## Before you start
+
+- A remote access code from the vendor. It starts with `truchsess-remote-v1.`
+- The box reaches the internet.
+
+## Steps
+
+### Switch on
+
+See [Remote access setup](/setup/remote-access/#steps).
+
+### Use the remote address (everyone)
+
+1. Open the remote address your administrator sent you.
+2. Enter your work e-mail.
+3. Type the one-time code that arrives by e-mail.
+4. You are in the portal as yourself. A session lasts 12 hours.
+
+### Switch off
+
+1. Open **Administration**, sub-tab **Remote access**.
+2. Press **Switch off**, then **Confirm switch off**.
+
+"Remote access stops for everyone and the stored code is deleted. A new code from the operator is needed to switch it on again." You can switch off from the remote address too.
+
+## What you see afterwards
+
+- "State: Off.", "State: Connecting." or "State: Connected.", with the **Address**, the **Last contact**, and who switched it on or off.
+- A last error, if any, for example that the box cannot reach the remote service.
+
+## What works where
+
+| Works on the remote address | Only in the office, on https://myai.local/ |
+| --- | --- |
+| Chat, Runs, Approvals, Products, Requests | Signing in with a password, changing a password |
+| Reading the Administration pages | Choosing the AI provider |
+| Approving and refusing | Adding users |
+| Installing and uninstalling workers | SSH keys and the SSH switch |
+| Switching remote access off | Store enrolment, trusted publishers |
+| | Switching remote access on |
+| | Connections (GitHub, API keys) |
+| | Knowledge import |
+| | Updates, backups, restore, backup downloads |
+
+On the remote address these show: "Enter this in the office, on the local address."
+
+## Messages on the remote address
+
+| Message | Meaning |
+| --- | --- |
+| "Your e-mail is not a member of this Truchsess. Ask your admin." | No account with this e-mail on the box. |
+| "Remote access needs the e-mail code. Open the remote address again and sign in with your e-mail." | Sign in again with your e-mail. |
+| "Remote access is switched off on this box. Use the local address in the office." | The administrator switched it off. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Switch on** | Opens the remote address through Cloudflare. While it is on, Cloudflare can read what you see and type on the remote address. | People work outside the office. | Yes: **Switch off**. |
+| **Switch off** | Closes it and deletes the code. | Not needed, or a code may have leaked. | Only with a new code from the vendor. |
+
+<NotYet>
+The first sign-in of a new member (the temporary password) and every secret need the office. There is no other way to reach the box from outside, for example a VPN.
+</NotYet>
+
+## Related pages
+
+- [Remote access setup](/setup/remote-access/)
+- [Users](/admin/users/)

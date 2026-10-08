@@ -1,0 +1,25 @@
+{
+  "name": "truchsess-docs",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "User documentation for the Truchsess box, served at docs.truchsess.com.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:not-yet": "node scripts/sync-not-yet.mjs",
+    "check:not-yet": "node scripts/sync-not-yet.mjs --check",
+    "check:text": "node scripts/check-text.mjs",
+    "check:pages": "node scripts/check-pages.mjs",
+    "test": "npm run check:not-yet && npm run build && npm run check:text && npm run check:pages"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.42.4",
+    "astro": "7.3.5",
+    "starlight-links-validator": "0.26.0"
+  }
+}

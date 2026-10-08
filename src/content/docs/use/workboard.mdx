@@ -1,0 +1,48 @@
+---
+title: Workboard
+description: The box's work cards per product, and how workers read and change them.
+---
+import NotYet from '~/components/NotYet.astro';
+
+The [workboard](/start/glossary/#workboard) keeps work cards for each product. A card has a title, a description and a status: to do, in progress, blocked or done.
+
+## Who can do this
+
+Administrators and members, through a worker that has workboard permission.
+
+## Before you start
+
+- The worker has "Read the workboard" to list and read cards, and "Change the workboard" to create and update cards. You see this under "N permissions · show" in **Chat**.
+- The worker works on the product whose board you mean.
+
+## Steps
+
+1. Open **Chat** and choose a worker with workboard permission.
+2. Ask in plain words, for example:
+   - "List the open cards on the board."
+   - "Create a card: Update the price page. Status: to do."
+   - "Set the card about the login bug to done."
+3. Press **Send**.
+
+## What you see afterwards
+
+- The worker answers with the cards, or confirms what it changed and gives the card's id.
+- The run's **Audit** lists every card the worker read, created or changed. The card text is not copied into the audit.
+- A worker sees and changes only cards on the boards of its own products.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| List or read cards | Shows up to 100 cards of a product. | To see the state of work. | n/a |
+| Create a card | Adds a card with the status "to do" unless you name another. | New work. | Ask a worker to set it to done. |
+| Change a card | Changes the title, the description or the status. | Progress. | Ask a worker to change it back. |
+
+<NotYet>
+The portal has no workboard page: you cannot see, sort or edit cards yourself, and a card cannot be deleted. Ask a worker with workboard permission to list or change cards for you.
+</NotYet>
+
+## Related pages
+
+- [Knowledge](/use/knowledge/)
+- [Start a task](/use/start-a-task/)

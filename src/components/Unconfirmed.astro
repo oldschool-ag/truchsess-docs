@@ -1,0 +1,9 @@
+---
+// Marks worker details that come from the store catalog and are not yet confirmed in this
+// manual. The Website Owner removes the box when the details below it are filled in from the
+// published catalog page and checked against a box.
+import { Aside } from '@astrojs/starlight/components';
+---
+<Aside type="note" title="Not confirmed in this manual yet">
+  <slot />
+</Aside>

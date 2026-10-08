@@ -1,0 +1,63 @@
+---
+title: Start a task
+description: Give work to an installed worker in the Chat tab.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+Administrators and members.
+
+## Before you start
+
+- At least one worker is installed. If **Chat** says "No package is installed", ask your administrator.
+- Know what the worker may do. Each worker has a page under [Workers](/workers/).
+
+## Steps
+
+1. Open the tab **Chat**.
+2. Choose the worker under **Package**.
+3. Optional: press the link "N permissions · show" under the worker's name to see what it may do.
+4. Click into the message box ("Task for this package") and describe the work in plain words.
+5. Put links (web pages, files on GitHub) directly into the text.
+6. Optional: press **Attach** to add text files, or drop them on the message box.
+7. Press **Send**, or press Enter. (Shift+Enter starts a new line.)
+
+## What you see afterwards
+
+- A card appears for your task. This is one [run](/start/glossary/#run).
+- The card shows the state, for example "Running in the package sandbox", and the time it has been running.
+- When the worker is done, the card shows its reply, a result file if there is one, and the files it made.
+- Continue with [Follow a run](/use/follow-a-run/).
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Package** | Which worker gets the task. | The worker made for this kind of work. | Yes, before you send. |
+| **Attach** | Adds text files: at most 5 files, each up to 48 KB. Allowed: `.md`, `.txt`, `.csv`, `.json`, `.yaml`, `.yml`, `.log`. | When the worker needs the content of a file. | Yes: **Remove** on the file chip. |
+| **Send** | Starts the run. | | You can cancel the run, but what the worker already did stays. |
+| **New conversation** | Reloads the worker's run list. It deletes nothing. | When the list looks old. | n/a |
+
+## Tips for good tasks
+
+- Say what you want as a result: "a list", "a pull request", "a one-page summary".
+- Say where: the repository, the product, or the web page.
+- One task per message. A new message is a new run.
+- Never paste a password or a key. The box refuses it: "This looks like a key or password. It was not sent to the AI." Ask your administrator to add it under Connections.
+
+## If the task does not start
+
+- "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections.": the worker needs a connection. Ask your administrator.
+- A red budget banner: the monthly budget is used up. New tasks start again in the next period or when the budget is raised. Ask your administrator.
+- The **Send** button is greyed out and a note names the data rule: the worker's model does not meet the box's data rule. Ask your administrator.
+
+<NotYet>
+You cannot attach images, PDFs or office documents. Put a link in the message, or paste the text. A message can have up to 12,000 characters.
+</NotYet>
+
+## Related pages
+
+- [Follow a run](/use/follow-a-run/)
+- [Approvals and checks](/use/approvals-and-checks/)
+- [Workers](/workers/)
