@@ -6,8 +6,8 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `RELEASE_TAG_PENDING` (RELEASE_DATE_PENDING, source commit
-  `RELEASE_SHA_PENDING`). Since `1b70539` it adds: people and accounts (task T35, PR #69:
+- **Checked against:** box release `truchsess-iso-20261008-ac837a8` (published 2026-10-08, source commit
+  `ac837a8`). Since `1b70539` it adds: people and accounts (task T35, PR #69:
   section 8 "People and access", "Your account", the console reset; gaps G1, G2, G4 closed);
   store takeover and the period end (T39b, PR #65: sections 10 and 19); downloads through the
   page (T37, PR #67); refused uploads in words (T41, PR #66); a background service for later
@@ -20,7 +20,8 @@ changes first, then the pages.
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Not merged when checked:** T42, T43, T20 (nothing of them is described).
+- **Not in the checked release:** T15a (PR #71, design notes only, nothing people see); not
+  merged: T42, T43, T20. Nothing of them is described.
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
