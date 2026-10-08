@@ -3,7 +3,6 @@ title: "Product ownership"
 description: "What the Product ownership function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
-import ComingNext from '~/components/ComingNext.astro';
 
 Store function id: `product-ownership`. Price and full description: [Product ownership in the store catalog](https://faivr.ai/catalog/product-ownership).
 
@@ -55,9 +54,7 @@ Owns one product as its accountable product owner: the problem, the users, the v
 - "Which repository holds the product's code and documents (read only)?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
 - "In which repository does it track issues (it reads them and may file and update issues there)?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
 
-<ComingNext>
-Hand-offs: it may hand work to these workers during a task, if they are installed: Website Owner, Bob - Issue Writer, Bob - Instructions Keeper, Bob - QA Reviewer, Bob - Security Reviewer, Bob - CI Fixer, Bob - Merge Gate, Ivy, Strategy, Challenger, Cora, Gideon, Ivo V2. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.website-owner`. Hand-offs inside a task come with the next update; until then, give the other worker its own task.
-</ComingNext>
+**Hand-offs:** during a task it may hand part of the work to these workers, if they are installed: Website Owner, Bob - Issue Writer, Bob - Instructions Keeper, Bob - QA Reviewer, Bob - Security Reviewer, Bob - CI Fixer, Bob - Merge Gate, Ivy, Strategy, Challenger, Cora, Gideon, Ivo V2. The other worker works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.website-owner`. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers).
 
 **Default autonomy levels**
 
@@ -74,7 +71,7 @@ Shown and changed under **Administration**, **Packages**, panel **Autonomy level
 | Creates and updates issues | Tells you after | Waits for your check |
 | Reads the workboard | Runs on its own | cannot be raised (Fixed) |
 | Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
-| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason |
 
 ## What every worker can never do
 
