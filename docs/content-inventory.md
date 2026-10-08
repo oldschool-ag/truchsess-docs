@@ -6,19 +6,17 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261008-f1af221` (published 2026-10-08,
-  source commit `f1af221`). It is the release `truchsess-iso-20261008-f6fb33a` plus the five
-  autonomy levels (task T11, section 17). Earlier releases: `f6fb33a` added **Administration,
-  Knowledge**; `19aad3e` has everything else below.
+- **Checked against:** box release `truchsess-iso-20261008-12b3acf` (published 2026-10-08,
+  source commit `12b3acf`). It is `truchsess-iso-20261008-f1af221` (the five autonomy levels,
+  section 17) plus hand-offs between workers (task T22b, section 18). Earlier releases:
+  `f6fb33a` added **Administration, Knowledge**; `19aad3e` has everything else below.
 - **Sources read:** the portal page (markup and script), the portal server (routes and
   messages), the modules behind it (accounts, packages, connections, data rule, budget, backups,
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Coming with the next update:** hand-offs between workers inside a task (task T22b), merged
-  into the main line as `12b3acf` but not in a published release yet. The pages that mention
-  hand-offs mark them "Coming with the next update". (Task T16c.0, also on the main line, is a
-  design document only and changes nothing people see.)
+- **Coming with the next update:** nothing. The main line has no change people can see beyond
+  the checked release (task T16c.0 is a design document only).
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
@@ -430,7 +428,6 @@ run `npm run sync:not-yet` after a change (CI fails when the page and this table
 | G5 | Accounts and roles | Limit which workers a member sees in Chat. | Every member sees every installed worker. Install only workers everyone may use. | Administrator. |
 | G6 | Accounts and roles | See other people's runs as a member, or share a run. | Members see own runs only. Share the result file or text another way. | Administrator (sees all runs). |
 | G7 | Approvals and autonomy | Approve or refuse as a member, or as a product owner. | Only the CEO administrator decides. | Administrator. |
-| G10 | Approvals and autonomy | Hand-offs between workers (delegation) in a task. | Coming with the next update. Until then, start a second task with the other worker yourself. | Administrator. |
 | G11 | Knowledge, workboard and products | See, search or edit the company knowledge in the portal, or look at older revisions. | Ask a worker with knowledge permission to search, read or quote a document (it can also read an older revision). | Administrator. |
 | G12 | Knowledge, workboard and products | Delete a knowledge document. | Import a corrected version (it becomes the current one). A document cannot be removed. | Support. |
 | G13 | Knowledge, workboard and products | See the workboard in the portal. | Ask a worker with workboard permission to list or update cards in a task. | Administrator. |
@@ -496,7 +493,8 @@ Floors and raises (the panel's own words):
 | Kind of action | Floor | Can be raised to |
 | --- | --- | --- |
 | Reads its own workspace; Reaches the internet through the box's list; Renders web pages in its sandbox; Reads repositories; Reads test results; Reads company knowledge; Reads the workboard | Runs on its own | Fixed |
-| Writes files in its own workspace; Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason (the last two since `12b3acf`) |
 | Writes company knowledge; Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
 | Comments on and reviews pull requests; Creates and updates issues; Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
 | Publishes; Sends messages outside the box; Chains further actions; Spends money (within its limit) | Asks you first | Always asks, with a reason |
@@ -506,9 +504,35 @@ A check holds the result, not the writes: workspace files, knowledge revisions, 
 and repository comments, issues and pushes stay. Spending above the per-action limit stays
 refused, and merges stay impossible.
 
-## 18. Notes for the Website Owner
+## 18. Hand-offs between workers (in the release since `12b3acf`)
 
-- When a release with `12b3acf` (hand-offs, T22b) is published, remove the "Coming with the next
-  update" boxes about hand-offs, close gap G10, and add the release entry.
+Input: the section "For the user docs" of truchsess PR #60, checked against the `12b3acf` source
+(portal run card, approval card, the spine's refusal messages).
+
+| Label | Who | What it does | Undo |
+| --- | --- | --- | --- |
+| Run card block "Handed over to other packages": each handed-over task with the worker's name (link), state and cost; "Cost with the handed-over tasks: ..." ("so far" while running) | Both (on runs they may see) | Lists the work this task handed to other workers. | n/a |
+| "Handed over by <worker> from its task <run>" (link back) | Both | Shown on a handed-over task. It appears in the chat and history of the person who started the first task. | n/a |
+| Link to a run of an uninstalled worker: "That package is not installed any more; its run stays in the run history." | Both | | n/a |
+| Approval card for a held hand-off: "hand this task to <worker>: ..." with the full task text; "Nothing starts yet. Approve hands this task over exactly as shown (the other package works with its own permissions); Refuse starts nothing." | Admin | At "Asks you first" or "Always asks, with a reason" for "Hands work to other packages". | No, once decided. |
+
+Limits (the worker says why in its answer): the permission "Hand work to one other installed
+package" for that exact worker; at most 3 handed-over tasks open per task; at most 2 levels deep;
+never back to a worker already in the chain; a worker on a local model takes no handed-over work;
+no start when the monthly budget is used up; the product must be one of the asking worker's
+products. The handed-over task runs with its own worker's permissions, lane and data rule. While
+two tasks wait for work they handed over, a new task can show "Created, waiting for the worker".
+
+## 19. Known issues (reported by the supervisor, 2026-10-08)
+
+| Issue | Who | Cause | Workaround | Fix |
+| --- | --- | --- | --- | --- |
+| **Download** of a backup fails in Chrome ("Check Internet connection") on the office address. | Admin | The box's own certificate (Chrome shows "Not secure"). | Use Safari until the fix. | Task T37 |
+| An uninstalled store package is still listed under **Installed packages**, with a "Ready" badge and no buttons. | Admin | A finished record (verified: the row offers no button for the state "uninstalled", and its readiness falls back to "Ready"). | None needed: it is harmless. | Task T38 (Packages page change) |
+
+## 20. Notes for the Website Owner
+
+- When tasks T37 and T38 ship, remove their rows in section 19 and the matching lines on
+  `/troubleshooting/` and `/admin/packages/`.
 - The installer's own texts still name the old product ("Company OS") and an older host name on
   the setup Wi-Fi. The manual tells the reader what they will see.

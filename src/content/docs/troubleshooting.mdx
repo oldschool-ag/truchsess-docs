@@ -49,6 +49,8 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "Write what the package should change first." | **Send back** needs a note. |
 | "Write a reason first: this action always needs one." | This action is at "Always asks, with a reason". Write a reason, then confirm. |
 | A row in **Autonomy levels** shows "Fixed". | That kind of action cannot be raised. |
+| A worker's answer says it could not hand work over (not granted, already part of the chain, too many open, too deep, the local model, or the budget). | The limits of hand-offs. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers). For "The owner did not grant it", the administrator allows **Hand work to one other installed package** for that worker. |
+| A new task shows "Created, waiting for the worker" for a long time. | Other tasks wait for work they handed over. It starts when one of them finishes. |
 | "The reply names a file that is not among this run's files: ..." | The worker mentioned a file it did not save. Ask it again to save the file. |
 
 ## Administration
@@ -71,6 +73,7 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "No recovery key yet: the box makes no backup until one exists." | Create the recovery key. See [Backup](/setup/backup/). |
 | "This recovery key does not open this backup. ..." | Use the key that was current when the backup was made. |
 | "This backup comes from a newer release (...). Update this box first, then restore." | Update the box, then restore. |
+| **Download** of a backup fails in Chrome ("Check Internet connection") on the office address. | Cause: the box's own certificate; Chrome shows the address as "Not secure" and blocks the download. Workaround: download the backup with Safari until the fix (task T37). |
 | After a restore, **Enter these again** says "Connect an AI provider". | The button is **Change AI provider** in the panel **People**. |
 | "Tick “I have read what passes through Cloudflare” to switch remote access on." | Tick the box, then **Switch on**. |
 | **Not from a run (unattributed)** is above 0. | AI use happened outside a task. Tell support. |

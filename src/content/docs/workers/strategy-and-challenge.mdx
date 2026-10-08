@@ -3,7 +3,6 @@ title: "Strategy and challenge"
 description: "What the Strategy and challenge function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
-import ComingNext from '~/components/ComingNext.astro';
 
 Store function id: `strategy-and-challenge`. Price and full description: [Strategy and challenge in the store catalog](https://faivr.ai/catalog/strategy-and-challenge).
 
@@ -52,9 +51,7 @@ Gives a decision-maker a sharper and honest view: what is true, what is only a c
 - "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 - "Which website should it study (for example the company under review)?" Optional: **Skip (the permission is declined)** is offered. You choose one website address, for example `www.example.com`.
 
-<ComingNext>
-Hand-offs: it may hand work to these workers during a task, if they are installed: Challenger, Cora. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.challenger`. Hand-offs inside a task come with the next update; until then, give the other worker its own task.
-</ComingNext>
+**Hand-offs:** during a task it may hand part of the work to these workers, if they are installed: Challenger, Cora. The other worker works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.challenger`. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers).
 
 **Default autonomy levels**
 
@@ -67,7 +64,7 @@ Shown and changed under **Administration**, **Packages**, panel **Autonomy level
 | Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
 | Renders web pages in its sandbox | Runs on its own | cannot be raised (Fixed) |
 | Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
-| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason |
 
 ### Challenger
 

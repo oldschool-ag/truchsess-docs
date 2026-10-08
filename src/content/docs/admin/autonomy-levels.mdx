@@ -3,7 +3,6 @@ title: Autonomy levels
 description: The five levels, the default for each kind of action, raising a level, and standing approvals.
 ---
 import NotYet from '~/components/NotYet.astro';
-import ComingNext from '~/components/ComingNext.astro';
 
 An [autonomy level](/start/glossary/#autonomy-level) says how much a worker does on its own before a person looks at it. Every kind of action of every installed worker has one level.
 
@@ -42,7 +41,7 @@ Each kind of action starts at its default, the floor. You can raise it for one w
 | Reads test results | Runs on its own | cannot be raised |
 | Reads company knowledge | Runs on its own | cannot be raised |
 | Reads the workboard | Runs on its own | cannot be raised |
-| Hands work to other packages | Runs on its own | Tells you after, Waits for your check |
+| Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason |
 | Writes company knowledge | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
 | Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
 | Comments on and reviews pull requests | Tells you after | Waits for your check |
@@ -113,9 +112,7 @@ Raising "Writes files in its own workspace" to "Waits for your check" holds ever
 
 A check holds the result, not what the worker already did: a pushed branch, a comment, an issue, a knowledge revision or a workboard change stays. To stop such writes before they happen, use "Asks you first" for knowledge and workboard writes, or remove the repository permission.
 
-<ComingNext>
-Hand-offs from one worker to another inside a task come with the next update, and with them the levels "Asks you first" and "Always asks, with a reason" for "Hands work to other packages". Until then, start a second task with the other worker.
-</ComingNext>
+For "Hands work to other packages": at "Tells you after" you get a notice each time work is handed over; at "Waits for your check" the result of a task that handed work over waits for your check; at "Asks you first" or "Always asks, with a reason" nothing is handed over before you approve. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers).
 
 <NotYet>
 You cannot set a level for one install only (a level applies to every install of the package), lower a level below its floor, or make a repository action ask before it happens. To approve each repository change, remove the repository permission and ask the worker to describe the change in its answer.
