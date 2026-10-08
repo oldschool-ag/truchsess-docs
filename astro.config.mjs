@@ -62,12 +62,14 @@ export default defineConfig({
             { label: 'Knowledge', slug: 'use/knowledge' },
             { label: 'Workboard', slug: 'use/workboard' },
             { label: 'Report a problem', slug: 'use/report-a-problem' },
+            { label: 'Your account', slug: 'use/your-account' },
           ],
         },
         {
           label: 'Administration',
           items: [
-            { label: 'Users', slug: 'admin/users' },
+            { label: 'Users (People and access)', slug: 'admin/users' },
+            { label: 'Administrator password', slug: 'admin/administrator-password' },
             { label: 'Packages', slug: 'admin/packages' },
             { label: 'Store', slug: 'admin/store' },
             { label: 'Products and knowledge', slug: 'admin/products-and-knowledge' },

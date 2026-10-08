@@ -6,10 +6,13 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261008-1b70539` (published 2026-10-08,
-  source commit `1b70539`). It is `truchsess-iso-20261008-12b3acf` plus one fix (task T39, PR
-  #64): an install question answered with a value the owner policy already allows no longer
-  fails with "duplicate permission". `12b3acf` added hand-offs (section 18), `f1af221` the five
+- **Checked against:** box release `truchsess-iso-20261008-ac837a8` (published 2026-10-08, source commit
+  `ac837a8`). Since `1b70539` it adds: people and accounts (task T35, PR #69:
+  section 8 "People and access", "Your account", the console reset; gaps G1, G2, G4 closed);
+  store takeover and the period end (T39b, PR #65: sections 10 and 19); downloads through the
+  page (T37, PR #67); refused uploads in words (T41, PR #66); a background service for later
+  account connections with nothing visible (T16c.1, PR #62). `1b70539` fixed "duplicate
+  permission" (T39, PR #64), `12b3acf` added hand-offs (section 18), `f1af221` the five
   autonomy levels (section 17), `f6fb33a` **Administration, Knowledge**; `19aad3e` has
   everything else below.
 - **Sources read:** the portal page (markup and script), the portal server (routes and
@@ -17,12 +20,8 @@ changes first, then the pages.
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Coming with the next update** (on the main line at `33db219`, not in a published release):
-  task T41 (PR #66): an upload the box refuses (a wrong setup code, no session, a bad name) is
-  read to its end, so the browser shows the refusal instead of a connection error; a file above
-  the upload limit is still not read and the connection closes. Task T16c.1 (PR #62) adds a
-  background service for later account connections and changes nothing people see. Not merged
-  when checked: T39b (PR #65), T37 (PR #67), T35 (PR #69), T42, T43, T20.
+- **Not in the checked release:** T15a (PR #71, design notes only, nothing people see); not
+  merged: T42, T43, T20. Nothing of them is described.
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
@@ -68,10 +67,11 @@ Facts used by the pages:
 | Link "Restore from a backup" (on the first screen) | Admin, once | Opens "Restore from a backup" instead of creating the account. | "Back" returns. |
 | "Restore from a backup": "Bootstrap code", "Backup file" (`.age`), "Recovery key", "or the recovery key file", "Restore", "Back" | Admin, once | Restores a backup onto a fresh box. Afterwards: "Enter these again" table, button "Sign in". | No, once started. |
 | "Sign in": "Work email", "Password", "Sign in" | Both | Signs in. Shows the certificate fingerprint. | n/a |
-| "Change your temporary password": "Temporary password", "New password", "Change password" | Both | Required after the first sign-in with a temporary password. | n/a |
+| "Change your temporary password": "Temporary password", "New password", "Change password" | Both | Required after the first sign-in with a temporary password, and after a reset. | n/a |
+| "Your account" (tab, and the name in the header): name, e-mail, role; "Change your password": "Current password", "New password", "New password again", "Change password" | Both | Changes the own password. Same rules; must differ from the current one. Other browsers are signed out; this one stays. Office only: on the remote address the form is hidden and a note says the password is changed in the office. | Change it again. |
 | Header: account name, role ("CEO administrator" or "member"), status line, "Sign out" | Both | Shows who is signed in. | n/a |
 | Message "Too many login attempts. Wait 15 minutes and try again." | Both | After 6 wrong tries from one place in 15 minutes. | Wait 15 minutes. |
-| Message "Email or password is incorrect." | Both | Wrong sign-in. | n/a |
+| Message "Email or password is incorrect." | Both | Wrong sign-in, or a disabled or removed account. | n/a |
 | Message "The bootstrap code is missing or wrong." | Admin | Wrong bootstrap code. | n/a |
 | Session length | Both | A session lasts 12 hours, then the person signs in again. | n/a |
 | "Choose the appliance AI" (shown at once when no AI provider is set) | Admin | See section 9. | Yes. |
@@ -87,6 +87,7 @@ Facts used by the pages:
 | Approvals | Admin | Waiting decisions and standing approvals. |
 | Products | Both | Products, add or request a product, request another agent. |
 | Requests | Both | Own product and agent requests with their decision. |
+| Your account | Both | Own name, e-mail, role; change the own password. |
 | Administration | Admin | Sub-tabs General, Packages, Knowledge, Connections, Remote access. |
 
 ## 4. Chat
@@ -195,7 +196,7 @@ Update facts:
 | --- | --- | --- |
 | "Back up now" | Makes a backup now. Disabled until a recovery key exists. | n/a |
 | "Create the recovery key" / "Create a new recovery key" | Shows the key once: "Copy", "Download as a file", "I have saved it". | A new key can be made; older backups then need the older key. |
-| "Backups on this box": Made, Size, How, Recovery key, "Download" | Lists the kept backups (the last 7). | n/a |
+| "Backups on this box": Made, Size, How, Recovery key, "Download" | Lists the kept backups (the last 7). Download runs through the page: "Downloading: X of Y (N%)" under the link; on a break "The download broke after ...: the connection to the box was lost. Nothing was saved. ..."; press Download again. Same for the top-up file. | n/a |
 | "Restore": "Backup" (a kept backup or "A backup file from this computer"), "Backup file", "Recovery key", "or the recovery key file", "Restore" (two clicks) | Puts the box back to the backup's state. Everyone signs in again. If a step fails, the box returns to how it was. | No: work after the backup is replaced. |
 | "Enter these again" table | After a restore: which secrets to enter again and where. | n/a |
 | "Backup history" | Time, Event, By, Detail. | n/a |
@@ -243,10 +244,16 @@ AI provider key, the store enrolment, the remote access code.
 
 | Label | What it does | Undo |
 | --- | --- | --- |
-| "Add a user": "Name", "Work email", "Create user" | Creates a member and shows a one-time temporary password: "copy it now; it is not shown again." | No: no delete or disable. |
+| "Add a user": "Name", "Work email", "Create user" | Creates a member and shows a one-time temporary password: "copy it now; it is not shown again." | Disable, then Remove. |
 | "Assign product access": "User", "Product", "Access" (Member, Owner), "Assign access" | Gives a member a product. | Yes: "Remove" in "Product access". |
-| "People": Name, Email, Role, Status, Last login | Lists accounts. | n/a |
-| "Change AI provider" (in "People") | Opens "Choose the appliance AI". | Yes. |
+| "People and access": Name, Email, Role (Administrator, Member), State (Active, Must change password, Disabled, Removed), Last login, buttons | Lists accounts. Buttons only on member rows that are not removed. | n/a |
+| "Reset password", "Confirm reset" (not on a disabled row) | "New one-time password for <name>. Every session of this person has ended." Shows "One-time password for <name>: ... copy it now; it is not shown again." Failed sign-ins cleared; the person must change it at the next sign-in. Office only. | No; the person sets a new one. |
+| "Disable", "Confirm disable" | "<name> is disabled and signed out everywhere. Runs and history stay." No sign-in, local or remote. Works on the remote address. | "Enable". |
+| "Enable", "Confirm enable" (disabled row) | "<name> can sign in again." Same password and product access. Office only. | "Disable". |
+| "Remove", type the e-mail, "Confirm remove" (disabled row only) | "<name> is removed. The e-mail address is free; the history keeps the name." History shows "(removed person)". Works on the remote address. Refused unless disabled first. | No. |
+| "Change name or e-mail", "Save", "Cancel" | "Saved for <name>." A new e-mail signs the person out. Office only. | Change again. |
+| Note under the table | "Your own password: Your account. Forgotten administrator password: on the box, as root, run sudo company-os-people reset-admin." | n/a |
+| "Change AI provider" (in "People and access") | Opens "Choose the appliance AI". | Yes. |
 | "Product access": Person, Product, Access, Assigned, "Remove" | Lists and removes assignments. | Assign again. |
 | "Approvals": Requested by, Request, Product, Cost / month, Status, Decision, "Approve", "Deny" | Decides product and agent requests. | No. |
 | "Company activity": Time, Person, Activity, Type | The last 200 events of the box. | n/a |
@@ -284,11 +291,22 @@ AI provider key, the store enrolment, the remote access code.
 | "Refresh catalog" | Loads the store's function bundles with price and packages. | n/a |
 | "Subscribe" (or "Subscribe (no price yet)", disabled) | Starts the payment at the store. "Open the payment page". The page checks every few seconds. | Cancel the subscription. |
 | Subscription badges: "not subscribed", "checkout pending", "active", "cancels <date>", "payment past due", "subscription ended" | State of a bundle. | n/a |
-| "Cancel subscription" (two clicks) | Ends the bundle at the period end. Only possible when no package of the bundle is installed. | Subscribe again. |
+| "Cancel subscription" (two clicks) | Ends the bundle at the period end. Only possible when no package of the bundle is installed. "Cancelled: the functions of this bundle can be used until <date>." | Subscribe again. |
 | "Manage subscription", "Open the subscription page" | Opens the store's page for invoices, payment method and cancellation. The link is valid for a short time. | n/a |
 | Package row: Package id, Publisher, Package digest, Installed here, "Permissions: N would be granted, M declined by the owner policy", "Requires", "You choose at install", "Install" | Installs a store package (reserve, download, install, acknowledge). | "Uninstall". |
 
 A store package can be installed only once per box.
+
+Store holds and the period end (T39b): when the store still holds an unfinished install from
+this box, the package row says "Installed here: no; the store still holds an unfinished install
+from this box (...)" and offers "Install" with "The store still holds an install from this box
+that never finished. Install takes it over with the answers above." The row then says "took over
+the store's unfinished install". After a cancelled subscription ends, a daily run (04:10, and 15
+minutes after start) stops the bundle's store installs: no new tasks, Chat refuses with "The
+subscription for <function> has ended. Subscribe again to use this worker.", the row says
+"Stopped" and "Files are kept until you uninstall.". Nothing is deleted. Subscribing again
+resumes the same installs. A failed install that never became active is removed at the period
+end.
 
 ### Trusted publishers
 
@@ -339,10 +357,10 @@ A policy change does not reach a worker that is already installed.
 | Label | What it does | Undo |
 | --- | --- | --- |
 | Table Package, State, Ready, Agent id, Model, Sandbox image, Permissions | Every install. "from the store" marks store installs. | n/a |
-| "Ready" / "Needs <connection> from the admin", "Open Connections" | Whether the worker has its connections. | n/a |
+| "Ready" / "Needs <connection> from the admin", "Open Connections" | Whether the worker has its connections. A failed row shows "Not running", a stopped row "Stopped", a removed row "Removed", an uninstalled row "Uninstalled" (no buttons). | n/a |
 | "Choose" | Answers install questions an install still waits for. | n/a |
 | "Change", "Save and apply" | New answers or a new name. The install keeps its workspace, memory and identity. | Change again. |
-| "Retry", "Remove" (failed install) | A failed install left nothing active. Retry runs it again; Remove closes it. | n/a |
+| "Retry", "Remove" (failed install) | A failed install left nothing active. Retry runs it again; Remove closes it. After Remove of a store install the row says "The store still holds this install. ...", "The store no longer lists this install." or "The store could not be reached ..." with "Check with the store again". | n/a |
 | "Uninstall" (two clicks) | Reverses every binding and removes the worker's workspace. A signed receipt is kept (store installs: sent to the store; the last package of a bundle ends the subscription at the period end). | No: the workspace is deleted. Install again for a fresh start. |
 
 ### Model lanes
@@ -425,12 +443,12 @@ Each gap has the workaround today and who to ask. "Support" means the support co
 the manual's configuration. The page `/not-yet/` is generated from this table:
 run `npm run sync:not-yet` after a change (CI fails when the page and this table differ).
 
+Closed in the checked release (they no longer appear on `/not-yet/`): G1 (reset a forgotten
+password), G2 (remove, disable or rename a user, change an e-mail), G4 (change your own password).
+
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
-| G1 | Accounts and roles | Reset a forgotten password. | For a member: the administrator creates a new account with another e-mail address (an e-mail can have only one account). For the administrator: nothing in the portal. Keep the password in a password manager. | Administrator; for the administrator's own password, support. |
-| G2 | Accounts and roles | Remove, disable or rename a user, or change an e-mail. | Remove all product access of that person ("Product access", "Remove"). The account still exists and can still sign in and see installed workers in Chat. | Support. |
 | G3 | Accounts and roles | A second administrator, or making a member an administrator. | Share administration tasks by asking the one CEO administrator. | Support. |
-| G4 | Accounts and roles | Change your own password later. | The portal has a page for this only at the first sign-in, for the temporary password. | Support. |
 | G5 | Accounts and roles | Limit which workers a member sees in Chat. | Every member sees every installed worker. Install only workers everyone may use. | Administrator. |
 | G6 | Accounts and roles | See other people's runs as a member, or share a run. | Members see own runs only. Share the result file or text another way. | Administrator (sees all runs). |
 | G7 | Approvals and autonomy | Approve or refuse as a member, or as a product owner. | Only the CEO administrator decides. | Administrator. |
@@ -533,17 +551,16 @@ two tasks wait for work they handed over, a new task can show "Created, waiting 
 
 | Issue | Who | Cause | Workaround | Fix |
 | --- | --- | --- | --- | --- |
-| After **Remove** of a failed store install, the store refuses a new install of that package ("already installed"). | Admin | **Remove** ends the row on the box only; the store keeps its reservation (PR #64, "Known gap"). | Use **Retry** for a failed store install; after a Remove, ask support. | Task T39b (PR #65, open) |
-| **Download** of a backup fails in Chrome ("Check Internet connection") on the office address. | Admin | The box's own certificate (Chrome shows "Not secure"). | Use Safari until the fix. | Task T37 |
-| An uninstalled store package is still listed under **Installed packages**, with a "Ready" badge and no buttons. | Admin | A finished record (verified: the row offers no button for the state "uninstalled", and its readiness falls back to "Ready"). | None needed: it is harmless. | Task T38 (Packages page change) |
+| An uninstalled store package is still listed under **Installed packages**, with the badge "Uninstalled" and no buttons. | Admin | A finished record (T39b replaced the "Ready" badge with "Uninstalled"). | None needed: it is harmless. | Task T38 (Packages page change) |
 
 ## 20. Notes for the Website Owner
 
-- When tasks T37, T38 and T39b ship, remove their rows in section 19 and the matching lines on
-  `/troubleshooting/` and `/admin/packages/`. When T41 is released, remove its "Coming with the
-  next update" box on `/troubleshooting/` and the matching row there.
-- When T35 (people and accounts) is released, update gaps G1, G2, G4, the member page
-  (`/start/member/`, step 8) and `/admin/users/`.
+- When task T38 (Packages page change) ships, remove its row in section 19 and the last
+  paragraph under "What you see afterwards" on `/admin/packages/`.
+- When G3 (a second administrator) or G5 (which agents a member sees) is decided and built,
+  update the gap table, `/start/roles/`, `/admin/users/` and `/setup/members/`.
+- When the trusted-certificate decision is built, update the certificate steps on
+  `/start/member/`, `/setup/unbox-and-connect/` and `/troubleshooting/`.
 - Reader pages never show internal task numbers; `npm run check:text` fails on one. Task
   numbers stay in this inventory.
 - `/start/member/` says "agent" for the AI workers, as the portal is moving to that word. The

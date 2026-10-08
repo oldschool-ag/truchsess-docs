@@ -101,12 +101,16 @@ Each install keeps its name, answers and workspace. If the new version adds a re
 
 ## Failed install: Retry or Remove
 
-A failed install never stays half installed. Its row shows "failed" and the error.
+A failed install never stays half installed. Its row shows "failed", the badge "Not running" and the error.
 
 - **Retry** runs the install again from the stored file.
 - **Remove** closes it: "Nothing of it is active; what the failed attempt left behind is reverted and its record is closed."
 
-For a store install, use **Retry**, not **Remove**. **Remove** closes the install only on the box: the store still holds it and refuses a new install of the same package ("already installed"). If that happened, ask support.
+After **Remove** of a store install, the row says whether the store still holds it:
+
+- "The store still holds this install. Install the package again from the store card; the new install takes it over." See [Store](/admin/store/#an-install-the-store-still-holds).
+- "The store no longer lists this install."
+- "The store could not be reached to check whether it still holds this install. Check again when the box is online." Press **Check with the store again**.
 
 ## Uninstall
 
@@ -117,9 +121,20 @@ Every binding is reversed and the worker's workspace is deleted. The box keeps a
 
 ## What you see afterwards
 
-An uninstalled store package can still be listed under **Installed packages**, with the state "uninstalled", a **Ready** badge and no buttons. It is a finished record and harmless. It disappears with a coming change to the Packages page.
+The table **Installed packages** shows each install: **Package**, **State** ("active", "failed", "stopped", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
 
-The table **Installed packages** shows each install: **Package**, **State** ("active", "failed", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
+The badge in **Ready**:
+
+| Badge | Meaning |
+| --- | --- |
+| Ready | The worker takes tasks. |
+| Needs ... from the admin | A connection is missing. See [Connections](/admin/connections/#what-ready-means). |
+| Not running | The install failed. Use **Retry** or **Remove**. |
+| Stopped | The store subscription ended. The row says "Files are kept until you uninstall." Subscribe again to bring it back. See [Store](/admin/store/#what-happens-to-an-installed-worker). |
+| Removed | A failed install that was removed. |
+| Uninstalled | A worker that was uninstalled. |
+
+A removed or uninstalled row is a finished record without buttons. It stays in the list and is harmless.
 
 ## Your choices
 

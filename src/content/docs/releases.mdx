@@ -7,9 +7,22 @@ Each box release has a name like `truchsess-iso-20261008-f6fb33a`: the date, the
 
 Only changes people can see or use are listed here.
 
-## truchsess-iso-20261008-1b70539
+## truchsess-iso-20261008-ac837a8
 
 Published 8 October 2026. The current release.
+
+- New: the administrator manages people under **Administration**, **General**, **People and access**: **Reset password** (a one-time password, the person is signed out), **Disable** and **Enable**, **Remove** a disabled person (type the e-mail address to confirm; the history keeps the name), **Change name or e-mail**. A **State** column shows Active, Must change password, Disabled or Removed. See [Users](/admin/users/).
+- New: the tab **Your account** (also from your name in the top bar). Everyone can change their own password there, in the office. See [Your account](/use/your-account/).
+- New: a forgotten administrator password is reset on the box itself. See [Administrator password](/admin/administrator-password/).
+- New: when the store still holds an unfinished install from this box, the store card offers **Install**, which takes it over. After **Remove** of a store install, the row says whether the store still holds it. See [Store](/admin/store/#an-install-the-store-still-holds).
+- New: when a cancelled subscription ends, its workers stop within a day and keep their files; **Subscribe** again brings the same workers back. Nothing is deleted. See [Store](/admin/store/#what-happens-to-an-installed-worker).
+- Changed: an install row that is not working shows "Not running", "Stopped", "Removed" or "Uninstalled" instead of "Ready".
+- Fixed: **Download** of a backup or a top-up file works in Chrome on the office address. The progress shows under the link. If the connection breaks, nothing is saved; press **Download** again.
+- Fixed: a refused upload (for example a wrong setup code) shows the box's reason in words instead of a connection error.
+
+## truchsess-iso-20261008-1b70539
+
+Published 8 October 2026.
 
 - Fixed: an install no longer fails with "duplicate permission" when an install question is answered with a product, website or repository the owner policy already allows. A row that failed this way installs with **Retry** after the update.
 

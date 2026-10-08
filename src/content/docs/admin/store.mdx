@@ -45,6 +45,10 @@ The box is enrolled. See [Store enrolment](/setup/store-enrolment/).
 
 The worker then appears under **Installed packages** marked "from the store". The store row says "Installed: manage it under Installed packages below."
 
+### An install the store still holds
+
+An install that failed and was removed can still be held by the store. The worker then shows **Install** with the note "The store still holds an install from this box that never finished. Install takes it over with the answers above." Answer the questions and press **Install**. The row under **Installed packages** then says "took over the store's unfinished install".
+
 ### Manage a subscription
 
 1. On an active function, press **Manage subscription**.
@@ -65,14 +69,16 @@ The badge of each function:
 | not subscribed | No subscription. **Subscribe** is offered. |
 | checkout pending | Payment started, not received yet. |
 | active | Paid. You can install the workers. |
-| cancels and a date | Ends at the period end. |
+| cancels and a date | Ends at the period end. The function says "Cancelled: the functions of this bundle can be used until ...". |
 | payment past due | The store did not receive the payment. Use **Manage subscription**. |
 | subscription ended | Ended. **Subscribe** is offered again. |
 
 ## What happens to an installed worker
 
 - **Uninstall** a store worker: every binding is reversed, the worker's workspace on the box is deleted, and the signed receipt goes to the store. "The last package of a bundle ends its subscription at the period end."
-- The worker keeps working until you uninstall it. Cancelling is only possible after all workers of the function are uninstalled.
+- A cancelled subscription keeps its workers working until the period end. Then, within a day, they stop: they take no new tasks, **Chat** says "The subscription for ... has ended. Subscribe again to use this worker.", and the row under **Installed packages** says "Stopped" and "Files are kept until you uninstall." Nothing is deleted.
+- **Subscribe** again to the function: the same workers resume with their files. Nothing is installed anew.
+- Uninstall stays your decision; the box never uninstalls a worker by itself.
 - Your tasks, files and knowledge stay on the box. They never went to the store.
 - If the store cannot be reached, the box keeps the receipt and sends it later.
 

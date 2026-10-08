@@ -1,12 +1,14 @@
 ---
 title: Users
-description: Create accounts, give product access, remove access, and what is not possible yet.
+description: Create accounts, give product access, reset a forgotten password, disable, enable, remove, and change a name or e-mail.
 ---
 import NotYet from '~/components/NotYet.astro';
 
+Everything about people is on **Administration**, sub-tab **General**: the panels **Add a user**, **People and access**, **Assign product access** and **Product access**.
+
 ## Who can do this
 
-The administrator, in the office on **https://myai.local/**. Creating accounts is refused on the remote address.
+The administrator. Some actions work only in the office on **https://myai.local/**; see [On the remote address](#on-the-remote-address).
 
 ## Before you start
 
@@ -35,28 +37,94 @@ Assigning again with another **Access** changes the access.
 1. In the panel **Product access**, find the line.
 2. Press **Remove**, then **Confirm remove**.
 
+### Reset a forgotten password
+
+1. In **People and access**, press **Reset password** on the person's row.
+2. Press **Confirm reset**.
+3. Copy the line "One-time password for ...". It is not shown again.
+4. Give it to the person safely. At the next sign-in they must choose a new password.
+
+Every browser where the person is signed in is signed out at once. Failed sign-ins are cleared, so a person who was locked out for 15 minutes can sign in right away.
+
+### Disable a person
+
+1. Press **Disable** on the person's row.
+2. Press **Confirm disable**.
+
+The person cannot sign in any more, in the office or on the remote address, and is signed out everywhere at once. Their running tasks keep going and their history stays.
+
+### Enable a person again
+
+1. Press **Enable** on the row of a disabled person.
+2. Press **Confirm enable**.
+
+The person signs in again with the same password and the same product access.
+
+### Remove a person
+
+Only a disabled person can be removed. Disable first.
+
+1. Press **Remove** on the row of a disabled person.
+2. Type the person's e-mail address in the field.
+3. Press **Confirm remove**.
+
+The account can never sign in again, its product access is removed, and its e-mail address is free for a new account. Nothing in the history is deleted: chat lines, requests, approvals and activity keep the name, with "(removed person)" next to it.
+
+### Change a name or e-mail address
+
+1. Press **Change name or e-mail** on the person's row.
+2. Change the name or the e-mail address.
+3. Press **Save**.
+
+A new e-mail address signs the person out. They sign in with the new address. If the person uses the [remote address](/admin/remote-access/) and the e-mail code does not arrive at the new address, ask support.
+
 ## What you see afterwards
 
-- **People** lists every account: **Name**, **Email**, **Role**, **Status**, **Last login**. A new account shows "Temporary password" until the first sign-in.
+- **People and access** lists every account: **Name**, **Email**, **Role** (Administrator or Member), **State**, **Last login**, and the buttons.
 - **Product access** lists every assignment: **Person**, **Product**, **Access**, **Assigned**.
 - **Company activity** records each change with your name.
+
+The **State** column:
+
+| State | Meaning | Buttons |
+| --- | --- | --- |
+| Active | The person signs in with their own password. | **Reset password**, **Change name or e-mail**, **Disable** |
+| Must change password | A new account, or a password was reset. The person must choose a new password at the next sign-in. | **Reset password**, **Change name or e-mail**, **Disable** |
+| Disabled | The person cannot sign in. | **Change name or e-mail**, **Enable**, **Remove** |
+| Removed | The account is closed for good. | None |
+
+Your own row, the administrator's, has no buttons. Change your own password under [Your account](/use/your-account/). If you forgot your own password, see [Administrator password](/admin/administrator-password/).
+
+## On the remote address
+
+| Works on the remote address | Only in the office, on https://myai.local/ |
+| --- | --- |
+| **Disable**, **Remove** (they only take access away) | **Create user**, **Reset password**, **Enable**, **Change name or e-mail** |
+
+In the office-only cases the box shows "Enter this in the office, on the local address."
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Create user** | A new member account. | A new colleague. | No. |
+| **Create user** | A new member account. | A new colleague. | Yes: **Disable**, then **Remove**. |
 | **Member** access | The person sees the product. | Default. | Yes. |
 | **Owner** access | The same as Member in this release. Also given automatically to a person whose product request you approve. | The person is responsible for the product. | Yes. |
-| **Remove** | Removes the person from the product. | The person leaves the product. | Yes: assign again. |
+| **Remove** (product access) | Removes the person from the product. | The person leaves the product. | Yes: assign again. |
+| **Reset password** | A new one-time password; the person is signed out. | The person forgot the password. | No, but the person chooses a new one. |
+| **Disable** | The person cannot sign in. | The person leaves, or is away for a long time. | Yes: **Enable**. |
+| **Remove** (person) | Closes the account for good; the e-mail is free again. | The person left and will not come back. | No. Create a new account. |
+| **Change name or e-mail** | A new name or e-mail address. | A typo, a new name, a new address. | Yes: change it again. |
 
 What a member sees does not depend only on product access: every member sees every installed worker in **Chat**, and their own runs and requests.
 
 <NotYet>
-You cannot delete or disable an account, rename it, change its e-mail, reset a forgotten password, or make a second administrator. Workarounds: remove all product access of a person who leaves; give a person who forgot their password a new account with another e-mail. A person whose account still exists can still sign in. Ask support to close an account.
+You cannot make a second administrator or make a member an administrator, change the administrator's own name or e-mail in the portal, or limit which workers a member sees in **Chat**. Ask support.
 </NotYet>
 
 ## Related pages
 
 - [Roles](/start/roles/)
 - [Members](/setup/members/)
+- [Your account](/use/your-account/)
+- [Administrator password](/admin/administrator-password/)
