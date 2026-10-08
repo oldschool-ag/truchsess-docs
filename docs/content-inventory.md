@@ -6,17 +6,23 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261008-12b3acf` (published 2026-10-08,
-  source commit `12b3acf`). It is `truchsess-iso-20261008-f1af221` (the five autonomy levels,
-  section 17) plus hand-offs between workers (task T22b, section 18). Earlier releases:
-  `f6fb33a` added **Administration, Knowledge**; `19aad3e` has everything else below.
+- **Checked against:** box release `truchsess-iso-20261008-1b70539` (published 2026-10-08,
+  source commit `1b70539`). It is `truchsess-iso-20261008-12b3acf` plus one fix (task T39, PR
+  #64): an install question answered with a value the owner policy already allows no longer
+  fails with "duplicate permission". `12b3acf` added hand-offs (section 18), `f1af221` the five
+  autonomy levels (section 17), `f6fb33a` **Administration, Knowledge**; `19aad3e` has
+  everything else below.
 - **Sources read:** the portal page (markup and script), the portal server (routes and
   messages), the modules behind it (accounts, packages, connections, data rule, budget, backups,
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Coming with the next update:** nothing. The main line has no change people can see beyond
-  the checked release (task T16c.0 is a design document only).
+- **Coming with the next update** (on the main line at `33db219`, not in a published release):
+  task T41 (PR #66): an upload the box refuses (a wrong setup code, no session, a bad name) is
+  read to its end, so the browser shows the refusal instead of a connection error; a file above
+  the upload limit is still not read and the connection closes. Task T16c.1 (PR #62) adds a
+  background service for later account connections and changes nothing people see. Not merged
+  when checked: T39b (PR #65), T37 (PR #67), T35 (PR #69), T42, T43, T20.
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
@@ -523,16 +529,24 @@ no start when the monthly budget is used up; the product must be one of the aski
 products. The handed-over task runs with its own worker's permissions, lane and data rule. While
 two tasks wait for work they handed over, a new task can show "Created, waiting for the worker".
 
-## 19. Known issues (reported by the supervisor, 2026-10-08)
+## 19. Known issues (reported by the supervisor and the task PRs, 2026-10-08)
 
 | Issue | Who | Cause | Workaround | Fix |
 | --- | --- | --- | --- | --- |
+| After **Remove** of a failed store install, the store refuses a new install of that package ("already installed"). | Admin | **Remove** ends the row on the box only; the store keeps its reservation (PR #64, "Known gap"). | Use **Retry** for a failed store install; after a Remove, ask support. | Task T39b (PR #65, open) |
 | **Download** of a backup fails in Chrome ("Check Internet connection") on the office address. | Admin | The box's own certificate (Chrome shows "Not secure"). | Use Safari until the fix. | Task T37 |
 | An uninstalled store package is still listed under **Installed packages**, with a "Ready" badge and no buttons. | Admin | A finished record (verified: the row offers no button for the state "uninstalled", and its readiness falls back to "Ready"). | None needed: it is harmless. | Task T38 (Packages page change) |
 
 ## 20. Notes for the Website Owner
 
-- When tasks T37 and T38 ship, remove their rows in section 19 and the matching lines on
-  `/troubleshooting/` and `/admin/packages/`.
+- When tasks T37, T38 and T39b ship, remove their rows in section 19 and the matching lines on
+  `/troubleshooting/` and `/admin/packages/`. When T41 is released, remove its "Coming with the
+  next update" box on `/troubleshooting/` and the matching row there.
+- When T35 (people and accounts) is released, update gaps G1, G2, G4, the member page
+  (`/start/member/`, step 8) and `/admin/users/`.
+- Reader pages never show internal task numbers; `npm run check:text` fails on one. Task
+  numbers stay in this inventory.
+- `/start/member/` says "agent" for the AI workers, as the portal is moving to that word. The
+  other pages still say "worker"; change them when the portal shows "agent".
 - The installer's own texts still name the old product ("Company OS") and an older host name on
   the setup Wi-Fi. The manual tells the reader what they will see.

@@ -27,8 +27,8 @@ npm test          # check:not-yet, build, check:text, check:pages
 | --- | --- |
 | `npm run check:not-yet` | `/not-yet/` does not list the same gaps as `docs/content-inventory.md` |
 | `npm run build` | a broken internal link or anchor (starlight-links-validator), a sidebar entry without a page |
-| `npm run check:text` | an em dash, or a raw placeholder in curly braces, in the sources or the built pages |
-| `npm run check:pages` | a missing fixed page address, or a missing link to the FAIVR store docs |
+| `npm run check:text` | an em dash, a raw placeholder in curly braces, or placeholder text (such as an unset support contact, TODO or TBD), in the sources or the built pages |
+| `npm run check:pages` | a missing fixed page address, a missing link to the FAIVR store docs, or a missing support contact on `/troubleshooting/` or in a "Not possible yet" box |
 
 ## Cloudflare Pages
 
@@ -51,7 +51,7 @@ Cloudflare Pages builds the site with exactly these settings:
 | --- | --- |
 | `src/content/docs/` | The pages. The file path is the page address: `src/content/docs/setup/backup.mdx` is `/setup/backup/`. |
 | `astro.config.mjs` | Site settings, the sidebar, and `redirects` for moved pages. |
-| `src/config/support.mjs` | **The support contact**, shown on every "Not possible yet" box. It is a placeholder until the CEO fills it in. |
+| `src/config/support.mjs` | **The support contact** (`support@truchsess.com`), shown on every "Not possible yet" box and on the troubleshooting page. |
 | `src/components/` | `NotYet` (the "Not possible yet" box), `ComingNext` ("Coming with the next update"), `Unconfirmed`, `SupportContact`. |
 | `docs/content-inventory.md` | Everything a person can see and do on the box, checked against a release, and the gaps. Pages are written from it. |
 | `docs/release-note-template.md` | The "what changed for users" note each product task writes. |

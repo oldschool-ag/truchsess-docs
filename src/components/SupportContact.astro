@@ -1,4 +1,5 @@
 ---
 import { SUPPORT_CONTACT } from '../config/support.mjs';
+const isMail = SUPPORT_CONTACT.includes('@');
 ---
-<span class="support-contact">{SUPPORT_CONTACT}</span>
+{isMail ? <a class="support-contact" href={`mailto:${SUPPORT_CONTACT}`}>{SUPPORT_CONTACT}</a> : <span class="support-contact">{SUPPORT_CONTACT}</span>}

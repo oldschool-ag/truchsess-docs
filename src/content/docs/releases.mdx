@@ -7,9 +7,15 @@ Each box release has a name like `truchsess-iso-20261008-f6fb33a`: the date, the
 
 Only changes people can see or use are listed here.
 
-## truchsess-iso-20261008-12b3acf
+## truchsess-iso-20261008-1b70539
 
 Published 8 October 2026. The current release.
+
+- Fixed: an install no longer fails with "duplicate permission" when an install question is answered with a product, website or repository the owner policy already allows. A row that failed this way installs with **Retry** after the update.
+
+## truchsess-iso-20261008-12b3acf
+
+Published 8 October 2026.
 
 - New: hand-offs between workers. A worker the administrator allowed to "hand work to" another installed worker can give it part of a task while it works and use the answer in its own reply. The other worker uses its own permissions only. The run card lists the handed-over tasks with links, their state and cost, and the total cost. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers).
 - New: "Hands work to other packages" can be raised to "Asks you first" or "Always asks, with a reason". The hand-off then waits for the administrator's approval. See [Approvals and checks](/use/approvals-and-checks/#decide-a-held-hand-off).

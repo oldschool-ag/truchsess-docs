@@ -2,7 +2,9 @@
 // store links it must carry. Run `npm run build` first.
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { readdirSync, statSync } from 'node:fs';
 import { REQUIRED_PAGES, REQUIRED_LINKS } from './required-pages.mjs';
+import { SUPPORT_CONTACT } from '../src/config/support.mjs';
 
 const dist = new URL('../dist/', import.meta.url).pathname;
 const problems = [];
@@ -23,9 +25,31 @@ for (const [page, links] of Object.entries(REQUIRED_LINKS)) {
   }
 }
 
+// The support contact: on the troubleshooting page, and once in every "Not possible yet" box.
+const supportLink = `href="mailto:${SUPPORT_CONTACT}"`;
+const troubleshooting = htmlFor('/troubleshooting/');
+if (troubleshooting !== null && !troubleshooting.includes(supportLink)) problems.push(`/troubleshooting/ does not show the support contact ${SUPPORT_CONTACT}`);
+function htmlFiles(dir, files = []) {
+  for (const name of readdirSync(dir)) {
+    const path = join(dir, name);
+    if (statSync(path).isDirectory()) htmlFiles(path, files);
+    else if (name.endsWith('.html')) files.push(path);
+  }
+  return files;
+}
+let boxes = 0;
+for (const file of htmlFiles(dist)) {
+  const html = readFileSync(file, 'utf8');
+  for (const box of html.match(/<aside aria-label="Not possible yet"[\s\S]*?<\/aside>/g) || []) {
+    boxes += 1;
+    if (!box.includes(supportLink)) problems.push(`${file.slice(dist.length)}: a "Not possible yet" box without the support contact`);
+  }
+}
+if (!boxes) problems.push('no "Not possible yet" box found in dist/: the check cannot see them');
+
 if (problems.length) {
   console.error(`check-pages: ${problems.length} problem(s)`);
   for (const line of problems) console.error(`  ${line}`);
   process.exit(1);
 }
-console.log(`check-pages: all ${REQUIRED_PAGES.length} fixed pages present, every required store link in place`);
+console.log(`check-pages: all ${REQUIRED_PAGES.length} fixed pages present, every required store link in place, the support contact in all ${boxes} "Not possible yet" boxes and on /troubleshooting/`);

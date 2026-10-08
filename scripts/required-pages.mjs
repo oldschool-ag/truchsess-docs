@@ -3,6 +3,7 @@
 // without a redirect in astro.config.mjs.
 export const REQUIRED_PAGES = [
   '/',
+  '/start/member/',
   '/start/roles/',
   '/start/glossary/',
   '/setup/unbox-and-connect/',
