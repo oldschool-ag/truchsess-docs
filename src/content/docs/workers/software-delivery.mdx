@@ -52,20 +52,16 @@ Turns a request into one GitHub issue that a coding tool can carry out: goal, co
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
-| Reads repositories | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Reads repositories | Runs on its own | cannot be raised (Fixed) |
 | Creates and updates issues | Tells you after | Waits for your check |
-| Reads company knowledge | Runs on its own | cannot be raised |
-</ComingNext>
+| Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
 
 ### Bob - Instructions Keeper
 
@@ -90,18 +86,14 @@ Keeps the repository's instruction files for coding tools correct and short: che
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
 | Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
-</ComingNext>
 
 ### Bob - QA Reviewer
 
@@ -131,22 +123,18 @@ Gives an independent verdict that can be repeated on one pull request at one com
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
-| Renders web pages in its sandbox | Runs on its own | cannot be raised |
-| Reads repositories | Runs on its own | cannot be raised |
-| Reads test results | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Renders web pages in its sandbox | Runs on its own | cannot be raised (Fixed) |
+| Reads repositories | Runs on its own | cannot be raised (Fixed) |
+| Reads test results | Runs on its own | cannot be raised (Fixed) |
 | Comments on and reviews pull requests | Tells you after | Waits for your check |
-| Reads company knowledge | Runs on its own | cannot be raised |
-</ComingNext>
+| Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
 
 ### Bob - Security Reviewer
 
@@ -172,19 +160,15 @@ Gives an independent security verdict on one pull request at one commit: secrets
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
-| Reads repositories | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Reads repositories | Runs on its own | cannot be raised (Fixed) |
 | Comments on and reviews pull requests | Tells you after | Waits for your check |
-</ComingNext>
 
 ### Bob - CI Fixer
 
@@ -211,20 +195,16 @@ Finds out why the checks of one pull request fail: it separates infrastructure f
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
-| Reads repositories | Runs on its own | cannot be raised |
-| Reads test results | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Reads repositories | Runs on its own | cannot be raised (Fixed) |
+| Reads test results | Runs on its own | cannot be raised (Fixed) |
 | Comments on and reviews pull requests | Tells you after | Waits for your check |
-</ComingNext>
 
 ### Bob - Merge Gate
 
@@ -251,20 +231,16 @@ Decides whether one pull request is ready for a person to merge (green checks, p
 
 **Default autonomy levels**
 
-Today: everything it is allowed runs on its own. It has no protected actions, so it never asks for an approval.
-
-<ComingNext>
-The next update shows a level for each kind of action, under **Administration**, **Packages**, panel **Autonomy levels**. For this worker the defaults are:
+Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
-| Reads its own workspace | Runs on its own | cannot be raised |
+| Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
-| Reaches the internet through the box's list | Runs on its own | cannot be raised |
-| Reads repositories | Runs on its own | cannot be raised |
-| Reads test results | Runs on its own | cannot be raised |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Reads repositories | Runs on its own | cannot be raised (Fixed) |
+| Reads test results | Runs on its own | cannot be raised (Fixed) |
 | Comments on and reviews pull requests | Tells you after | Waits for your check |
-</ComingNext>
 
 ## What every worker can never do
 

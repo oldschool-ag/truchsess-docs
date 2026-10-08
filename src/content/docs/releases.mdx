@@ -7,9 +7,18 @@ Each box release has a name like `truchsess-iso-20261008-f6fb33a`: the date, the
 
 Only changes people can see or use are listed here.
 
-## truchsess-iso-20261008-f6fb33a
+## truchsess-iso-20261008-f1af221
 
 Published 8 October 2026. The current release.
+
+- New: five autonomy levels for every kind of action a worker does: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason. Each kind of action has a default; the administrator can raise it per package under **Administration**, **Packages**, panel **Autonomy levels**. See [Autonomy levels](/admin/autonomy-levels/).
+- New: checks. A run at "Waits for your check" finishes, but its result is held until the administrator presses **Accept**, or **Send back** with a note for one rework turn. Members see "Waiting for the owner's check". See [Approvals and checks](/use/approvals-and-checks/#check-a-finished-result).
+- New: notices. Writes to knowledge and the workboard, and comments, issues and pushes on GitHub, are listed on the tab **Approvals**, panel **Tells you after**.
+- Changed: "Use credentials" and "Deploy" always ask, with a reason, and can no longer have a standing approval. Older standing approvals for them show "not used: this action always asks".
+
+## truchsess-iso-20261008-f6fb33a
+
+Published 8 October 2026.
 
 - New: **Administration**, sub-tab **Knowledge**. The administrator imports a product's documents (one `.zip`, or `.md` and `.txt` files), reviews every document first, and imports the chosen ones. Workers on the product read them during a task. Earlier versions of changed documents stay readable. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
 

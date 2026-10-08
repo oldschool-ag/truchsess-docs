@@ -1,16 +1,19 @@
 ---
 title: Approvals and checks
-description: How a worker asks before a protected action, how the administrator decides, and standing approvals.
+description: How a worker asks before an action, how the administrator approves or refuses, checks of finished results, notices, and standing approvals.
 ---
 import NotYet from '~/components/NotYet.astro';
-import ComingNext from '~/components/ComingNext.astro';
 
-A worker always asks before a [protected action](/start/glossary/#protected-action): publish, send messages outside, spend money, use credentials, deploy, or chain actions. The run then waits for the administrator.
+The box stops a worker at three points, depending on the [autonomy level](/admin/autonomy-levels/) of the action:
+
+- **Approval** ("Asks you first", "Always asks, with a reason"): the worker asks before it acts. Every [protected action](/start/glossary/#protected-action) asks by default: publish, send messages outside, spend money, chain actions, use credentials, deploy.
+- **Check** ("Waits for your check"): the run finishes, but its result is held until the administrator accepts it.
+- **Notice** ("Tells you after"): the worker acts, and the administrator reads a notice afterwards.
 
 ## Who can do this
 
-- Members see the request on their run card: "Waiting for the CEO administrator to decide."
-- Only the administrator approves or refuses.
+- Only the administrator approves, refuses, accepts and sends back.
+- Members see on their run card: "Waiting for the CEO administrator to decide." or "Waiting for the owner's check".
 
 ## Before you start
 
@@ -18,25 +21,51 @@ The worker must hold the permission for the action. A worker without it is refus
 
 ## Steps
 
-### Decide one request
+### Decide an approval
 
 1. Open the run card in **Chat**, or the tab **Approvals**, panel **Waiting for your decision**.
-2. Read the block "... asks to ...": what the worker wants to do, the limit if there is one, and what it wrote.
+2. Read the block "... asks to ...": the level label, what the worker wants to do, the limit if there is one, and what it wrote.
 3. Press **Approve** or **Refuse**.
-4. A reason field appears with a default text. Change it if you want. The reason goes into the audit trail.
+4. A reason field appears. For "Asks you first" it has a default text; change it if you want. For "Always asks, with a reason" the field says **Reason (required)** and you must write one: "This action always asks, and your decision needs a reason."
 5. Press **Confirm approve** or **Confirm refuse** within 10 seconds.
+
+### Decide a held write
+
+When "Writes company knowledge" or "Changes the workboard" is set to "Asks you first" or higher, the worker writes nothing until you decide. The approval card says "Nothing is written yet. Approve writes it exactly as shown; Refuse writes nothing." and shows what would be written.
+
+1. Read what would be written.
+2. Press **Approve** (the box writes it now) or **Refuse** (nothing is written, the run goes on), then confirm.
+
+### Check a finished result
+
+A run at "Waits for your check" shows "Waiting for your check" on its card and on the tab **Approvals**, panel **Waiting for your decision**.
+
+1. Read the result and the files on the card.
+2. Press **Accept**. A field **Note (optional)** appears. Press **Confirm accept**. The run is finished, and its result is shown to everyone who may see the run.
+3. Or press **Send back**. Write in **Note for the package** what the worker should change (required), then press **Confirm send back**. The worker gets one rework turn with your note. Then the result waits for your check again.
+
+A run can be sent back only once. The second time the card says "Sent back once already: accept it, or cancel the run."
+
+### Read notices
+
+1. Open the tab **Approvals**, panel **Tells you after**. It lists what workers did on their own at "Tells you after": writes to company knowledge and the workboard, and comments, issues and pushes in repositories.
+2. Press **Mark all as seen** when you have read them.
+
+The run card also shows each notice as "Told you after: ...".
 
 ### Grant a standing approval
 
-A [standing approval](/start/glossary/#standing-approval) lets one worker do one protected action without asking, up to a limit.
+A [standing approval](/start/glossary/#standing-approval) lets one installed worker do one protected action without asking, up to a limit.
 
-1. Open the tab **Approvals**.
-2. In **Grant a standing approval**, choose the **Package** (the installed worker).
-3. Choose the **Action**: **Publish**, **Send messages outside**, **Spend money**, **Use credentials**, **Deploy** or **Chain actions**.
+1. Open the tab **Approvals**, panel **Grant a standing approval**.
+2. Choose the **Package** (the installed worker).
+3. Choose the **Action**: **Publish**, **Send messages outside**, **Spend money** or **Chain actions**.
 4. Enter the **Limit per calendar month**: a number of times, or an amount for **Spend money**.
 5. Choose **Expires on**. The box suggests three months from today.
 6. Optional: write a **Note (optional)**.
 7. Press **Grant**.
+
+"Use credentials" and "Deploy" always ask, with a reason, so they have no standing approval. A worker whose action you raised to "Always asks, with a reason" is not covered by a standing approval either.
 
 ### Revoke a standing approval
 
@@ -46,30 +75,32 @@ A [standing approval](/start/glossary/#standing-approval) lets one worker do one
 ## What you see afterwards
 
 - **Approve**: the worker continues and carries out exactly the approved action. The card shows "Action ...: approved by ...".
-- **Refuse**: the run fails with "Refused by your name: your reason".
+- **Refuse**: for a protected action, the run fails with "Refused by your name: your reason". For a held write, nothing is written and the run goes on.
+- **Accept**: the run shows "Finished" and "Result accepted by ...". A member now sees the result and the files.
+- **Send back**: the card shows "Sent back for one rework turn by ...: your note", and the run works again.
 - A request covered by a standing approval shows "covered by a standing approval" and does not wait.
-- **Standing approvals** lists each grant with **Limit**, **Used**, **Expires**, **Granted by** and **Status**.
+- **Standing approvals** lists each grant with **Limit**, **Used**, **Expires**, **Granted by** and **Status**. A grant for an action that always asks shows "not used: this action always asks".
 
-## Standing approvals
+## Checks
+
+While a result waits for the check, a member who started the run sees "The result waits for the owner's check. You see it once the owner accepts it." The member cannot open the run's files until then. If the run is cancelled before **Accept**, the result stays hidden: "The run was cancelled before the owner accepted its result."
+
+A check holds the result, not what the worker already did. Files in its workspace, a knowledge revision, a workboard change, or a comment, issue or branch on GitHub stay as they are. An earlier knowledge revision can be restored; GitHub items can be closed or deleted on GitHub.
+
+## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Approve** | The worker does the action. | You agree with exactly what is described. | No. |
-| **Refuse** | The run fails. Nothing is done. | You do not agree, or the description is unclear. | No. Start a new task. |
+| **Approve** | The worker does the action, or the held write is written. | You agree with exactly what is shown. | No. |
+| **Refuse** | Nothing is done. A refused protected action fails the run. | You do not agree, or the description is unclear. | No. Start a new task. |
+| **Accept** | Releases the held result. | The result is right. | No. |
+| **Send back** | One rework turn with your note. | The result needs a change. Once per run. | No. |
 | **Grant** | The worker does this action without asking until the limit or the expiry. Over the limit it asks again. | A repeated, low-risk action. | Yes: **Revoke**. |
 
 A standing approval covers one installed worker. A second install of the same package needs its own standing approval.
 
-## Checks
-
-A check is a person looking at a finished result before it counts. In this release the box has no separate check step: the result is shown as soon as the run is finished. Read it before you use it. For anything that leaves the box, the approval above is the stop.
-
-<ComingNext>
-**Checks.** With the next update, the administrator can set a worker's action to "Waits for your check". The run then finishes, but its result is held. The administrator sees "Waiting for your check" on the run card and on the tab **Approvals**, and presses **Accept** or **Send back** with a note (the worker then works on it once more). The member who started the run sees "Waiting for the owner's check" and gets the result after **Accept**. A panel **Tells you after** on the tab **Approvals** lists what workers did at the level "Tells you after". See [Autonomy levels](/admin/autonomy-levels/).
-</ComingNext>
-
 <NotYet>
-Members and product owners cannot decide approvals, and the box sends no e-mail or chat message when an approval is waiting: the administrator looks at the tab **Approvals**.
+Members and product owners cannot decide approvals or checks, and the box sends no e-mail or chat message when something waits: the administrator looks at the tab **Approvals**.
 </NotYet>
 
 ## Related pages

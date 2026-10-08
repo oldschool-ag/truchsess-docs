@@ -7,16 +7,15 @@ The words in this list are linked from the other pages. They are in alphabetical
 
 ## Approval
 
-A decision by the administrator before a worker does a [protected action](#protected-action).
+A decision by the administrator before a worker does a [protected action](#protected-action), or any action set to "Asks you first" or "Always asks, with a reason".
 The worker stops and asks. The administrator presses **Approve** or **Refuse** and gives a reason.
 Every decision is written to the run's audit trail with the name of the person.
 See [Approvals and checks](/use/approvals-and-checks/).
 
 ## Autonomy level
 
-How much a worker may do on its own before a person looks at it.
-In this release there is one fixed rule: every protected action asks the administrator first, unless a [standing approval](#standing-approval) covers it.
-The next update adds five levels: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason.
+How much a worker may do on its own before a person looks at it. There are five levels: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason.
+Each kind of action has a default level. The administrator can raise it for one package, never lower it below the default.
 See [Autonomy levels](/admin/autonomy-levels/).
 
 ## Box
@@ -32,9 +31,7 @@ See [Budget](/admin/budget/).
 
 ## Check
 
-A step where a person looks at a result before it counts.
-In this release the box has no separate check step: a finished result is shown at once. The [approval](#approval) before a protected action is the only stop.
-The next update adds the level "Waits for your check": the result is held until the administrator presses **Accept** or **Send back**.
+A step where a person looks at a result before it counts. At the level "Waits for your check", the run finishes but its result is held until the administrator presses **Accept**, or **Send back** with a note for one rework turn.
 See [Approvals and checks](/use/approvals-and-checks/).
 
 ## Connection
@@ -108,7 +105,7 @@ See [Follow a run](/use/follow-a-run/).
 ## Standing approval
 
 A permission from the administrator for one worker to do one protected action without asking each time, up to a limit per month and until an expiry date.
-Over the limit, the worker asks again. See [Approvals and checks](/use/approvals-and-checks/#standing-approvals).
+Over the limit, the worker asks again. See [Approvals and checks](/use/approvals-and-checks/#grant-a-standing-approval).
 
 ## Worker
 
