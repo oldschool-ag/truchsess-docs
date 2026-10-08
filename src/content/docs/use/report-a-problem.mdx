@@ -1,0 +1,56 @@
+---
+title: Report a problem
+description: What to collect and who to tell when something on the box does not work.
+---
+import NotYet from '~/components/NotYet.astro';
+import SupportContact from '~/components/SupportContact.astro';
+
+## Who can do this
+
+Everyone. Members tell their administrator first. The administrator contacts support.
+
+## Before you start
+
+Look at [Troubleshooting](/troubleshooting/). Many problems have a simple fix there.
+
+## Steps
+
+### Members
+
+1. Note the time, the worker and what you asked for.
+2. Copy the exact message the portal showed.
+3. If it is about a run: open **Runs**, find the run and note its time and state.
+4. Send this to your administrator.
+
+### Administrators
+
+1. Collect what the member sent.
+2. For a run: open **Runs**, press **Audit** on the run, and copy the events. The card in **Chat** shows the run's id when you hold the mouse over its top line.
+3. For an update: open **Administration**, **General**, panel **System**, and open **Details (update log)**.
+4. For the installer: in the setup page, press **Copy logs** or **Download log file**.
+5. For a worker that cannot run: copy the line from **Installed packages** (state, **Ready**, and the error if one is shown).
+6. Write down the **Running release** from the panel **System**.
+7. Send all of this, with a short description, to support: <SupportContact />
+
+Never send passwords, API keys or the recovery key. The box never shows them in these places, but check what you paste. The installer log contains the one-time bootstrap code; it is used up once the administrator account exists.
+
+## What you see afterwards
+
+Support answers you. When the fix needs a new box release, you install it with **Update now**. See [Updates](/admin/updates/).
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Run the sandbox tests** (Administration, Packages, Self-tests) | Checks that the box keeps workers closed in. | Support asks for it, or you suspect a box problem. | n/a |
+| **Run the Connection secrecy test** | Checks that workers cannot read keys. | After connection problems. | n/a |
+| **Run the gateway test** | A deeper test. Chat is unavailable for several minutes. | Only when support asks. | n/a |
+
+<NotYet>
+There is no "Report a problem" button in the portal, and the box sends nothing to support by itself. Collect the details above and send them yourself.
+</NotYet>
+
+## Related pages
+
+- [Troubleshooting](/troubleshooting/)
+- [Audit and status](/admin/audit-and-status/)

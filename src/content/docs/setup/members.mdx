@@ -1,0 +1,64 @@
+---
+title: "Step 5: Members"
+description: Create accounts for your colleagues and give them access to products.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator creates the accounts. Each member then signs in once and sets a password.
+
+## Before you start
+
+- The name and work e-mail of each person.
+- At least one [product](/start/glossary/#product). To add one, see [Products and knowledge](/admin/products-and-knowledge/#add-a-product).
+- You are in the office, on **https://myai.local/**. Accounts cannot be created from the remote address.
+
+## Steps
+
+### Create an account
+
+1. Open **Administration**, sub-tab **General**.
+2. In the panel **Add a user**, enter the **Name** and the **Work email**.
+3. Press **Create user**.
+4. The box shows a line "Temporary password for ...". Copy it now. It is not shown again.
+5. Give the temporary password to the person in a safe way (in person, or by phone). Do not send it in the same e-mail as the address of the box.
+
+### Give access to a product
+
+1. In the panel **Assign product access**, choose the **User**.
+2. Choose the **Product**.
+3. Choose the **Access**: **Member** or **Owner**.
+4. Press **Assign access**.
+
+### The member's first sign-in
+
+1. The member opens **https://myai.local/** in the office.
+2. On **Sign in**, the member enters the **Work email** and the temporary **Password**.
+3. The page **Change your temporary password** opens.
+4. The member enters the **Temporary password**, then a **New password** (at least 12 characters, upper-case and lower-case letters and a number).
+5. The member presses **Change password**.
+
+## What you see afterwards
+
+- The new person appears in the panel **People** with the role "member". Until the first sign-in the status is "Temporary password".
+- The assignment appears in the panel **Product access**.
+- The member sees the tabs **Chat**, **Runs**, **Products** and **Requests**, and in **Chat** every installed worker.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Create user** | Creates a member account. | For each colleague. | No. An account cannot be deleted or disabled. |
+| Access **Member** | The person sees the product and its agents. | Default. | Yes: **Remove** in **Product access**. |
+| Access **Owner** | The same as Member in this release. | When the person is responsible for the product. | Yes. |
+
+<NotYet>
+You cannot delete or disable an account, change its e-mail, or reset a forgotten password. To stop someone using a product, remove their product access. To give a person a new password, create a new account with a different e-mail address. A removed person can still sign in and see the installed workers in **Chat**; ask support if you need to close an account. Every member also sees every installed worker in **Chat**; you cannot hide a worker from a member.
+</NotYet>
+
+## Related pages
+
+- Next step: [Connections](/setup/connections/)
+- [Users](/admin/users/)
+- [Roles](/start/roles/)

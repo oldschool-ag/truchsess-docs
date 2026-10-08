@@ -1,0 +1,73 @@
+---
+title: Follow a run
+description: Read the state, cost, result and audit trail of a task, and cancel it if needed.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+Administrators see every run. Members see only the runs they started.
+
+## Before you start
+
+You have started a task. See [Start a task](/use/start-a-task/).
+
+## Steps
+
+### On the run card (tab Chat)
+
+1. Open **Chat** and choose the worker under **Package**.
+2. Each card is one run. The card updates by itself every few seconds.
+3. Read the state at the top of the card. The words are explained [below](#what-the-states-mean).
+4. Click a result file (for example `result.md`) or an image to open it in the panel next to the chat. **Open raw** shows the file itself. **Close** closes the panel.
+
+### In the run history (tab Runs)
+
+1. Open the tab **Runs**.
+2. Choose a worker under **Package**, or keep **All packages**.
+3. Read the table: **Started**, **Package**, **Task**, **State**, **Ended**, **Lane**, **Tokens**, **Cost**, **Approvals**, **Files**.
+4. Press **Audit** to see every event of the run: **Time**, **Event**, **Actor**, **Summary**. **Close** closes it.
+
+### Cancel a run
+
+1. On the card or in **Runs**, press **Cancel run**.
+2. A reason field appears. Write why, or keep "Not needed any more."
+3. Press **Confirm cancel** within 10 seconds. **Cancel** keeps the run going.
+
+## What you see afterwards
+
+- A finished run shows "Finished", the worker's reply, the result and its files.
+- A cancelled run shows "Cancelled" with the reason.
+- A failed run shows "Failed:" and the reason in the box's own words.
+
+### What the states mean
+
+| State | Meaning |
+| --- | --- |
+| Created, waiting for the worker | The box has the task and is starting the worker. |
+| Running in the package sandbox | The worker is working in its own closed workspace. |
+| Running | The run is in progress. |
+| Waiting for your approval | The worker asked for a protected action. The administrator decides. See [Approvals and checks](/use/approvals-and-checks/). |
+| Finished | Done. Read the result. |
+| Failed | Stopped with an error. The reason is on the card. |
+| Cancelled | Someone cancelled it. |
+
+A worker step may take up to 10 minutes, or 30 minutes for a worker that uses a web browser. If a step takes longer, the box tries once more, then the run fails.
+
+The cost line shows the cost so far. "(estimate)" means the box estimated it from the price list.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Cancel run** | Stops the worker. Nothing is retried. | The task is wrong or no longer needed. | No. Start a new task instead. |
+| **Show self-tests** (Runs) | Also shows the box's own test runs. | Only when support asks. | Yes. |
+
+<NotYet>
+You cannot continue a finished run, reply to a worker inside a run, or share a run with a colleague. Send a new task that refers to the earlier result, and share the result file another way. Members cannot see the runs of other people.
+</NotYet>
+
+## Related pages
+
+- [Approvals and checks](/use/approvals-and-checks/)
+- [Report a problem](/use/report-a-problem/)

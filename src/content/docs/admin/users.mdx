@@ -1,0 +1,62 @@
+---
+title: Users
+description: Create accounts, give product access, remove access, and what is not possible yet.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator, in the office on **https://myai.local/**. Creating accounts is refused on the remote address.
+
+## Before you start
+
+- The person's name and work e-mail. One e-mail can have only one account.
+- The product the person should work on. See [Products and knowledge](/admin/products-and-knowledge/).
+
+## Steps
+
+### Create an account
+
+1. Open **Administration**, sub-tab **General**, panel **Add a user**.
+2. Enter **Name** and **Work email**.
+3. Press **Create user**.
+4. Copy the temporary password from the line "Temporary password for ...". It is not shown again.
+5. Give it to the person safely. At the first sign-in they choose their own password. See [Members](/setup/members/#the-members-first-sign-in).
+
+### Give product access
+
+1. In **Assign product access**, choose **User**, **Product** and **Access** (**Member** or **Owner**).
+2. Press **Assign access**. The box shows "Product access assigned."
+
+Assigning again with another **Access** changes the access.
+
+### Remove product access
+
+1. In the panel **Product access**, find the line.
+2. Press **Remove**, then **Confirm remove**.
+
+## What you see afterwards
+
+- **People** lists every account: **Name**, **Email**, **Role**, **Status**, **Last login**. A new account shows "Temporary password" until the first sign-in.
+- **Product access** lists every assignment: **Person**, **Product**, **Access**, **Assigned**.
+- **Company activity** records each change with your name.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Create user** | A new member account. | A new colleague. | No. |
+| **Member** access | The person sees the product. | Default. | Yes. |
+| **Owner** access | The same as Member in this release. Also given automatically to a person whose product request you approve. | The person is responsible for the product. | Yes. |
+| **Remove** | Removes the person from the product. | The person leaves the product. | Yes: assign again. |
+
+What a member sees does not depend only on product access: every member sees every installed worker in **Chat**, and their own runs and requests.
+
+<NotYet>
+You cannot delete or disable an account, rename it, change its e-mail, reset a forgotten password, or make a second administrator. Workarounds: remove all product access of a person who leaves; give a person who forgot their password a new account with another e-mail. A person whose account still exists can still sign in. Ask support to close an account.
+</NotYet>
+
+## Related pages
+
+- [Roles](/start/roles/)
+- [Members](/setup/members/)

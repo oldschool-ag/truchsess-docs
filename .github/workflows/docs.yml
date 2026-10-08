@@ -1,0 +1,36 @@
+name: Docs
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install the pinned dependencies
+        run: npm ci
+
+      - name: "/not-yet/ lists the same gaps as docs/content-inventory.md"
+        run: npm run check:not-yet
+
+      - name: "Build (fails on a broken internal link or anchor: starlight-links-validator)"
+        run: npm run build
+
+      - name: No em dash and no raw placeholder
+        run: npm run check:text
+
+      - name: Every fixed page address and every required store link is present
+        run: npm run check:pages

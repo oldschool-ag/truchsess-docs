@@ -1,0 +1,53 @@
+---
+title: "Step 2: First run"
+description: Create the administrator account on a new box, or restore a backup instead.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator, once, on a new box.
+
+## Before you start
+
+- The box is installed. See [Unbox and connect](/setup/unbox-and-connect/).
+- The **CEO bootstrap code** from the end of the installation.
+- A password for yourself: at least 12 characters, with upper-case and lower-case letters and a number.
+
+## Steps
+
+1. Open **https://myai.local/** in your browser.
+2. The page **Create the CEO administrator** opens.
+3. Enter your name under **CEO name**.
+4. Enter your e-mail address under **Work email**. You sign in with it.
+5. Enter your **Password**.
+6. Enter the code under **Bootstrap code**.
+7. Press **Create administrator**.
+
+## What you see afterwards
+
+- You are signed in. The header shows your name and "CEO administrator".
+- The box asks you at once to choose its AI: the page **Choose the appliance AI**. Continue with [AI providers](/setup/ai-providers/).
+- The bootstrap code is used up. It cannot create a second account.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Create administrator** | Creates the one administrator account of the box. | A new box for a new start. | No. The account cannot be removed or replaced in the portal. |
+| **Restore from a backup** (link under the form) | Brings back the users, workers, tasks and settings of another box from a backup file. You sign in with the accounts from the backup. | You move to a new box, or you replace a broken box. See [Backup and restore](/admin/backup-and-restore/#restore-on-a-new-box). | No, once started. |
+
+## If something goes wrong
+
+- "The bootstrap code is missing or wrong.": check the code. Letters are upper-case. The letters O and I and the numbers 0 and 1 are never used.
+- "Too many login attempts. Wait 15 minutes and try again.": wait 15 minutes.
+- Lost the code: on the box's console (screen and keyboard), the command shown in the note under the form prints it again, as long as no account exists. Ask support if you need help.
+
+<NotYet>
+You cannot change the administrator's e-mail address or reset a forgotten administrator password in the portal. Keep the password in a password manager. If it is lost, ask support.
+</NotYet>
+
+## Related pages
+
+- Next step: [AI providers](/setup/ai-providers/)
+- [Roles](/start/roles/)

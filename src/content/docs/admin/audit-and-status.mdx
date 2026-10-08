@@ -1,0 +1,57 @@
+---
+title: Audit and status
+description: Where the box records what happened, who did it, and how to check that the box is healthy.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator. Members see the audit trail of their own runs only.
+
+## Before you start
+
+Nothing. Everything here only reads.
+
+## Where things are recorded
+
+| Place | What it shows | Who |
+| --- | --- | --- |
+| **Runs**, **Audit** on a run | Every event of one run: when it started, each step, each approval decision with the name, each knowledge or workboard call, cancel, failure. | Administrator: every run. Member: own runs. |
+| **Administration**, **General**, **Company activity** | The last 200 events of the box: sign-ins, accounts, product access, requests, approvals, work given to workers, package changes, provider changes. Columns **Time**, **Person**, **Activity**, **Type**. | Administrator |
+| **Administration**, **General**, **Budget**, **Budget events** | Warnings, stops, refused runs, top-up requests. | Administrator |
+| **Administration**, **General**, **Backups**, **Backup history** | Backups, key changes, restores. | Administrator |
+| **Administration**, **Connections**, **Recent changes** | Who connected, replaced or removed a connection. Never a secret. | Administrator |
+| **Administration**, **Packages**, **Owner policy** | "Last change ... by ..." | Administrator |
+| **Administration**, **General**, **Earlier assistant conversations** | Old chats of the removed built-in assistant, kept for the record. | Administrator |
+
+## Status
+
+### Steps
+
+1. **Header**: the status line shows the AI provider and model when the box is ready ("Ready"), or "Starting" while it starts.
+2. **Administration**, **General**, **System**: **Running release** and **Newest available**.
+3. **Administration**, **Packages**: the line under the sub-tab says what the box's helper did last ("Last helper request: ...").
+4. **Installed packages**: **State** and **Ready** of each worker.
+5. **Self-tests**: press **Run the sandbox tests** or **Run the Connection secrecy test**. Each shows a result line and the full output.
+
+## What you see afterwards
+
+A self-test ends with "Done" and the result line, or "Failed" and the probes that failed. The last run of each test stays visible.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Run the sandbox tests** | Checks that workers stay inside their closed workspace. | After an update, or when support asks. | n/a |
+| **Run the Connection secrecy test** | Checks that workers cannot read any key. | After a connection change. | n/a |
+| **Run the gateway test** | "The gateway test restarts the assistant runtime twice and takes several minutes. Chat is unavailable meanwhile." Refused while a run is active. | Only when support asks. | n/a |
+| **Show self-tests** (Runs) | Shows the test runs in the run history. | When you look at a self-test. | Yes. |
+
+<NotYet>
+You cannot search or export the activity or the audit trail, and the box keeps only the last 200 events in **Company activity**. Copy what you need. The box sends no alerts.
+</NotYet>
+
+## Related pages
+
+- [Follow a run](/use/follow-a-run/)
+- [Report a problem](/use/report-a-problem/)

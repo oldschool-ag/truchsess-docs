@@ -1,0 +1,52 @@
+---
+title: "Step 4: Budget"
+description: Set the monthly AI budget of the box and the warning and stop levels.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator.
+
+## Before you start
+
+- The AI provider is set. See [AI providers](/setup/ai-providers/).
+- Know your monthly amount. With **Managed by Old School**, your metered key has a limit from the vendor. Your budget cannot be higher than that limit.
+
+## Steps
+
+1. Open **Administration**, sub-tab **General**.
+2. Scroll to the panel **Budget**.
+3. Under **Edit the budget**, enter the **Monthly limit** as a whole amount.
+4. Enter **Warn at (percent)**. The default is 80.
+5. Enter **Stop new runs at (percent)**. The default is 100.
+6. Enter **Period starts on day** (1 to 28). The default is 1.
+7. Leave **Billing rate** as it is unless the vendor gave you another rate.
+8. Press **Save budget**.
+
+## What you see afterwards
+
+- The panel shows **Monthly limit**, **Used this period**, **Remaining** and **Projected for the period**.
+- When usage reaches the warn level, everyone sees a yellow banner above the chat. Tasks still start.
+- When usage reaches the stop level, the banner turns red and new tasks do not start. Tasks already running finish their current step.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Monthly limit** | The most the box may spend per period. With **Managed by Old School**, 0 means "the key's limit is the budget". | Always set it. | Yes. |
+| **Warn at (percent)** | When the yellow warning starts. | Lower it for an earlier warning. | Yes. |
+| **Stop new runs at (percent)** | When new tasks stop. | Keep 100 unless you want a safety margin. | Yes. |
+| **Period starts on day** | The day the budget period begins each month. | Match your billing month. | Yes. |
+| **Billing rate** | How the provider's currency is converted to yours. | Only when the vendor tells you. | Yes. |
+
+With **Own key**, nothing is enforced: "In own-key mode the limit is informational; switch the provider to "Managed by Old School" to enforce it." The panel shows the box's own usage estimate.
+
+<NotYet>
+You cannot set a budget per worker or per member. The panel shows the cost per worker in **Per package this period**, so you can see who uses what.
+</NotYet>
+
+## Related pages
+
+- Next step: [Members](/setup/members/)
+- [Budget](/admin/budget/): top-up requests and what each number means

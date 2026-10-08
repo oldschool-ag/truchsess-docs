@@ -1,0 +1,61 @@
+---
+title: "Step 3: AI providers"
+description: Choose which AI service the box uses, and enter its key.
+---
+import NotYet from '~/components/NotYet.astro';
+
+The box does not contain an AI model. It sends each task to an AI provider that you choose. This step connects the box to one provider.
+
+## Who can do this
+
+The administrator.
+
+## Before you start
+
+Decide two things:
+
+1. **Who pays the AI provider.**
+   - **Own key**: your company has an account with a provider and an API key (a secret code from the provider's website).
+   - **Managed by Old School**: the vendor of the box issued a metered key for your box, with a monthly limit. You received this key from the vendor.
+2. **Which provider.** If your data may only be processed in Switzerland, choose **PHOENIQS (Switzerland)**. See [Swiss-only](/admin/ai-providers-and-lanes/#the-swiss-only-option).
+
+## Steps
+
+1. The page **Choose the appliance AI** opens by itself after the first sign-in. Later you find it under **Administration**, **General**, panel **People**, button **Change AI provider**.
+2. Choose the **Billing mode**: **Own key** or **Managed by Old School**.
+3. Choose the **Provider**. With **Managed by Old School** the provider is fixed to OpenRouter.
+4. Check the **Model ID**. The box suggests a default model for the provider. Keep it unless you know you need another.
+5. Choose the **Credential type** if there is more than one.
+6. Paste the key into the key field (its label names the key, for example "OpenAI API key").
+7. With **Managed by Old School** you may enter the **Key label from Old School (optional)**.
+8. Press **Save provider**.
+
+## What you see afterwards
+
+- The page **Starting the assistant** appears: "This page will continue automatically."
+- Then the portal opens on the tab **Chat**. The status line in the header shows the provider and the model.
+- The box has filled the three [model lanes](/start/glossary/#model-lane) with the provider's default models. You can change them later.
+- The key stays on the box. The portal never shows it again.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Own key** | Uses your company's own provider key. The vendor meters nothing. The budget is shown for information only and is not enforced. | You already pay a provider. | Yes, change it any time. |
+| **Managed by Old School** | Uses the metered key the vendor issued, through OpenRouter. The monthly [budget](/start/glossary/#budget) is enforced. | You want one bill from the vendor and a hard monthly limit. | Yes. |
+| OpenAI, Anthropic, Google Gemini, xAI / Grok, OpenRouter, Kimi / Moonshot | Well-known AI services. You need an API key from the service. | You have an account there. | Yes. |
+| **PHOENIQS (Switzerland)** | Open models hosted only in Switzerland. The provider states it never keeps your data and never trains on it. Needs a PHOENIQS API key. The box does not meter it. | Your data must stay in Switzerland. | Yes. |
+| **Local model / Ollama** | A model server in your own network. | You run your own model server. | Yes. |
+| **Private or custom provider** | Any service with a compatible interface. You enter **Provider name**, **API base URL** and **API format**. | Your IT runs a private model service. | Yes. |
+
+Changing the provider later rewrites the model lanes with the new provider's defaults. Then press **Apply to installed packages** under **Administration**, **Packages**, **Model lanes**, so that installed workers use the new models. See [AI providers and lanes](/admin/ai-providers-and-lanes/).
+
+<NotYet>
+There is no AI model inside the box yet. The choice "on this box only" in the data rule refuses every task today. Use PHOENIQS (Switzerland) if your data must not leave Switzerland.
+</NotYet>
+
+## Related pages
+
+- Next step: [Budget](/setup/budget/)
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)
+- [Data rule](/start/glossary/#data-rule)

@@ -1,0 +1,59 @@
+---
+title: "Roles: who can do what"
+description: The administrator and the member, and a table of what each one can do in the portal.
+---
+import NotYet from '~/components/NotYet.astro';
+
+A Truchsess box has two roles. Every person has their own account.
+
+- **Administrator.** The first account on the box. The portal calls it **CEO administrator**. There is exactly one.
+- **Member.** Every account the administrator creates afterwards.
+
+The header of the portal shows your name and your role, for example "Anna · member".
+
+## Who can do what
+
+| What | Administrator | Member |
+| --- | --- | --- |
+| Give a task to an installed [worker](/start/glossary/#worker) (tab **Chat**) | Yes | Yes |
+| See the list of installed workers in **Chat** | Yes, all | Yes, all |
+| See runs (tab **Runs**) | All runs | Only your own runs |
+| Cancel a run | Every run | Only runs you started |
+| Approve or refuse a protected action ([approval](/start/glossary/#approval)) | Yes | No, you see "Waiting for the CEO administrator to decide." |
+| Grant or revoke a standing approval (tab **Approvals**) | Yes | No |
+| See products (tab **Products**) | All products | Products assigned to you, and your pending requests |
+| Add a product at once | Yes | No |
+| Request a new product, or request another agent | Yes | Yes |
+| See your requests and their decision (tab **Requests**) | Yes | Yes, your own |
+| Decide product and agent requests | Yes | No |
+| Create user accounts and assign product access | Yes | No |
+| Choose the AI provider, the data rule and the model lanes | Yes | No |
+| Install, change, update and uninstall workers | Yes | No |
+| Use the store (enrol, subscribe, cancel) | Yes | No |
+| Import knowledge documents | Yes | No |
+| Add connections (GitHub, API keys) | Yes | No |
+| Set the budget, request a top-up | Yes | No, but you see the budget banner |
+| Make backups, restore, update the box | Yes | No |
+| Switch remote access on or off | Yes | No |
+| Use the remote address (when it is on) | Yes | Yes |
+| See the company activity and the audit trail of every run | Yes | Only the audit trail of your own runs |
+
+Only the administrator sees the tabs **Approvals** and **Administration**.
+
+## Product access: owner and member
+
+The administrator can give a person access to a product as **Member** or **Owner**.
+A person who requests a product becomes its owner when the request is approved.
+
+In this release, owner and member see and do the same things in the portal.
+A product owner is not an administrator: an owner cannot install workers, approve actions or change settings.
+
+<NotYet>
+There is only one administrator. You cannot add a second administrator or make a member an administrator. Ask the administrator to do administrator tasks.
+</NotYet>
+
+## Related pages
+
+- [Glossary](/start/glossary/)
+- [Members](/setup/members/)
+- [Users](/admin/users/)

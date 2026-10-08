@@ -1,0 +1,67 @@
+---
+title: Autonomy levels
+description: What a worker may do on its own today, the default for each kind of action, and standing approvals.
+---
+import NotYet from '~/components/NotYet.astro';
+
+An [autonomy level](/start/glossary/#autonomy-level) says how much a worker may do on its own before a person looks at it.
+
+## Who can do this
+
+The administrator sets what workers may do. Members cannot change it.
+
+## Before you start
+
+Read [Approvals and checks](/use/approvals-and-checks/).
+
+## The levels in this release
+
+This release has one fixed set of rules. There is no setting to choose a level per action. The rules, from "on its own" to "asks every time":
+
+| Kind of action | What the worker does today | Where you control it |
+| --- | --- | --- |
+| Read and write files in its own workspace, run commands in its sandbox | On its own. | [Owner policy](/admin/packages/#owner-policy) |
+| Reach the internet through the allowlist, render web pages | On its own, only to allowed hosts. | Owner policy, install questions |
+| Read a repository, read test results | On its own, only its own repositories. | Owner policy, install questions |
+| Push its own branches, open pull requests, comment, review, create issues | On its own, only its own repositories. It can never merge, push to the default branch, or create tags or releases. | Owner policy, install questions |
+| Read and write knowledge, read and change the workboard | On its own. Every write keeps the earlier knowledge version. Every call is in the run's audit trail. | Owner policy |
+| Publish, send messages outside, spend money, use credentials, deploy, chain actions | **Asks the administrator first, every time.** | [Approvals](/use/approvals-and-checks/) |
+
+The default for every protected action is "ask every time". The administrator can change this for one worker and one action with a standing approval.
+
+## Steps
+
+### Let a worker do one protected action without asking
+
+1. Open the tab **Approvals**, panel **Grant a standing approval**.
+2. Choose the **Package**, the **Action**, the **Limit per calendar month** and **Expires on**.
+3. Press **Grant**.
+
+Over the limit, after the expiry, or after **Revoke**, the worker asks again.
+
+### Make a worker do less
+
+1. Remove the permission in **Owner policy** and press **Save policy**. This affects workers installed afterwards.
+2. For an installed worker: press **Change** and skip an optional install question, or **Uninstall** it and install it again.
+
+## What you see afterwards
+
+- Each run card shows every decision: "approved by ...", "refused by ..." or "covered by a standing approval".
+- The audit trail of each run lists its steps, each approval decision, and each knowledge or workboard call.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| Ask every time (default) | The run waits for your decision. | New workers, risky actions. | n/a |
+| Standing approval | The worker does one action without asking, within a monthly limit and until a date. | A repeated action you trust. | Yes: **Revoke**. |
+| Remove a permission | The worker cannot do it at all. | You never want it. | Yes: allow it again (for new installs). |
+
+<NotYet>
+A setting with several autonomy levels per action (for example "tells you after", or "waits for your check before the result counts") is being built and is not in this release. Until then: every protected action asks first, use standing approvals for repeated actions, and read results before you use them. Hand-offs from one worker to another inside a task are also not in this release; start a second task with the other worker.
+</NotYet>
+
+## Related pages
+
+- [Approvals and checks](/use/approvals-and-checks/)
+- [Packages](/admin/packages/)

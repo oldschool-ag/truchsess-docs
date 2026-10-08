@@ -1,0 +1,75 @@
+---
+title: Budget
+description: Read the budget panel, change the limits, request a top-up, and what members see.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+- The administrator reads and changes the budget on **Administration**, sub-tab **General**, panel **Budget**.
+- Members see the budget banner above the chat and the budget line on the tab **Runs**.
+
+## Before you start
+
+Know your billing mode (see [AI providers](/setup/ai-providers/#your-choices)):
+
+- **Managed by Old School**: the budget is enforced. The vendor's metered key has its own limit.
+- **Own key**: nothing is enforced. The numbers are the box's own estimate.
+
+## Steps
+
+### Read the panel
+
+1. Open **Administration**, **General**, panel **Budget**. The badge shows the state: "within budget", "warning", "paused: budget exhausted", "no limit" or "unknown".
+2. Press **Refresh usage** to read the newest numbers. With **Managed by Old School**, the box also refreshes by itself every 15 minutes.
+
+| Field | Meaning |
+| --- | --- |
+| **Monthly limit** | The budget of the period. |
+| **Used this period** | What the period has used so far, with the percent. |
+| **Remaining** | What is left, the warn and stop levels, and the dates of the period. |
+| **Projected for the period** | The expected total at the current pace. |
+| **Not from a run (unattributed)** | AI use that belongs to no run. It should be 0. If it grows, tell support. |
+| **Per package this period** | Runs, turns, tokens and cost per worker. "Metered" says whether the number is the provider's own or the box's estimate. |
+| **Budget events** | Warnings, stops and top-up requests, with the time. |
+
+### Change the budget
+
+1. Under **Edit the budget**, change **Monthly limit**, **Warn at (percent)**, **Stop new runs at (percent)**, **Period starts on day** or **Billing rate**.
+2. Press **Save budget**.
+
+With **Managed by Old School** you can raise the limit only up to the metered key's limit. For more, request a top-up.
+
+### Request a top-up
+
+1. Under **Top-up requests**, enter the **Top-up amount** and a **Note (optional)**.
+2. Press **Request top-up**. "Creates a signed request Old School reads."
+3. Press **Download** on the request and send the file to the vendor.
+4. When the vendor raises your key's limit, the request closes by itself as fulfilled.
+
+**Cancel** on an open request withdraws it.
+
+## What you see afterwards
+
+| Usage | What everyone sees | What happens |
+| --- | --- | --- |
+| Below the warn level | Nothing. | Normal work. |
+| At the warn level (80 percent by default) | A yellow banner: "Budget warning: ... percent of this month's budget is used ... New runs stop at 100 percent." | Tasks still start. |
+| At the stop level (100 percent by default) | A red banner: "Budget exhausted: ... New runs are paused until the period ends on ... or the budget is raised. Runs already in progress finish their current step." **Send** is greyed out. The administrator sees **Request top-up** in the banner. | No new tasks start. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Save budget** | Sets the limits. | Monthly planning. | Yes. |
+| **Request top-up** | Creates a signed request for more budget. | The budget will not last the period. | Yes: **Cancel** while it is open. |
+| **Refresh usage** | Reads the newest numbers. | Before a decision. | n/a |
+
+<NotYet>
+You cannot set a budget per worker or per member, and the box does not send the top-up request to the vendor by itself. Download it and send it. PHOENIQS (Switzerland) is never metered by the box; its costs come on PHOENIQS's own bill.
+</NotYet>
+
+## Related pages
+
+- [Budget setup](/setup/budget/)
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)

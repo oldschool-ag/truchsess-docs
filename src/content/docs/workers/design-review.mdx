@@ -1,0 +1,80 @@
+---
+title: "Design review"
+description: "What the Design review function is for, its permissions, install questions, default autonomy and example tasks."
+---
+import NotYet from '~/components/NotYet.astro';
+import Unconfirmed from '~/components/Unconfirmed.astro';
+
+Store function id: `design-review`. Price and full description: [Design review in the store catalog](https://faivr.ai/catalog/design-review).
+
+## What it is for
+
+Workers that review the design of your product, for example the screens of a website or an app, and write structured feedback.
+
+## Who can do this
+
+- The administrator subscribes, installs and sets its permissions.
+- Administrators and members give it tasks in **Chat**.
+
+## Before you start
+
+- The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
+- The owner policy allows the permissions the worker asks for. See [Owner policy](/admin/packages/#owner-policy).
+
+## Permissions in plain words
+
+Your box shows the exact list before you install: **Administration**, **Packages**, **Store**, open **Permissions** under the worker. You see **Requires** (what it asks for), **Will be granted**, **Declined** and **You choose at install**, in plain words such as "Read one repository" or "Publish content outside (asks first)".
+
+Whatever it asks for, the box guarantees:
+
+- it works only in its own closed workspace on the box;
+- it reaches only the hosts, repositories and products it was given;
+- it can never merge on GitHub, push to the default branch, or create tags or releases;
+- it can never read a stored key or password;
+- every protected action (publish, send, spend, use credentials, deploy) asks the administrator first.
+
+<Unconfirmed>
+The worker's exact permission list comes from the store catalog and is not copied here yet. Read it on your box or on the [catalog page](https://faivr.ai/catalog/design-review) before you install.
+</Unconfirmed>
+
+## Install questions
+
+The box asks these under "This package asks you to choose:". What you can expect:
+
+- What the worker reviews, for example a repository or a website.
+
+<Unconfirmed>
+The exact questions come from the store catalog. Your box shows them before **Install**. Optional questions offer **Skip (the permission is declined)**.
+</Unconfirmed>
+
+## Default autonomy levels
+
+The same for every worker in this release:
+
+| Kind of action | Default |
+| --- | --- |
+| Work in its own workspace, read what it was given | On its own |
+| Write what it was given (its own branches and pull requests, knowledge, workboard cards) | On its own. Knowledge and workboard changes are listed in the run's audit trail. |
+| Protected actions | Asks the administrator first, every time |
+
+A standing approval can let it do one protected action without asking. See [Autonomy levels](/admin/autonomy-levels/).
+
+## Example tasks
+
+Write these in **Chat** after choosing the worker. Change the details to your company.
+
+1. "Review the sign-up page of our website for clarity and accessibility, and list the five most important fixes."
+2. "Compare the new and the old version of the start screen and say what got better and what got worse."
+3. "Write review comments on the open pull request that changes the colours of the buttons."
+
+If the worker lacks a permission for a task, it says so, or the box refuses the action in plain words.
+
+<NotYet>
+The levels per action and hand-offs to other workers are not in this release. See [Not possible yet](/not-yet/).
+</NotYet>
+
+## Related pages
+
+- [All workers](/workers/)
+- [First worker](/setup/first-worker/)
+- [Start a task](/use/start-a-task/)

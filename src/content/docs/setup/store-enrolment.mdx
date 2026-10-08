@@ -1,0 +1,58 @@
+---
+title: "Step 7: Store enrolment"
+description: Connect the box to the store once, so you can subscribe to workers.
+---
+import NotYet from '~/components/NotYet.astro';
+
+The store is the publisher's catalog of workers for your box. You enrol the box once. Then you can subscribe to functions and install their workers.
+
+## Who can do this
+
+The administrator, in the office on **https://myai.local/**.
+
+## Before you start
+
+You need two things from the publisher:
+
+- the **store address**;
+- a one-time **enrolment code**. It looks like `TRS-XXXXX-XXXXX-XXXXX-XXXXX`.
+
+How buying works is explained in the store's own documentation: [How buying works](https://faivr.ai/docs/how-buying-works).
+
+## Steps
+
+1. Open **Administration**, sub-tab **Packages**.
+2. The first panel is **Store**. It says "This appliance is not enrolled with a store yet."
+3. Enter the **Store address**.
+4. Enter the **Enrolment code**.
+5. Optional: enter a **Label for this appliance**, for example your company name.
+6. Press **Enrol**.
+7. Wait until the steps are done and the panel says "Enrolled as ...".
+8. Look at the line about publisher keys. If it says "NOT trusted here yet", register that publisher. See [Trusted publishers](/admin/packages/#trusted-publishers).
+9. Press **Refresh catalog**.
+
+## What you see afterwards
+
+- The panel shows **Enrolled as**, **Store**, **Label**, **Enrolled**, **Last contact** and **Appliance key id**.
+- After **Refresh catalog**, the panel lists the functions the store offers you, with their monthly price and their workers.
+- The enrolment code is used once and is not kept on the box.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Enrol** | Connects this box to the store. | Once. | No, not in the portal. |
+| **Private test server (advanced)** | A certificate for a private test store. | Only when the publisher asks for it. | n/a |
+
+What leaves the box: the box's identity, which workers it asks for, and receipts for installs and uninstalls. Your tasks, files, knowledge and keys never go to the store.
+
+Paying and cancelling: see [Billing](https://faivr.ai/docs/billing) and [Cancel](https://faivr.ai/docs/cancel) in the store's documentation.
+
+<NotYet>
+You cannot undo the enrolment in the portal. To stop paying, cancel each subscription. See [Store](/admin/store/#cancel-a-subscription).
+</NotYet>
+
+## Related pages
+
+- Next step: [First worker](/setup/first-worker/)
+- [Store](/admin/store/)

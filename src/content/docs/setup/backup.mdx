@@ -1,0 +1,56 @@
+---
+title: "Step 9: Backup"
+description: Create the recovery key so the box makes a backup every night.
+---
+import NotYet from '~/components/NotYet.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+The box makes no backup until a recovery key exists. Do this step now.
+
+## Who can do this
+
+The administrator, in the office on **https://myai.local/**.
+
+## Before you start
+
+- A safe place for the recovery key that is not the box: a password manager, or a printout in a locked place.
+
+## Steps
+
+1. Open **Administration**, sub-tab **General**, panel **Backups**.
+2. Under **Recovery key**, press **Create the recovery key**.
+3. The key appears with the warning "This is the only time the box shows this key."
+4. Press **Download as a file**, or **Copy** and paste it into your password manager.
+5. Press **I have saved it**.
+6. Press **Back up now** to make the first backup.
+7. When it is done, press **Download** next to the backup in **Backups on this box** and keep the file somewhere other than the box.
+
+<Aside type="danger" title="Keep the recovery key">
+Every backup can only be opened with its recovery key. If the key is lost, those backups are lost too. The box keeps only a fingerprint of the key, not the key itself.
+</Aside>
+
+## What you see afterwards
+
+- The panel says "Recovery key ..." with its fingerprint and when it was created.
+- Every night at 03:30 (box time) the box makes a backup and keeps the newest 7.
+- "Backups on this box" lists each backup with **Made**, **Size**, **How** and **Recovery key**.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Create the recovery key** | Starts the nightly backups. | Now. | n/a |
+| **Create a new recovery key** | Replaces the key. Older backups then need the older key. | Only if the key may be known to someone else. Keep the old key as long as you keep its backups. | No. |
+| **Back up now** | Makes a backup at once. | Before big changes, for example an update. | n/a |
+| **Download** | Saves a backup file (`.age`, encrypted) to your computer. | Regularly, so a copy exists outside the box. | n/a |
+
+What is not in a backup: secrets. These are the AI provider key, connection keys, the store enrolment and the remote access code. After a restore, the box lists what to enter again.
+
+<NotYet>
+You cannot choose the backup time or the number of backups kept, and the box cannot copy backups to another place by itself. Download a backup regularly and keep it safe.
+</NotYet>
+
+## Related pages
+
+- Next step: [Remote access](/setup/remote-access/)
+- [Backup and restore](/admin/backup-and-restore/)

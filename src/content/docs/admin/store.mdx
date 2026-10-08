@@ -1,0 +1,96 @@
+---
+title: Store
+description: Subscribe to a function, install its workers, manage and cancel the subscription, and what happens to installed workers.
+---
+import NotYet from '~/components/NotYet.astro';
+
+The store is the publisher's catalog of workers for your box. You pay one monthly price per [function](/start/glossary/#function). Payment happens on the store's payment page in your browser. The box never sees card data.
+
+The store explains buying, billing and cancelling in its own documentation:
+
+- [How buying works](https://faivr.ai/docs/how-buying-works)
+- [Billing](https://faivr.ai/docs/billing)
+- [Cancel](https://faivr.ai/docs/cancel)
+
+## Who can do this
+
+The administrator.
+
+## Before you start
+
+The box is enrolled. See [Store enrolment](/setup/store-enrolment/).
+
+## Steps
+
+### See the catalog
+
+1. Open **Administration**, sub-tab **Packages**, panel **Store**.
+2. Press **Refresh catalog**.
+3. Each function shows its name, its monthly price, a badge with its state, and its workers.
+
+### Subscribe
+
+1. Press **Subscribe** on the function. ("Subscribe (no price yet)" cannot be pressed: the store has no price for it yet.)
+2. Press **Open the payment page**. Pay on the store's page.
+3. Come back to the box: "The store opens the payment page in your browser; come back here when it says the payment is received." The page checks every few seconds.
+4. The badge changes from "checkout pending" to "active".
+
+### Install a store worker
+
+1. Under the function, open **Permissions** on the worker: **Requires**, **Will be granted**, **Declined**, **You choose at install**.
+2. If the publisher shows "NOT trusted on this appliance yet", register it first under [Trusted publishers](/admin/packages/#trusted-publishers).
+3. Answer the install questions.
+4. Press **Install**.
+5. Wait for the steps "Reserve the installation at the store", "Download the signed package", "Verify, unpack and bind the package", "Acknowledge the activation to the store".
+
+The worker then appears under **Installed packages** marked "from the store". The store row says "Installed: manage it under Installed packages below."
+
+### Manage a subscription
+
+1. On an active function, press **Manage subscription**.
+2. Press **Open the subscription page**. It opens the store's page for invoices, payment method and cancellation. "The link is valid for a short time."
+
+### Cancel a subscription
+
+1. First uninstall every worker of the function (see [below](#what-happens-to-an-installed-worker)). **Cancel subscription** stays greyed out while one is installed.
+2. Press **Cancel subscription**, then **Confirm cancel**.
+3. "It ends at the period end." The badge shows "cancels" and the date.
+
+## What you see afterwards
+
+The badge of each function:
+
+| Badge | Meaning |
+| --- | --- |
+| not subscribed | No subscription. **Subscribe** is offered. |
+| checkout pending | Payment started, not received yet. |
+| active | Paid. You can install the workers. |
+| cancels and a date | Ends at the period end. |
+| payment past due | The store did not receive the payment. Use **Manage subscription**. |
+| subscription ended | Ended. **Subscribe** is offered again. |
+
+## What happens to an installed worker
+
+- **Uninstall** a store worker: every binding is reversed, the worker's workspace on the box is deleted, and the signed receipt goes to the store. "The last package of a bundle ends its subscription at the period end."
+- The worker keeps working until you uninstall it. Cancelling is only possible after all workers of the function are uninstalled.
+- Your tasks, files and knowledge stay on the box. They never went to the store.
+- If the store cannot be reached, the box keeps the receipt and sends it later.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Subscribe** | Starts a monthly subscription. | You want the function's workers. | Yes: cancel. |
+| **Install** | Installs one worker of the function. | After subscribing. | Yes: **Uninstall** (the workspace is deleted). |
+| **Manage subscription** | Opens the store's page for invoices and payment method. | Billing questions. | n/a |
+| **Cancel subscription** | Ends the function at the period end. | No worker of it is installed and you do not need it. | Subscribe again. |
+
+<NotYet>
+A store worker can be installed only once per box, a store worker cannot be updated from the box, and the enrolment cannot be undone in the portal. For questions about prices and invoices, use **Manage subscription** or the store's documentation above.
+</NotYet>
+
+## Related pages
+
+- [Store enrolment](/setup/store-enrolment/)
+- [Packages](/admin/packages/)
+- [Workers](/workers/)
