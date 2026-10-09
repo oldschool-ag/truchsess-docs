@@ -28,7 +28,7 @@ Installing erases every file on the disk you choose. Do this only on a box that 
 3. Switch the box on. It starts from the stick. If it does not, open the computer's boot menu and choose the USB stick. The computer must start in UEFI mode.
 4. Wait until the box has a network address. With a cable this takes about half a minute.
 5. On your laptop, open the address that the box shows. The screen of the box lists it. Without a screen, find the box in your router's list of connected devices and open its address with `http://`.
-6. The page **Company OS Appliance setup** opens. Look at the panel **Access**. Press **Refresh** if a value is missing.
+6. The page **Truchsess setup** opens. Look at the panel **Access**. Press **Refresh** if a value is missing.
 7. No cable? See [Use Wi-Fi instead of a cable](#use-wi-fi-instead-of-a-cable) first.
 8. In the panel **Target disk**, choose the disk. Only built-in disks are shown.
 9. In the panel **Install**, tick **I understand this will erase every partition and file on the selected disk.**
@@ -40,7 +40,7 @@ Installing erases every file on the disk you choose. Do this only on a box that 
 
 ### Use Wi-Fi instead of a cable
 
-If the box finds no cable network, it opens its own setup Wi-Fi. Its name starts with **CompanyOS-Setup-**. It has no password.
+If the box finds no cable network, it opens its own setup Wi-Fi. Its name is **Truchsess-Setup-** plus six characters. It has no password.
 
 1. Join the setup Wi-Fi with your laptop or phone.
 2. Open the setup page. Its address is shown on the box's screen (row **Setup AP URL**).
@@ -53,9 +53,11 @@ If the box finds no cable network, it opens its own setup Wi-Fi. Its name starts
 
 ## What you see afterwards
 
-After the restart, the box is installed. Its address in your office is always:
+After the restart, the box is installed. Its address in your office is:
 
-**https://myai.local/**
+**https://truchsess.local/**
+
+Boxes set up before October 2026 also answer on `myai.local`, so old bookmarks keep working. A box that has not yet received the update with the new name answers only on **https://myai.local/**: use that address until you update it (see [Updates](/admin/updates/#after-the-update-that-brings-the-new-address)).
 
 Open it in your browser. You continue in [First run](/setup/first-run/).
 
@@ -65,8 +67,10 @@ The box makes its own security certificate. Your browser warns you once on each 
 
 Before you accept the warning, compare the certificate's fingerprint (a long code of letters and numbers) with the one the box shows:
 
-- on the box's screen, after the box has started: a line that begins with "Portal: https://myai.local/  certificate fingerprint";
-- later, on the **Sign in** screen: "This appliance's certificate fingerprint: ...".
+- on the box's screen, after the box has started: the lines "Office address: https://truchsess.local/" and "Certificate fingerprint of this Truchsess";
+- later, on the **Sign in** screen: "Certificate fingerprint of this Truchsess: ...".
+
+The browser warns once on `truchsess.local`, and once more on `myai.local` if you also use that name.
 
 If the two match, accept the warning. If they do not match, stop and ask support.
 
@@ -87,7 +91,7 @@ If the two match, accept the warning. If they do not match, stop and ask support
 - The installer appears again after the restart: open the boot menu and choose **Linux Boot Manager** or the internal disk.
 
 <NotYet>
-You cannot choose another name or address for the box: it is always `myai.local`. You also cannot check the certificate fingerprint in the browser before the first account exists; use the box's screen for that.
+You cannot choose another name or address for the box: it is always `truchsess.local` (and `myai.local`). You also cannot check the certificate fingerprint in the browser before the first account exists; use the box's screen for that.
 </NotYet>
 
 ## Related pages
