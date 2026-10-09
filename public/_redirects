@@ -2,3 +2,16 @@
 # The page addresses of this manual are a contract: the FAIVR store docs link to them.
 # When a page moves, add one line here AND the same pair under `redirects` in astro.config.mjs.
 # Format: /old-address/ /new-address/ 301
+
+# 2026-10-09: the portal says "agent"; the old "worker" addresses move.
+/workers/ /agents/ 301
+/workers/software-delivery/ /agents/software-delivery/ 301
+/workers/product-ownership/ /agents/product-ownership/ 301
+/workers/website-care/ /agents/website-care/ 301
+/workers/design-review/ /agents/design-review/ 301
+/workers/marketing-planning/ /agents/marketing-planning/ 301
+/workers/strategy-and-challenge/ /agents/strategy-and-challenge/ 301
+/workers/pricing-and-business-models/ /agents/pricing-and-business-models/ 301
+/workers/visibility-in-ai-search/ /agents/visibility-in-ai-search/ 301
+/workers/linkedin-posting/ /agents/linkedin-posting/ 301
+/setup/first-worker/ /setup/first-agent/ 301

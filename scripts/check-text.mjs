@@ -1,4 +1,4 @@
-// Fails when the manual contains an em dash or a raw {placeholder}.
+// Fails when the manual contains an em dash, a raw {placeholder}, or the word "worker" in reader text.
 //
 // 1. Em dash (U+2014): searched in every source text file of the manual (pages, components,
 //    configuration, the maintainer documents) and in the built pages in dist/.
@@ -63,6 +63,36 @@ for (const file of walk(root)) {
   }
 }
 
+// 3. "worker": the portal says "agent". A page may show "worker" only inside a quote of a portal
+//    label or message, in "double quotes" (for example the run state "Created, waiting for the
+//    worker"). Checked in the page sources (titles and descriptions included) and in the sidebar
+//    labels of astro.config.mjs. Code, link targets and imports are left out.
+const WORKER = /\bworkers?\b/gi;
+function readerText(text) {
+  return text
+    .replace(/```[\s\S]*?```/g, block => block.replace(/[^\n]/g, ' '))
+    .replace(/^import .*$/gm, line => ' '.repeat(line.length))
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, block => block.replace(/[^\n]/g, ' '))
+    .replace(/`[^`\n]*`/g, span => ' '.repeat(span.length))
+    .replace(/\]\([^)\n]*\)/g, link => ' '.repeat(link.length))
+    .replace(/"[^"\n]*"/g, quote => ' '.repeat(quote.length))
+    .replace(/“[^”\n]*”/g, quote => ' '.repeat(quote.length));
+}
+const pagesDir = join(root, 'src', 'content', 'docs');
+for (const file of walk(pagesDir).filter(path => /\.mdx?$/.test(path))) {
+  const rel = relative(root, file);
+  const text = readerText(readFileSync(file, 'utf8'));
+  for (const match of text.matchAll(WORKER)) {
+    problems.push(`${rel}:${lineOf(text, match.index)}: "${match[0]}" in reader text (write "agent"; quote a portal label in "double quotes")`);
+  }
+}
+{
+  const config = readFileSync(join(root, 'astro.config.mjs'), 'utf8');
+  for (const match of config.matchAll(/label: '([^']*)'/g)) {
+    if (/\bworkers?\b/i.test(match[1])) problems.push(`astro.config.mjs:${lineOf(config, match.index)}: sidebar label "${match[1]}" says worker`);
+  }
+}
+
 // Built pages: what a reader sees.
 const dist = join(root, 'dist');
 if (!existsSync(dist)) {
@@ -98,4 +128,4 @@ if (problems.length) {
   for (const line of problems) console.error(`  ${line}`);
   process.exit(1);
 }
-console.log('check-text: no em dash, no raw placeholder and no placeholder text found');
+console.log('check-text: no em dash, no raw placeholder, no placeholder text and no "worker" in reader text found');

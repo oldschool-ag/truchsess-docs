@@ -3,9 +3,18 @@ title: Releases
 description: What changed for users in each box release, newest first.
 ---
 
-Each box release has a name like `truchsess-iso-20261008-f6fb33a`: the date, then a short code. Your box shows its release under **Administration**, **General**, **System**, **Running release**. To install a newer one, see [Updates](/admin/updates/).
+Each box release has a name like `truchsess-iso-20261008-f6fb33a`: the date, then a short code. Your box shows its release under **Administration** › **System**, panel **System**, **Running release**. To install a newer one, see [Updates](/admin/updates/).
 
-Only changes people can see or use are listed here. Older entries name the places and words the portal had at that time; since the newest release they are in the left navigation (see [Roles](/start/roles/)).
+Only changes people can see or use are listed here. Places are named as they are in the portal today.
+
+## Coming with the next update
+
+Built and tested, not in a published release yet. Its name appears here once it is out.
+
+- Changed: **Agents** has three parts: **Your agents** (every function you subscribed to and every agent installed from a file, each as one card), **Store** (only the functions you have not subscribed to) and **Install from a file**. See [Install and manage agents](/admin/packages/).
+- New: **Install all** installs every agent of a function and asks a shared question once.
+- New: uninstalled and removed agents leave the list. An uninstall that did not finish offers **Finish uninstall**.
+- New: products can be renamed, archived and restored, on **Administration** › **Knowledge**. Nothing is deleted. See [Products and knowledge](/admin/products-and-knowledge/#archive-a-product).
 
 ## truchsess-iso-20261009-8551c68
 
@@ -14,6 +23,7 @@ Published 9 October 2026. The current release.
 - Changed: the office address is now **https://truchsess.local/**. `myai.local` keeps working, so old bookmarks still open the box.
 - Changed: after this update the browser warns once more about the box's certificate, because it now covers both names. Compare the fingerprint ("Certificate fingerprint of this Truchsess") and accept. Sign in once more on `truchsess.local`. See [Updates](/admin/updates/#after-the-update-that-brings-the-new-address).
 - Changed: the installer page is called "Truchsess setup", and its setup Wi-Fi is `Truchsess-Setup-` plus six characters.
+- For operator test boxes only: a personal ChatGPT Plus or Pro plan can be used after the operator confirms that training is switched off. Customer boxes are not affected. See [A personal ChatGPT plan](/operator/chatgpt-personal-plan/).
 
 ## truchsess-iso-20261009-da06988
 
@@ -41,11 +51,11 @@ Published 8 October 2026.
 
 Published 8 October 2026.
 
-- New: the administrator manages people under **Administration**, **General**, **People and access**: **Reset password** (a one-time password, the person is signed out), **Disable** and **Enable**, **Remove** a disabled person (type the e-mail address to confirm; the history keeps the name), **Change name or e-mail**. A **State** column shows Active, Must change password, Disabled or Removed. See [Users](/admin/users/).
-- New: the tab **Your account** (also from your name in the top bar). Everyone can change their own password there, in the office. See [Your account](/use/your-account/).
+- New: the administrator manages people under **Administration** › **People and access**: **Reset password** (a one-time password, the person is signed out), **Disable** and **Enable**, **Remove** a disabled person (type the e-mail address to confirm; the history keeps the name), **Change name or e-mail**. A **State** column shows Active, Must change password, Disabled or Removed. See [Users](/admin/users/).
+- New: the page **Your account** (open it from your name at the bottom of the navigation). Everyone can change their own password there, in the office. See [Your account](/use/your-account/).
 - New: a forgotten administrator password is reset on the box itself. See [Administrator password](/admin/administrator-password/).
 - New: when the store still holds an unfinished install from this box, the store card offers **Install**, which takes it over. After **Remove** of a store install, the row says whether the store still holds it. See [Store](/admin/store/#an-install-the-store-still-holds).
-- New: when a cancelled subscription ends, its workers stop within a day and keep their files; **Subscribe** again brings the same workers back. Nothing is deleted. See [Store](/admin/store/#what-happens-to-an-installed-agent).
+- New: when a cancelled subscription ends, its agents stop within a day and keep their files; **Subscribe** again brings the same agents back. Nothing is deleted. See [Store](/admin/store/#what-happens-to-an-installed-agent).
 - Changed: an install row that is not working shows "Not running", "Stopped", "Removed" or "Uninstalled" instead of "Ready".
 - Fixed: **Download** of a backup or a top-up file works in Chrome on the office address. The progress shows under the link. If the connection breaks, nothing is saved; press **Download** again.
 - Fixed: a refused upload (for example a wrong setup code) shows the box's reason in words instead of a connection error.
@@ -60,23 +70,23 @@ Published 8 October 2026.
 
 Published 8 October 2026.
 
-- New: hand-offs between workers. A worker the administrator allowed to "hand work to" another installed worker can give it part of a task while it works and use the answer in its own reply. The other worker uses its own permissions only. The run card lists the handed-over tasks with links, their state and cost, and the total cost. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-agents).
+- New: hand-offs between agents. An agent the administrator allowed to "hand work to" another installed agent can give it part of a task while it works and use the answer in its own reply. The other agent uses its own permissions only. The run card lists the handed-over tasks with links, their state and cost, and the total cost. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 - New: "Hands work to other packages" can be raised to "Asks you first" or "Always asks, with a reason". The hand-off then waits for the administrator's approval. See [Approvals and checks](/use/approvals-and-checks/#decide-a-held-hand-off).
 
 ## truchsess-iso-20261008-f1af221
 
 Published 8 October 2026.
 
-- New: five autonomy levels for every kind of action a worker does: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason. Each kind of action has a default; the administrator can raise it per package under **Administration**, **Packages**, panel **Autonomy levels**. See [Autonomy levels](/admin/autonomy-levels/).
+- New: five autonomy levels for every kind of action an agent does: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason. Each kind of action has a default; the administrator can raise it per package under **Administration** › **Agent rules**, panel **Autonomy levels**. See [Autonomy levels](/admin/autonomy-levels/).
 - New: checks. A run at "Waits for your check" finishes, but its result is held until the administrator presses **Accept**, or **Send back** with a note for one rework turn. Members see "Waiting for the owner's check". See [Approvals and checks](/use/approvals-and-checks/#check-a-finished-result).
-- New: notices. Writes to knowledge and the workboard, and comments, issues and pushes on GitHub, are listed on the tab **Approvals**, panel **Tells you after**.
+- New: notices. Writes to knowledge and the workboard, and comments, issues and pushes on GitHub, are listed on **Approvals**, panel **Tells you after**.
 - Changed: "Use credentials" and "Deploy" always ask, with a reason, and can no longer have a standing approval. Older standing approvals for them show "not used: this action always asks".
 
 ## truchsess-iso-20261008-f6fb33a
 
 Published 8 October 2026.
 
-- New: **Administration**, sub-tab **Knowledge**. The administrator imports a product's documents (one `.zip`, or `.md` and `.txt` files), reviews every document first, and imports the chosen ones. Workers on the product read them during a task. Earlier versions of changed documents stay readable. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
+- New: **Administration** › **Knowledge**. The administrator imports a product's documents (one `.zip`, or `.md` and `.txt` files), reviews every document first, and imports the chosen ones. Agents on the product read them during a task. Earlier versions of changed documents stay readable. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
 
 ## truchsess-iso-20261008-19aad3e
 
@@ -88,7 +98,7 @@ Published 8 October 2026.
 
 Published 8 October 2026.
 
-- New: workers can search, read and write company knowledge and read and change workboard cards during a task, when they have the permission. Each call is listed in the run's audit trail. Every knowledge write keeps the earlier version. See [Knowledge](/use/knowledge/) and [Workboard](/use/workboard/).
+- New: agents can search, read and write company knowledge and read and change workboard cards during a task, when they have the permission. Each call is listed in the run's audit trail. Every knowledge write keeps the earlier version. See [Knowledge](/use/knowledge/) and [Workboard](/use/workboard/).
 
 ## truchsess-iso-20261008-8dfc38e
 
@@ -99,6 +109,6 @@ Published 8 October 2026. The first release listed in this manual. It contains, 
 - Model lanes as lists of the provider's models, with **Other model...**. Automatic models are refused.
 - **Save policy** shows its result next to the button.
 - Remote access with an e-mail code. See [Remote access](/admin/remote-access/).
-- Workers on GitHub push only their own branches and open pull requests; they never merge. Workers can read test results, review pull requests and work on issues when they have the permission.
+- Agents on GitHub push only their own branches and open pull requests; they never merge. Agents can read test results, review pull requests and work on issues when they have the permission.
 - Updates show the download progress and can be cancelled before the switch. **Update now** always checks for the newest release first.
 - One package can be installed several times under different names, with a website as an install question.

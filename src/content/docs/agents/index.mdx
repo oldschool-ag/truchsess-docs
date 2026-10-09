@@ -1,0 +1,32 @@
+---
+title: Agents
+description: The functions in the store, one page each, and the rules every agent follows.
+---
+
+A [function](/start/glossary/#function) groups one or more agents that you subscribe to together in the store. Each page below says what the function is for, its permissions, its install questions, its default autonomy and three example tasks. The price is on each function's catalog page.
+
+| Function | Store function id | Status |
+| --- | --- | --- |
+| [Software delivery](/agents/software-delivery/) | `software-delivery` | In the store |
+| [Product ownership](/agents/product-ownership/) | `product-ownership` | In the store |
+| [Website care](/agents/website-care/) | `website-care` | In the store |
+| [Design review](/agents/design-review/) | `design-review` | In the store |
+| [Marketing planning](/agents/marketing-planning/) | `marketing-planning` | In the store |
+| [Strategy and challenge](/agents/strategy-and-challenge/) | `strategy-and-challenge` | In the store |
+| [Pricing and business models](/agents/pricing-and-business-models/) | `pricing-and-business-models` | In the store |
+| [Visibility in AI search](/agents/visibility-in-ai-search/) | `visibility-in-ai-search` | In the store |
+| [LinkedIn posting](/agents/linkedin-posting/) | `linkedin-posting` | Planned |
+
+Which functions your box can subscribe to is shown on the page **Agents**, panel **Store**, after **Refresh catalog**. The Store lists only the functions you have not subscribed to. Each agent there shows what it may do, one line per permission, marked "granted", "not allowed by your rules" or "you choose at install".
+
+The functions you subscribed to are on the same page, under **Your agents**. There you install, change and uninstall their agents. See [Store](/admin/store/) and [Install and manage agents](/admin/packages/#your-agents).
+
+## Rules every agent follows
+
+- It works only in its own closed workspace on the box.
+- It receives only the permissions it asks for that you allow: in the owner policy, or with your answer at install for one website, one repository or one product. See [Agent rules explained](/admin/agent-rules/).
+- It reaches only the repositories, products and websites it was given at install.
+- It never sees a stored key or password.
+- It never merges on GitHub, never pushes to the default branch, and never creates tags or releases.
+- It asks the administrator before every protected action.
+- Each task is a run with an audit trail.

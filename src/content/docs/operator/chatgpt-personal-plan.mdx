@@ -1,0 +1,60 @@
+---
+title: "Operator: a personal ChatGPT plan"
+description: For the operator's own test boxes only. Use a personal ChatGPT Plus or Pro plan after confirming that training is switched off.
+---
+import NotYet from '~/components/NotYet.astro';
+
+**This page is for the operator of Truchsess boxes, not for customers.** A customer box uses an AI provider key (see [AI providers](/setup/ai-providers/)) or the activation code from the card (see [First run](/setup/first-run/#activate-this-box)). The ChatGPT sign-in is not available on a customer box.
+
+On the operator's own test boxes, the AI provider panel can show "Sign in with ChatGPT (operator only)". The operator turns it on on the box itself; it is off by default. A ChatGPT Business or Enterprise plan works without more steps. A personal **Plus** or **Pro** plan needs one confirmation first, because OpenAI may train on it unless training is switched off.
+
+## Who can do this
+
+The administrator of an operator box, in the office on **https://truchsess.local/**. On the remote address the box answers "Enter this in the office, on the local address."
+
+## Before you start
+
+- The ChatGPT sign-in is turned on for this box.
+- In ChatGPT, under **Settings**, **Data controls**, "Improve the model for everyone" is switched off for the account you will sign in with. The box cannot check this; you confirm it.
+
+## Steps
+
+1. Open the AI provider panel: **Administration** › **Agent rules**, panel **Model lanes**, **Change AI provider**.
+2. Under "Sign in with ChatGPT (operator only)", press **Sign in with ChatGPT** and finish the sign-in.
+3. For a Plus or Pro plan, the panel says "This is a personal ChatGPT plan (...). OpenAI may train on it unless training is switched off in ChatGPT, Settings, Data controls. The box cannot check this."
+4. Tick "I switched off 'Improve the model for everyone' for ..." with your e-mail.
+5. Press **Confirm**.
+6. Set the data rule: **Administration** › **Agent rules**, panel **Which AI providers may see your data**, **What providers may do with your data**: **Never trained on**. Press **Save data rule**.
+7. Press **Use ChatGPT on all lanes**.
+
+## What you see afterwards
+
+- "Personal plan ...: training switched off, confirmed by ... on .... The box cannot check this."
+- The activity record has one line for the confirmation.
+- The plan counts as "never trained on" (confirmed by you), never as "never kept". So it works under **Never trained on**, and is refused under **Never kept, never trained on** and under the Switzerland or EU rules.
+
+The confirmation ends by itself when you sign out of ChatGPT on the panel, when another e-mail or plan signs in, or when the sign-in is turned off on the box. Each ending is recorded.
+
+## If something goes wrong
+
+| What you see | What to do |
+| --- | --- |
+| "Tick the box first: confirm that you switched off 'Improve the model for everyone'." | Tick the box, then **Confirm**. |
+| "Sign in with ChatGPT first." | Sign in, then confirm. |
+| A lane is refused with "a personal ChatGPT plan may be used for training. Switch off training in ChatGPT, Settings, Data controls, ..." | Switch training off in ChatGPT, then confirm on the panel. |
+| A Free or Go plan is refused. | These plans cannot be used. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Confirm** | Records that training is off for this e-mail and plan. | After switching training off in ChatGPT. | Yes: sign out of ChatGPT on the panel. |
+
+<NotYet>
+The box cannot read the ChatGPT training setting itself. It relies on your confirmation, and says so on the panel.
+</NotYet>
+
+## Related pages
+
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)
+- [Agent rules explained](/admin/agent-rules/)

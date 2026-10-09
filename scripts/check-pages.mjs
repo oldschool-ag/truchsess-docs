@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readdirSync, statSync } from 'node:fs';
-import { REQUIRED_PAGES, REQUIRED_LINKS } from './required-pages.mjs';
+import { REQUIRED_PAGES, REQUIRED_LINKS, MOVED_PAGES } from './required-pages.mjs';
 import { SUPPORT_CONTACT } from '../src/config/support.mjs';
 
 const dist = new URL('../dist/', import.meta.url).pathname;
@@ -23,6 +23,14 @@ for (const [page, links] of Object.entries(REQUIRED_LINKS)) {
   for (const link of links) {
     if (!html.includes(`href="${link}"`)) problems.push(`${page} does not link to ${link}`);
   }
+}
+
+// Moved pages: a permanent (301) redirect in dist/_redirects for each old address.
+const redirectsFile = join(dist, '_redirects');
+const redirectLines = existsSync(redirectsFile) ? readFileSync(redirectsFile, 'utf8').split('\n').map(line => line.trim().split(/\s+/)) : [];
+for (const [from, to] of Object.entries(MOVED_PAGES)) {
+  if (!redirectLines.some(([a, b, code]) => a === from && b === to && code === '301')) problems.push(`no 301 redirect ${from} -> ${to} in dist/_redirects`);
+  if (!REQUIRED_PAGES.includes(to)) problems.push(`moved page ${from} points to ${to}, which is not a fixed page`);
 }
 
 // The support contact: on the troubleshooting page, and once in every "Not possible yet" box.
@@ -52,4 +60,4 @@ if (problems.length) {
   for (const line of problems) console.error(`  ${line}`);
   process.exit(1);
 }
-console.log(`check-pages: all ${REQUIRED_PAGES.length} fixed pages present, every required store link in place, the support contact in all ${boxes} "Not possible yet" boxes and on /troubleshooting/`);
+console.log(`check-pages: all ${REQUIRED_PAGES.length} fixed pages present, ${Object.keys(MOVED_PAGES).length} moved addresses redirected (301), every required store link in place, the support contact in all ${boxes} "Not possible yet" boxes and on /troubleshooting/`);

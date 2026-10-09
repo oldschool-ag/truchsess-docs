@@ -466,7 +466,7 @@ password), G2 (remove, disable or rename a user, change an e-mail), G4 (change y
 | G12 | Knowledge, workboard and products | Delete a knowledge document. | Import a corrected version (it becomes the current one). A document cannot be removed. | Support. |
 | G13 | Knowledge, workboard and products | See the workboard in the portal. | Ask an agent with workboard permission to list or update cards in a task. | Administrator. |
 | G14 | The box | Report a problem from the portal. | Use "Copy logs" (installer) or the run's "Audit" and "Details (update log)"; send them with a description to support. | Support. |
-| G15 | Knowledge, workboard and products | Delete or rename a product, or withdraw a request. | Leave it unused; deny pending requests. | Administrator. |
+| G15 | Knowledge, workboard and products | Withdraw a request. | Deny pending requests. Products can be renamed, archived and restored; nothing is deleted. | Administrator. |
 | G16 | Knowledge, workboard and products | An approved request for another agent installs it. | Approval only records the request. The administrator installs the agent under Agents. | Administrator. |
 | G17 | Agents and the store | Install the same store package twice. | A store package installs once per box. A sideloaded package (signed file) can be installed several times. | Support. |
 | G18 | Agents and the store | Roll back an agent to an earlier version. | Not offered. Uninstall and install the earlier signed file (the workspace is lost). | Support. |
@@ -564,12 +564,17 @@ two tasks wait for work they handed over, a new task can show "Created, waiting 
 
 | Issue | Who | Cause | Workaround | Fix |
 | --- | --- | --- | --- | --- |
-| An uninstalled store package is still listed under **Installed packages**, with the badge "Uninstalled" and no buttons. | Admin | A finished record (T39b replaced the "Ready" badge with "Uninstalled"). | None needed: it is harmless. | Task T38 (Packages page change) |
+| Gideon (Visibility in AI search), asked about a website other than the one installed, writes a misleading report that the site is unreachable. | Both | The box blocks every host but the install answer; the agent reports the block as "unreachable". | Ask only about the installed website; change it with Change on the agent's row. | T51 and Gideon 1.0.1 |
 
 ## 20. Notes for the Website Owner
 
-- When task T38 (Packages page change) ships, remove its row in section 19 and the last
-  paragraph under "What you see afterwards" on `/admin/packages/`.
+- When T51 and Gideon 1.0.1 ship, remove the Gideon row in section 19, the known-issue box on
+  `/agents/visibility-in-ai-search/`, the note in `/admin/agent-rules/` example 1 and the matching
+  row on `/troubleshooting/`. When T49 (a unique name per box) ships, update "Two boxes in one
+  office" on `/setup/unbox-and-connect/` and `/troubleshooting/`. When T47 ships (Trust button on
+  the store card, Copy button for passwords, no "worker" in the portal), update
+  `/setup/store-enrolment/`, `/admin/store/`, `/admin/users/`, `/setup/members/` and remove the
+  "(the agent)" notes.
 - When G3 (a second administrator) or G5 (which agents a member sees) is decided and built,
   update the gap table, `/start/roles/`, `/admin/users/` and `/setup/members/`.
 - When the trusted-certificate decision is built, update the certificate steps on

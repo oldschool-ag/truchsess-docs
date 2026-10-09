@@ -1,0 +1,100 @@
+---
+title: "Step 8: First agent"
+description: Allow permissions, subscribe to a function, install its agent and give it a first task.
+---
+import NotYet from '~/components/NotYet.astro';
+
+## Who can do this
+
+The administrator.
+
+## Before you start
+
+- The box is enrolled with the store. See [Store enrolment](/setup/store-enrolment/).
+- The agent's publisher is registered under **Administration** › **Agent rules**, panel **Trusted publishers**. See [Trust the store's publisher](/setup/store-enrolment/#trust-the-stores-publisher).
+- The connections the agent needs, if you know them. You can add them afterwards too. See [Connections](/setup/connections/).
+- Read the agent's page under [Agents](/agents/) to know what it needs.
+
+## Steps
+
+### 1. Allow the permissions
+
+A new box allows nothing. The owner policy is empty, so every agent would be installed without permissions.
+
+An agent receives a permission only when both sides agree:
+
+- its signed package asks for it; and
+- you allow it. You allow it in the owner policy, or, for a website, a repository or a product, with your answer at install. The answer names exactly one website, one repository or one product. You do not need to list that one in the owner policy too.
+
+Anything the package does not ask for, the agent never gets. Anything you do not allow is declined.
+
+1. Open **Agents**, panel **Store**. Press **Refresh catalog**.
+2. Under the agent, open "What it may do: ...". Each line is one permission the agent asks for, with a mark: "granted", "not allowed by your rules" or "you choose at install". The agent's page under [Agents](/agents/) lists the same permissions.
+3. Open **Administration** › **Agent rules**, panel **Owner policy**.
+4. Tick each permission the agent's page lists, if you agree with it.
+5. For a permission with a value, enter the value and confirm it with **Allow**. Type a host, for example `www.example.com` for "Reach one named host". Choose a lane from the list, for example `standard` for "Run in one model lane".
+6. Leave **Repositories** and **Protected actions** unticked unless the agent needs them. A repository you choose at install is allowed by that answer.
+7. Press **Save policy**. The button area shows "Saved" and the time.
+8. Go back to **Agents**, **Store** and press **Refresh catalog**. Look at the agent again.
+
+#### When the Store says nothing would be granted
+
+On a new box the summary under an agent reads, for example, "What it may do: 0 granted, 9 not allowed by your rules". This means the agent asks for 9 permissions and your owner policy allows none of them yet. Installed like this, it would get nothing and could not work.
+
+1. Open **Administration** › **Agent rules**, panel **Owner policy**.
+2. Allow what the agent's page lists.
+3. Press **Save policy**.
+4. Come back to **Agents**, **Store**, press **Refresh catalog** and open "What it may do: ..." again. The lines you allowed now say "granted".
+
+The full explanation, with examples: [Agent rules explained](/admin/agent-rules/).
+
+### 2. Subscribe
+
+1. Open **Agents**, panel **Store**. Find the function and press **Subscribe**.
+2. Press **Open the payment page**. The store's payment page opens in a new tab. Pay there.
+3. Come back to the box. The page checks every few seconds.
+4. The function moves from **Store** to **Your agents**. Its card says "Subscribed, not installed yet".
+
+### 3. Install
+
+1. Open **Agents**, panel **Your agents**, and find the function.
+2. Under the agent, read "What it may do:". Check which lines say "granted" and which say "not allowed by your rules".
+3. Answer the [install questions](/start/glossary/#install-question) under "This agent asks you to choose:", for example the repository or the website.
+4. Press **Install**. A function with several agents also offers **Install all**: it asks each shared question once. See [Store](/admin/store/#install-all-agents-of-a-function).
+5. Wait until every step shows a tick: "Reserve the installation at the store", "Download the signed package", "Verify, unpack and bind the package", "Acknowledge the activation to the store".
+6. If the box asks for a product mapping, choose a product for each name and press **Resume the install**.
+
+### 4. Give a first task
+
+1. Open **Chat**. Or open **Agents**, panel **Agents you can use**, and press **Open in chat** on the agent.
+2. Choose the agent under **Agent**.
+3. Write a short task, for example one of the example tasks on the agent's page.
+4. Press **Send**.
+
+## What you see afterwards
+
+- The agent is listed in **Agents**, panel **Your agents**, on its function's card, with the state "Running".
+- Next to it you see "Ready", or "Needs ... from the admin". Then press **Open Connections** and add what is missing.
+- It shows "N permissions": how many it was granted. **Details** lists them under "Granted:" and "Declined:".
+- The agent is listed in **Agents you can use**.
+- In **Chat** your task appears as a card. See [Follow a run](/use/follow-a-run/).
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| A permission in **Owner policy** | Allows that permission for every agent that asks for it. | Only what your agents need. | Yes, but a change does not reach agents already installed until their next update or **Change**. |
+| **Skip (the permission is declined)** on an optional install question | The agent does not get that permission. | When you do not want that part. | Yes: **Change** on the installed agent. |
+| **Install** | Installs the agent. | | Yes: **Uninstall**. Its workspace is then deleted. |
+
+<NotYet>
+A store agent can be installed only once per box. To have two copies of the same agent, ask the publisher for a signed package file; see [Install from a package file](/admin/packages/#install-from-a-package-file).
+</NotYet>
+
+## Related pages
+
+- Next step: [Backup](/setup/backup/)
+- [Agent rules explained](/admin/agent-rules/)
+- [Install and manage agents](/admin/packages/)
+- [Store](/admin/store/)
+- [Agents](/agents/)

@@ -1,14 +1,15 @@
 ---
-title: "Website care"
-description: "What the Website care function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
+title: "Visibility in AI search"
+description: "What the Visibility in AI search function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
+import { Aside } from '@astrojs/starlight/components';
 
-Store function id: `website-care`. Price and full description: [Website care in the store catalog](https://faivr.ai/catalog/website-care).
+Store function id: `visibility-in-ai-search`. Price and full description: [Visibility in AI search in the store catalog](https://faivr.ai/catalog/visibility-in-ai-search).
 
 ## What it is for
 
-One agent that looks after one website: it makes changes as pull requests to the website's repository, checks them against the live site, and a person merges them.
+One agent that checks how one website is found, described and recommended by search engines and AI answer tools, and writes fixes ready to hand over.
 
 ## Who can do this
 
@@ -19,17 +20,17 @@ One agent that looks after one website: it makes changes as pull requests to the
 
 - The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
 - In **Administration** › **Agent rules**, panel **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
-- GitHub must be connected and list the website's repository. You can install a signed package file of this agent once per website, each with its own name. A store agent installs once per box.
+- Answer the website question at install. The agent reaches exactly that host and a web search page.
 
 Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
 
 ## The agent
 
-### Website Owner
+### Gideon
 
-Package id `faivr.agent.website-owner`, version 1.1.0.
+Package id `faivr.agent.ai-visibility`, version 1.0.0.
 
-Makes and checks changes to one website (content, pages, fixes, small design changes) as pull requests to the website's repository, checked against the live site. A person merges them, and the site's own hosting publishes them.
+Checks and improves how one website is found, described, cited and recommended by search engines and AI answer tools. Each finding says how strong its evidence is, and each fix is ready to hand over.
 
 **Permissions in plain words**
 
@@ -40,20 +41,17 @@ Makes and checks changes to one website (content, pages, fixes, small design cha
 | Run commands inside its sandbox | None | Tick it |
 | Reach the internet through the allowlist proxy | None | Tick it |
 | Render web pages and take screenshots with the browser inside its sandbox | None | Tick it |
-| Reach one named host | "Which website does it look after?" | Allowed by your answer |
-| Push its own branches and open pull requests on one repository, never merges (includes read) | "Which repository holds the website's source?" | Allowed by your answer |
+| Reach one named host | "Which website should it audit for AI search visibility?" | Allowed by your answer |
+| Reach one named host: `html.duckduckgo.com` (a web search page) | None | **Reach one named host**: enter `html.duckduckgo.com` and press **Allow** |
 | Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
-| Read the workboard | None | Tick it |
-| Change the workboard | None | Tick it |
 | Run in one model lane: **Standard** | None | **Run in one model lane**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which repository holds the website's source?" Required. You choose a repository of your GitHub connection.
-- "Which website does it look after?" Required. You choose one website address, for example `www.example.com`.
+- "Which website should it audit for AI search visibility?" Required. You choose one website address, for example `www.example.com`.
 - "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
-**Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Ivo V2, Bob - QA Reviewer, Ivy. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.ivo-design-v2`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
+**Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Website Owner, Ivy. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.website-owner`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
 **Default autonomy levels**
 
@@ -65,10 +63,7 @@ Shown and changed under **Administration** › **Agent rules**, panel **Autonomy
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
 | Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
 | Renders web pages in its sandbox | Runs on its own | cannot be raised (Fixed) |
-| Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
 | Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
-| Reads the workboard | Runs on its own | cannot be raised (Fixed) |
-| Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
 | Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason |
 
 ## What every agent can never do
@@ -78,13 +73,23 @@ Shown and changed under **Administration** › **Agent rules**, panel **Autonomy
 - Merge on GitHub, push to the default branch, or create tags or releases.
 - Read a stored key or password.
 
+## One website per install
+
+Gideon checks exactly the website you entered at install. The box blocks every other website for it. Give it tasks about that website only.
+
+To check another website, change the answer: **Agents**, panel **Your agents**, Gideon's row, **Change**, then choose the other website and **Save and apply**. One install checks one website at a time.
+
+<Aside type="caution" title="Known issue">
+If you ask Gideon about a website other than the one it was installed for, it writes a misleading report that says the site is unreachable. The site is fine: the box blocked it. Until an update fixes this, ask only about the installed website.
+</Aside>
+
 ## Example tasks
 
 Write these in **Chat** after choosing the agent. Change the details to your company.
 
-1. "Check the contact page on the live site and fix any broken link as a pull request."
-2. "Update the opening hours on the home page to Monday to Friday, 8 to 17, as a pull request."
-3. "Take a screenshot of the price page on a phone-sized screen and list what looks wrong."
+1. "Audit our website for AI search visibility and list the findings with how strong the evidence is."
+2. "Search for our company name and tell us how the results describe us."
+3. "Write the three most important fixes for our home page as ready-to-use text."
 
 <NotYet>
 A store agent can be installed only once per box, and store agents cannot be updated from the box. See [Not possible yet](/not-yet/).
@@ -92,6 +97,6 @@ A store agent can be installed only once per box, and store agents cannot be upd
 
 ## Related pages
 
-- [All agents](/workers/)
-- [First agent](/setup/first-worker/)
+- [All agents](/agents/)
+- [First agent](/setup/first-agent/)
 - [Autonomy levels](/admin/autonomy-levels/)
