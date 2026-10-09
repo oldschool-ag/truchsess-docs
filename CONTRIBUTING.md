@@ -26,7 +26,7 @@ The page addresses are a contract: the FAIVR store docs link to them. The full l
      serves the old address, so the check still finds it.
 - New pages may be added. Add their address to `scripts/required-pages.mjs` and to the sidebar
   in `astro.config.mjs`.
-- Worker pages live at `/workers/<store function id>/`, one per function in the store. The id is
+- Agent pages live at `/agents/<store function id>/` (the old `/workers/...` addresses redirect there), one per function in the store. The id is
   the store's, never a name you choose. Each worker page links to
   `https://faivr.ai/catalog/` followed by the same id.
 - The store links are fixed too (`REQUIRED_LINKS` in `scripts/required-pages.mjs`). Use exactly

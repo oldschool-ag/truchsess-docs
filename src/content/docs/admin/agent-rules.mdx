@@ -18,7 +18,7 @@ The box applies these in order. The first four decide **what** the agent may do 
 
 ### 1. What the agent declares
 
-Every agent comes in a signed package that lists its permissions, for example "Read files in its own workspace" or "Reach one named host". This list is fixed by the publisher. You see it before you install: under **Permissions** on the store card (**Agents**, panel **Store**), or after **Upload and inspect** for a package file. The agent pages under [Agents in the store](/workers/) list every permission of every store agent.
+Every agent comes in a signed package that lists its permissions, for example "Read files in its own workspace" or "Reach one named host". This list is fixed by the publisher. You see it before you install: under **Permissions** on the store card (**Agents**, panel **Store**), or after **Upload and inspect** for a package file. The agent pages under [Agents in the store](/agents/) list every permission of every store agent.
 
 Before anything else, the box checks who signed the package. It installs only packages signed by a publisher in **Trusted publishers** on **Agent rules**.
 
@@ -69,7 +69,7 @@ When you upload a new version of an installed package and it asks for different 
 
 ### Example 1: Gideon checks one website
 
-Gideon (function [Visibility in AI search](/workers/visibility-in-ai-search/)) declares: its own workspace, commands in its sandbox, **Reach the internet through the allowlist proxy**, **Render web pages and take screenshots with the browser inside its sandbox**, **Reach one named host** for the website you choose, **Reach one named host** `html.duckduckgo.com` (a web search page), an optional product's knowledge, and the lane **Standard**.
+Gideon (function [Visibility in AI search](/agents/visibility-in-ai-search/)) declares: its own workspace, commands in its sandbox, **Reach the internet through the allowlist proxy**, **Render web pages and take screenshots with the browser inside its sandbox**, **Reach one named host** for the website you choose, **Reach one named host** `html.duckduckgo.com` (a web search page), an optional product's knowledge, and the lane **Standard**.
 
 1. In **Owner policy**, tick **Read files in its own workspace**, **Create and change files in its own workspace**, **Run commands inside its sandbox**, **Reach the internet through the allowlist proxy** and **Render web pages and take screenshots with the browser inside its sandbox**. Under **Reach one named host**, enter `html.duckduckgo.com` and press **Allow**. Under **Run in one model lane**, choose `standard` and press **Allow**. Press **Save policy**.
 2. Install Gideon. Answer "Which website should it audit for AI search visibility?" with your website, for example `www.example.com`.
@@ -79,7 +79,7 @@ Gideon (function [Visibility in AI search](/workers/visibility-in-ai-search/)) d
 
 ### Example 2: Website Owner works on your repository
 
-Website Owner (function [Website care](/workers/website-care/)) declares **Push its own branches and open pull requests on one repository, never merges (includes read)**, with the question "Which repository holds the website's source?", plus its website, its workspace, commands, the internet proxy, the browser, the workboard and the lane **Standard**.
+Website Owner (function [Website care](/agents/website-care/)) declares **Push its own branches and open pull requests on one repository, never merges (includes read)**, with the question "Which repository holds the website's source?", plus its website, its workspace, commands, the internet proxy, the browser, the workboard and the lane **Standard**.
 
 1. Connect GitHub first: **Administration** › **Connections**.
 2. In **Owner policy**, tick the plain permissions it lists and allow the lane `standard`. You do not list the repository: your answer at install allows it.

@@ -1,14 +1,14 @@
 ---
-title: "Marketing planning"
-description: "What the Marketing planning function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
+title: "Visibility in AI search"
+description: "What the Visibility in AI search function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
 
-Store function id: `marketing-planning`. Price and full description: [Marketing planning in the store catalog](https://faivr.ai/catalog/marketing-planning).
+Store function id: `visibility-in-ai-search`. Price and full description: [Visibility in AI search in the store catalog](https://faivr.ai/catalog/visibility-in-ai-search).
 
 ## What it is for
 
-One agent that plans marketing from approved product facts: target groups, positioning, messages, channels, campaigns and a content calendar. It never posts or sends anything.
+One agent that checks how one website is found, described and recommended by search engines and AI answer tools, and writes fixes ready to hand over.
 
 ## Who can do this
 
@@ -19,16 +19,17 @@ One agent that plans marketing from approved product facts: target groups, posit
 
 - The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
 - In **Administration** › **Agent rules**, panel **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
+- Answer the website question at install. The agent reaches exactly that host and a web search page.
 
 Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
 
 ## The agent
 
-### Ivy
+### Gideon
 
-Package id `faivr.agent.marketing-planner`, version 1.0.0.
+Package id `faivr.agent.ai-visibility`, version 1.0.0.
 
-Turns approved facts about your product into target groups, positioning, a ranking of messages, the choice of channels, campaigns and a content calendar. It hands each piece of channel work over as a campaign brief. It never posts or sends anything.
+Checks and improves how one website is found, described, cited and recommended by search engines and AI answer tools. Each finding says how strong its evidence is, and each fix is ready to hand over.
 
 **Permissions in plain words**
 
@@ -36,16 +37,20 @@ Turns approved facts about your product into target groups, positioning, a ranki
 | --- | --- | --- |
 | Read files in its own workspace | None | Tick it |
 | Create and change files in its own workspace | None | Tick it |
+| Run commands inside its sandbox | None | Tick it |
+| Reach the internet through the allowlist proxy | None | Tick it |
+| Render web pages and take screenshots with the browser inside its sandbox | None | Tick it |
+| Reach one named host | "Which website should it audit for AI search visibility?" | Allowed by your answer |
+| Reach one named host: `html.duckduckgo.com` (a web search page) | None | **Reach one named host**: enter `html.duckduckgo.com` and press **Allow** |
 | Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
-| Read the workboard | None | Tick it |
-| Change the workboard | None | Tick it |
 | Run in one model lane: **Standard** | None | **Run in one model lane**: choose `standard` and press **Allow** |
 
 **Install questions**
 
+- "Which website should it audit for AI search visibility?" Required. You choose one website address, for example `www.example.com`.
 - "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
-**Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Cora, Gideon. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.pricing-models`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
+**Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Website Owner, Ivy. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.website-owner`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
 **Default autonomy levels**
 
@@ -55,9 +60,9 @@ Shown and changed under **Administration** › **Agent rules**, panel **Autonomy
 | --- | --- | --- |
 | Reads its own workspace | Runs on its own | cannot be raised (Fixed) |
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
+| Reaches the internet through the box's list | Runs on its own | cannot be raised (Fixed) |
+| Renders web pages in its sandbox | Runs on its own | cannot be raised (Fixed) |
 | Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
-| Reads the workboard | Runs on its own | cannot be raised (Fixed) |
-| Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
 | Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason |
 
 ## What every agent can never do
@@ -71,9 +76,9 @@ Shown and changed under **Administration** › **Agent rules**, panel **Autonomy
 
 Write these in **Chat** after choosing the agent. Change the details to your company.
 
-1. "From the product knowledge, write the target groups and a ranking of our three key messages."
-2. "Plan a campaign for the product launch in March with a content calendar for four weeks."
-3. "Write a campaign brief for a LinkedIn series of three posts."
+1. "Audit our website for AI search visibility and list the findings with how strong the evidence is."
+2. "Search for our company name and tell us how the results describe us."
+3. "Write the three most important fixes for our home page as ready-to-use text."
 
 <NotYet>
 A store agent can be installed only once per box, and store agents cannot be updated from the box. See [Not possible yet](/not-yet/).
@@ -81,6 +86,6 @@ A store agent can be installed only once per box, and store agents cannot be upd
 
 ## Related pages
 
-- [All agents](/workers/)
-- [First agent](/setup/first-worker/)
+- [All agents](/agents/)
+- [First agent](/setup/first-agent/)
 - [Autonomy levels](/admin/autonomy-levels/)
