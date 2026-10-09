@@ -71,7 +71,7 @@ export default defineConfig({
           items: [
             { label: 'People and access', slug: 'admin/users' },
             { label: 'Administrator password', slug: 'admin/administrator-password' },
-            { label: 'Agents: install and manage', slug: 'admin/packages' },
+            { label: 'Install and manage agents', slug: 'admin/packages' },
             { label: 'Store', slug: 'admin/store' },
             { label: 'Products and knowledge', slug: 'admin/products-and-knowledge' },
             { label: 'AI providers and lanes', slug: 'admin/ai-providers-and-lanes' },

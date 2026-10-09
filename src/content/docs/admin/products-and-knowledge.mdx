@@ -4,39 +4,41 @@ description: Add products, decide product and agent requests, import a product's
 ---
 import NotYet from '~/components/NotYet.astro';
 
-A [product](/start/glossary/#product) is a part of your company that work belongs to. Products decide which members see what, and which [knowledge](/start/glossary/#knowledge) a worker may read.
+A [product](/start/glossary/#product) is a part of your company that work belongs to. Products decide which members see what, and which [knowledge](/start/glossary/#knowledge) an agent may read.
+
+The administrator finds both on **Administration** › **Knowledge**: the section **Products and their knowledge** (panels **Products**, **Add a product** and **Product catalog**) and the panel **Import documents**.
 
 ## Who can do this
 
 - The administrator adds products, decides requests and imports knowledge.
-- Members request products and agents on the tab **Products**, and see their requests on the tab **Requests**.
+- Members request products and agents at the end of **Agents**, in the section **Ask for a product or an agent**, and see their requests there under **Your requests**. Their own products are listed under **Your products**.
 
 ## Before you start
 
-- A product id: lowercase letters, digits and hyphens, for example `design-system`. A worker refers to a product by this id.
+- A product id: lowercase letters, digits and hyphens, for example `design-system`. An agent refers to a product by this id.
 - For an import: the documents as `.md` or `.txt` files, or one `.zip` with them. You must be in the office on **https://myai.local/**.
 
 ## Steps
 
 ### Add a product
 
-1. Open the tab **Products**, panel **Add a product**.
+1. Open **Administration**, then **Knowledge**, panel **Add a product**.
 2. Enter **Product id** and **Product name**.
 3. Press **Add product**. The product is active at once.
 
 ### Decide a request
 
-Members send requests on the tab **Products**: **Request a new product** and **Request another agent**.
+Members send requests at the end of **Agents**: **Request a new product** and **Request another agent**.
 
-1. Open **Administration**, sub-tab **General**, panel **Approvals**.
+1. Open **Approvals**, section **Requests**.
 2. Read **Requested by**, **Request**, **Product** and **Cost / month**. "Approving a request authorizes its stated monthly cost."
 3. Press **Approve** or **Deny**, adjust the reason, and press the button again to confirm.
 
-An approved product request makes the product active, and the requester becomes its owner. An approved agent request records the agent under the product. It does not install a worker.
+An approved product request makes the product active, and the requester becomes its owner. An approved agent request records the agent under the product. It does not install an agent.
 
 ### Import documents
 
-1. Open **Administration**, sub-tab **Knowledge**.
+1. Open **Administration**, then **Knowledge**, panel **Import documents**.
 2. Choose the **Product**.
 3. Choose the **Files**: one `.zip`, or several `.md` and `.txt` files.
 4. Press **Upload and review**.
@@ -46,12 +48,12 @@ An approved product request makes the product active, and the requester becomes 
 
 ## What you see afterwards
 
-- The new product appears on **Products** and in every product list of the portal.
-- After an import: "Imported N document(s) into ... Earlier versions of changed documents stay readable." Workers on that product read the documents in their next task. See [Knowledge](/use/knowledge/).
+- The new product appears in the panel **Products** and in every product list of the portal.
+- After an import: "Imported N document(s) into ... Earlier versions of changed documents stay readable." Agents on that product read the documents in their next task. See [Knowledge](/use/knowledge/).
 
 ### Older revisions
 
-Each import of a changed document makes a new revision. The earlier revisions stay in the box, with who wrote them and when. A worker with knowledge permission can read an older revision on request.
+Each import of a changed document makes a new revision. The earlier revisions stay in the box, with who wrote them and when. An agent with knowledge permission can read an older revision on request.
 
 To go back to an earlier text, import the earlier file again: it shows as "changed", and **Import selected** makes it the current version.
 
@@ -70,7 +72,7 @@ Limits of an import: at most 50 MB and 2,000 files per upload, at most 64 KB per
 Skipped files and why: "not a text document" (not `.md` or `.txt`), "binary", "too large" (over 64 KB), "bad name", "link", "path with ..", "same key as another file", "more than 2,000 files".
 
 <NotYet>
-You cannot delete or rename a product, withdraw a request, see the knowledge documents or their revisions in the portal, or delete a document. An approved agent request does not create a worker; install a package for that. Ask a worker with knowledge permission to read or quote documents for you.
+You cannot delete or rename a product, withdraw a request, see the knowledge documents or their revisions in the portal, or delete a document. An approved agent request does not create an agent; install one under **Agents** for that. Ask an agent with knowledge permission to read or quote documents for you.
 </NotYet>
 
 ## Related pages
