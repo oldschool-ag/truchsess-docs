@@ -6,7 +6,7 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** the release built from source commit `da06988` (not yet published when checked) for
+- **Checked against:** box release `truchsess-iso-20261009-da06988` (published 2026-10-09, source commit `da06988`) for
   the portal structure, the activation and the managed AI; release
   `truchsess-iso-20261008-c7fabcd` (published 2026-10-08) for the phone and voice input (T20, PR
   #63) and the permission check on updates (T44, PR #72). Since `c7fabcd`, `da06988` adds the
