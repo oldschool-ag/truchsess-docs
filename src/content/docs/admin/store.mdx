@@ -4,7 +4,12 @@ description: Subscribe to a function, install its agents, manage and cancel the 
 ---
 import NotYet from '~/components/NotYet.astro';
 
-The store is the publisher's catalog of agents for your box. It is the panel **Store** on the page **Agents**. You pay one monthly price per [function](/start/glossary/#function). Payment happens on the store's payment page in your browser. The box never sees card data.
+The store is the publisher's catalog of agents for your box. It is the part **Store** on the page **Agents**. You pay one monthly price per [function](/start/glossary/#function). A function is one or more agents for one job. Payment happens on the store's payment page in your browser. The box never sees card data.
+
+The page **Agents** has two parts for the store:
+
+- **Store** lists the functions you have not subscribed to.
+- **Your agents** lists the functions you subscribed to, with their agents. You install, change and uninstall them there.
 
 The store explains buying, billing and cancelling in its own documentation:
 
@@ -25,40 +30,75 @@ The box is enrolled. See [Store enrolment](/setup/store-enrolment/).
 ### See the catalog
 
 1. Open **Agents**, panel **Store**.
-2. Press **Refresh catalog**.
-3. Each function shows its name, its monthly price, a badge with its state, and its agents.
+2. Press **Refresh catalog**. Right after enrolling, the Store may show nothing until you do: "No catalog fetched yet. Press "Refresh catalog"."
+3. The Store lists the functions you have not subscribed to, in the store's order. Each shows its name, its monthly price, a badge with its state, **Subscribe** and its agents.
+4. Under each agent, open "What it may do: ...". The summary counts the permissions, for example "What it may do: 3 granted, 2 not allowed by your rules, 1 chosen at install". The list has one line per permission, with a mark:
+   - "granted": your owner policy allows it;
+   - "not allowed by your rules": your owner policy does not allow it, so it would be declined;
+   - "you choose at install": an install question decides it (a website, a repository or a product).
+
+A permission that hands work to another agent names that agent, for example "hand work to Website owner". If that agent is not installed on your box, the line adds "(not installed here)".
+
+When you subscribed to every function, the Store says "You subscribed to every function the store offers. They are listed under Your agents."
+
+### The publisher is NOT trusted here yet
+
+Under the enrolment details the Store names the publisher keys the store offered. A key you have not registered reads "NOT trusted here yet: register it under Trusted publishers". The agent then also says "The publisher ... is not trusted on this box yet". Its agents cannot be installed until you trust it.
+
+1. Get the publisher's public key: the `.pub` file from the publisher.
+2. Open **Administration** › **Agent rules**, panel **Trusted publishers**.
+3. Paste the key under **Public key (PEM, from the .pub file)**, or choose the file under **Or upload the .pub file**.
+4. Enter a **Label**, for example the publisher's name.
+5. Press **Add publisher**.
+6. Go back to **Agents**, **Store** and press **Refresh catalog**. The key now reads "trusted here".
+
+This works only in the office, on the local address. More: [Trusted publishers](/admin/packages/#trusted-publishers).
 
 ### Subscribe
 
-1. Press **Subscribe** on the function. ("Subscribe (no price yet)" cannot be pressed: the store has no price for it yet.)
+1. In **Store**, press **Subscribe** on the function. ("Subscribe (no price yet)" cannot be pressed: "The publisher has not set a price yet.")
 2. Press **Open the payment page**. Pay on the store's page.
-3. Come back to the box: "The store opens the payment page in your browser; come back here when it says the payment is received." The page checks every few seconds.
-4. The badge changes from "checkout pending" to "active".
+3. Come back to the box: "The store opens the payment page in your browser; come back here when it says the payment is received." The page checks every few seconds. Until then the badge says "checkout pending".
+4. After the payment the function moves from **Store** to **Your agents**. Its card says "Subscribed, not installed yet".
 
 ### Install a store agent
 
-1. Under the function, open **Permissions** on the agent: "Requires:", "Will be granted (declared and allowed by the owner policy):", "Declined (declared but not allowed):", "You choose at install:".
-2. If the publisher shows "NOT trusted on this appliance yet", register it first under **Administration** › **Agent rules**, panel **Trusted publishers**. See [Trusted publishers](/admin/packages/#trusted-publishers).
-3. Answer the install questions under "This agent asks you to choose:".
-4. Press **Install**.
-5. Wait for the steps "Reserve the installation at the store", "Download the signed package", "Verify, unpack and bind the package", "Acknowledge the activation to the store".
+A subscribed function's card in **Your agents** lists each of its agents. An agent that is not installed shows "Not installed yet", "What it may do:" with its marks, its questions and **Install** right there.
 
-The agent then appears in the panel **Installed agents** marked "from the store". The store row says "Installed: manage it under Installed agents above."
+1. Open **Agents**, panel **Your agents**, and find the function.
+2. Read "What it may do:" under the agent.
+3. If the agent says "Register the publisher under Agent rules, Trusted publishers, first.", do that first. See [The publisher is NOT trusted here yet](#the-publisher-is-not-trusted-here-yet).
+4. Answer the install questions under "This agent asks you to choose:".
+5. Press **Install**.
+6. Wait for the steps "Reserve the installation at the store", "Download the signed package", "Verify, unpack and bind the package", "Acknowledge the activation to the store".
+7. If the box asks for a product mapping, choose a product for each name and press **Resume the install**.
+
+The install then appears under the agent on the same card, with its state, for example "Running". See [Your agents](/admin/packages/#your-agents).
+
+### Install all agents of a function
+
+A function with two or more agents not installed yet offers one form for all of them: "Install all 3 workers" (the agents).
+
+1. Answer the questions. "Each question is asked once, also when several workers need it." (the agents). A shared question, for example the repository or the product, names the agents that ask it.
+2. Press **Install all (3)**.
+3. The box installs the agents one after the other.
+
+Each agent can still be changed or uninstalled on its own afterwards. To install only one of them, open "Install only this worker" (the agent) under it.
 
 ### An install the store still holds
 
-An install that failed and was removed can still be held by the store. The agent then shows **Install** with the note "The store still holds an install from this box that never finished. Install takes it over with the answers above." Answer the questions and press **Install**. The row in **Installed agents** then says "took over the store's unfinished install".
+An install that failed and was removed can still be held by the store. The agent then shows "Not installed here yet: the store still holds an install from this box that never finished." Its **Install** has the note "Install takes it over with the answers above." Answer the questions and press **Install**. The new install takes the held one over and says "Took over the store's unfinished install."
 
 ### Manage a subscription
 
-1. On an active function, press **Manage subscription**.
-2. Press **Open the subscription page**. It opens the store's page for invoices, payment method and cancellation. "The link is valid for a short time."
+1. In **Your agents**, press **Manage subscription** on the function's card.
+2. Press **Open the subscription page**. "Invoices, payment method and cancellation live there. The link is valid for a short time."
 
 ### Cancel a subscription
 
-1. First uninstall every agent of the function (see [below](#what-happens-to-an-installed-agent)). **Cancel subscription** stays greyed out while one is installed.
-2. Press **Cancel subscription**, then **Confirm cancel**.
-3. "It ends at the period end." The badge shows "cancels" and the date.
+1. First uninstall every agent of the function in **Your agents** (see [below](#what-happens-to-an-installed-agent)). While one is installed, **Cancel subscription** stays greyed out and the card says "To cancel, uninstall its workers first." (the agents).
+2. Press **Cancel subscription** on the function's card, then **Confirm cancel**.
+3. It ends at the period end. The badge shows "cancels" and the date.
 
 ## What you see afterwards
 
@@ -66,19 +106,31 @@ The badge of each function:
 
 | Badge | Meaning |
 | --- | --- |
-| not subscribed | No subscription. **Subscribe** is offered. |
-| checkout pending | Payment started, not received yet. |
-| active | Paid. You can install the agents. |
-| cancels and a date | Ends at the period end. The function says "Cancelled: the functions of this bundle can be used until ...". |
+| not subscribed | No subscription. The function is in **Store** with **Subscribe**. |
+| checkout pending | Payment started, not received yet. The function stays in **Store** with **Open the payment page**. |
+| active | Paid. The function is in **Your agents**. You can install its agents. |
+| cancels and a date | Ends at the period end. The card says "Cancelled: the workers can be used until ..." (the agents). |
 | payment past due | The store did not receive the payment. Use **Manage subscription**. |
 | subscription ended | Ended. **Subscribe** is offered again. |
 
+The line on a function's card in **Your agents**:
+
+| Line | Meaning |
+| --- | --- |
+| "Subscribed, not installed yet" | Paid, no agent installed. Install it right there. |
+| "Subscribed · installed" | Paid, the one agent is installed. |
+| "Subscribed · all 3 workers installed" (the agents) | Paid, every agent is installed. |
+| "Subscribed · 1 of 3 workers installed" (the agents) | Paid, some agents are not installed yet. |
+| "The subscription has ended. The installs below are stopped: subscribe again to use them, or uninstall them." | The subscription ended while agents were installed. |
+
+When a subscription has ended and none of its agents is installed, the function goes back to **Store**.
+
 ## What happens to an installed agent
 
-- **Uninstall** a store agent: every binding is reversed, the agent's workspace on the box is deleted, and the signed receipt goes to the store. The confirmation says: "the last agent of a bundle ends its subscription at the period end."
-- A cancelled subscription keeps its agents working until the period end. Then, within a day, they stop: they take no new tasks, **Chat** says "The subscription for ... has ended. Subscribe again to use this worker.", and the row in **Installed agents** says "Stopped" and "Files are kept until you uninstall." Nothing is deleted.
+- **Uninstall** a store agent: every binding is reversed, the agent's workspace on the box is deleted, and the signed receipt goes to the store. The confirmation says: "the last worker of a function ends its subscription at the period end." (the agent). The agent then leaves **Your agents**. It stays in the activity history.
+- A cancelled subscription keeps its agents working until the period end. Then, within a day, they stop. They take no new tasks. **Chat** says "The subscription for ... has ended. Subscribe again to use this worker." (the agent). The install in **Your agents** shows "Stopped: the subscription ended" and "Files are kept until you uninstall." Nothing is deleted.
 - **Subscribe** again to the function: the same agents resume with their files. Nothing is installed anew.
-- Uninstall stays your decision; the box never uninstalls an agent by itself.
+- Uninstall stays your decision. The box never uninstalls an agent by itself.
 - Your tasks, files and knowledge stay on the box. They never went to the store.
 - If the store cannot be reached, the box keeps the receipt and sends it later.
 
@@ -88,15 +140,17 @@ The badge of each function:
 | --- | --- | --- | --- |
 | **Subscribe** | Starts a monthly subscription. | You want the function's agents. | Yes: cancel. |
 | **Install** | Installs one agent of the function. | After subscribing. | Yes: **Uninstall** (the workspace is deleted). |
+| **Install all** | Installs every agent of the function that is not installed yet. Shared questions are asked once. | You want the whole function. | Yes: **Uninstall** each agent. |
 | **Manage subscription** | Opens the store's page for invoices and payment method. | Billing questions. | n/a |
 | **Cancel subscription** | Ends the function at the period end. | No agent of it is installed and you do not need it. | Subscribe again. |
 
 <NotYet>
-A store agent can be installed only once per box, a store agent cannot be updated from the box, and the enrolment cannot be undone in the portal. For questions about prices and invoices, use **Manage subscription** or the store's documentation above.
+A store agent can be installed only once per box, a store agent cannot be updated from the box, and the enrolment cannot be undone in the portal. A store publisher is trusted by pasting its key under **Agent rules**; a one-click trust button on the store card is coming with a later update. For questions about prices and invoices, use **Manage subscription** or the store's documentation above.
 </NotYet>
 
 ## Related pages
 
 - [Store enrolment](/setup/store-enrolment/)
 - [Install and manage agents](/admin/packages/)
+- [Agent rules explained](/admin/agent-rules/)
 - [Agents](/agents/)

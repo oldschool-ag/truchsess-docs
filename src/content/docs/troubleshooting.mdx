@@ -46,7 +46,7 @@ A fix that gives every box its own name is coming with a later update.
 | What you see | What to do |
 | --- | --- |
 | "No agent is installed, so there is nothing to give work to." | The administrator installs an agent under **Agents**. See [First agent](/setup/first-agent/). |
-| "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections." | The administrator adds the connection. See [Connections](/admin/connections/#what-ready-means). |
+| "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections." (the agent) | The administrator adds the connection. See [Connections](/admin/connections/#what-ready-means). |
 | "This looks like a key or password. It was not sent to the AI." | Remove the key or password from the message. The administrator stores it under Connections. |
 | "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." | The administrator presses **Request top-up** or **Use my own AI key** in the banner. See [Budget](/admin/budget/). |
 | "The AI key of this box was switched off by the provider. New runs are paused. ..." or "The AI key of this box has no credit left. New runs are paused. ..." | The administrator requests a top-up, or uses their own key. Ask support. |
@@ -64,7 +64,7 @@ A fix that gives every box its own name is coming with a later update.
 | "Write a reason first: this action always needs one." | This action is at "Always asks, with a reason". Write a reason, then confirm. |
 | A row in **Autonomy levels** shows "Fixed". | That kind of action cannot be raised. |
 | An agent's answer says it could not hand work over (not granted, already part of the chain, too many open, too deep, the local model, or the budget). | The limits of hand-offs. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents). For "The owner did not grant it", the administrator allows **Hand work to one other installed package** for that agent. |
-| A new task shows "Created, waiting for the worker" for a long time. | Other tasks wait for work they handed over. It starts when one of them finishes. |
+| A new task shows "Created, waiting for the worker" (the agent) for a long time. | Other tasks wait for work they handed over. It starts when one of them finishes. |
 | An agent that checks a website (for example Gideon) reports that a site is unreachable. | It may be a site other than the one it was installed for: the box blocks every other website. Ask only about the installed website, or change it with **Change** on the agent's row under **Agents**. See [One website per install](/agents/visibility-in-ai-search/#one-website-per-install). |
 | "The reply names a file that is not among this run's files: ..." | The agent mentioned a file it did not save. Ask it again to save the file. |
 
@@ -83,7 +83,7 @@ A fix that gives every box its own name is coming with a later update.
 | An install failed with "duplicate permission". | Fixed in the current release: update the box (see [Updates](/admin/updates/)), then press **Retry** on the row. |
 | An agent says "Not installed here yet: the store still holds an install from this box that never finished." | Press **Install** on that agent under **Agents**, **Your agents**: it takes that install over with your answers. See [Store](/admin/store/#an-install-the-store-still-holds). |
 | A removed store install says "The store could not be reached to check whether it still holds this install." | Press **Check with the store again** when the box is online. |
-| Chat says "The subscription for ... has ended. Subscribe again to use this worker." | The function's subscription ended; the agent is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-agent). |
+| Chat says "The subscription for ... has ended. Subscribe again to use this worker." (the agent) | The function's subscription ended; the agent is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-agent). |
 | "GitHub has not granted ... to this box yet." | Follow the steps on the card. See [Connections](/admin/connections/#when-the-box-asks-for-new-github-permissions). |
 | "Check for updates first: the last check is too old to know the newest release." | Press **Check for updates**, then **Update now**. |
 | "An update is already running or waiting; wait for it to finish." | Wait. |
