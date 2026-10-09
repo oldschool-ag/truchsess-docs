@@ -48,7 +48,6 @@ export const REQUIRED_PAGES = [
   '/agents/pricing-and-business-models/',
   '/agents/visibility-in-ai-search/',
   '/agents/linkedin-posting/',
-  '/operator/chatgpt-personal-plan/',
   '/not-yet/',
   '/troubleshooting/',
   '/releases/',
@@ -84,4 +83,5 @@ export const MOVED_PAGES = {
   '/workers/visibility-in-ai-search/': '/agents/visibility-in-ai-search/',
   '/workers/linkedin-posting/': '/agents/linkedin-posting/',
   '/setup/first-worker/': '/setup/first-agent/',
+  '/operator/chatgpt-personal-plan/': '/setup/ai-providers/',
 };

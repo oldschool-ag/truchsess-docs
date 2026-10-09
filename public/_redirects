@@ -15,3 +15,6 @@
 /workers/visibility-in-ai-search/ /agents/visibility-in-ai-search/ 301
 /workers/linkedin-posting/ /agents/linkedin-posting/ 301
 /setup/first-worker/ /setup/first-agent/ 301
+
+# 2026-10-09: the operator page leaves the public manual (operator docs stay in the product repository).
+/operator/chatgpt-personal-plan/ /setup/ai-providers/ 301

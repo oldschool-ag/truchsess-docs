@@ -6,8 +6,10 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261009-8551c68` (published 2026-10-09, source commit
-  `8551c68`) for the office address (T43, PR #70); it adds nothing else people see except an
+- **Checked against:** box release `truchsess-iso-20261009-f38e791` (published 2026-10-09, source commit
+  `f38e791`) for the Agents page in three parts (T38, PR #76) and products rename, archive and
+  restore (T48, PR #75). Box release `truchsess-iso-20261009-8551c68` (published 2026-10-09,
+  source commit `8551c68`) for the office address (T43, PR #70); it adds nothing else people see except an
   operator-only ChatGPT option (T46, PR #74), which stays out of the manual. Box release
   `truchsess-iso-20261009-da06988` (published 2026-10-09, source commit `da06988`) for
   the portal structure, the activation and the managed AI; release
