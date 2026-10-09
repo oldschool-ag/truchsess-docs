@@ -6,7 +6,10 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261009-da06988` (published 2026-10-09, source commit `da06988`) for
+- **Checked against:** box release `truchsess-iso-20261009-8551c68` (published 2026-10-09, source commit
+  `8551c68`) for the office address (T43, PR #70); it adds nothing else people see except an
+  operator-only ChatGPT option (T46, PR #74), which stays out of the manual. Box release
+  `truchsess-iso-20261009-da06988` (published 2026-10-09, source commit `da06988`) for
   the portal structure, the activation and the managed AI; release
   `truchsess-iso-20261008-c7fabcd` (published 2026-10-08) for the phone and voice input (T20, PR
   #63) and the permission check on updates (T44, PR #72). Since `c7fabcd`, `da06988` adds the
@@ -23,8 +26,11 @@ changes first, then the pages.
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Not in the checked release:** T43 (PR #70, the office address `truchsess.local`), open
-  when checked; prepared in a separate commit of the manual. T15a (PR #71) is design notes only.
+- **Office address (T43, PR #70, release `8551c68`):** the manual says `https://truchsess.local/`,
+  with `myai.local` still working. Strings checked on master: installer "Truchsess setup",
+  setup Wi-Fi `Truchsess-Setup-` plus six characters, console "Office address: https://truchsess.local/
+  (myai.local works too)", "Certificate fingerprint of this Truchsess", update outcome "The office
+  address is now truchsess.local; myai.local still works. ...". T15a (PR #71) is design notes only.
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
@@ -466,7 +472,7 @@ password), G2 (remove, disable or rename a user, change an e-mail), G4 (change y
 | G18 | Agents and the store | Roll back an agent to an earlier version. | Not offered. Uninstall and install the earlier signed file (the workspace is lost). | Support. |
 | G19 | Agents and the store | Store updates for store installs. | "Update all installs" works for uploaded package files only. | Support. |
 | G20 | Agents and the store | Leave the store (undo enrolment). | Not offered in the portal. Cancel every subscription. | Support. |
-| G21 | The box | Change the box's name or address (always `myai.local`). | None. | Support. |
+| G21 | The box | Change the box's name or address (always `truchsess.local`; `myai.local` also works). | None. | Support. |
 | G22 | The box | Automatic updates. | The box looks for a new release every day, but it installs only when the admin presses "Update now". | Administrator. |
 | G23 | The box | Choose the backup time or how many backups are kept, or back up to another place automatically. | Backups run at 03:30 and 7 are kept. Download a backup and keep it elsewhere. | Administrator. |
 | G24 | The box | A model running on the box ("On this box only"). | No local model ships yet; this choice refuses every run. Use PHOENIQS (Switzerland) for "Switzerland only". | Administrator. |
