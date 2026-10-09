@@ -1,116 +1,133 @@
 ---
 title: Approvals and checks
-description: How a worker asks before an action, how the administrator approves or refuses, checks of finished results, notices, and standing approvals.
+description: How an agent asks before an action, how the administrator approves or refuses, checks of finished results, notices, standing approvals, and product and agent requests.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-The box stops a worker at three points, depending on the [autonomy level](/admin/autonomy-levels/) of the action:
+The box stops an agent at three points, depending on the [autonomy level](/admin/autonomy-levels/) of the action:
 
-- **Approval** ("Asks you first", "Always asks, with a reason"): the worker asks before it acts. Every [protected action](/start/glossary/#protected-action) asks by default: publish, send messages outside, spend money, chain actions, use credentials, deploy.
+- **Approval** ("Asks you first", "Always asks, with a reason"): the agent asks before it acts. Every [protected action](/start/glossary/#protected-action) asks by default: publish, send messages outside, spend money, chain actions, use credentials, deploy.
 - **Check** ("Waits for your check"): the run finishes, but its result is held until the administrator accepts it.
-- **Notice** ("Tells you after"): the worker acts, and the administrator reads a notice afterwards.
+- **Notice** ("Tells you after"): the agent acts, and the administrator reads a notice afterwards.
+
+Everything that waits for the administrator is on **Approvals** in the navigation. The number next to **Approvals** counts the runs that wait for a decision or a check, plus the open product and agent requests. The page also has a section **Requests** with the product and agent requests of members; see [Decide a product or agent request](#decide-a-product-or-agent-request).
 
 ## Who can do this
 
-- Only the administrator approves, refuses, accepts and sends back.
+- Only the administrator approves, refuses, accepts and sends back, and decides requests. Only the administrator sees **Approvals** in the navigation.
 - Members see on their run card: "Waiting for the CEO administrator to decide." or "Waiting for the owner's check".
 
 ## Before you start
 
-The worker must hold the permission for the action. A worker without it is refused at once and the run fails.
+The agent must hold the permission for the action. An agent without it is refused at once and the run fails.
 
 ## Steps
 
 ### Decide an approval
 
-1. Open the run card in **Chat**, or the tab **Approvals**, panel **Waiting for your decision**.
-2. Read the block "... asks to ...": the level label, what the worker wants to do, the limit if there is one, and what it wrote.
+1. Open the run card in **Chat**, or open **Approvals**, panel **Waiting for your decision**.
+2. Read the block "... asks to ...": the level label, what the agent wants to do, the limit if there is one, and what it wrote.
 3. Press **Approve** or **Refuse**.
 4. A reason field appears. For "Asks you first" it has a default text; change it if you want. For "Always asks, with a reason" the field says **Reason (required)** and you must write one: "This action always asks, and your decision needs a reason."
 5. Press **Confirm approve** or **Confirm refuse** within 10 seconds.
 
 ### Decide a held write
 
-When "Writes company knowledge" or "Changes the workboard" is set to "Asks you first" or higher, the worker writes nothing until you decide. The approval card says "Nothing is written yet. Approve writes it exactly as shown; Refuse writes nothing." and shows what would be written.
+When "Writes company knowledge" or "Changes the workboard" is set to "Asks you first" or higher, the agent writes nothing until you decide. The approval card says "Nothing is written yet. Approve writes it exactly as shown; Refuse writes nothing." and shows what would be written.
 
 1. Read what would be written.
 2. Press **Approve** (the box writes it now) or **Refuse** (nothing is written, the run goes on), then confirm.
 
 ### Decide a held hand-off
 
-When "Hands work to other packages" is set to "Asks you first" or "Always asks, with a reason", a worker that wants to hand part of its task to another worker waits for you. The approval card shows "hand this task to" the other worker with the full task text, and the note "Nothing starts yet. Approve hands this task over exactly as shown (the other package works with its own permissions); Refuse starts nothing."
+When "Hands work to other packages" is set to "Asks you first" or "Always asks, with a reason", an agent that wants to hand part of its task to another agent waits for you. The approval card shows the other agent and the full task text, and the note "Nothing starts yet. Approve hands this task over exactly as shown (the other agent works with its own permissions); Refuse starts nothing."
 
 1. Read the task text that would be handed over.
-2. Press **Approve** (the other worker starts it) or **Refuse** (nothing starts), then confirm. "Always asks, with a reason" needs a reason.
+2. Press **Approve** (the other agent starts it) or **Refuse** (nothing starts), then confirm. "Always asks, with a reason" needs a reason.
 
 ### Check a finished result
 
-A run at "Waits for your check" shows "Waiting for your check" on its card and on the tab **Approvals**, panel **Waiting for your decision**.
+A run at "Waits for your check" shows "Waiting for your check" on its card and on **Approvals**, panel **Waiting for your decision**.
 
 1. Read the result and the files on the card.
 2. Press **Accept**. A field **Note (optional)** appears. Press **Confirm accept**. The run is finished, and its result is shown to everyone who may see the run.
-3. Or press **Send back**. Write in **Note for the package** what the worker should change (required), then press **Confirm send back**. The worker gets one rework turn with your note. Then the result waits for your check again.
+3. Or press **Send back**. Write in **Note for the agent** what the agent should change (required), then press **Confirm send back**. The agent gets one rework turn with your note. Then the result waits for your check again.
 
 A run can be sent back only once. The second time the card says "Sent back once already: accept it, or cancel the run."
 
 ### Read notices
 
-1. Open the tab **Approvals**, panel **Tells you after**. It lists what workers did on their own at "Tells you after": writes to company knowledge and the workboard, and comments, issues and pushes in repositories.
+1. Open **Approvals**, panel **Tells you after**. It lists what agents did on their own at "Tells you after": writes to company knowledge and the workboard, and comments, issues and pushes in repositories.
 2. Press **Mark all as seen** when you have read them.
 
 The run card also shows each notice as "Told you after: ...".
 
 ### Grant a standing approval
 
-A [standing approval](/start/glossary/#standing-approval) lets one installed worker do one protected action without asking, up to a limit.
+A [standing approval](/start/glossary/#standing-approval) lets one installed agent do one protected action without asking, up to a limit.
 
-1. Open the tab **Approvals**, panel **Grant a standing approval**.
-2. Choose the **Package** (the installed worker).
+1. Open **Approvals**, panel **Grant a standing approval**.
+2. Choose the **Agent** (the installed agent).
 3. Choose the **Action**: **Publish**, **Send messages outside**, **Spend money** or **Chain actions**.
 4. Enter the **Limit per calendar month**: a number of times, or an amount for **Spend money**.
 5. Choose **Expires on**. The box suggests three months from today.
 6. Optional: write a **Note (optional)**.
 7. Press **Grant**.
 
-"Use credentials" and "Deploy" always ask, with a reason, so they have no standing approval. A worker whose action you raised to "Always asks, with a reason" is not covered by a standing approval either.
+"Using credentials and deploying always ask, with a reason": they have no standing approval. An agent whose action you raised to "Always asks, with a reason" is not covered by a standing approval either.
 
 ### Revoke a standing approval
 
 1. In the table **Standing approvals**, press **Revoke**.
 2. Press **Confirm revoke**. "Revocation takes effect immediately."
 
+### Decide a product or agent request
+
+Members ask for a new product or another agent at the end of **Agents**, under **Ask for a product or an agent**. Their requests wait for you on **Approvals**.
+
+1. Open **Approvals**, section **Requests**. The table shows **Requested by**, **Request**, **Product**, **Cost / month**, **Status** and **Decision**.
+2. On a pending request, press **Approve** or **Deny**.
+3. A reason field appears. It says "Approved within the stated monthly budget." or "Not approved."; change it if you want.
+4. Press **Confirm approve** or **Confirm deny** within 10 seconds. **Cancel** leaves the request open.
+
+Approving a request authorizes its stated monthly cost. The member sees your decision and reason under **Your requests**, at the end of **Agents**.
+
 ## What you see afterwards
 
-- **Approve**: the worker continues and carries out exactly the approved action. The card shows "Action ...: approved by ...".
+- **Approve**: the agent continues and carries out exactly the approved action. The card shows "Action ...: approved by ...".
 - **Refuse**: for a protected action, the run fails with "Refused by your name: your reason". For a held write, nothing is written and the run goes on.
 - **Accept**: the run shows "Finished" and "Result accepted by ...". A member now sees the result and the files.
 - **Send back**: the card shows "Sent back for one rework turn by ...: your note", and the run works again.
-- A request covered by a standing approval shows "covered by a standing approval" and does not wait.
-- **Standing approvals** lists each grant with **Limit**, **Used**, **Expires**, **Granted by** and **Status**. A grant for an action that always asks shows "not used: this action always asks".
+- **Approve** or **Deny** on a request: its **Status** changes, and **Decision** shows your reason. The number next to **Approvals** goes down by one.
+- An action covered by a standing approval shows "covered by a standing approval" and does not wait.
+- **Standing approvals** lists each grant with **Agent**, **Action**, **Limit**, **Used**, **Expires**, **Granted by** and **Status**. A grant for an action that always asks shows "not used: this action always asks".
 
 ## Checks
 
 While a result waits for the check, a member who started the run sees "The result waits for the owner's check. You see it once the owner accepts it." The member cannot open the run's files until then. If the run is cancelled before **Accept**, the result stays hidden: "The run was cancelled before the owner accepted its result."
 
-A check holds the result, not what the worker already did. Files in its workspace, a knowledge revision, a workboard change, or a comment, issue or branch on GitHub stay as they are. An earlier knowledge revision can be restored; GitHub items can be closed or deleted on GitHub.
+A check holds the result, not what the agent already did. Files in its workspace, a knowledge revision, a workboard change, or a comment, issue or branch on GitHub stay as they are. An earlier knowledge revision can be restored; GitHub items can be closed or deleted on GitHub.
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Approve** | The worker does the action, or the held write is written. | You agree with exactly what is shown. | No. |
+| **Approve** | The agent does the action, or the held write is written. | You agree with exactly what is shown. | No. |
 | **Refuse** | Nothing is done. A refused protected action fails the run. | You do not agree, or the description is unclear. | No. Start a new task. |
 | **Accept** | Releases the held result. | The result is right. | No. |
 | **Send back** | One rework turn with your note. | The result needs a change. Once per run. | No. |
-| **Grant** | The worker does this action without asking until the limit or the expiry. Over the limit it asks again. | A repeated, low-risk action. | Yes: **Revoke**. |
+| **Approve** (request) | Approves a member's product or agent request and its stated monthly cost. | The request is needed and the cost fits the budget. | No. |
+| **Deny** (request) | Refuses the request, with your reason. | The request is not needed or too expensive. | No. The member can send a new request. |
+| **Grant** | The agent does this action without asking until the limit or the expiry. Over the limit it asks again. | A repeated, low-risk action. | Yes: **Revoke**. |
 
-A standing approval covers one installed worker. A second install of the same package needs its own standing approval.
+A standing approval covers one installed agent. A second install of the same package needs its own standing approval.
 
 <NotYet>
-Members and product owners cannot decide approvals or checks, and the box sends no e-mail or chat message when something waits: the administrator looks at the tab **Approvals**.
+Members and product owners cannot decide approvals or checks, and the box sends no e-mail or chat message when something waits: the administrator looks at **Approvals** and the number next to it.
 </NotYet>
 
 ## Related pages
 
 - [Autonomy levels](/admin/autonomy-levels/)
 - [Follow a run](/use/follow-a-run/)
+- [Products and knowledge](/admin/products-and-knowledge/)

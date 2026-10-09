@@ -13,7 +13,7 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | The browser cannot open **https://myai.local/**. | Check that your computer is on the office network. Some networks do not resolve `.local` names: open the box's address from your router's list of devices instead, with `https://`. |
 | The browser warns that the connection is not private. | Normal once per device. Compare the fingerprint with the one on the **Sign in** screen or the box's screen, then accept. See [Check the certificate](/setup/unbox-and-connect/#check-the-certificate). |
 | "This appliance is currently using local HTTP. Use it only on the trusted office network until HTTPS is configured." | You opened the box without `https://`. Use **https://myai.local/**. |
-| "Company OS is unavailable" | The portal cannot reach its own service. Wait a minute and reload. If an update is running, wait until it ends. |
+| "Truchsess is unavailable" | The portal cannot reach its own service. Wait a minute and reload. If an update is running, wait until it ends. |
 | "Starting the assistant" does not go away. | Wait two minutes and reload. If it stays, the AI provider key may be wrong: the administrator checks it with **Change AI provider**. |
 
 ## Signing in
@@ -34,25 +34,27 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 
 | What you see | What to do |
 | --- | --- |
-| "No package is installed, so there is no agent to give work to." | The administrator installs a worker. See [First worker](/setup/first-worker/). |
+| "No agent is installed, so there is nothing to give work to." | The administrator installs an agent under **Agents**. See [First agent](/setup/first-worker/). |
 | "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections." | The administrator adds the connection. See [Connections](/admin/connections/#what-ready-means). |
 | "This looks like a key or password. It was not sent to the AI." | Remove the key or password from the message. The administrator stores it under Connections. |
+| "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." | The administrator presses **Request top-up** or **Use my own AI key** in the banner. See [Budget](/admin/budget/). |
+| "The AI key of this box was switched off by the provider. New runs are paused. ..." or "The AI key of this box has no credit left. New runs are paused. ..." | The administrator requests a top-up, or uses their own key. Ask support. |
 | "Budget exhausted: ..." and **Send** is greyed out. | Wait for the next period, or the administrator raises the budget or requests a top-up. See [Budget](/admin/budget/). |
-| **Send** is greyed out with a note about the data rule. | The worker's model does not meet the box's data rule. The administrator changes the lane's model or the rule. See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes). |
+| **Send** is greyed out with a note about the data rule. | The agent's model does not meet the box's data rule. The administrator changes the lane's model or the rule. See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes). |
 | "... is larger than 48 KB; put a link to it in the message instead." | Attach smaller text files, or put a link in the message. |
 | "... is not a text file; the work chat takes text files up to 48 KB." | Only text files can be attached. |
 | "That message is too long. Shorten it and try again." | A message can have up to 12,000 characters. |
 | A run shows "Failed:" and "Request timed out before a response was generated." | The step took too long. Split the task into smaller tasks. |
 | A run shows "Refused by ...". | The administrator refused an action. Read the reason. |
-| A run stays "Waiting for your approval". | The administrator decides on the tab **Approvals**. |
+| A run stays "Waiting for your approval". | The administrator decides under **Approvals**. |
 | A run shows "Waiting for the owner's check" and no result. | The result waits for the administrator's check. You see it once it is accepted. |
 | "Sent back once already: accept it, or cancel the run." | A run can be sent back only once. Accept it, or cancel the run and start a new task. |
-| "Write what the package should change first." | **Send back** needs a note. |
+| "Write what the agent should change first." | **Send back** needs a note. |
 | "Write a reason first: this action always needs one." | This action is at "Always asks, with a reason". Write a reason, then confirm. |
 | A row in **Autonomy levels** shows "Fixed". | That kind of action cannot be raised. |
-| A worker's answer says it could not hand work over (not granted, already part of the chain, too many open, too deep, the local model, or the budget). | The limits of hand-offs. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers). For "The owner did not grant it", the administrator allows **Hand work to one other installed package** for that worker. |
+| An agent's answer says it could not hand work over (not granted, already part of the chain, too many open, too deep, the local model, or the budget). | The limits of hand-offs. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents). For "The owner did not grant it", the administrator allows **Hand work to one other installed package** for that agent. |
 | A new task shows "Created, waiting for the worker" for a long time. | Other tasks wait for work they handed over. It starts when one of them finishes. |
-| "The reply names a file that is not among this run's files: ..." | The worker mentioned a file it did not save. Ask it again to save the file. |
+| "The reply names a file that is not among this run's files: ..." | The agent mentioned a file it did not save. Ask it again to save the file. |
 
 ## Administration
 
@@ -64,12 +66,12 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "Answer the questions above first." | Answer every required install question. |
 | "GitHub is not connected on this appliance. Connect it under Administration > Connections, then install again." | Connect GitHub first. |
 | "The GitHub connection lists no repositories yet. Press Refresh under Administration > Connections." | Choose repositories on GitHub, then **Refresh**. |
-| "This appliance has no products yet. Add one on the Products tab, then install again." | Add a product. |
-| An install shows "failed" and "Not running". | Read the error on the row. Press **Retry**, or **Remove** it and start again. See [Packages](/admin/packages/#failed-install-retry-or-remove). |
+| "This appliance has no products yet. Add one on the Products tab, then install again." | Add a product under **Administration** › **Knowledge**, **Add a product**. (The message still names the old Products tab.) |
+| An install shows "failed" and "Not running". | Read the error on the row. Press **Retry**, or **Remove** it and start again. See [Agents: install and manage](/admin/packages/#failed-install-retry-or-remove). |
 | An install failed with "duplicate permission". | Fixed in the current release: update the box (see [Updates](/admin/updates/)), then press **Retry** on the row. |
 | The store card says "The store still holds an install from this box that never finished." | Press **Install**: it takes that install over with your answers. See [Store](/admin/store/#an-install-the-store-still-holds). |
 | A removed store install says "The store could not be reached to check whether it still holds this install." | Press **Check with the store again** when the box is online. |
-| Chat says "The subscription for ... has ended. Subscribe again to use this worker." | The function's subscription ended; the worker is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-worker). |
+| Chat says "The subscription for ... has ended. Subscribe again to use this worker." | The function's subscription ended; the agent is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-worker). |
 | "GitHub has not granted ... to this box yet." | Follow the steps on the card. See [Connections](/admin/connections/#when-the-box-asks-for-new-github-permissions). |
 | "Check for updates first: the last check is too old to know the newest release." | Press **Check for updates**, then **Update now**. |
 | "An update is already running or waiting; wait for it to finish." | Wait. |
@@ -80,9 +82,24 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "This backup comes from a newer release (...). Update this box first, then restore." | Update the box, then restore. |
 | An upload (a backup file, a package file or knowledge files) is refused. | The box says why in words, for example a wrong setup code, or that you are not signed in. Fix it, then try again. A file above the upload limit can still end with a connection error. |
 | "The download broke after ...: the connection to the box was lost. Nothing was saved." | Check that the computer is still on the office network, then press **Download** again. |
-| After a restore, **Enter these again** says "Connect an AI provider". | The button is **Change AI provider** in the panel **People and access**. |
+| After a restore, **Enter these again** says "Connect an AI provider". | The button is **Change AI provider** under **Administration** › **Agent rules**, panel **Model lanes**. |
 | "Tick “I have read what passes through Cloudflare” to switch remote access on." | Tick the box, then **Switch on**. |
 | **Not from a run (unattributed)** is above 0. | AI use happened outside a task. Tell support. |
+
+## Activation and AI
+
+| What you see | What to do |
+| --- | --- |
+| "This box has no store address set. Open "Private test server (advanced)" and enter the store's address." | The store's activation service is not live yet. Choose **Use my own AI key instead**. See [Not possible yet](/not-yet/). |
+| "This activation code was already used. Ask the operator for a new one." | Ask support for a new code. |
+| "The store does not know this activation code. Check the code on the card and press Try again." | Check the code, then **Try again**. |
+| "The store could not be reached. Check that the box is connected to the internet, then press Try again. The code was not used." | Check the box's internet connection, then **Try again**. |
+| "This store does not deliver the AI to a box that is already enrolled yet. ..." | Nothing changed. Use your own key with **Change AI provider**, or ask support. |
+| "The AI is not set up yet. Activate it with the code from the card under Administration, General, or choose your own AI key there." | You chose **Activate later**. The place is now **Administration** › **Agent rules**: **AI of this box**, or **Model lanes**, **Change AI provider**. |
+
+## Voice on the phone
+
+See the table on [Use it on your phone](/use/phone-and-voice/#if-something-goes-wrong).
 
 ## Related pages
 

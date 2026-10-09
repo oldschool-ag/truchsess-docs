@@ -1,6 +1,6 @@
 ---
 title: "Strategy and challenge"
-description: "What the Strategy and challenge function is for, its workers, their permissions and install questions, default autonomy levels and example tasks."
+description: "What the Strategy and challenge function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
 
@@ -8,21 +8,21 @@ Store function id: `strategy-and-challenge`. Price and full description: [Strate
 
 ## What it is for
 
-Two workers for decisions. Strategy gives an honest view of what is true and what is only a claim, and can search the web and public sources. Challenger attacks a plan on its own and ranks the critiques that would change the decision.
+Two agents for decisions. Strategy gives an honest view of what is true and what is only a claim, and can search the web and public sources. Challenger attacks a plan on its own and ranks the critiques that would change the decision.
 
 ## Who can do this
 
 - The administrator subscribes, answers the install questions and allows the permissions.
-- Administrators and members give the workers tasks in **Chat**.
+- Administrators and members give the agents tasks in **Chat**.
 
 ## Before you start
 
 - The box is enrolled with the store and the function is subscribed. See [Store](/admin/store/).
-- In **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
+- In **Administration** › **Agent rules**, panel **Owner policy**, allow the permissions marked "Tick it" or with a value below. Permissions with an install question are allowed by your answer. See [Owner policy](/admin/packages/#owner-policy).
 
 Facts on this page come from the packages' published definitions (checked on 8 October 2026). Your box shows the same facts before **Install**, under **Permissions**.
 
-## Workers in this function
+## Agents in this function
 
 ### Strategy
 
@@ -51,11 +51,11 @@ Gives a decision-maker a sharper and honest view: what is true, what is only a c
 - "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 - "Which website should it study (for example the company under review)?" Optional: **Skip (the permission is declined)** is offered. You choose one website address, for example `www.example.com`.
 
-**Hand-offs:** during a task it may hand part of the work to these workers, if they are installed: Challenger, Cora. The other worker works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.challenger`. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers).
+**Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Challenger, Cora. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed package** with the package id of each one, for example `faivr.agent.challenger`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
 **Default autonomy levels**
 
-Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
+Shown and changed under **Administration** › **Agent rules**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
@@ -87,7 +87,7 @@ Attacks a strategy, plan or decision you give it, on its own, and returns the cr
 
 **Default autonomy levels**
 
-Shown and changed under **Administration**, **Packages**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
+Shown and changed under **Administration** › **Agent rules**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
 
 | Kind of action | Default level | You can raise it to |
 | --- | --- | --- |
@@ -95,7 +95,7 @@ Shown and changed under **Administration**, **Packages**, panel **Autonomy level
 | Writes files in its own workspace | Runs on its own | Tells you after, Waits for your check |
 | Reads company knowledge | Runs on its own | cannot be raised (Fixed) |
 
-## What every worker can never do
+## What every agent can never do
 
 - Work outside its own closed workspace on the box.
 - Reach hosts, repositories or products it was not given.
@@ -104,18 +104,18 @@ Shown and changed under **Administration**, **Packages**, panel **Autonomy level
 
 ## Example tasks
 
-Write these in **Chat** after choosing the worker. Change the details to your company.
+Write these in **Chat** after choosing the agent. Change the details to your company.
 
 1. Strategy: "Study the website of the company we want to buy and separate facts from claims."
 2. Challenger: "Here is our plan for next year (attached). Rank the critiques that would change our decision."
 3. Strategy: "Search public sources for the main risks of entering the Swiss market with our product."
 
 <NotYet>
-A store worker can be installed only once per box, and store workers cannot be updated from the box. See [Not possible yet](/not-yet/).
+A store agent can be installed only once per box, and store agents cannot be updated from the box. See [Not possible yet](/not-yet/).
 </NotYet>
 
 ## Related pages
 
-- [All workers](/workers/)
-- [First worker](/setup/first-worker/)
+- [All agents](/agents/)
+- [First agent](/setup/first-agent/)
 - [Autonomy levels](/admin/autonomy-levels/)

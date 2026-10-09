@@ -6,28 +6,31 @@ changes first, then the pages.
 
 ## How this list was made
 
-- **Checked against:** box release `truchsess-iso-20261008-ac837a8` (published 2026-10-08, source commit
-  `ac837a8`). Since `1b70539` it adds: people and accounts (task T35, PR #69:
-  section 8 "People and access", "Your account", the console reset; gaps G1, G2, G4 closed);
-  store takeover and the period end (T39b, PR #65: sections 10 and 19); downloads through the
-  page (T37, PR #67); refused uploads in words (T41, PR #66); a background service for later
-  account connections with nothing visible (T16c.1, PR #62). `1b70539` fixed "duplicate
-  permission" (T39, PR #64), `12b3acf` added hand-offs (section 18), `f1af221` the five
-  autonomy levels (section 17), `f6fb33a` **Administration, Knowledge**; `19aad3e` has
-  everything else below.
+- **Checked against:** box release `RELEASE_TAG_PENDING` (source commit `da06988`) for
+  the portal structure, the activation and the managed AI; release
+  `truchsess-iso-20261008-c7fabcd` (published 2026-10-08) for the phone and voice input (T20, PR
+  #63) and the permission check on updates (T44, PR #72). Since `c7fabcd`, `da06988` adds the
+  new portal look and structure (T40, PR #73: section 21 maps every old place to its new place)
+  and the first run with an activation code, managed AI and starter credit (T42, PR #68:
+  section 22). Sections 1 to 14 still name the places as they were before T40; section 21 is
+  the key to read them. `ac837a8` added people and accounts (T35), store takeover and the
+  period end (T39b), downloads through the page (T37) and refused uploads in words (T41);
+  `1b70539` fixed "duplicate permission" (T39), `12b3acf` added hand-offs (section 18),
+  `f1af221` the five autonomy levels (section 17), `f6fb33a` Knowledge; `19aad3e` has
+  everything else.
 - **Sources read:** the portal page (markup and script), the portal server (routes and
   messages), the modules behind it (accounts, packages, connections, data rule, budget, backups,
   remote access, system update, work chat), the installer's setup page and scripts, the
   permission vocabulary, and the matching design notes in the Truchsess repository. Where a
   note and the code disagree, the code wins.
-- **Not in the checked release:** T15a (PR #71, design notes only, nothing people see); not
-  merged: T42, T43, T20. Nothing of them is described.
+- **Not in the checked release:** T43 (PR #70, the office address `truchsess.local`), open
+  when checked; prepared in a separate commit of the manual. T15a (PR #71) is design notes only.
 - **Who sees it:** "Admin" is the CEO administrator (the first account; the portal calls it
   "CEO administrator"). "Member" is every other account. There are no other roles.
 - **Undo:** "Yes" means the person can reverse it in the portal. "No" means it cannot be
   reversed. "Partly" says what stays.
-- The portal's header still reads **Company OS** (the old product name). The manual calls the
-  product Truchsess and quotes on-screen labels exactly.
+- Since `da06988` the portal shows "Truchsess" (logo and tab title). Some server messages still
+  say "worker", "package" or "appliance"; the manual quotes them exactly.
 
 ## 1. Installer (before the box has a portal)
 
@@ -78,17 +81,18 @@ Facts used by the pages:
 | "AI setup required": "The CEO administrator must configure the appliance AI before chat is available." | Member | Shown to members until the admin has chosen a provider. | n/a |
 | "Starting the assistant": "This page will continue automatically." | Both | Shown while the box starts after a provider change. | n/a |
 
-## 3. Tabs
+## 3. Navigation (since `da06988`)
 
-| Tab | Who | What it is |
+| Entry | Who | What it is |
 | --- | --- | --- |
-| Chat | Both | Give work to an installed worker. |
-| Runs | Both | Run history. Admin: every run. Member: own runs only. |
-| Approvals | Admin | Waiting decisions and standing approvals. |
-| Products | Both | Products, add or request a product, request another agent. |
-| Requests | Both | Own product and agent requests with their decision. |
-| Your account | Both | Own name, e-mail, role; change the own password. |
-| Administration | Admin | Sub-tabs General, Packages, Knowledge, Connections, Remote access. |
+| Chat | Both | Give work to an installed agent. |
+| Runs | Both | Run history with filters All, Needs you, Active, Finished, Failed or cancelled, and a task search. Admin: every run. Member: own runs only. |
+| Approvals (with a count) | Admin | Waiting decisions, notices ("Tells you after"), standing approvals, and Requests (product and agent requests). |
+| Agents | Both | "Agents you can use" with "Open in chat". Admin: "Installed agents", "Store", "Install from a package file". Member: "Ask for a product or an agent", "Your products", "Request a new product", "Request another agent", "Your requests". |
+| Administration | Admin | Sub-pages Overview, People and access, Budget, Connections, Knowledge, System, Backups, Remote access, Agent rules. Opens on Overview. |
+| Navigation footer | Both | "Docs" (https://docs.truchsess.com/), the person's name (opens "Your account"; title "Your account and password"), role ("Administrator" or "Member") and company name, status line, Light/Dark switch, "Sign out". |
+
+Below 768 px the navigation is one bar across the top.
 
 ## 4. Chat
 
@@ -449,32 +453,35 @@ password), G2 (remove, disable or rename a user, change an e-mail), G4 (change y
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
 | G3 | Accounts and roles | A second administrator, or making a member an administrator. | Share administration tasks by asking the one CEO administrator. | Support. |
-| G5 | Accounts and roles | Limit which workers a member sees in Chat. | Every member sees every installed worker. Install only workers everyone may use. | Administrator. |
+| G5 | Accounts and roles | Limit which agents a member sees in Chat. | Every member sees every installed agent. Install only agents everyone may use. | Administrator. |
 | G6 | Accounts and roles | See other people's runs as a member, or share a run. | Members see own runs only. Share the result file or text another way. | Administrator (sees all runs). |
 | G7 | Approvals and autonomy | Approve or refuse as a member, or as a product owner. | Only the CEO administrator decides. | Administrator. |
-| G11 | Knowledge, workboard and products | See, search or edit the company knowledge in the portal, or look at older revisions. | Ask a worker with knowledge permission to search, read or quote a document (it can also read an older revision). | Administrator. |
+| G11 | Knowledge, workboard and products | See, search or edit the company knowledge in the portal, or look at older revisions. | Ask an agent with knowledge permission to search, read or quote a document (it can also read an older revision). | Administrator. |
 | G12 | Knowledge, workboard and products | Delete a knowledge document. | Import a corrected version (it becomes the current one). A document cannot be removed. | Support. |
-| G13 | Knowledge, workboard and products | See the workboard in the portal. | Ask a worker with workboard permission to list or update cards in a task. | Administrator. |
+| G13 | Knowledge, workboard and products | See the workboard in the portal. | Ask an agent with workboard permission to list or update cards in a task. | Administrator. |
 | G14 | The box | Report a problem from the portal. | Use "Copy logs" (installer) or the run's "Audit" and "Details (update log)"; send them with a description to support. | Support. |
 | G15 | Knowledge, workboard and products | Delete or rename a product, or withdraw a request. | Leave it unused; deny pending requests. | Administrator. |
-| G16 | Knowledge, workboard and products | A requested and approved "agent" becomes a usable worker. | Approval only records the agent. A worker is used only after the admin installs a package. | Administrator. |
-| G17 | Workers and the store | Install the same store package twice. | A store package installs once per box. A sideloaded package (signed file) can be installed several times. | Support. |
-| G18 | Workers and the store | Roll back a worker to an earlier version. | Not offered. Uninstall and install the earlier signed file (the workspace is lost). | Support. |
-| G19 | Workers and the store | Store updates for store installs. | "Update all installs" works for uploaded package files only. | Support. |
-| G20 | Workers and the store | Leave the store (undo enrolment). | Not offered in the portal. Cancel every subscription. | Support. |
+| G16 | Knowledge, workboard and products | An approved request for another agent installs it. | Approval only records the request. The administrator installs the agent under Agents. | Administrator. |
+| G17 | Agents and the store | Install the same store package twice. | A store package installs once per box. A sideloaded package (signed file) can be installed several times. | Support. |
+| G18 | Agents and the store | Roll back an agent to an earlier version. | Not offered. Uninstall and install the earlier signed file (the workspace is lost). | Support. |
+| G19 | Agents and the store | Store updates for store installs. | "Update all installs" works for uploaded package files only. | Support. |
+| G20 | Agents and the store | Leave the store (undo enrolment). | Not offered in the portal. Cancel every subscription. | Support. |
 | G21 | The box | Change the box's name or address (always `myai.local`). | None. | Support. |
 | G22 | The box | Automatic updates. | The box looks for a new release every day, but it installs only when the admin presses "Update now". | Administrator. |
 | G23 | The box | Choose the backup time or how many backups are kept, or back up to another place automatically. | Backups run at 03:30 and 7 are kept. Download a backup and keep it elsewhere. | Administrator. |
 | G24 | The box | A model running on the box ("On this box only"). | No local model ships yet; this choice refuses every run. Use PHOENIQS (Switzerland) for "Switzerland only". | Administrator. |
 | G25 | Tasks | Images, PDFs or other binary files as task attachments. | Text files only, up to 48 KB. Put a link in the message instead. | Administrator. |
 | G26 | The box | Remote sign-in for secrets (passwords, keys, updates, knowledge import). | Do these in the office on the local address. | Administrator. |
-| G27 | Workers and the store | The LinkedIn posting worker. | Planned, not in the store yet. | Support. |
-| G28 | Workers and the store | Change the owner policy for an already installed worker. | Use "Change" for the install questions, or uninstall and install again. | Administrator. |
-| G29 | Approvals and autonomy | Notifications (e-mail or chat) when an approval or a check waits, or a run ends. | Open the tab Approvals (panels "Waiting for your decision" and "Tells you after") or the run card. | Administrator. |
+| G27 | Agents and the store | The LinkedIn posting agent. | Planned, not in the store yet. | Support. |
+| G28 | Agents and the store | Change the owner policy for an already installed agent. | Use "Change" for the install questions, or uninstall and install again. | Administrator. |
+| G29 | Approvals and autonomy | Notifications (e-mail or chat) when an approval or a check waits, or a run ends. | Open Approvals (the navigation shows how many wait; panels "Waiting for your decision" and "Tells you after") or the run card. | Administrator. |
 | G30 | The box | A language other than English in the portal. | None. | Support. |
 | G31 | The box | Show the certificate fingerprint on the very first screen. | Read it on the box's console (screen and keyboard) after the automatic login. | Support. |
 | G32 | Approvals and autonomy | A different autonomy level for one install of a package. | A level applies to every install of the package. Install a separate package if you need different levels. | Administrator. |
-| G33 | Approvals and autonomy | Approve a repository comment, issue or push before it happens. | Repository actions can be raised to "Waits for your check" only. To approve each change, remove the repository permission and ask the worker to describe the change in its answer. | Administrator. |
+| G33 | Approvals and autonomy | Approve a repository comment, issue or push before it happens. | Repository actions can be raised to "Waits for your check" only. To approve each change, remove the repository permission and ask the agent to describe the change in its answer. | Administrator. |
+| G34 | Activation and AI | Activate the box with the activation code from the card (it would enrol the box and deliver the managed AI). | The store's activation service is not live yet, and a new box has no store address. Choose "Use my own AI key instead" at the first run, or later "Change AI provider" under Administration › Agent rules. | Support. |
+| G35 | Activation and AI | The one-time starter credit of CHF 50. | It comes only with an activation. With your own key, set your own budget under Administration › Budget. | Support. |
+| G36 | Tasks | Speech recognition by the phone itself (Apple or Google). | Use "Hold to talk": the box turns speech into text, and the audio stays on the box. | Administrator. |
 
 ## 16. Workers (store functions)
 
@@ -567,3 +574,68 @@ two tasks wait for work they handed over, a new task can show "Created, waiting 
   other pages still say "worker"; change them when the portal shows "agent".
 - The installer's own texts still name the old product ("Company OS") and an older host name on
   the setup Wi-Fi. The manual tells the reader what they will see.
+
+## 21. Where everything is since `da06988` (T40, PR #73)
+
+From `docs/architecture/portal-structure.md`, section 1.3, checked against the portal page.
+
+| Function | Before | Now |
+| --- | --- | --- |
+| Budget banner, "Request top-up" | Chat | Chat |
+| Run history, audit trail | Runs tab | Runs (with filters and search) |
+| Waiting for your decision, Tells you after, standing approvals | Approvals tab | Approvals |
+| Decide product and agent requests | Administration, General, "Approvals" | Approvals, "Requests" |
+| Products, add a product, product catalog | Products tab; General | Administration › Knowledge, "Products and their knowledge" |
+| Request a new product, request another agent, your requests | Products tab; Requests tab | End of Agents ("Ask for a product or an agent", "Your requests"); members also see "Your products" there |
+| Your account, change your password | Your account tab | Your account, from the name in the navigation footer |
+| Store, install from a package file, installed agents | Administration, Packages | Agents ("Store", "Install from a package file", "Installed agents") |
+| Trusted publishers, owner policy, data rule, autonomy levels, model lanes, "Change AI provider" | Administration, Packages; General | Administration › Agent rules |
+| AI of this box (switch to managed AI) | (new) | Administration › Agent rules |
+| Self-tests | Administration, Packages | Administration › System |
+| Company name (new), system (release, update, roll back), voice input, earlier assistant conversations | General | Administration › System |
+| Backups (recovery key, backups, restore, enter these again) | General | Administration › Backups |
+| Budget | General | Administration › Budget |
+| Add a user, People and access, assign product access, product access | General | Administration › People and access |
+| Operator SSH access | General | Administration › Remote access ("Operator access over SSH") |
+| Company activity | General | Administration › Overview ("Recent activity") |
+| Needs your attention, Areas | (none) | Administration › Overview |
+| Import documents | Administration, Knowledge | Administration › Knowledge |
+| Connections, Remote access | same | same |
+
+The portal's shared "Not yet" note links to `/not-yet/`; no built page uses it today.
+
+Server messages that still name the old places (quoted as they are; the manual says where to go):
+- "This appliance has no products yet. Add one on the Products tab, then install again."
+- "The AI is not set up yet. Activate it with the code from the card under Administration, General, or choose your own AI key there." (after "Activate later")
+
+## 22. First run with an activation code, managed AI, starter credit (T42, PR #68)
+
+| Label | Who | What it does | Undo |
+| --- | --- | --- | --- |
+| "Activate this box": "Activation code", "Activate", "Private test server (advanced)" ("Store address", "CA certificate of the test server (PEM)"), "Try again", "Continue" | Admin, at the first run while no AI is set | Steps "Enrol this box in the store", "Store the AI key", "Set up the managed AI (never kept, never trained on)", "Set the starter credit", "Test the AI"; then "AI is ready." | Change AI provider. |
+| "Use my own AI key instead" | Admin | Opens "Choose the appliance AI". | n/a |
+| "Activate later" | Admin | Opens the portal without AI, with the note quoted in section 21. Shown again at the next sign-in while no AI is set. | n/a |
+| Administration › Agent rules › "AI of this box": "Switch to managed AI with an activation code", "Activation code", "Switch to managed AI", "Try again" | Admin | The same steps for a box already set up. A store without this service: "This store does not deliver the AI to a box that is already enrolled yet. ..." | Change AI provider. |
+| Starter credit | Both see the banner | One time, CHF 50 (from the store), no monthly reset. Warning at 80 percent ("AI starter credit: N percent is used ..."), stop at 100 percent ("The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key."), with "Request top-up" and "Use my own AI key". | Top-up, or own key. |
+| Key refused | Both see the banner | "The AI key of this box was switched off by the provider. ..." / "The AI key of this box has no credit left. ..." | Top-up, or own key. |
+
+Messages: "This activation code was already used. Ask the operator for a new one."; "The store does not know this activation code. ..."; "The store could not be reached. ... The code was not used."; "This box has no store address set. Open "Private test server (advanced)" and enter the store's address."
+
+Not live (gaps G34, G35): the store's activation service (FAIVR F6) and the production store address (`storeOrigin` is empty in the image). Until both exist, Activate stops at the first step on a customer box.
+
+The bootstrap code (installer) and the activation code (card) are different codes.
+
+## 23. Phone and voice input (T20, PR #63, release `c7fabcd`)
+
+| Label | Who | What it does | Undo |
+| --- | --- | --- | --- |
+| "Hold to talk" (next to Send), "Release to stop · N s", "Making text…" | Both | Records up to 60 s; the box turns it into text in the message box ("Check the text, then tap Send."). Never sends, approves or accepts. Slide off to cancel. | Edit the text. |
+| "Spoken": Auto, Deutsch, English | Both | The spoken language, kept per person. | Yes. |
+| "Read answers aloud", "Read aloud", "Stop reading" | Both | Reads an answer with a voice on the phone (local voices only): "No voice on this phone reads without the internet". | Yes. |
+| Administration › System › "Voice input": "Voice input (speech to text on this box)" | Admin | On by default; off hides "Hold to talk" for everyone. | Yes. |
+
+Audio goes only to the box ("Speech is turned into text on this box. The recording is deleted as soon as the text is made and is never stored."). On the remote address: "On the remote address your recording passes through Cloudflare on its way to this box." Voice works on the remote address. Activity: one line per clip, never the text. Not offered: the phone's own speech recognition (gap G36).
+
+## 24. Update with changed permissions (T44, PR #72, release `c7fabcd`)
+
+An upload of a new version whose permissions or questions differ shows the change once for all installs ("Adds", "Removes", new questions, and per added permission what the owner policy would do). The button reads "Update and grant (all N installs)"; nothing changes until it is pressed; the installs keep running. After the update, grants are computed as at install. Activity: who confirmed, what was added and removed. Store installs are not updated from the box (G19).

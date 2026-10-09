@@ -18,7 +18,7 @@ The administrator, in the office on **https://myai.local/**. Backups cannot be m
 
 The box makes no backup until a recovery key exists: "No recovery key yet: the box makes no backup until one exists."
 
-1. Open **Administration**, sub-tab **General**, panel **Backups**.
+1. Open **Administration**, then **Backups**, panel **Backups**.
 2. Press **Create the recovery key**.
 3. Save the key: **Copy**, or **Download as a file**.
 4. Press **I have saved it**.
@@ -31,7 +31,7 @@ The box makes no backup until a recovery key exists: "No recovery key yet: the b
 
 - Every night at 03:30 by the box's clock, the box makes an encrypted backup.
 - Nightly and manual backups together: the newest 7 are kept.
-- In a backup: tasks and their history, users (with their passwords in protected form), installed workers and their answers, settings, the owner policy, the workers' workspaces, the SSH keys.
+- In a backup: tasks and their history, users (with their passwords in protected form), installed agents and their answers, settings, the owner policy, the agents' workspaces, the SSH keys.
 - Never in a backup: the AI provider key, connection secrets (GitHub, API keys), the store enrolment, the remote access code.
 - Tasks that are running when a backup starts are waited for up to 5 minutes. After that, the backup notes that their unfinished files may be incomplete.
 
@@ -46,10 +46,10 @@ If the connection breaks, the line says "The download broke ..." and nothing is 
 ## Restore on the same box
 
 <Aside type="caution">
-A restore puts the box back to the backup's state: "tasks, packages, users and settings made after it are gone, and everyone signs in again."
+A restore puts the box back to the backup's state: "tasks, agents, users and settings made after it are gone, and everyone signs in again."
 </Aside>
 
-1. In the panel **Backups**, section **Restore**, choose the **Backup**: one of the box's backups, or **A backup file from this computer** and then the **Backup file**.
+1. On **Administration** › **Backups**, in the panel **Backups**, section **Restore**, choose the **Backup**: one of the box's backups, or **A backup file from this computer** and then the **Backup file**.
 2. Paste the **Recovery key**, or choose it under **or the recovery key file**.
 3. Press **Restore**, then **Confirm restore** within 10 seconds.
 4. Follow the steps: "Open the backup with the recovery key", "Check the release and every file", "Keep a safety copy of the box", "Stop the services", "Put the backup in place", "Update the database to this release", "Start the services", "Check that everything runs".
@@ -70,19 +70,21 @@ Use this when you move to a new box or replace a broken one.
 6. Press **Restore**.
 7. When it is done, read **Enter these again** and press **Sign in**. Sign in with an account from the backup.
 
-On a box that is already set up this is refused: "This box is already set up: restore under Administration, General, Backups."
+On a box that is already set up this is refused. Restore there under **Administration** › **Backups** instead.
 
 ## What you see afterwards
 
-The table **Enter these again** lists only what this box does not hold:
+The table **Enter these again** lists only what this box does not hold. Enter each one here:
 
-| What | Where |
+| What | Where to enter it |
 | --- | --- |
-| The AI provider key | Administration, General. The table says "Connect an AI provider"; the button is **Change AI provider** in the panel **People and access**. |
-| GitHub | Administration, Connections: **Connect GitHub** |
-| The API key for a service | Administration, Connections |
-| The store enrolment | Administration, Packages, Store: **Enrol** |
-| Remote access (it is switched off) | Administration, Remote access |
+| The AI provider key | **Administration** › **Agent rules**: **Change AI provider** in the head of the panel **Model lanes**. With the managed AI, use **Switch to managed AI** in the panel **AI of this box** with a new activation code (see [AI providers and lanes](/admin/ai-providers-and-lanes/#switch-to-managed-ai-with-an-activation-code)). |
+| GitHub | **Administration** › **Connections**: **Connect GitHub** |
+| The API key for a service | **Administration** › **Connections** |
+| The store enrolment | **Agents**, panel **Store**: **Enrol** |
+| Remote access (it is switched off) | **Administration** › **Remote access** |
+
+The **Where** column of the table may still name the places of an older release. Use the places above.
 
 "Nothing: this box still holds every secret the backup's box had." means there is nothing to enter.
 

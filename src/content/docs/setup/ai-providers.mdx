@@ -4,7 +4,7 @@ description: Choose which AI service the box uses, and enter its key.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-The box does not contain an AI model. It sends each task to an AI provider that you choose. This step connects the box to one provider.
+The box does not contain an AI model. It sends each task to an AI provider. A box activated with the activation code already uses the managed AI (see [First run](/setup/first-run/#activate-this-box)); then you can skip this step. This step connects the box to a provider you choose, with your own key.
 
 ## Who can do this
 
@@ -16,12 +16,12 @@ Decide two things:
 
 1. **Who pays the AI provider.**
    - **Own key**: your company has an account with a provider and an API key (a secret code from the provider's website).
-   - **Managed by Old School**: the vendor of the box issued a metered key for your box, with a monthly limit. You received this key from the vendor.
+   - **Managed by Old School**: the vendor of the box issued a metered key for your box, with a monthly limit. You received this key from the vendor. (With an activation code the managed key arrives by itself; you do not paste it.)
 2. **Which provider.** If your data may only be processed in Switzerland, choose **PHOENIQS (Switzerland)**. See [Swiss-only](/admin/ai-providers-and-lanes/#the-swiss-only-option).
 
 ## Steps
 
-1. The page **Choose the appliance AI** opens by itself after the first sign-in. Later you find it under **Administration**, **General**, panel **People and access**, button **Change AI provider**.
+1. At the first run, press **Use my own AI key instead** on **Activate this box**: the page **Choose the appliance AI** opens. Later you find it under **Administration** › **Agent rules**, panel **Model lanes**, button **Change AI provider**.
 2. Choose the **Billing mode**: **Own key** or **Managed by Old School**.
 3. Choose the **Provider**. With **Managed by Old School** the provider is fixed to OpenRouter.
 4. Check the **Model ID**. The box suggests a default model for the provider. Keep it unless you know you need another.
@@ -33,7 +33,7 @@ Decide two things:
 ## What you see afterwards
 
 - The page **Starting the assistant** appears: "This page will continue automatically."
-- Then the portal opens on the tab **Chat**. The status line in the header shows the provider and the model.
+- Then the portal opens on **Chat**. The status line at the bottom of the navigation shows the provider and the model.
 - The box has filled the three [model lanes](/start/glossary/#model-lane) with the provider's default models. You can change them later.
 - The key stays on the box. The portal never shows it again.
 
@@ -48,7 +48,7 @@ Decide two things:
 | **Local model / Ollama** | A model server in your own network. | You run your own model server. | Yes. |
 | **Private or custom provider** | Any service with a compatible interface. You enter **Provider name**, **API base URL** and **API format**. | Your IT runs a private model service. | Yes. |
 
-Changing the provider later rewrites the model lanes with the new provider's defaults. Then press **Apply to installed packages** under **Administration**, **Packages**, **Model lanes**, so that installed workers use the new models. See [AI providers and lanes](/admin/ai-providers-and-lanes/).
+Changing the provider later rewrites the model lanes with the new provider's defaults. Then press **Apply to installed agents** under **Administration** › **Agent rules**, **Model lanes**, so that installed agents use the new models. See [AI providers and lanes](/admin/ai-providers-and-lanes/).
 
 <NotYet>
 There is no AI model inside the box yet. The choice "on this box only" in the data rule refuses every task today. Use PHOENIQS (Switzerland) if your data must not leave Switzerland.

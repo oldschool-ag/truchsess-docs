@@ -4,7 +4,7 @@ description: Create accounts, give product access, reset a forgotten password, d
 ---
 import NotYet from '~/components/NotYet.astro';
 
-Everything about people is on **Administration**, sub-tab **General**: the panels **Add a user**, **People and access**, **Assign product access** and **Product access**.
+Everything about people is on its own page: open **Administration**, then **People and access**. It holds the panels **People and access**, **Add a user**, **Assign product access** and **Product access**.
 
 ## Who can do this
 
@@ -19,7 +19,7 @@ The administrator. Some actions work only in the office on **https://myai.local/
 
 ### Create an account
 
-1. Open **Administration**, sub-tab **General**, panel **Add a user**.
+1. Open **Administration**, then **People and access**, panel **Add a user**.
 2. Enter **Name** and **Work email**.
 3. Press **Create user**.
 4. Copy the temporary password from the line "Temporary password for ...". It is not shown again.
@@ -27,7 +27,7 @@ The administrator. Some actions work only in the office on **https://myai.local/
 
 ### Give product access
 
-1. In **Assign product access**, choose **User**, **Product** and **Access** (**Member** or **Owner**).
+1. On **Administration** › **People and access**, in the panel **Assign product access**, choose **User**, **Product** and **Access** (**Member** or **Owner**).
 2. Press **Assign access**. The box shows "Product access assigned."
 
 Assigning again with another **Access** changes the access.
@@ -39,7 +39,7 @@ Assigning again with another **Access** changes the access.
 
 ### Reset a forgotten password
 
-1. In **People and access**, press **Reset password** on the person's row.
+1. On **Administration** › **People and access**, in the panel **People and access**, press **Reset password** on the person's row.
 2. Press **Confirm reset**.
 3. Copy the line "One-time password for ...". It is not shown again.
 4. Give it to the person safely. At the next sign-in they must choose a new password.
@@ -82,7 +82,7 @@ A new e-mail address signs the person out. They sign in with the new address. If
 
 - **People and access** lists every account: **Name**, **Email**, **Role** (Administrator or Member), **State**, **Last login**, and the buttons.
 - **Product access** lists every assignment: **Person**, **Product**, **Access**, **Assigned**.
-- **Company activity** records each change with your name.
+- **Administration** › **Overview**, **Recent activity** records each change with your name.
 
 The **State** column:
 
@@ -93,13 +93,14 @@ The **State** column:
 | Disabled | The person cannot sign in. | **Change name or e-mail**, **Enable**, **Remove** |
 | Removed | The account is closed for good. | None |
 
-Your own row, the administrator's, has no buttons. Change your own password under [Your account](/use/your-account/). If you forgot your own password, see [Administrator password](/admin/administrator-password/).
+Your own row, the administrator's, has no buttons. Change your own password under [Your account](/use/your-account/): press your name at the bottom of the navigation. If you forgot your own password, see [Administrator password](/admin/administrator-password/).
 
 ## On the remote address
 
 | Works on the remote address | Only in the office, on https://myai.local/ |
 | --- | --- |
 | **Disable**, **Remove** (they only take access away) | **Create user**, **Reset password**, **Enable**, **Change name or e-mail** |
+| **Assign access**, **Remove** in **Product access** | |
 
 In the office-only cases the box shows "Enter this in the office, on the local address."
 
@@ -116,10 +117,10 @@ In the office-only cases the box shows "Enter this in the office, on the local a
 | **Remove** (person) | Closes the account for good; the e-mail is free again. | The person left and will not come back. | No. Create a new account. |
 | **Change name or e-mail** | A new name or e-mail address. | A typo, a new name, a new address. | Yes: change it again. |
 
-What a member sees does not depend only on product access: every member sees every installed worker in **Chat**, and their own runs and requests.
+What a member sees does not depend only on product access: every member sees every installed agent in **Chat** and under **Agents**, **Agents you can use**, and their own runs and requests.
 
 <NotYet>
-You cannot make a second administrator or make a member an administrator, change the administrator's own name or e-mail in the portal, or limit which workers a member sees in **Chat**. Ask support.
+You cannot make a second administrator or make a member an administrator, change the administrator's own name or e-mail in the portal, or limit which agents a member sees. Ask support.
 </NotYet>
 
 ## Related pages

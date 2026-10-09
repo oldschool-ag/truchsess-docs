@@ -1,30 +1,70 @@
 ---
 title: AI providers and lanes
-description: Change the AI provider, the Swiss-only option, the data rule, and the three model lanes.
+description: See which AI the box uses, switch to the managed AI, change the AI provider, the Swiss-only option, the data rule, and the three model lanes.
 ---
 import NotYet from '~/components/NotYet.astro';
 
+Everything on this page is on **Administration** › **Agent rules**: the panels **AI of this box**, **Model lanes** (with the button **Change AI provider**) and **Which AI providers may see your data**.
+
 ## Who can do this
 
-The administrator. Changing the provider works only in the office.
+The administrator. Changing the provider and switching to the managed AI work only in the office, on **https://myai.local/**. The data rule and the model lanes can also be changed on the remote address.
 
 ## Before you start
 
 - To change the provider: the new provider's API key.
+- To switch to the managed AI: the activation code from the card.
 - Know the rule for your data: may a provider keep it or train on it, and where may it be processed?
+
+## The AI of this box
+
+Open **Administration**, then **Agent rules**. The panel **AI of this box** says which AI every agent uses:
+
+- "Managed AI": the key came with the box, and only providers that never keep or train on your data are used.
+- "Your own AI key": the key you entered under **Change AI provider**. The panel adds: "An activation code from the operator switches the box to the managed AI."
+
+The provider and model are named in brackets.
+
+## Switch to managed AI with an activation code
+
+<NotYet>
+Switching with an activation code needs the store's activation service, which is not available yet. Until then, use [Change AI provider](#change-the-ai-provider) with your own key, or ask support.
+</NotYet>
+
+The code from the card enrols the box in the store, if it is not enrolled yet, and delivers the AI key with a starter credit (see [Budget](/admin/budget/#the-starter-credit)). Your own key is replaced. You can go back to it at any time with **Change AI provider**.
+
+1. Open **Administration**, then **Agent rules**, panel **AI of this box**.
+2. Under **Switch to managed AI with an activation code**, enter the **Activation code** from the card.
+3. Press **Switch to managed AI**.
+4. Follow the steps: "Enrol this box in the store", "Store the AI key", "Set up the managed AI (never kept, never trained on)", "Set the starter credit", "Test the AI".
+5. When all steps are done, the panel shows "AI is ready."
+
+If a step fails, the panel says why in one sentence, and **Try again** appears. **Try again** starts again at the step that failed. The code is needed only until the store has accepted it.
+
+| What you see | What to do |
+| --- | --- |
+| "This activation code was already used. Ask the operator for a new one." | Ask support for a new code. |
+| "The store does not know this activation code. Check the code on the card and press Try again." | Check the code and press **Try again**. |
+| "The store could not be reached. Check that the box is connected to the internet, then press Try again. The code was not used." | Check the internet connection and press **Try again**. |
+| "This store does not deliver the AI to a box that is already enrolled yet. The box stays as it is; use your own AI key, or ask the operator." | Nothing changed. Keep your own key, or ask support. |
+| "The box is enrolled in the store, but this activation code carries no AI key. Use your own AI key instead, or ask the operator." | Use **Change AI provider** with your own key, or ask support. |
+| "The provider refused the AI key. Ask the operator, or use your own AI key." | Ask support, or use **Change AI provider** with your own key. |
 
 ## Change the AI provider
 
-1. Open **Administration**, sub-tab **General**, panel **People and access**, and press **Change AI provider**.
-2. Choose the **Billing mode**, the **Provider** and the **Model ID**, and enter the key.
-3. Press **Save provider**. The box restarts its AI part: "Starting the assistant".
-4. The model lanes now hold the new provider's default models. Go to [Model lanes](#model-lanes) and press **Apply to installed packages**.
+1. Open **Administration**, then **Agent rules**.
+2. In the head of the panel **Model lanes**, press **Change AI provider**. The page **Choose the appliance AI** opens.
+3. Choose the **Billing mode**, the **Provider** and the **Model ID**, and enter the key.
+4. Press **Save provider**. The box restarts its AI part: "Starting the assistant".
+5. The model lanes now hold the new provider's default models. Go to [Model lanes](#model-lanes) and press **Apply to installed agents**.
+
+A key you save here replaces the managed AI and ends a starter credit. **Cancel** takes you back to **Agent rules** without a change.
 
 The choices are explained on [AI providers](/setup/ai-providers/#your-choices).
 
 ## The data rule
 
-The panel **Which AI providers may see your data** is on **Administration**, sub-tab **Packages**. "Every model request of every package goes only to providers that meet this rule." A run that cannot meet it is refused before any data leaves the box.
+The panel **Which AI providers may see your data** is on **Administration** › **Agent rules**. "Every model request of every agent goes only to providers that meet this rule." A run that cannot meet it is refused before any data leaves the box.
 
 1. Under **What providers may do with your data**, choose one option.
 2. Under **Where your data may be processed**, choose one option.
@@ -43,7 +83,9 @@ The panel **Which AI providers may see your data** is on **Administration**, sub
 | **Switzerland only** | Only PHOENIQS (Switzerland) or a model on this box. Every other lane is refused before any call. |
 | **On this box only** | Only a model running on the box. "No local model ships yet: runs are refused." |
 
-"Packages that read or write your code or knowledge, or use stored credentials, always run at least 'never trained on'."
+Agents that read or write your code or knowledge, or use stored credentials, always run at least at **Never trained on**, whatever you choose.
+
+The managed AI runs only under **Never kept, never trained on**. With another rule, the step "Set up the managed AI (never kept, never trained on)" stops and says so.
 
 ## The Swiss-only option
 
@@ -58,19 +100,20 @@ PHOENIQS bills you directly. The box does not meter it and does not show its cos
 
 ## Model lanes
 
-A [model lane](/start/glossary/#model-lane) decides which model a worker uses. Each worker has one lane permission. A worker without one runs in the fallback lane. The panel **Model lanes** is on **Administration**, sub-tab **Packages**.
+A [model lane](/start/glossary/#model-lane) decides which model an agent uses. Each agent has one lane permission. An agent without one runs in the fallback lane. The panel **Model lanes** is on **Administration** › **Agent rules**.
 
 1. For **Cheap**, **Standard** and **Frontier**, choose a model from the list. For a model that is not listed, choose **Other model...** and type its id.
 2. Choose the **Fallback lane (no lane permission)**.
 3. Press **Save lanes**.
-4. Press **Apply to installed packages**. The box names each worker it changed.
+4. Press **Apply to installed agents**. The box names each agent it changed.
 5. Read the table: **Lane**, **Model**, and whether it meets the data rule. Press **Check providers now** to check again.
 
 "An automatic model is not allowed: choose a fixed model for the ... lane." The box refuses models that pick a provider by themselves, because the data rule could not be checked.
 
 ## What you see afterwards
 
-- The header's status line shows the provider and model.
+- The status line at the bottom of the navigation shows the provider and model.
+- The panel **AI of this box** says whether the box uses the managed AI or your own key.
 - Each run card shows its lane, its model and its data rule.
 - A lane that does not meet the rule refuses its runs before any model call, with a message that names the lane.
 
@@ -78,13 +121,14 @@ A [model lane](/start/glossary/#model-lane) decides which model a worker uses. E
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
+| **Switch to managed AI** | Uses the AI key from the activation code, with a starter credit. Your own key is replaced. | You have an activation code and want the managed AI. | Yes: **Change AI provider** with your own key. |
 | **Save provider** | Switches the AI provider and resets the lanes to its defaults. | A new provider. | Yes. |
 | **Save data rule** | Sets what providers may do and where. | Before the first task, and when your rules change. | Yes. |
 | **Save lanes** | Sets the model per lane. | To use a cheaper or stronger model. | Yes. |
-| **Apply to installed packages** | Rewrites installed workers to the saved lanes. | After every lane or provider change. | Yes: change and apply again. |
+| **Apply to installed agents** | Rewrites installed agents to the saved lanes. | After every lane or provider change. | Yes: change and apply again. |
 
 <NotYet>
-There is no model inside the box yet, so "On this box only" refuses every run. The box uses one AI provider at a time. You cannot set a different provider per worker.
+There is no model inside the box yet, so "On this box only" refuses every run. The box uses one AI provider at a time. You cannot set a different provider per agent.
 </NotYet>
 
 ## Related pages

@@ -15,14 +15,13 @@ The administrator.
 
 ## Steps
 
-1. Open **Administration**, sub-tab **General**.
-2. Scroll to the panel **Budget**.
-3. Under **Edit the budget**, enter the **Monthly limit** as a whole amount.
-4. Enter **Warn at (percent)**. The default is 80.
-5. Enter **Stop new runs at (percent)**. The default is 100.
-6. Enter **Period starts on day** (1 to 28). The default is 1.
-7. Leave **Billing rate** as it is unless the vendor gave you another rate.
-8. Press **Save budget**.
+1. Open **Administration**, then **Budget**.
+2. Under **Edit the budget**, enter the **Monthly limit** as a whole amount.
+3. Enter **Warn at (percent)**. The default is 80.
+4. Enter **Stop new runs at (percent)**. The default is 100.
+5. Enter **Period starts on day** (1 to 28). The default is 1.
+6. Leave **Billing rate** as it is unless the vendor gave you another rate.
+7. Press **Save budget**.
 
 ## What you see afterwards
 
@@ -42,8 +41,22 @@ The administrator.
 
 With **Own key**, nothing is enforced: "In own-key mode the limit is informational; switch the provider to "Managed by Old School" to enforce it." The panel shows the box's own usage estimate.
 
+## With the starter credit
+
+A box that is switched to the managed AI with an activation code gets a one-time starter credit of CHF 50 instead of a monthly budget. You do not set a limit for it.
+
+- The panel shows **Starter credit** and **Used since activation**. There is no monthly reset.
+- At 80 percent everyone sees a warning banner. At 100 percent the banner says: "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." The administrator sees the buttons **Request top-up** and **Use my own AI key**.
+- **Save budget** is refused while the box runs on the starter credit.
+
+Details: [Budget](/admin/budget/#the-starter-credit).
+
 <NotYet>
-You cannot set a budget per worker or per member. The panel shows the cost per worker in **Per package this period**, so you can see who uses what.
+The starter credit comes only with an activation code. Switching with an activation code needs the store's activation service, which is not available yet. Until then, set a monthly budget as above.
+</NotYet>
+
+<NotYet>
+You cannot set a budget per agent or per member. The panel shows the cost per agent in **Per agent this period**, so you can see who uses what.
 </NotYet>
 
 ## Related pages

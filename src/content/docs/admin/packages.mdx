@@ -1,41 +1,45 @@
 ---
-title: Packages
-description: Install, update, change and uninstall workers from the store or from a signed file, and set what they may do.
+title: Install and manage agents
+description: Install, update, change and uninstall agents from the store or from a signed package file, and set what they may do.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-A package is a signed file that contains a [worker](/start/glossary/#worker). Everything about packages is on **Administration**, sub-tab **Packages**. Members do not see this sub-tab.
+An [agent](/start/glossary/#agent) is the helper that does the work. It comes in a package: a signed file that ends in `.truchsess-bundle.tar`. You install and manage agents on the page **Agents**. The rules for every agent are under **Administration** › **Agent rules**.
 
-The panels, from top to bottom: **Store**, **Trusted publishers**, **Which AI providers may see your data**, **Owner policy**, **Autonomy levels**, **Install a package**, **Installed packages**, **Model lanes**, **Self-tests**. The panel **Autonomy levels** is explained on [Autonomy levels](/admin/autonomy-levels/).
+The page **Agents**, from top to bottom: **Agents you can use** (everyone sees it; each agent has **Open in chat**), then, for the administrator only, **Installed agents**, **Store** and **Install from a package file**. Members see **Agents you can use** but not the other three panels.
+
+**Administration** › **Agent rules**, from top to bottom: **Owner policy**, **Which AI providers may see your data**, **Autonomy levels**, **AI of this box**, **Model lanes**, **Trusted publishers**. The panel **Autonomy levels** is explained on [Autonomy levels](/admin/autonomy-levels/). The data rule and the model lanes are explained on [AI providers and lanes](/admin/ai-providers-and-lanes/). The **Self-tests** are under **Administration** › **System**.
 
 How the store checks publishers and packages before they reach you: [Trust](https://faivr.ai/docs/trust) in the store's documentation.
 
 ## Who can do this
 
-The administrator. Registering a publisher works only in the office.
+The administrator. Adding or removing a trusted publisher works only in the office, on the local address.
 
 ## Before you start
 
-- For a store worker: the box is enrolled and the function is subscribed. See [Store](/admin/store/).
+- For a store agent: the box is enrolled and the function is subscribed. See [Store](/admin/store/).
 - For a signed file: the file ends in `.truchsess-bundle.tar` and you have its publisher's key (a `.pub` file).
 
 ## Trusted publishers
 
-A package is installed only when it is signed by a publisher in this list. A new box trusts nobody: "Every install fails closed until one is registered."
+An agent is installed only when its package is signed by a publisher in this list. A new box trusts nobody: "Every install fails closed until one is registered."
 
-1. Paste the key under **Public key (PEM, from the .pub file)**, or choose the file under **Or upload the .pub file**.
-2. Enter a **Label**, for example the publisher's name.
-3. Press **Add publisher**.
+1. Open **Administration** › **Agent rules**, panel **Trusted publishers**.
+2. Paste the key under **Public key (PEM, from the .pub file)**, or choose the file under **Or upload the .pub file**.
+3. Enter a **Label**, for example the publisher's name.
+4. Press **Add publisher**.
 
-**Remove** stops new installs signed with that key: "Bundles signed with it are refused from now on; installed packages keep running."
+**Remove**, then **Confirm remove**, stops new installs signed with that key: "Bundles signed with it are refused from now on; installed agents keep running."
 
 ## Owner policy
 
-The owner policy is the list of permissions any worker may receive. A worker receives exactly the permissions it asks for that are also on this list. Everything else is declined at install. A new box allows nothing.
+The owner policy is the list of permissions any agent may receive. An agent receives exactly the permissions it asks for that are also on this list. Everything else is declined at install. A new box allows nothing.
 
-1. Read the families: **Workspace**, **Commands**, **Internet**, **Repositories**, **Knowledge**, **Workboard**, **Delegation**, **Protected actions**, **Model lane**, **Browser**.
-2. Tick a permission to allow it. For a permission with a value (a host, a repository, a product, an amount, a lane), enter the value and press **Allow**. Press **×** on a value to remove it.
-3. Press **Save policy**. Next to the button you see "Saved" and the time, or "Not saved:" and the reason.
+1. Open **Administration** › **Agent rules**, panel **Owner policy**.
+2. Read the families: **Workspace**, **Commands**, **Internet**, **Repositories**, **Knowledge**, **Workboard**, **Delegation**, **Protected actions**, **Model lane**, **Browser**.
+3. Tick a permission to allow it. For a permission with a value (a host, a repository, a product, an amount, a lane), enter the value and press **Allow**. Press **×** on a value to remove it.
+4. Press **Save policy**. Next to the button you see "Saved" and the time, or "Not saved:" and the reason.
 
 The words the portal shows, for example:
 
@@ -54,46 +58,86 @@ The words the portal shows, for example:
 
 A repository chosen as an install answer is allowed by that answer. You do not have to list every repository in the owner policy.
 
+A saved owner policy applies to the next install, update or **Change**. Agents that are already installed keep their permissions until then.
+
 ## Install questions
 
-Some workers ask questions at install, under "This package asks you to choose:".
+Some agents ask questions at install, under "This agent asks you to choose:".
 
 | Kind | What you choose | Notes |
 | --- | --- | --- |
 | Repository | One repository from your GitHub connection. | If GitHub is not connected, the box says so and offers **Open Connections**. |
-| Product | One of the box's products. | Add a product first if the list is empty. |
-| Website | One website address, for example `www.example.com`. | The worker reaches exactly this host. Wildcards, IP addresses and local names are refused. |
+| Product | One of the box's products. | If the list is empty, add a product first under **Administration** › **Knowledge**, **Add a product**. |
+| Website | One website address, for example `www.example.com`. | The agent reaches exactly this host. Wildcards, IP addresses and local names are refused. |
 
 An optional question offers **Skip (the permission is declined)**. The Install button stays greyed out until every required question is answered: "Answer the questions above first."
 
-## Install a signed package file
+## Install from a package file
 
-1. In **Install a package**, choose the **Bundle file** (up to 64 MB).
-2. Press **Upload and inspect**.
-3. Read the inspection: **Package id**, **Version**, **Publisher** ("trusted" or "NOT trusted on this appliance"), **Signature** ("verified"), **Declares**, **Will be granted (declared and allowed by the owner policy)**, **Declined (declared but not allowed)**.
-4. Enter the **Name for this install**. The chat shows this name.
-5. Answer the install questions.
-6. Press **Install**.
-7. Follow the steps: "Write the install record", "Verify, unpack and bind the package".
-8. If the box asks "Product mapping needed for ...", choose an existing product for each name or **Create a new product**, then press **Resume the install**.
+1. Open **Agents**, panel **Install from a package file**.
+2. Choose the **Bundle file** (up to 64 MB).
+3. Press **Upload and inspect**.
+4. Read the inspection: **Package id**, **Version**, **Publisher** ("trusted" or "NOT trusted on this appliance"), **Signature** ("verified"), **Package digest**, "Declares:", "Will be granted (declared and allowed by the owner policy):", "Declined (declared but not allowed):".
+5. Enter the **Name for this install**. The chat shows this name.
+6. Answer the install questions.
+7. Press **Install**.
+8. Follow the steps: "Write the install record", "Verify, unpack and bind the package".
+9. If the box asks "Product mapping needed for ...", choose an existing product for each name or **Create a new product**, then press **Resume the install**.
 
-A store worker is installed from the **Store** panel instead. See [Store](/admin/store/#install-a-store-worker).
+A store agent is installed from the panel **Store** instead. See [Store](/admin/store/#install-a-store-agent).
 
 An uploaded file that you did not install is listed under "Uploaded, not installed:". Press **discard** to delete it.
 
 ## Install the same package again
 
-A signed package file can be installed several times, for example one worker per website. Upload the file again. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory.
+A signed package file can be installed several times, for example one agent per website. Upload the file again. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory.
 
 ## Update
 
-Upload the newer file of an installed package. The inspection offers **Update the install to version X**, or **Update all N installs to version X** when there are several. Press it.
+Upload the newer file of an installed agent in **Agents**, panel **Install from a package file**, and press **Upload and inspect**. What you see next depends on whether the new version changes what the agent may do.
 
-Each install keeps its name, answers and workspace. If the new version adds a required question, that install waits: its row shows "needs_slot_choices" and **Choose**. A failure in one install does not stop the others.
+### The same permissions
+
+The new version asks for the same permissions and the same questions. A question that is only worded differently counts as the same.
+
+1. The inspection offers **Update the install to version X**, or **Update all N installs to version X** when there are several installs.
+2. Press it.
+
+### Changed permissions
+
+The new version adds or removes a permission, or adds, removes or changes a question. Then the inspection first shows the change, once for all installs:
+
+- The note "Version X changes what this package may do." and "The install keeps running on the version it has until you press Update and grant." (or "All N installs keep running on the version they have until you press Update and grant.").
+- **Adds:** each new permission in plain words, followed by what today's owner policy does with it:
+  - "would be granted (the owner policy allows it)";
+  - "would be declined (the owner policy does not allow it)";
+  - "follows the answer each install already gave" (a permission on a question the install already answered, for example a write permission on the repository it already reads);
+  - "asks a new question below".
+- **Removes:** each permission the new version no longer has.
+- A row for each new question. Answer it there.
+- When questions changed: "The questions of this package changed: an answer already given is kept where the question still exists."
+
+The update button then reads **Update and grant (the install)**, or **Update and grant (all N installs)**. It stays greyed out until every required new question is answered.
+
+1. Read **Adds** and **Removes**.
+2. Answer the new questions, if any.
+3. Press **Update and grant (all N installs)**.
+
+Nothing changes until you press the button. Until then every install keeps running on its current version. To leave the update, do not press the button, or press **discard** next to the file under "Uploaded, not installed:".
+
+After the update each install receives what the owner policy allows plus its answers, as at a new install. A permission the owner policy does not allow stays declined. Earlier answers are kept.
+
+If the file changed after you read the change, the box refuses: "The bundle changed since you reviewed it. Open it again and review its permissions."
+
+**Administration** › **Overview**, **Recent activity** shows the line "Permission change of ... confirmed" with the name of the administrator who pressed the button. The line records what was added and removed.
+
+### After either update
+
+Each install keeps its name, answers and workspace. If the new version adds a required question that is still open, that install waits: its row shows "needs_slot_choices" and **Choose**. A failure in one install does not stop the others.
 
 ## Change an install
 
-1. In **Installed packages**, press **Change** on the row.
+1. In **Agents**, panel **Installed agents**, press **Change** on the row.
 2. Change the **Name** or the answers.
 3. Press **Save and apply**.
 
@@ -101,10 +145,10 @@ Each install keeps its name, answers and workspace. If the new version adds a re
 
 ## Failed install: Retry or Remove
 
-A failed install never stays half installed. Its row shows "failed", the badge "Not running" and the error.
+A failed install never stays half installed. Its row in **Installed agents** shows "failed", the badge "Not running" and the error.
 
 - **Retry** runs the install again from the stored file.
-- **Remove** closes it: "Nothing of it is active; what the failed attempt left behind is reverted and its record is closed."
+- **Remove**, then **Confirm remove**, closes it: "Nothing of it is active; what the failed attempt left behind is reverted and its record is closed."
 
 After **Remove** of a store install, the row says whether the store still holds it:
 
@@ -114,25 +158,25 @@ After **Remove** of a store install, the row says whether the store still holds 
 
 ## Uninstall
 
-1. In **Installed packages**, press **Uninstall** on the row.
+1. In **Agents**, panel **Installed agents**, press **Uninstall** on the row.
 2. Press **Confirm uninstall**.
 
-Every binding is reversed and the worker's workspace is deleted. The box keeps a signed receipt and shows each checked effect as "verified". For a store worker the receipt goes to the store. See [Store](/admin/store/#what-happens-to-an-installed-worker).
+"Every binding is reversed and the agent's workspace is removed." The box keeps a signed receipt and shows each checked effect as "verified". For a store agent the receipt goes to the store. See [Store](/admin/store/#what-happens-to-an-installed-agent).
 
 ## What you see afterwards
 
-The table **Installed packages** shows each install: **Package**, **State** ("active", "failed", "stopped", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
+The panel **Installed agents** shows each install: **Package**, **State** ("active", "failed", "stopped", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
 
 The badge in **Ready**:
 
 | Badge | Meaning |
 | --- | --- |
-| Ready | The worker takes tasks. |
+| Ready | The agent takes tasks. |
 | Needs ... from the admin | A connection is missing. See [Connections](/admin/connections/#what-ready-means). |
 | Not running | The install failed. Use **Retry** or **Remove**. |
-| Stopped | The store subscription ended. The row says "Files are kept until you uninstall." Subscribe again to bring it back. See [Store](/admin/store/#what-happens-to-an-installed-worker). |
+| Stopped | The store subscription ended. The row says "Files are kept until you uninstall." Subscribe again to bring it back. See [Store](/admin/store/#what-happens-to-an-installed-agent). |
 | Removed | A failed install that was removed. |
-| Uninstalled | A worker that was uninstalled. |
+| Uninstalled | An agent that was uninstalled. |
 
 A removed or uninstalled row is a finished record without buttons. It stays in the list and is harmless.
 
@@ -141,20 +185,22 @@ A removed or uninstalled row is a finished record without buttons. It stays in t
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Add publisher** | Trusts a publisher's signature. | Before the first install from that publisher. | Yes: **Remove**. |
-| **Save policy** | Sets what workers may receive. | Before installing. | Yes, for future installs. Installed workers keep their permissions until **Change** or a new install. |
-| **Install** / **Install another** | Installs a worker. | | Yes: **Uninstall** (the workspace is deleted). |
-| **Update all N installs** | Moves every install to the new version. | A new version from the publisher. | No direct way back. |
-| **Change** | New answers or a new name. | A worker should work on another repository, product or website. | Yes: **Change** again. |
+| **Save policy** | Sets what agents may receive. | Before installing. | Yes. Installed agents keep their permissions until their next update, **Change** or a new install. |
+| **Install** / **Install another** | Installs an agent. | | Yes: **Uninstall** (the workspace is deleted). |
+| **Update the install** / **Update all N installs** | Moves every install to the new version. The permissions stay the same. | A new version from the publisher with the same permissions. | No direct way back. |
+| **Update and grant** | Moves every install to the new version. Each install receives what the owner policy allows plus its answers. | You read **Adds** and **Removes** and agree with the change. | No direct way back. Before you press it, nothing has changed. |
+| **Change** | New answers or a new name. | An agent should work on another repository, product or website. | Yes: **Change** again. |
 | **Retry** / **Remove** | Repeats or closes a failed install. | After a failed install. | n/a |
-| **Uninstall** | Removes the worker and its workspace. | The worker is no longer needed. | No. Install again for a fresh start. |
+| **Uninstall** | Removes the agent and its workspace. | The agent is no longer needed. | No. Install again for a fresh start. |
 
 <NotYet>
-You cannot go back to an earlier version of a worker, update a store worker from the box, install a store worker twice, or change the permissions of an installed worker through the owner policy. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed file; for new permissions, use **Change** or install again.
+You cannot go back to an earlier version of an agent, update a store agent from the box, install a store agent twice, or change the permissions of an installed agent by saving the owner policy alone. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed package file; to apply a changed owner policy, press **Change** on the row and save a new answer or name, or install again.
 </NotYet>
 
 ## Related pages
 
 - [Store](/admin/store/)
+- [Autonomy levels](/admin/autonomy-levels/)
 - [Connections](/admin/connections/)
 - [AI providers and lanes](/admin/ai-providers-and-lanes/)
-- [Workers](/workers/)
+- [Agents](/workers/)

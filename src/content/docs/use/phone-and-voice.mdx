@@ -1,0 +1,99 @@
+---
+title: Use it on your phone
+description: Open the chat on a phone, speak a task with Hold to talk, and have answers read aloud. Your voice stays on the box.
+---
+import NotYet from '~/components/NotYet.astro';
+
+The chat fits a phone screen. You can type a task, or speak it: the box turns your speech into text, you check the text, then you tap **Send**.
+
+## Who can do this
+
+Everyone with an account. Voice input works when the administrator has not switched it off.
+
+## Before you start
+
+- **Outside the office:** your administrator switched on [remote access](/admin/remote-access/#use-the-remote-address-everyone) and gave you the remote address. You sign in with your e-mail address and a one-time code. You need no password there.
+- **In the office:** your phone is on the office Wi-Fi. You sign in on **https://myai.local/** with your e-mail and password, and accept the certificate warning once (see [Your first day](/start/member/)). Some Android phones cannot open `.local` addresses; use the remote address instead if it is on.
+
+The remote address is the simpler choice on a phone: it has no certificate warning, also in the office.
+
+## Steps
+
+### Open the chat
+
+1. Open the address in the phone's browser and sign in.
+2. The navigation is a bar across the top. Tap **Chat**.
+3. Choose the agent under **Agent**.
+
+### Speak a task
+
+1. Hold **Hold to talk** and speak. The button shows "Release to stop" and the seconds.
+2. Let go. The page says "Turning ... s of speech into text on the box…".
+3. The text appears in the message box: "Check the text, then tap Send."
+4. Read the text. Correct it if needed.
+5. Tap **Send**.
+
+The first time, the phone asks for the microphone. Allow it.
+
+To cancel a recording, slide your finger off the button before you let go. A clip can be up to 60 seconds. One clip at a time.
+
+Voice only writes into the message box. It never sends, approves, refuses or accepts anything. Nothing happens until you tap **Send**.
+
+### Choose the spoken language
+
+Under the message box, **Spoken**: **Auto**, **Deutsch** or **English**. The box remembers your choice. Choosing the language is faster than **Auto**.
+
+### Have answers read aloud
+
+1. Tick **Read answers aloud** under the message box. It is off by default and kept for you.
+2. Each answer now has a **Read aloud** button. Tap it. **Stop reading** stops it.
+
+A voice on your phone reads the answer, so the text does not leave the phone. If the phone has no such voice for the answer's language, the button says "No voice on this phone reads without the internet".
+
+### Decide on the phone
+
+**Approve** and **Refuse**, and **Accept** and **Send back**, are two large buttons side by side across the card. Wide tables in an answer scroll sideways inside the card.
+
+## Where your voice goes
+
+- Only to your Truchsess box. The box turns it into text and deletes the recording at once: "Speech is turned into text on this box. The recording is deleted as soon as the text is made and is never stored."
+- Never to Apple, Google or any other speech service.
+- On the remote address the recording passes through Cloudflare on its way to the box, like everything you type there. The page says so: "On the remote address your recording passes through Cloudflare on its way to this box."
+- The activity record gets one line per clip: who, how long, which language, how long the text took. Never the text or the recording.
+
+## If something goes wrong
+
+| What you see | What to do |
+| --- | --- |
+| "This browser cannot record here: it needs the secure (https) address and the microphone." | Open the address with `https://`, or use the remote address. |
+| "No microphone: allow it for this page in the browser settings, then try again." | Allow the microphone for the page in the phone's settings. |
+| "No words were recognised. Try again a little closer to the microphone." | Speak again, closer to the phone. |
+| "A clip can be at most 60 seconds long." | Split the task into shorter clips, or type the rest. |
+| "One clip at a time: wait until the text of the last one is there." | Wait for the text. |
+| "The box is turning another clip into text. Try again in a moment." | Try again in a moment. |
+| "Voice input is switched off on this box." | The administrator switched voice input off. Type the task. |
+| "Speech to text is not running on this box. Ask the administrator." | Ask your administrator. |
+| No **Hold to talk** button. | Voice input is switched off. Type the task. |
+
+## For the administrator: switch voice input on or off
+
+**Administration** › **System**, panel **Voice input**: one switch, **Voice input (speech to text on this box)**. It is on by default. Off hides **Hold to talk** for everyone: "Voice input is off: nobody on this box sees "Hold to talk"." The panel also shows whether speech to text is running on the box.
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Hold to talk** | Turns your speech into text in the message box. | You want to speak instead of type. | Yes: edit or delete the text before **Send**. |
+| **Spoken** language | Tells the box which language you speak. | You always speak the same language. | Yes. |
+| **Read answers aloud** | Adds **Read aloud** to each answer. | You want to listen. | Yes: untick it. |
+| **Voice input** switch (administrator) | Shows or hides **Hold to talk** for everyone. | Your company does not want voice input. | Yes. |
+
+<NotYet>
+The phone's own speech recognition (Apple or Google) is not offered, because the audio would leave the box. Voice input on the office address under the certificate warning has not been checked on every phone: if the microphone does not work there, use the remote address.
+</NotYet>
+
+## Related pages
+
+- [Start a task](/use/start-a-task/)
+- [Follow a run](/use/follow-a-run/)
+- [Remote access](/admin/remote-access/)

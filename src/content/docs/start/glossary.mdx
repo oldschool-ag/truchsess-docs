@@ -5,17 +5,24 @@ description: The words used in Truchsess and in this manual, in plain English.
 
 The words in this list are linked from the other pages. They are in alphabetical order.
 
+## Agent
+
+An AI helper installed on the box that does tasks for you, for example reviewing code or planning marketing.
+Each installed agent has a name, permissions, a model lane and its own private workspace.
+The portal lists them under **Agents**. Earlier versions of the portal called it a "package", and earlier versions of this manual called it a "worker"; a few portal messages still say "worker" or "package". It is the same thing.
+An agent comes in a [package](#package).
+
 ## Approval
 
-A decision by the administrator before a worker does a [protected action](#protected-action), or any action set to "Asks you first" or "Always asks, with a reason".
-The worker stops and asks. The administrator presses **Approve** or **Refuse** and gives a reason.
+A decision by the administrator before an agent does a [protected action](#protected-action), or any action set to "Asks you first" or "Always asks, with a reason".
+The agent stops and asks. The administrator presses **Approve** or **Refuse** and gives a reason.
 Every decision is written to the run's audit trail with the name of the person.
 See [Approvals and checks](/use/approvals-and-checks/).
 
 ## Autonomy level
 
-How much a worker may do on its own before a person looks at it. There are five levels: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason.
-Each kind of action has a default level. The administrator can raise it for one package, never lower it below the default.
+How much an agent may do on its own before a person looks at it. There are five levels: Runs on its own, Tells you after, Waits for your check, Asks you first, and Always asks, with a reason.
+Each kind of action has a default level. The administrator can raise it for one installed agent, never lower it below the default.
 See [Autonomy levels](/admin/autonomy-levels/).
 
 ## Box
@@ -36,8 +43,8 @@ See [Approvals and checks](/use/approvals-and-checks/).
 
 ## Connection
 
-Access to an outside service that the box holds for its workers, for example your GitHub organisation or an API key of a service.
-The box keeps the secret. A worker can use a connection only within its permissions, and it can never read or copy the secret.
+Access to an outside service that the box holds for its agents, for example your GitHub organisation or an API key of a service.
+The box keeps the secret. An agent can use a connection only within its permissions, and it can never read or copy the secret.
 See [Connections](/admin/connections/).
 
 ## Data rule
@@ -48,73 +55,67 @@ See [AI providers and lanes](/admin/ai-providers-and-lanes/).
 
 ## Function
 
-A group of workers you buy together in the store, for example "Software delivery". The store calls it a function bundle.
-You pay one monthly price per function. See [Workers](/workers/) and [Store](/admin/store/).
+A group of agents you buy together in the store, for example "Software delivery". The store calls it a function bundle.
+You pay one monthly price per function. See [the agents in the store](/workers/) and [Store](/admin/store/).
 
 ## Install question
 
-A question the box asks the administrator when a worker is installed, for example "which repository should this worker review?" or "which website should it look after?".
-The answer becomes part of the worker's permissions. The portal lists the questions under "This package asks you to choose:".
-Some questions are optional: **Skip** means the worker does not get that permission.
-See [Packages](/admin/packages/#install-questions).
+A question the box asks the administrator when an agent is installed, for example "which repository should this agent review?" or "which website should it look after?".
+The answer becomes part of the agent's permissions. The portal lists the questions under "This agent asks you to choose:".
+Some questions are optional: "Skip (the permission is declined)" means the agent does not get that permission.
+See [install questions](/admin/packages/#install-questions).
 
 ## Knowledge
 
-The documents of a product that workers may read during a task, for example a handbook or product notes.
-The administrator imports them. A worker reads only the knowledge of the products it was given.
+The documents of a product that agents may read during a task, for example a handbook or product notes.
+The administrator imports them. An agent reads only the knowledge of the products it was given.
 See [Knowledge](/use/knowledge/).
 
 ## Model lane
 
-A setting that decides which AI model a worker uses. There are three lanes: **Cheap**, **Standard** and **Frontier**.
-The administrator chooses one model for each lane. Each worker runs in one lane.
+A setting that decides which AI model an agent uses. There are three lanes: **Cheap**, **Standard** and **Frontier**.
+The administrator chooses one model for each lane. Each agent runs in one lane.
 See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes).
 
 ## Owner policy
 
-The administrator's list of permissions that any worker may receive.
-A worker receives only the permissions it asks for and that this list also allows. Everything else is declined at install.
-See [Packages](/admin/packages/#owner-policy).
+The administrator's list of permissions that any agent may receive.
+An agent receives only the permissions it asks for and that this list also allows. Everything else is declined at install.
+It is under **Administration** › **Agent rules**, panel **Owner policy**. See [owner policy](/admin/packages/#owner-policy).
 
 ## Package
 
-The file that contains a worker, signed by its publisher. The portal says "package" where this manual says "worker".
-A package comes from the store or as a signed file (`.truchsess-bundle.tar`).
+The file that contains an agent, signed by its publisher.
+A package comes from the store or as a signed file (`.truchsess-bundle.tar`). The administrator installs it on **Agents**: from the store in the panel **Store**, a signed file in the panel **Install from a package file**.
 
 ## Product
 
 A part of your company that work belongs to, for example one app, one website or one service.
-Products decide which members see what, and which knowledge a worker may read.
+Products decide which members see what, and which knowledge an agent may read.
 See [Products and knowledge](/admin/products-and-knowledge/).
 
 ## Protected action
 
 An action with an effect outside the box. There are six: publish, send messages outside, spend money, use credentials, deploy, and chain actions (an on-chain transaction).
-A worker always asks before a protected action. See [Approval](#approval).
+An agent always asks before a protected action. See [Approval](#approval).
 
 ## Publisher
 
-The company that built and signed a package. The box installs only packages signed by a publisher the administrator trusts.
+The company that built and signed a package. The box installs only packages signed by a publisher the administrator trusts (**Administration** › **Agent rules**, panel **Trusted publishers**).
 
 ## Run
 
-One task given to one worker. Each message you send in **Chat** becomes one run.
+One task given to one agent. Each message you send in **Chat** becomes one run.
 A run has a state (for example "Running" or "Finished"), a cost, a result and an audit trail.
 See [Follow a run](/use/follow-a-run/).
 
 ## Standing approval
 
-A permission from the administrator for one worker to do one protected action without asking each time, up to a limit per month and until an expiry date.
-Over the limit, the worker asks again. See [Approvals and checks](/use/approvals-and-checks/#grant-a-standing-approval).
-
-## Worker
-
-An AI helper installed on the box that does tasks for you, for example reviewing code or planning marketing.
-Each installed worker has a name, permissions, a model lane and its own private workspace.
-In the portal a worker is called a "package" or an "agent".
+A permission from the administrator for one installed agent to do one protected action without asking each time, up to a limit per month and until an expiry date.
+Over the limit, the agent asks again. See [Approvals and checks](/use/approvals-and-checks/#grant-a-standing-approval).
 
 ## Workboard
 
 The box's list of work cards per product. Each card has a title, a description and a status: to do, in progress, blocked or done.
-Workers with the right permission read and change cards during a task.
+Agents with the right permission read and change cards during a task.
 See [Workboard](/use/workboard/).

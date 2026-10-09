@@ -14,19 +14,28 @@ You have started a task. See [Start a task](/use/start-a-task/).
 
 ## Steps
 
-### On the run card (tab Chat)
+### On the run card (Chat)
 
-1. Open **Chat** and choose the worker under **Package**.
+1. Open **Chat** and choose the agent under **Agent**.
 2. Each card is one run. The card updates by itself every few seconds.
 3. Read the state at the top of the card. The words are explained [below](#what-the-states-mean).
 4. Click a result file (for example `result.md`) or an image to open it in the panel next to the chat. **Open raw** shows the file itself. **Close** closes the panel.
 
-### In the run history (tab Runs)
+To follow your runs on a phone, and to have answers read aloud, see [Use it on your phone](/use/phone-and-voice/).
 
-1. Open the tab **Runs**.
-2. Choose a worker under **Package**, or keep **All packages**.
-3. Read the table: **Started**, **Package**, **Task**, **State**, **Ended**, **Lane**, **Tokens**, **Cost**, **Approvals**, **Files**.
-4. Press **Audit** to see every event of the run: **Time**, **Event**, **Actor**, **Summary**. **Close** closes it.
+### In the run history (Runs)
+
+1. Open **Runs** in the navigation. The panel **Run history** lists the runs you may see.
+2. Choose an agent under **Agent**, or keep "All agents".
+3. Optional: choose a filter. Each filter shows the number of runs it holds:
+   - **All**: every run.
+   - **Needs you**: runs that wait for an approval or for the administrator's check.
+   - **Active**: runs that are not done and do not wait for anyone.
+   - **Finished**: runs that ended with "Finished".
+   - **Failed or cancelled**: runs that failed or were cancelled.
+4. Optional: type in "Search tasks". The list keeps the runs whose task text or agent name contains your words. If nothing matches, you see "No run matches this filter."
+5. Read the table: **Started**, **Agent**, **Task**, **State**, **Ended**, **Lane**, **Tokens**, **Cost**, **Approvals**, **Files**.
+6. Press **Audit** to see every event of the run in the panel **Audit trail**: **Time**, **Event**, **Actor**, **Summary**. **Close** closes it.
 
 ### Cancel a run
 
@@ -36,7 +45,7 @@ You have started a task. See [Start a task](/use/start-a-task/).
 
 ## What you see afterwards
 
-- A finished run shows "Finished", the worker's reply, the result and its files.
+- A finished run shows "Finished", the agent's reply, the result and its files.
 - The card shows the run's [autonomy level](/admin/autonomy-levels/) as a colored label, and notices as "Told you after: ...".
 - A cancelled run shows "Cancelled" with the reason.
 - A failed run shows "Failed:" and the reason in the box's own words.
@@ -45,26 +54,26 @@ You have started a task. See [Start a task](/use/start-a-task/).
 
 | State | Meaning |
 | --- | --- |
-| Created, waiting for the worker | The box has the task and is starting the worker. |
-| Running in the package sandbox | The worker is working in its own closed workspace. |
+| Created, waiting for the worker | The box has the task and is starting the agent. |
+| Running in the package sandbox | The agent is working in its own closed workspace. |
 | Running | The run is in progress. |
-| Waiting for your approval | The worker asked before an action. The administrator decides. See [Approvals and checks](/use/approvals-and-checks/). |
+| Waiting for your approval | The agent asked before an action. The administrator decides. See [Approvals and checks](/use/approvals-and-checks/). |
 | Waiting for your check | The run is done, but its result waits for the administrator's check. A member sees "Waiting for the owner's check" and gets the result after **Accept**. |
 | Finished | Done. Read the result. |
 | Failed | Stopped with an error. The reason is on the card. |
 | Cancelled | Someone cancelled it. |
 
-### Hand-offs between workers
+### Hand-offs between agents
 
-A worker that the administrator allowed to "Hand work to one other installed package" can give part of a task to that other worker while it works, and use the answer in its own reply. The other worker works with its own permissions only, never those of the worker that asked.
+An agent that the administrator allowed to "Hand work to one other installed package" can give part of a task to that other agent while it works, and use the answer in its own reply. The other agent works with its own permissions only, never those of the agent that asked.
 
-- The card of a task that handed work over shows a block **Handed over to other packages**: each handed-over task with the worker's name (a link to its card), its state and its cost. The line "Cost with the handed-over tasks" shows the total.
-- The card of a handed-over task says "Handed over by" the worker "from its task" and the run, with a link back.
+- The card of a task that handed work over shows a block **Handed over to other agents**: each handed-over task with the agent's name (a link to its card), its state and its cost. The line "Cost with the handed-over tasks" shows the total.
+- The card of a handed-over task says "Handed over by" the agent "from its task" and the run, with a link back.
 - Handed-over tasks appear in the chat and the run history of the person who started the first task.
-- Limits: at most three handed-over tasks open per task, and at most two levels deep (a handed-over task may pass work on once more). Work is never handed back to a worker that already took part. A worker that runs on a local model does not take handed-over work. When the monthly budget is used up, no handed-over task starts. In each case the worker says why in its answer.
+- Limits: at most three handed-over tasks open per task, and at most two levels deep (a handed-over task may pass work on once more). Work is never handed back to an agent that already took part. An agent that runs on a local model does not take handed-over work. When the monthly budget is used up, no handed-over task starts. In each case the agent says why in its answer.
 - While two tasks wait for work they handed over, a new task can show "Created, waiting for the worker" for a while.
 
-A worker step may take up to 10 minutes, or 30 minutes for a worker that uses a web browser. If a step takes longer, the box tries once more, then the run fails.
+An agent step may take up to 10 minutes, or 30 minutes for an agent that uses a web browser. If a step takes longer, the box tries once more, then the run fails.
 
 The cost line shows the cost so far. "(estimate)" means the box estimated it from the price list.
 
@@ -72,14 +81,17 @@ The cost line shows the cost so far. "(estimate)" means the box estimated it fro
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Cancel run** | Stops the worker. Nothing is retried. | The task is wrong or no longer needed. | No. Start a new task instead. |
+| **Cancel run** | Stops the agent. Nothing is retried. | The task is wrong or no longer needed. | No. Start a new task instead. |
+| **Needs you**, **Active**, **Finished**, **Failed or cancelled** (Runs) | Shows only the runs in that state. **All** shows every run again. | To find a run quickly. | Yes: press **All**. |
+| "Search tasks" (Runs) | Shows only the runs whose task or agent name contains your words. | To find one task. | Yes: clear the field. |
 | **Show self-tests** (Runs) | Also shows the box's own test runs. | Only when support asks. | Yes. |
 
 <NotYet>
-You cannot continue a finished run, reply to a worker inside a run, or share a run with a colleague. Send a new task that refers to the earlier result, and share the result file another way. Members cannot see the runs of other people.
+You cannot continue a finished run, reply to an agent inside a run, or share a run with a colleague. Send a new task that refers to the earlier result, and share the result file another way. Members cannot see the runs of other people.
 </NotYet>
 
 ## Related pages
 
+- [Use it on your phone](/use/phone-and-voice/)
 - [Approvals and checks](/use/approvals-and-checks/)
 - [Report a problem](/use/report-a-problem/)

@@ -18,6 +18,7 @@ export const REQUIRED_PAGES = [
   '/setup/remote-access/',
   '/use/start-a-task/',
   '/use/follow-a-run/',
+  '/use/phone-and-voice/',
   '/use/approvals-and-checks/',
   '/use/knowledge/',
   '/use/workboard/',
