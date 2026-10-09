@@ -1,16 +1,16 @@
 ---
 title: "Step 6: Connections"
-description: Connect your GitHub organisation and add the API keys your workers need.
+description: Connect your GitHub organisation and add the API keys your agents need.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-A [connection](/start/glossary/#connection) lets workers use an outside service. The box keeps the secret. Workers never see it.
+A [connection](/start/glossary/#connection) lets agents use an outside service. The box keeps the secret. Agents never see it.
 
-You need a connection only when a worker needs it. Workers that work on code need GitHub. Some workers need an API key of another service. You can also do this step later: the list of installed workers tells you what is missing.
+You need a connection only when an agent needs it. Agents that work on code need GitHub. Some agents need an API key of another service. You can also do this step later: the list of installed agents tells you what is missing.
 
 ## Who can do this
 
-The administrator, in the office on **https://myai.local/**. Connections cannot be changed from the remote address.
+The administrator, in the office on **https://truchsess.local/**. Connections cannot be changed from the remote address.
 
 ## Before you start
 
@@ -21,7 +21,7 @@ The administrator, in the office on **https://myai.local/**. Connections cannot 
 
 ### Connect GitHub
 
-1. Open **Administration**, sub-tab **Connections**.
+1. Open **Administration** › **Connections**.
 2. In the panel **GitHub**, enter your **GitHub organisation** (for example `my-org`). Leave it empty to use your personal GitHub account.
 3. Press **Connect GitHub**.
 4. GitHub opens. Press **Create GitHub App**.
@@ -31,8 +31,8 @@ The administrator, in the office on **https://myai.local/**. Connections cannot 
 
 ### Add an API key
 
-1. Open **Administration**, sub-tab **Connections**, panel **API keys**.
-2. Find the card that says ": needed" (one card per key that an installed worker needs).
+1. Open **Administration** › **Connections**, panel **API keys**.
+2. Find the card that says ": needed" (one card per key that an installed agent needs).
 3. Press **Add key**.
 4. Paste the key.
 5. Press **Save**.
@@ -41,7 +41,7 @@ The administrator, in the office on **https://myai.local/**. Connections cannot 
 
 - The GitHub card lists the repositories, who connected it and when, and "Last used".
 - An API key card shows "Key ending ...", who added it and when.
-- Under **Administration**, **Packages**, **Installed packages**, the column **Ready** shows "Ready" for every worker that now has what it needs.
+- On the page **Agents**, panel **Installed agents**, the column **Ready** shows "Ready" for every agent that now has what it needs.
 - The panel **Recent changes** lists the change. It never shows a secret.
 
 ## Your choices
@@ -50,11 +50,11 @@ The administrator, in the office on **https://myai.local/**. Connections cannot 
 | --- | --- | --- | --- |
 | **Connect GitHub** | Creates a GitHub App for your box on GitHub, so nobody handles a private key. | Recommended. | Yes: **Disconnect**, then delete the App on GitHub. |
 | **Advanced: use an existing GitHub App** | Uses an App your IT already made. You enter **App id**, **Installation id** and the **Private key (.pem)**. | Only when your IT asks for it. | Yes: **Disconnect**. |
-| Repositories on GitHub | Which repositories the box can reach at all. Each worker reaches only the repository it was given at install. | Choose only what workers need. | Yes: **Change repositories**. |
-| **Add key** / **Replace** / **Remove** | Stores, replaces or removes an API key. | When a worker needs a key. | Yes. A worker that needs a removed key refuses tasks. |
+| Repositories on GitHub | Which repositories the box can reach at all. Each agent reaches only the repository it was given at install. | Choose only what agents need. | Yes: **Change repositories**. |
+| **Add key** / **Replace** / **Remove** | Stores, replaces or removes an API key. | When an agent needs a key. | Yes. An agent that needs a removed key refuses tasks. |
 
 <NotYet>
-You cannot connect services other than GitHub and API keys (for example a mail account or a calendar). A worker that needs such a service is not available yet.
+You cannot connect services other than GitHub and API keys (for example a mail account or a calendar). An agent that needs such a service is not available yet.
 </NotYet>
 
 ## Related pages

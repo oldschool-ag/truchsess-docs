@@ -42,13 +42,13 @@ export default defineConfig({
           label: 'Setup (administrator, in order)',
           items: [
             { label: '1. Unbox and connect', slug: 'setup/unbox-and-connect' },
-            { label: '2. First run', slug: 'setup/first-run' },
+            { label: '2. First run and activation', slug: 'setup/first-run' },
             { label: '3. AI providers', slug: 'setup/ai-providers' },
             { label: '4. Budget', slug: 'setup/budget' },
             { label: '5. Members', slug: 'setup/members' },
             { label: '6. Connections', slug: 'setup/connections' },
             { label: '7. Store enrolment', slug: 'setup/store-enrolment' },
-            { label: '8. First worker', slug: 'setup/first-worker' },
+            { label: '8. First agent', slug: 'setup/first-worker' },
             { label: '9. Backup', slug: 'setup/backup' },
             { label: '10. Remote access', slug: 'setup/remote-access' },
           ],
@@ -58,6 +58,7 @@ export default defineConfig({
           items: [
             { label: 'Start a task', slug: 'use/start-a-task' },
             { label: 'Follow a run', slug: 'use/follow-a-run' },
+            { label: 'Use it on your phone', slug: 'use/phone-and-voice' },
             { label: 'Approvals and checks', slug: 'use/approvals-and-checks' },
             { label: 'Knowledge', slug: 'use/knowledge' },
             { label: 'Workboard', slug: 'use/workboard' },
@@ -68,9 +69,10 @@ export default defineConfig({
         {
           label: 'Administration',
           items: [
-            { label: 'Users (People and access)', slug: 'admin/users' },
+            { label: 'Agent rules explained', slug: 'admin/agent-rules' },
+            { label: 'People and access', slug: 'admin/users' },
             { label: 'Administrator password', slug: 'admin/administrator-password' },
-            { label: 'Packages', slug: 'admin/packages' },
+            { label: 'Install and manage agents', slug: 'admin/packages' },
             { label: 'Store', slug: 'admin/store' },
             { label: 'Products and knowledge', slug: 'admin/products-and-knowledge' },
             { label: 'AI providers and lanes', slug: 'admin/ai-providers-and-lanes' },
@@ -84,9 +86,9 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Workers',
+          label: 'Agents in the store',
           items: [
-            { label: 'All workers', slug: 'workers' },
+            { label: 'All agents', slug: 'workers' },
             { label: 'Software delivery', slug: 'workers/software-delivery' },
             { label: 'Product ownership', slug: 'workers/product-ownership' },
             { label: 'Website care', slug: 'workers/website-care' },

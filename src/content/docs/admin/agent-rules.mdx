@@ -1,0 +1,138 @@
+---
+title: Agent rules explained
+description: What decides what an agent may do, how the rules combine, three worked examples, and good starting settings. For administrators who are not technical.
+---
+import NotYet from '~/components/NotYet.astro';
+
+**Administration** › **Agent rules** holds the rules for every agent on your box: "What any agent on this box may do: the owner policy, the data rule, the autonomy levels, the model lanes and the publishers you trust." This page explains them from zero. The pages [Install and manage agents](/admin/packages/), [Autonomy levels](/admin/autonomy-levels/) and [AI providers and lanes](/admin/ai-providers-and-lanes/) have the step-by-step details.
+
+## The one rule to remember
+
+An agent gets only what it **declares** AND what **your rules allow**.
+
+An agent can never get more than it asked for, and never more than you allowed. If either side says no, the answer is no. Everything you do not allow is declined. A new box allows nothing.
+
+## What decides what an agent may do
+
+The box applies these in order. The first four decide **what** the agent may do at all. The last three decide **how** and **when** it does it.
+
+### 1. What the agent declares
+
+Every agent comes in a signed package that lists its permissions, for example "Read files in its own workspace" or "Reach one named host". This list is fixed by the publisher. You see it before you install: under **Permissions** on the store card (**Agents**, panel **Store**), or after **Upload and inspect** for a package file. The agent pages under [Agents in the store](/workers/) list every permission of every store agent.
+
+Before anything else, the box checks who signed the package. It installs only packages signed by a publisher in **Trusted publishers** on **Agent rules**.
+
+### 2. Your owner policy
+
+The panel **Owner policy** on **Agent rules** is your allow list: "What any installed agent may be granted. An agent receives exactly the permissions its package declares that are also allowed here; everything else is declined at install." It is grouped in families: **Workspace**, **Commands**, **Internet**, **Repositories**, **Knowledge**, **Workboard**, **Delegation**, **Protected actions**, **Model lane**, **Browser**. You tick a permission, or for one with a value (a host, a repository, a product, an amount, a lane) you enter the value and press **Allow**. Then **Save policy**.
+
+The policy applies when an agent is installed, changed or updated. Saving it alone does not change agents that are already installed.
+
+### 3. Your answers at install
+
+Some permissions are about one thing you choose: one website, one repository, one product. The agent asks for it at install, under "This agent asks you to choose:". Your answer is your permission for exactly that one thing. You do not need to list it in the owner policy too. One website means one website: the agent reaches that host and no other one from its answers.
+
+To change an answer later: **Agents**, panel **Installed agents**, **Change** on the row, then **Save and apply**.
+
+### 4. "Reach the internet" is not the whole internet
+
+**Reach the internet through the allowlist proxy** lets an agent go out only through the box's proxy, on a short fixed list of hosts (the AI providers, GitHub and a few software package sites), plus the exact hosts it was given: its website answer and any **Reach one named host** you allowed. Every other address is refused. Without this permission an agent reaches nothing outside the box, not even its own website.
+
+### 5. The agent's autonomy level
+
+Each kind of action has a level, shown in the panel **Autonomy levels**: **Runs on its own**, **Tells you after**, **Waits for your check**, **Asks you first**, **Always asks, with a reason**. Each kind starts at its floor; "you can raise it for one package, never lower it below the floor." Outside actions start high: **Publishes** and **Sends messages outside the box** ask you first; **Uses credentials** and **Deploys** always ask, with a reason. See [Autonomy levels](/admin/autonomy-levels/#the-default-for-each-kind-of-action).
+
+### 6. Standing approvals
+
+A standing approval lets one agent do one protected action without asking, up to a number per calendar month and until a date. It is the only way to make an "Asks you first" action run on its own. You grant it on **Approvals**, panel **Grant a standing approval** (not on **Agent rules**). "Uses credentials" and "Deploys" can never have one.
+
+### 7. The data rule and the model lanes
+
+The panel **Which AI providers may see your data**: "Every model request of every agent goes only to providers that meet this rule." If no provider for the agent's model meets it, the box refuses the run before any data leaves. **Model lanes** decides which model each agent uses: each agent has a lane permission (**Cheap**, **Standard** or **Frontier**), and the table says which model each lane is. See [AI providers and lanes](/admin/ai-providers-and-lanes/).
+
+### 8. The budget
+
+The last check, before every task: when the monthly budget reaches its stop level, no new task starts and **Send** is greyed out. The budget is on **Administration** › **Budget**, not on Agent rules. See [Budget](/admin/budget/).
+
+## How they combine
+
+- **At install:** declared AND (owner policy OR your install answer) = what the agent receives. The rest is listed as "Declined (declared but not allowed)".
+- **At every task:** the budget must allow a new task, and the data rule must allow the agent's model.
+- **At every action:** the level decides whether it runs, tells you, waits for your check, or asks first. A standing approval can turn "Asks you first" into "Runs on its own" within its limit.
+- **Some things no rule can allow:** no agent can merge on GitHub or push to the default branch, read a stored key or password, or work outside its own closed workspace.
+
+### When an update asks for more
+
+When you upload a new version of an installed package and it asks for different permissions, nothing changes by itself. The page says "Version X changes what this package may do. The install keeps running on the version it has until you press Update and grant." It lists **Adds:** and **Removes:**, and for each added permission what your owner policy would do. The button reads **Update and grant (the install)** (or **(all N installs)**). Only when you press it does the box update, and then it applies the same rule as at install: declared AND allowed. See [Update](/admin/packages/#update).
+
+## Three examples
+
+### Example 1: Gideon checks one website
+
+Gideon (function [Visibility in AI search](/workers/visibility-in-ai-search/)) declares: its own workspace, commands in its sandbox, **Reach the internet through the allowlist proxy**, **Render web pages and take screenshots with the browser inside its sandbox**, **Reach one named host** for the website you choose, **Reach one named host** `html.duckduckgo.com` (a web search page), an optional product's knowledge, and the lane **Standard**.
+
+1. In **Owner policy**, tick **Read files in its own workspace**, **Create and change files in its own workspace**, **Run commands inside its sandbox**, **Reach the internet through the allowlist proxy** and **Render web pages and take screenshots with the browser inside its sandbox**. Under **Reach one named host**, enter `html.duckduckgo.com` and press **Allow**. Under **Run in one model lane**, choose `standard` and press **Allow**. Press **Save policy**.
+2. Install Gideon. Answer "Which website should it audit for AI search visibility?" with your website, for example `www.example.com`.
+3. Gideon now **can**: open and screenshot `www.example.com`, search on `html.duckduckgo.com`, write its report in its workspace.
+4. Gideon **cannot**: open any other website (not in its answers, not on your list), change your website (it has no repository permission), publish or send anything (it declares no protected action).
+5. If you skipped `html.duckduckgo.com` in step 1, it is listed as declined: Gideon installs, but cannot search.
+
+### Example 2: Website Owner works on your repository
+
+Website Owner (function [Website care](/workers/website-care/)) declares **Push its own branches and open pull requests on one repository, never merges (includes read)**, with the question "Which repository holds the website's source?", plus its website, its workspace, commands, the internet proxy, the browser, the workboard and the lane **Standard**.
+
+1. Connect GitHub first: **Administration** › **Connections**.
+2. In **Owner policy**, tick the plain permissions it lists and allow the lane `standard`. You do not list the repository: your answer at install allows it.
+3. Install it. Choose the repository and the website.
+4. It **can**: read the repository, push its own branches, open pull requests, check them against the live site. Its level for **Pushes its own branches and opens pull requests** is **Tells you after**: you get a notice on **Approvals**, panel **Tells you after**.
+5. It **cannot**: merge, push to the default branch, or touch any other repository. A person merges the pull request on GitHub.
+6. You want to read each result first: raise **Pushes its own branches and opens pull requests** to **Waits for your check** in **Autonomy levels**. The branch is still pushed; the result waits for your **Accept**.
+
+### Example 3: An update asks for one more permission
+
+You use an agent installed from a package file. The publisher sends version 1.1, which adds **Reach one named host** `api.example.com`.
+
+1. Upload the new file on **Agents**, panel **Install from a package file**, and press **Upload and inspect**.
+2. The page says "Version 1.1 changes what this package may do." Under **Adds:** it shows the host with "would be declined (the owner policy does not allow it)" or "would be granted (the owner policy allows it)".
+3. Nothing has changed yet. Your agent keeps running on its old version.
+4. If you agree: allow `api.example.com` under **Reach one named host** in **Owner policy** and **Save policy**, then upload and inspect again; it now says "would be granted". Press **Update and grant (the install)**.
+5. If you do not agree: do not press the button, or press **discard**. Or update anyway: the host stays declined, and the agent runs without it.
+
+## I want ... change this
+
+| I want ... | Change this |
+| --- | --- |
+| an agent to publish without asking me every time | **Approvals**, **Grant a standing approval**: **Agent**, **Action** **Publish**, **Limit per calendar month**, **Expires on**. "Publishes" cannot be lowered below "Asks you first" on **Agent rules**. |
+| an agent to ask me before every outside action | **Autonomy levels**: raise **Publishes** and **Sends messages outside the box** to **Always asks, with a reason**, and **Revoke** its standing approvals on **Approvals**. |
+| an agent to ask before it writes knowledge or the workboard | **Autonomy levels**: raise **Writes company knowledge** or **Changes the workboard** to **Asks you first**. |
+| to read every result before anyone else sees it | **Autonomy levels**: raise **Writes files in its own workspace** to **Waits for your check**. |
+| to stop an agent from reaching the internet | **Owner policy**: untick **Reach the internet through the allowlist proxy**, **Save policy**, then **Agents**, **Installed agents**, **Change**, **Save and apply** for that agent. |
+| to allow one more website | A website answered at install: **Change** on the install and choose the other website (one per install). A fixed host the agent declares: allow it under **Reach one named host** in **Owner policy**, then **Change**, **Save and apply**. |
+| one agent to hand work to another | **Owner policy**: **Hand work to one other installed package** with the other package's id, **Allow**, **Save policy**, then **Change**, **Save and apply**. |
+| my data never kept or trained on | **Which AI providers may see your data**: keep **Never kept, never trained on**. |
+| my data to stay in Switzerland | **Which AI providers may see your data**: **Switzerland only**, and the provider PHOENIQS. See [The Swiss-only option](/admin/ai-providers-and-lanes/#the-swiss-only-option). |
+| a cheaper or a stronger model | **Model lanes**: choose another model for the lane, **Save lanes**, **Apply to installed agents**. |
+| to install agents from a new publisher | **Trusted publishers**: paste the publisher's key, **Add publisher**. |
+
+## Good starting settings for a small company
+
+- **Data rule:** keep **Never kept, never trained on** and **Any country**. Choose **Switzerland only** only if your data must stay in Switzerland.
+- **Owner policy:** allow only what your agents need. Each agent's page lists them as "Tick it". Allow the lane `standard`.
+- **Do not allow** unless an agent you trust needs it: **Spend money up to a per-action limit**, **Read or use a stored credential**, **Deploy or release**, **Submit an on-chain transaction**.
+- **Autonomy levels:** keep the defaults. For a new agent, raise **Writes files in its own workspace** to **Waits for your check** for the first weeks, so you read every result. Go back to the floor when you trust it.
+- **Standing approvals:** none at the start. Add one only for an action you approved many times.
+- **Budget:** set a monthly limit you are comfortable with. See [Budget](/setup/budget/).
+
+Leave these alone unless you know why: **Model lanes** and **Fallback lane (no lane permission)** (the box fills them for your provider), **Trusted publishers** (add a key only when a publisher gives you one), and **Hand work to one other installed package** (only when an agent's page names the other agent).
+
+<NotYet>
+You cannot set rules for one install only (levels and the owner policy apply per package or to every agent), lower a level below its floor, make a repository action ask before it happens, or apply a changed owner policy to every installed agent at once. Workarounds: install a separate package for different rules; to approve each repository change, remove the repository permission and ask the agent to describe the change; after a policy change, press **Change**, **Save and apply** on each agent.
+</NotYet>
+
+## Related pages
+
+- [Install and manage agents](/admin/packages/)
+- [Autonomy levels](/admin/autonomy-levels/)
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)
+- [Approvals and checks](/use/approvals-and-checks/)
+- [Budget](/admin/budget/)

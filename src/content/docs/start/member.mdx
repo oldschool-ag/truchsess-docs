@@ -1,25 +1,51 @@
 ---
 title: Your first day as a member
-description: Sign in to Truchsess for the first time, give an agent a task, and follow it.
+description: Sign in to Truchsess for the first time, give an agent a task, and follow it. Outside the office you need no password.
 ---
 import SupportContact from '~/components/SupportContact.astro';
 
 Truchsess is a small computer in your office that runs AI agents for your company. You give an agent a task in plain words, and you see the work and the result. Your administrator set it up and created your account.
 
-1. **Open the box.** In the office, on the office network, open **https://myai.local/** in your browser.
+There are two ways in. Use the one your administrator gave you.
+
+## Outside the office: the remote address (no password)
+
+1. **Open the remote address** your administrator sent you, on your computer or your phone.
+2. **Enter your work e-mail.**
+3. **Type the one-time code** that arrives by e-mail. You are in the portal as yourself. You need no password here, and you are not asked to change one.
+4. Continue with [Give a task](#give-a-task).
+
+The remote address has a normal security certificate, so there is no warning. It also works in the office.
+
+## In the office: the office address (with a password)
+
+1. **Open the box.** On the office network, open **https://truchsess.local/** in your browser. (A box set up before October 2026 also answers on `myai.local`.)
 2. **Accept the certificate warning, once.** The box makes its own security certificate, so your browser warns that the connection is not private. This is expected on this box.
-   - **Chrome:** press **Advanced**, then **Proceed to myai.local (unsafe)**.
+   - **Chrome:** press **Advanced**, then **Proceed to truchsess.local (unsafe)**.
    - **Safari:** press **Show Details**, then **visit this website**, then confirm.
-   
-   To be sure it is your box, the **Sign in** screen shows "This appliance's certificate fingerprint". Your administrator can compare it with the box.
+
+   To be sure it is your box, the **Sign in** screen shows "Certificate fingerprint of this Truchsess". Your administrator can compare it with the box.
 3. **Sign in.** Enter your **Work email** and the temporary **Password** from your administrator. Press **Sign in**.
 4. **Choose your password.** On **Change your temporary password**, enter the temporary password, then a **New password**: at least 12 characters, with upper-case and lower-case letters and at least one number. Press **Change password**. You stay signed in for 12 hours, then you sign in again.
-5. **Give a task.** Open the tab **Chat**. Choose an agent in the list **Package**. Describe the work in the message box, then press **Send** (or Enter; Shift+Enter is a new line). Each message is one run: one task for one agent. Put links into the text. **Attach** takes text files only (up to 5 files, 48 KB each), not pictures or PDFs. Never paste a password or a key: the box refuses to send it.
-6. **Follow the run.** The run's card shows its state: "Created, waiting for the worker", "Running in the package sandbox", "Running", then "Finished" with the answer and the files. "Failed" or "Cancelled" show the reason. Your own runs are also on the tab **Runs**. A run can wait for your administrator:
-   - "Waiting for the CEO administrator to decide.": the agent wants to do something outside the box, for example publish or send a message. It always asks first.
-   - "Waiting for the owner's check": the agent finished, but your administrator reads the result first. You see it once it is accepted.
-7. **Know what only the administrator does.** Approving actions, checking results, settings, installing or removing agents, connections and accounts. Ask your administrator for these. You can request a new product or another agent on the tab **Products**.
-8. **Your password.** To change it later, open the tab **Your account** (or press your name in the top bar), then **Change your password**; see [Your account](/use/your-account/). Forgot it? Ask your administrator: they reset it and give you a one-time password, and you choose a new one at the next sign-in.
-9. **Learn more.** [Start a task](/use/start-a-task/), [Follow a run](/use/follow-a-run/), [Approvals and checks](/use/approvals-and-checks/), [Knowledge](/use/knowledge/), [Workboard](/use/workboard/), [Report a problem](/use/report-a-problem/). Words are explained in the [Glossary](/start/glossary/). Support: <SupportContact />
 
-Outside the office: if your administrator switched on remote access, you get a second address. There you sign in with your e-mail and a one-time code that arrives by e-mail. Do your first sign-in and your password change in the office. See [Remote access](/admin/remote-access/#use-the-remote-address-everyone).
+## Give a task
+
+1. **Open Chat** in the navigation on the left (on a phone: the bar at the top). You see **Chat**, **Runs** and **Agents**.
+2. **Choose an agent** under **Agent**. **Agents** lists the agents you can use, each with **Open in chat**.
+3. **Describe the work** in the message box, then press **Send** (or Enter; Shift+Enter is a new line). On a phone you can also speak: see [Use it on your phone](/use/phone-and-voice/).
+
+Each message is one run: one task for one agent. Put links into the text. **Attach** takes text files only (up to 5 files, 48 KB each), not pictures or PDFs. Never paste a password or a key: the box refuses to send it.
+
+## Follow the run
+
+The run's card shows its state: "Created, waiting for the worker", "Running in the package sandbox", "Running", then "Finished" with the answer and the files. "Failed" or "Cancelled" show the reason. Your own runs are also under **Runs**. A run can wait for your administrator:
+
+- "Waiting for the CEO administrator to decide.": the agent wants to do something outside the box, for example publish or send a message. It always asks first.
+- "Waiting for the owner's check": the agent finished, but your administrator reads the result first. You see it once it is accepted.
+
+## Good to know
+
+- **Only the administrator** approves actions, checks results, changes settings, installs or removes agents, and manages connections and accounts. Ask your administrator for these. You can ask for a new product or another agent at the end of **Agents**, under **Ask for a product or an agent**.
+- **Your password** (office address only). To change it, press your name at the bottom of the navigation, then **Change your password**; see [Your account](/use/your-account/). Forgot it? Ask your administrator: they reset it and give you a one-time password. On the remote address you never need it.
+- **Sign out** is at the bottom of the navigation.
+- **Learn more:** [Start a task](/use/start-a-task/), [Follow a run](/use/follow-a-run/), [Use it on your phone](/use/phone-and-voice/), [Approvals and checks](/use/approvals-and-checks/). Words are explained in the [Glossary](/start/glossary/). Support: <SupportContact />

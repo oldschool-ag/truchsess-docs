@@ -1,45 +1,45 @@
 ---
 title: Knowledge
-description: How workers use your product documents during a task, and how to ask them about it.
+description: How agents use your product documents during a task, and how to ask them about it.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-[Knowledge](/start/glossary/#knowledge) is the set of documents of a product that workers may read, for example a handbook or product notes. The administrator imports them. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
+[Knowledge](/start/glossary/#knowledge) is the set of documents of a product that agents may read, for example a handbook or product notes. The administrator imports them under **Administration** › **Knowledge**, panel **Import documents**. See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
 
 ## Who can do this
 
-Administrators and members, through a worker that has permission to read the product's knowledge.
+Administrators and members, through an agent that has permission to read the product's knowledge.
 
 ## Before you start
 
 - The administrator has imported documents for the product.
-- The worker has the permission "Read one product's knowledge" for that product. You see it under the link "N permissions · show" in **Chat**.
+- The agent has the permission "Read one product's knowledge" for that product. You see it under the link "N permissions · show" in **Chat**.
 
 ## Steps
 
-1. Open **Chat** and choose a worker with knowledge permission.
+1. Open **Chat** and, under **Agent**, choose an agent with knowledge permission.
 2. Ask in plain words, for example "Search the product knowledge for our refund rules and quote them."
 3. Press **Send**.
 
 ## What you see afterwards
 
-- The worker searches and reads the documents and answers in its reply.
-- The run's **Audit** lists every document the worker read or wrote, with the document's key. It does not copy the text into the audit.
-- A worker that may also write knowledge ("Write one product's knowledge") can save a new version of a document. The earlier version stays readable.
+- The agent searches and reads the documents and answers in its reply.
+- In **Runs**, the run's **Audit** lists every document the agent read or wrote, with the document's key. It does not copy the text into the audit.
+- An agent that may also write knowledge ("Write one product's knowledge") can save a new version of a document. The earlier version stays readable.
 - By default a knowledge write is at the level "Tells you after": the administrator gets a notice. If the administrator raised it to "Asks you first", nothing is written until the administrator approves. See [Approvals and checks](/use/approvals-and-checks/#decide-a-held-write).
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| Ask a worker to search or read | The worker reads documents of its products only. | Questions about the product. | n/a |
-| Ask a worker to write | Saves a new version of a document. | Only with a worker that may write. | Partly: the earlier version stays, and a worker can write it back as the newest version. |
-| Ask for an earlier version | A worker can read an older version of a document. | To compare or restore text. | n/a |
+| Ask an agent to search or read | The agent reads documents of its products only. | Questions about the product. | n/a |
+| Ask an agent to write | Saves a new version of a document. | Only with an agent that may write. | Partly: the earlier version stays, and an agent can write it back as the newest version. |
+| Ask for an earlier version | An agent can read an older version of a document. | To compare or restore text. | n/a |
 
-A worker that reads or writes knowledge always uses an AI provider that never trains on your data.
+An agent that reads or writes knowledge always uses an AI provider that never trains on your data.
 
 <NotYet>
-You cannot browse, search or read the knowledge yourself in the portal, see the list of older versions, or delete a document. Ask a worker to search, list or quote documents for you. To replace a document, the administrator imports a new version.
+You cannot browse, search or read the knowledge yourself in the portal, see the list of older versions, or delete a document. Ask an agent to search, list or quote documents for you. To replace a document, the administrator imports a new version.
 </NotYet>
 
 ## Related pages

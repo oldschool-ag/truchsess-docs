@@ -1,6 +1,6 @@
 ---
-title: "Step 8: First worker"
-description: Allow permissions, subscribe to a function, install its worker and give it a first task.
+title: "Step 8: First agent"
+description: Allow permissions, subscribe to a function, install its agent and give it a first task.
 ---
 import NotYet from '~/components/NotYet.astro';
 
@@ -11,63 +11,64 @@ The administrator.
 ## Before you start
 
 - The box is enrolled with the store. See [Store enrolment](/setup/store-enrolment/).
-- The worker's publisher is registered under **Trusted publishers**.
-- The connections the worker needs, if you know them. You can add them afterwards too. See [Connections](/setup/connections/).
-- Read the worker's page under [Workers](/workers/) to know what it needs.
+- The agent's publisher is registered under **Administration** › **Agent rules**, panel **Trusted publishers**.
+- The connections the agent needs, if you know them. You can add them afterwards too. See [Connections](/setup/connections/).
+- Read the agent's page under [Agents](/workers/) to know what it needs.
 
 ## Steps
 
 ### 1. Allow the permissions
 
-A new box allows nothing. A worker receives only what it asks for and what you allow here.
+A new box allows nothing. An agent receives only what it asks for and what you allow here.
 
-1. Open **Administration**, sub-tab **Packages**, panel **Owner policy**.
-2. Open the store catalog first (panel **Store**, **Refresh catalog**) and open **Permissions** under the worker. The list **Requires** shows what the worker asks for.
-3. In **Owner policy**, tick each permission you agree with. For a permission with a value (for example "Reach one named host"), type the value and press **Allow**.
+1. Open **Agents**, panel **Store**. Press **Refresh catalog** and open **Permissions** under the agent. The list "Requires:" shows what the agent asks for.
+2. Open **Administration** › **Agent rules**, panel **Owner policy**.
+3. Tick each permission you agree with. For a permission with a value (for example "Reach one named host"), type the value and press **Allow**.
 4. Press **Save policy**. The button area shows "Saved" and the time.
 
 ### 2. Subscribe
 
-1. In the panel **Store**, find the function and press **Subscribe**.
+1. Open **Agents**, panel **Store**. Find the function and press **Subscribe**.
 2. Press **Open the payment page**. The store's payment page opens in a new tab. Pay there.
 3. Come back to the box. The page checks every few seconds. The badge changes to "active".
 
 ### 3. Install
 
-1. Under the function, find the worker and open **Permissions**. Check **Will be granted** and **Declined**.
-2. Answer the [install questions](/start/glossary/#install-question) under "This package asks you to choose:", for example the repository or the website.
+1. Under the function, find the agent and open **Permissions**. Check "Will be granted (declared and allowed by the owner policy):" and "Declined (declared but not allowed):".
+2. Answer the [install questions](/start/glossary/#install-question) under "This agent asks you to choose:", for example the repository or the website.
 3. Press **Install**.
 4. Wait until every step shows a tick: "Reserve the installation at the store", "Download the signed package", "Verify, unpack and bind the package", "Acknowledge the activation to the store".
 5. If the box asks for a product mapping, choose a product for each name and press **Resume the install**.
 
 ### 4. Give a first task
 
-1. Open the tab **Chat**.
-2. Choose the worker under **Package**.
-3. Write a short task, for example one of the example tasks on the worker's page.
+1. Open **Chat**. Or open **Agents**, panel **Agents you can use**, and press **Open in chat** on the agent.
+2. Choose the agent under **Agent**.
+3. Write a short task, for example one of the example tasks on the agent's page.
 4. Press **Send**.
 
 ## What you see afterwards
 
-- The worker is listed under **Installed packages** with the state "active" and "from the store".
+- The agent is listed in **Agents**, panel **Installed agents**, with the state "active" and "from the store".
 - The column **Ready** says "Ready", or "Needs ... from the admin". Then press **Open Connections** and add what is missing.
+- The agent is listed in **Agents you can use**.
 - In **Chat** your task appears as a card. See [Follow a run](/use/follow-a-run/).
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| A permission in **Owner policy** | Allows that permission for every worker that asks for it. | Only what your workers need. | Yes, but a change does not reach workers already installed. |
-| **Skip (the permission is declined)** on an optional install question | The worker does not get that permission. | When you do not want that part. | Yes: **Change** on the installed worker. |
-| **Install** | Installs the worker. | | Yes: **Uninstall**. Its workspace is then deleted. |
+| A permission in **Owner policy** | Allows that permission for every agent that asks for it. | Only what your agents need. | Yes, but a change does not reach agents already installed until their next update or **Change**. |
+| **Skip (the permission is declined)** on an optional install question | The agent does not get that permission. | When you do not want that part. | Yes: **Change** on the installed agent. |
+| **Install** | Installs the agent. | | Yes: **Uninstall**. Its workspace is then deleted. |
 
 <NotYet>
-A store worker can be installed only once per box. To have two copies of the same worker, ask the publisher for a signed package file; see [Packages](/admin/packages/#install-a-signed-package-file).
+A store agent can be installed only once per box. To have two copies of the same agent, ask the publisher for a signed package file; see [Install from a package file](/admin/packages/#install-from-a-package-file).
 </NotYet>
 
 ## Related pages
 
 - Next step: [Backup](/setup/backup/)
-- [Packages](/admin/packages/)
+- [Install and manage agents](/admin/packages/)
 - [Store](/admin/store/)
-- [Workers](/workers/)
+- [Agents](/workers/)

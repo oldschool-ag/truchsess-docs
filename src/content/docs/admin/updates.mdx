@@ -1,25 +1,27 @@
 ---
 title: Updates
-description: Check for a new box release, update, cancel, roll back, and what happens during an update.
+description: Check for a new box release, update, cancel, roll back, what happens during an update, and the company name.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-"Every change on this appliance comes from a signed release the box verifies before switching. No files are edited by hand."
+Updates are on **Administration** › **System**, panel **System**. "Every change on this appliance comes from a signed release the box verifies before switching. No files are edited by hand."
+
+The same page holds the [company name](#the-company-name), **Voice input**, the **Self-tests** (see [Audit and status](/admin/audit-and-status/)) and **Earlier assistant conversations**.
 
 ## Who can do this
 
-The administrator, in the office on **https://myai.local/**.
+The administrator, in the office on **https://truchsess.local/**. The company name can also be changed on the remote address.
 
 ## Before you start
 
 - No task is running. The AI part of the box restarts during an update, and running tasks may fail.
-- Recommended: press **Back up now** in the panel **Backups**.
+- Recommended: press **Back up now** on **Administration** › **Backups**.
 
 ## Steps
 
 ### Update
 
-1. Open **Administration**, sub-tab **General**, panel **System**.
+1. Open **Administration**, then **System**, panel **System**.
 2. Press **Check for updates**.
 3. **Newest available** shows the newest release. The button now reads **Update now to** and the release name.
 4. Press it, then **Confirm update** within 10 seconds.
@@ -47,11 +49,35 @@ The administrator, in the office on **https://myai.local/**.
 ## What happens by itself
 
 - The box looks for a new release once a day. It never installs it by itself.
+- When a new release is ready, **Administration** › **Overview** lists "Version ... is ready to install." under **Needs your attention**.
 - If the switch fails, or the self-check after the switch fails (it waits up to 7 minutes), the box returns to the previous version by itself.
 - The box keeps the three newest versions.
 - The box never restarts the computer during an update.
 - A slow download is retried. If it still fails: "The download from GitHub is too slow or stopped. Nothing was changed. Try again later."
 - An older release is never offered: "not offered: older than the running release".
+
+## The company name
+
+The panel **Company name** is the first panel on **Administration** › **System**. The name is "Shown in the navigation and on the sign-in page."
+
+1. Open **Administration**, then **System**, panel **Company name**.
+2. Type the name in **Company name** (at most 80 characters).
+3. Press **Save**. The panel shows "Saved."
+
+Afterwards:
+
+- Everyone sees the name in the navigation, under their own name and after their role.
+- The sign-in page says "Sign in to the Truchsess box of" and the name.
+- **Administration** › **Overview**, **Recent activity** records the change.
+
+The name may stay empty. Until it is set, the navigation shows the role alone. To remove the name, empty the field and press **Save**: "The company name is cleared."
+
+### After the update that brings the new address
+
+The office address is now **https://truchsess.local/**; `myai.local` keeps working. The outcome line of that update ends with "The office address is now truchsess.local; myai.local still works. Your browser will warn once more about the box's certificate."
+
+- The box renewed its certificate once, to cover both names. Each browser warns once more: compare the fingerprint with "Certificate fingerprint of this Truchsess" on the box's screen or in **Administration** › **Remote access**, then accept.
+- Sign in once more on `truchsess.local`. A password saved in the browser for `myai.local` may need to be typed once.
 
 ## Your choices
 
@@ -61,6 +87,7 @@ The administrator, in the office on **https://myai.local/**.
 | **Update now** | Installs the newest release. | When no task is running. | Yes: **Roll back**. |
 | **Cancel update** | Stops before the switch. | You started at a bad time. | Press **Update now** again later. |
 | **Roll back** | Returns to the previous version. | The new version causes a problem. | Yes: update again. |
+| **Save** (company name) | Shows the name in the navigation and on the sign-in page. | Once, at setup. | Yes: change it or empty it. |
 
 If the page shows "The session ended while the update ran; sign in again to see the result.", sign in again. If it shows "The portal has not answered for 15 minutes", reload the page and look at **Details (update log)**.
 

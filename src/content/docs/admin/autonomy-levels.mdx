@@ -4,7 +4,7 @@ description: The five levels, the default for each kind of action, raising a lev
 ---
 import NotYet from '~/components/NotYet.astro';
 
-An [autonomy level](/start/glossary/#autonomy-level) says how much a worker does on its own before a person looks at it. Every kind of action of every installed worker has one level.
+An [autonomy level](/start/glossary/#autonomy-level) says how much an agent does on its own before a person looks at it. Every kind of action of every installed agent has one level. How levels fit with the other rules: [Agent rules explained](/admin/agent-rules/).
 
 ## Who can do this
 
@@ -13,7 +13,7 @@ An [autonomy level](/start/glossary/#autonomy-level) says how much a worker does
 
 ## Before you start
 
-At least one worker is installed. See [First worker](/setup/first-worker/).
+At least one agent is installed. See [First agent](/setup/first-worker/).
 
 ## The five levels
 
@@ -22,14 +22,14 @@ Each level is shown as a colored label on run cards, approval cards and in the p
 | Level | Color | What happens |
 | --- | --- | --- |
 | **Runs on its own** | green | It runs and is recorded. |
-| **Tells you after** | blue | It runs. Afterwards you get a notice: on the run card ("Told you after: ...") and on the tab **Approvals**, panel **Tells you after**. |
+| **Tells you after** | blue | It runs. Afterwards you get a notice: on the run card ("Told you after: ...") and on the page **Approvals**, panel **Tells you after**. |
 | **Waits for your check** | yellow | The run finishes, but its result is held until you press **Accept**, or **Send back** with a note. See [Checks](/use/approvals-and-checks/#checks). |
 | **Asks you first** | orange | You approve before the action happens. |
 | **Always asks, with a reason** | red | You approve before the action, every time, and your decision needs a reason. A standing approval never covers it. |
 
 ## The default for each kind of action
 
-Each kind of action starts at its default, the floor. You can raise it for one worker. You can never set it below the floor.
+Each kind of action starts at its default, the floor. You can raise it for one package (every install of that package). You can never set it below the floor.
 
 | Kind of action (as the panel names it) | Default | You can raise it to |
 | --- | --- | --- |
@@ -54,16 +54,16 @@ Each kind of action starts at its default, the floor. You can raise it for one w
 | Uses credentials | Always asks, with a reason | cannot be raised |
 | Deploys | Always asks, with a reason | cannot be raised |
 
-The panel lists only the kinds of action a worker actually has permission for.
+The panel lists only the kinds of action an agent actually has permission for.
 
-Some things are stronger than any level: spending above the worker's per-action limit is refused outright, and no worker can ever merge on GitHub.
+Some things are stronger than any level: spending above the agent's per-action limit is refused outright, and no agent can ever merge on GitHub.
 
 ## Steps
 
 ### Raise a level
 
-1. Open **Administration**, sub-tab **Packages**.
-2. Scroll to the panel **Autonomy levels**. Each installed package has its own table: **What it does**, **Now**, **Level**, **Floor**.
+1. Open **Administration** › **Agent rules**.
+2. Go to the panel **Autonomy levels**. Each installed package has its own table, headed by the names of its installs and the package id: **What it does**, **Now**, **Level**, **Floor**.
 3. In the row you want to change, open the menu in the column **Level** and choose the new level. A row that shows "Fixed" cannot be changed.
 4. Press **Save levels** under that package.
 
@@ -75,26 +75,26 @@ A level belongs to the package: every install of the same package gets the same 
 
 Choose the floor (the level in the column **Floor**) in the same menu and press **Save levels**.
 
-### Let a worker do one action without asking
+### Let an agent do one action without asking
 
-A standing approval moves "Asks you first" to "Runs on its own" for one installed worker and one action, within a monthly limit and until a date.
+A standing approval moves "Asks you first" to "Runs on its own" for one agent and one action, within a monthly limit and until a date.
 
-1. Open the tab **Approvals**, panel **Grant a standing approval**.
-2. Choose the **Package**, the **Action** (**Publish**, **Send messages outside**, **Spend money** or **Chain actions**), the **Limit per calendar month** and **Expires on**.
+1. Open **Approvals**, panel **Grant a standing approval**.
+2. Choose the **Agent**, the **Action** (**Publish**, **Send messages outside**, **Spend money** or **Chain actions**), the **Limit per calendar month** and **Expires on**.
 3. Press **Grant**.
 
-Over the limit, after the expiry, or after **Revoke**, the worker asks again. "Uses credentials" and "Deploys" always ask, so they cannot get a standing approval. A grant for them made in an earlier release shows "not used: this action always asks".
+Over the limit, after the expiry, or after **Revoke**, the agent asks again. "Uses credentials" and "Deploys" always ask, so they cannot get a standing approval. A grant for them made in an earlier release shows "not used: this action always asks".
 
-### Make a worker do less
+### Make an agent do less
 
 - Raise a level, as above.
-- Or remove the permission in **Owner policy** and press **Save policy**. This affects workers installed afterwards. For an installed worker, press **Change** and skip an optional install question, or uninstall and install it again.
+- Or remove the permission in **Administration** › **Agent rules**, panel **Owner policy**, and press **Save policy**. This affects agents installed afterwards. For an installed agent, open **Agents**, panel **Installed agents**, press **Change** and skip an optional install question, or uninstall and install it again.
 
 ## What you see afterwards
 
 - Each run card shows the highest level the run reached, as a colored label.
-- At "Tells you after": "Told you after: ..." on the run card, and a line in the panel **Tells you after** on the tab **Approvals**. Press **Mark all as seen** when you have read them.
-- At "Waits for your check": "Waiting for your check" on the run card and on the tab **Approvals**.
+- At "Tells you after": "Told you after: ..." on the run card, and a line in the panel **Tells you after** on the page **Approvals**. Press **Mark all as seen** when you have read them.
+- At "Waits for your check": "Waiting for your check" on the run card and on the page **Approvals**.
 - At "Asks you first" or "Always asks, with a reason": an approval card with the level label.
 - The audit trail of each run records each held result, each check decision, each approval decision and each level change.
 
@@ -102,24 +102,24 @@ Over the limit, after the expiry, or after **Revoke**, the worker asks again. "U
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Tells you after** | The worker acts, and you read a notice afterwards. | You trust it, but want to know. | Yes: choose the floor again. |
-| **Waits for your check** | You read every result before others see it. | A new worker, or important results. | Yes. |
+| **Tells you after** | The agent acts, and you read a notice afterwards. | You trust it, but want to know. | Yes: choose the floor again. |
+| **Waits for your check** | You read every result before others see it. | A new agent, or important results. | Yes. |
 | **Asks you first** (knowledge and workboard writes) | Nothing is written before you approve. | Sensitive documents or boards. | Yes. |
 | **Always asks, with a reason** | Every time, with a reason in the audit trail. | The most sensitive actions. | Yes. |
 | Standing approval | One protected action without asking, within a limit. | A repeated action you trust. | Yes: **Revoke**. |
 
-Raising "Writes files in its own workspace" to "Waits for your check" holds every result of that worker, because every run writes its result file. Raising a repository action to "Waits for your check" also holds every run of that worker.
+Raising "Writes files in its own workspace" to "Waits for your check" holds every result of that agent, because every run writes its result file. Raising a repository action to "Waits for your check" also holds every run of that agent.
 
-A check holds the result, not what the worker already did: a pushed branch, a comment, an issue, a knowledge revision or a workboard change stays. To stop such writes before they happen, use "Asks you first" for knowledge and workboard writes, or remove the repository permission.
+A check holds the result, not what the agent already did: a pushed branch, a comment, an issue, a knowledge revision or a workboard change stays. To stop such writes before they happen, use "Asks you first" for knowledge and workboard writes, or remove the repository permission.
 
-For "Hands work to other packages": at "Tells you after" you get a notice each time work is handed over; at "Waits for your check" the result of a task that handed work over waits for your check; at "Asks you first" or "Always asks, with a reason" nothing is handed over before you approve. See [Hand-offs between workers](/use/follow-a-run/#hand-offs-between-workers).
+For "Hands work to other packages": at "Tells you after" you get a notice each time work is handed over; at "Waits for your check" the result of a task that handed work over waits for your check; at "Asks you first" or "Always asks, with a reason" nothing is handed over before you approve. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
 <NotYet>
-You cannot set a level for one install only (a level applies to every install of the package), lower a level below its floor, or make a repository action ask before it happens. To approve each repository change, remove the repository permission and ask the worker to describe the change in its answer.
+You cannot set a level for one install only (a level applies to every install of the package), lower a level below its floor, or make a repository action ask before it happens. To approve each repository change, remove the repository permission and ask the agent to describe the change in its answer.
 </NotYet>
 
 ## Related pages
 
 - [Approvals and checks](/use/approvals-and-checks/)
-- [Packages](/admin/packages/)
-- [Workers](/workers/)
+- [Install and manage agents](/admin/packages/)
+- [Agents](/workers/)

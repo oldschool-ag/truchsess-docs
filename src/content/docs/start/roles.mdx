@@ -9,31 +9,37 @@ A Truchsess box has two roles. Every person has their own account.
 - **Administrator.** The first account on the box. The portal calls it **CEO administrator**. There is exactly one.
 - **Member.** Every account the administrator creates afterwards.
 
-The header of the portal shows your name and your role, for example "Anna · member".
+The bottom of the navigation shows your name and, under it, your role ("Administrator" or "Member") and the company name if the administrator set one.
+
+## What you see in the navigation
+
+- **Members** see **Chat**, **Runs** and **Agents**.
+- **The administrator** also sees **Approvals** (with a number of what waits) and **Administration**.
+- Everyone opens **Your account** from their name at the bottom of the navigation. **Sign out** is there too.
 
 ## Who can do what
 
 | What | Administrator | Member |
 | --- | --- | --- |
-| Give a task to an installed [worker](/start/glossary/#worker) (tab **Chat**) | Yes | Yes |
-| See the list of installed workers in **Chat** | Yes, all | Yes, all |
-| See runs (tab **Runs**) | All runs | Only your own runs |
+| Give a task to an installed [agent](/start/glossary/#agent) (**Chat**) | Yes | Yes |
+| See the agents you can use (**Agents**, panel **Agents you can use**, with **Open in chat**) | Yes, all | Yes, all |
+| See runs (**Runs**) | All runs | Only your own runs |
 | Cancel a run | Every run | Only runs you started |
 | Approve or refuse a protected action ([approval](/start/glossary/#approval)) | Yes | No, you see "Waiting for the CEO administrator to decide." |
 | Accept or send back a result that waits for a [check](/start/glossary/#check) | Yes | No, you see "Waiting for the owner's check" and get the result after it is accepted |
 | See and raise [autonomy levels](/admin/autonomy-levels/) | Yes | No, you see the level on your run cards |
-| Read the notices "Tells you after" | Yes | No |
-| Grant or revoke a standing approval (tab **Approvals**) | Yes | No |
-| See products (tab **Products**) | All products | Products assigned to you, and your pending requests |
+| Read the notices "Tells you after" (**Approvals**) | Yes | No |
+| Grant or revoke a standing approval (**Approvals**) | Yes | No |
+| See products | All products (**Administration** › **Knowledge**, panel **Products**) | Products assigned to you (end of **Agents**, **Your products**) |
 | Add a product at once | Yes | No |
-| Request a new product, or request another agent | Yes | Yes |
-| See your requests and their decision (tab **Requests**) | Yes | Yes, your own |
-| Decide product and agent requests | Yes | No |
-| Change your own password (tab **Your account**) | Yes | Yes |
+| Request a new product, or request another agent (end of **Agents**, **Ask for a product or an agent**) | Yes | Yes |
+| See your requests and their decision (end of **Agents**, **Your requests**) | Yes | Yes, your own |
+| Decide product and agent requests (**Approvals**, section **Requests**) | Yes | No |
+| Change your own password (**Your account**, from your name at the bottom of the navigation) | Yes | Yes |
 | Create user accounts and assign product access | Yes | No |
 | Reset a password, disable, enable or remove a person, change a name or e-mail | Yes, for members | No |
 | Choose the AI provider, the data rule and the model lanes | Yes | No |
-| Install, change, update and uninstall workers | Yes | No |
+| Install, change, update and uninstall agents | Yes | No |
 | Use the store (enrol, subscribe, cancel) | Yes | No |
 | Import knowledge documents | Yes | No |
 | Add connections (GitHub, API keys) | Yes | No |
@@ -41,9 +47,7 @@ The header of the portal shows your name and your role, for example "Anna · mem
 | Make backups, restore, update the box | Yes | No |
 | Switch remote access on or off | Yes | No |
 | Use the remote address (when it is on) | Yes | Yes |
-| See the company activity and the audit trail of every run | Yes | Only the audit trail of your own runs |
-
-Only the administrator sees the tabs **Approvals** and **Administration**.
+| See the company activity (**Administration** › **Overview**, **Recent activity**) and the audit trail of every run | Yes | Only the audit trail of your own runs |
 
 New member? Start with [Your first day as a member](/start/member/).
 
@@ -53,13 +57,15 @@ The administrator can give a person access to a product as **Member** or **Owner
 A person who requests a product becomes its owner when the request is approved.
 
 In this release, owner and member see and do the same things in the portal.
-A product owner is not an administrator: an owner cannot install workers, approve actions or change settings.
+A product owner is not an administrator: an owner cannot install agents, approve actions or change settings.
 
 <NotYet>
 There is only one administrator. You cannot add a second administrator or make a member an administrator. Ask the administrator to do administrator tasks.
 </NotYet>
 
 ## Related pages
+
+- [Agent rules explained](/admin/agent-rules/) (administrators)
 
 - [Glossary](/start/glossary/)
 - [Members](/setup/members/)

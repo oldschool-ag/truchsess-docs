@@ -1,14 +1,16 @@
 ---
 title: "Step 7: Store enrolment"
-description: Connect the box to the store once, so you can subscribe to workers.
+description: Connect the box to the store once, so you can subscribe to agents.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-The store is the publisher's catalog of workers for your box. You enrol the box once. Then you can subscribe to functions and install their workers.
+The store is the publisher's catalog of agents for your box. You enrol the box once. Then you can subscribe to functions and install their agents.
+
+If you activated the box at the first run with the activation code, the box is already enrolled: the activation code is the enrolment code. Skip this step. See [First run](/setup/first-run/#activate-this-box).
 
 ## Who can do this
 
-The administrator, in the office on **https://myai.local/**.
+The administrator, in the office on **https://truchsess.local/**.
 
 ## Before you start
 
@@ -21,8 +23,8 @@ How buying works is explained in the store's own documentation: [How buying work
 
 ## Steps
 
-1. Open **Administration**, sub-tab **Packages**.
-2. The first panel is **Store**. It says "This appliance is not enrolled with a store yet."
+1. Open **Agents**.
+2. Find the panel **Store**. It says "This appliance is not enrolled with a store yet."
 3. Enter the **Store address**.
 4. Enter the **Enrolment code**.
 5. Optional: enter a **Label for this appliance**, for example your company name.
@@ -34,7 +36,7 @@ How buying works is explained in the store's own documentation: [How buying work
 ## What you see afterwards
 
 - The panel shows **Enrolled as**, **Store**, **Label**, **Enrolled**, **Last contact** and **Appliance key id**.
-- After **Refresh catalog**, the panel lists the functions the store offers you, with their monthly price and their workers.
+- After **Refresh catalog**, the panel lists the functions the store offers you, with their monthly price and their agents.
 - The enrolment code is used once and is not kept on the box.
 
 ## Your choices
@@ -42,9 +44,9 @@ How buying works is explained in the store's own documentation: [How buying work
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Enrol** | Connects this box to the store. | Once. | No, not in the portal. |
-| **Private test server (advanced)** | A certificate for a private test store. | Only when the publisher asks for it. | n/a |
+| **Private test server (advanced)** | A certificate for a private test store. | Only for a test store, when the publisher asks for it. | n/a |
 
-What leaves the box: the box's identity, which workers it asks for, and receipts for installs and uninstalls. Your tasks, files, knowledge and keys never go to the store.
+What leaves the box: the box's identity, which agents it asks for, and receipts for installs and uninstalls. Your tasks, files, knowledge and keys never go to the store.
 
 Paying and cancelling: see [Billing](https://faivr.ai/docs/billing) and [Cancel](https://faivr.ai/docs/cancel) in the store's documentation.
 
@@ -54,5 +56,5 @@ You cannot undo the enrolment in the portal. To stop paying, cancel each subscri
 
 ## Related pages
 
-- Next step: [First worker](/setup/first-worker/)
+- Next step: [First agent](/setup/first-worker/)
 - [Store](/admin/store/)

@@ -1,22 +1,29 @@
 ---
 title: "Step 2: First run"
-description: Create the administrator account on a new box, or restore a backup instead.
+description: Create the administrator account on a new box, activate the box or choose your own AI key, or restore a backup instead.
 ---
 import NotYet from '~/components/NotYet.astro';
 
 ## Who can do this
 
-The administrator, once, on a new box.
+The administrator, once, on a new box, in the office.
 
 ## Before you start
 
 - The box is installed. See [Unbox and connect](/setup/unbox-and-connect/).
-- The **CEO bootstrap code** from the end of the installation.
+- The **bootstrap code** from the end of the installation (shown on the box's screen).
 - A password for yourself: at least 12 characters, with upper-case and lower-case letters and a number.
+- One of these for the AI:
+  - the **activation code** from the card in the box (it starts with `TRS-`), or
+  - your own AI provider key. See [AI providers](/setup/ai-providers/).
+
+The bootstrap code and the activation code are two different codes. The bootstrap code proves that you are at the box. The activation code belongs to your purchase.
 
 ## Steps
 
-1. Open **https://myai.local/** in your browser.
+### Create the administrator
+
+1. Open **https://truchsess.local/** in your browser.
 2. The page **Create the CEO administrator** opens.
 3. Enter your name under **CEO name**.
 4. Enter your e-mail address under **Work email**. You sign in with it.
@@ -24,10 +31,30 @@ The administrator, once, on a new box.
 6. Enter the code under **Bootstrap code**.
 7. Press **Create administrator**.
 
+### Activate this box
+
+The page **Activate this box** opens right after it: "Enter the activation code from the card in the box. It enrols the box in the store and sets up the AI, with a starter credit, so you can start right away."
+
+1. Enter the code under **Activation code**.
+2. Press **Activate**.
+3. Follow the steps on the page: "Enrol this box in the store", "Store the AI key", "Set up the managed AI (never kept, never trained on)", "Set the starter credit", "Test the AI".
+4. When the page says "AI is ready.", press **Continue**.
+
+The box now uses the managed AI with a one-time starter credit of CHF 50. See [Budget](/admin/budget/).
+
+Instead of activating:
+
+- **Use my own AI key instead** opens the page **Choose the appliance AI**. Continue with [AI providers](/setup/ai-providers/).
+- **Activate later** opens the portal without AI. The page says "The AI is not set up yet." Activate later under **Administration** › **Agent rules**, panel **AI of this box**, or choose your own key there under **Model lanes**, **Change AI provider**. Until then, nobody can give an agent a task.
+
+<NotYet>
+The store service that answers activation codes is not live yet, and a new box has no store address set. Until it is, **Activate** stops with "This box has no store address set." Choose **Use my own AI key instead**, or **Activate later**. Ask support for an activation that works.
+</NotYet>
+
 ## What you see afterwards
 
-- You are signed in. The header shows your name and "CEO administrator".
-- The box asks you at once to choose its AI: the page **Choose the appliance AI**. Continue with [AI providers](/setup/ai-providers/).
+- You are signed in. Your name and "Administrator" show at the bottom of the navigation on the left.
+- The portal opens on **Chat**.
 - The bootstrap code is used up. It cannot create a second account.
 
 ## Your choices
@@ -35,13 +62,20 @@ The administrator, once, on a new box.
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Create administrator** | Creates the one administrator account of the box. | A new box for a new start. | No. The account cannot be removed or replaced in the portal. |
-| **Restore from a backup** (link under the form) | Brings back the users, workers, tasks and settings of another box from a backup file. You sign in with the accounts from the backup. | You move to a new box, or you replace a broken box. See [Backup and restore](/admin/backup-and-restore/#restore-on-a-new-box). | No, once started. |
+| **Restore from a backup** (link under the form) | Brings back the users, agents, tasks and settings of another box from a backup file. You sign in with the accounts from the backup. | You move to a new box, or you replace a broken box. See [Backup and restore](/admin/backup-and-restore/#restore-on-a-new-box). | No, once started. |
+| **Activate** | Enrols the box in the store and sets up the managed AI with a starter credit. | You have the activation code. | Yes: switch to your own key at any time with **Change AI provider**. |
+| **Use my own AI key instead** | Opens the provider page. | Your company has its own AI provider account. | Yes: activate later under **AI of this box**. |
+| **Activate later** | Opens the portal without AI. | You want to look around first. | Yes. |
 
 ## If something goes wrong
 
 - "The bootstrap code is missing or wrong.": check the code. Letters are upper-case. The letters O and I and the numbers 0 and 1 are never used.
 - "Too many login attempts. Wait 15 minutes and try again.": wait 15 minutes.
-- Lost the code: on the box's console (screen and keyboard), the command shown in the note under the form prints it again, as long as no account exists. Ask support if you need help.
+- Lost the bootstrap code: on the box's console (screen and keyboard), the command shown in the note under the form prints it again, as long as no account exists. Ask support if you need help.
+- A step of **Activate** failed: the page says why in one sentence. Fix it and press **Try again**; it continues at that step.
+- "This activation code was already used. Ask the operator for a new one.": ask support.
+- "The store does not know this activation code. Check the code on the card and press Try again.": check the code.
+- "The store could not be reached. Check that the box is connected to the internet, then press Try again. The code was not used.": check the box's internet connection.
 
 <NotYet>
 You cannot change the administrator's e-mail address in the portal. Keep the password in a password manager. A forgotten administrator password is reset on the box itself, not in the portal: see [Administrator password](/admin/administrator-password/).
@@ -51,3 +85,4 @@ You cannot change the administrator's e-mail address in the portal. Keep the pas
 
 - Next step: [AI providers](/setup/ai-providers/)
 - [Roles](/start/roles/)
+- [Budget](/admin/budget/)
