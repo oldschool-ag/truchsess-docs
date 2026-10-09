@@ -23,6 +23,9 @@ The administrator. Adding or removing a trusted publisher works only in the offi
 
 ## Trusted publishers
 
+New to Agent rules? Read [Agent rules explained](/admin/agent-rules/) first: what decides what an agent may do, in plain words, with examples.
+
+
 An agent is installed only when its package is signed by a publisher in this list. A new box trusts nobody: "Every install fails closed until one is registered."
 
 1. Open **Administration** › **Agent rules**, panel **Trusted publishers**.
@@ -33,6 +36,9 @@ An agent is installed only when its package is signed by a publisher in this lis
 **Remove**, then **Confirm remove**, stops new installs signed with that key: "Bundles signed with it are refused from now on; installed agents keep running."
 
 ## Owner policy
+
+How the owner policy combines with install answers, levels and the data rule: [Agent rules explained](/admin/agent-rules/).
+
 
 The owner policy is the list of permissions any agent may receive. An agent receives exactly the permissions it asks for that are also on this list. Everything else is declined at install. A new box allows nothing.
 

@@ -69,6 +69,7 @@ export default defineConfig({
         {
           label: 'Administration',
           items: [
+            { label: 'Agent rules explained', slug: 'admin/agent-rules' },
             { label: 'People and access', slug: 'admin/users' },
             { label: 'Administrator password', slug: 'admin/administrator-password' },
             { label: 'Install and manage agents', slug: 'admin/packages' },

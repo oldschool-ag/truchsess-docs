@@ -24,6 +24,7 @@ export const REQUIRED_PAGES = [
   '/use/workboard/',
   '/use/report-a-problem/',
   '/use/your-account/',
+  '/admin/agent-rules/',
   '/admin/users/',
   '/admin/administrator-password/',
   '/admin/packages/',
