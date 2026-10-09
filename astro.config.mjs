@@ -111,6 +111,12 @@ export default defineConfig({
             { label: 'LinkedIn posting (planned)', slug: 'agents/linkedin-posting' },
           ],
         },
+        {
+          label: 'For the operator',
+          items: [
+            { label: 'A personal ChatGPT plan', slug: 'operator/chatgpt-personal-plan' },
+          ],
+        },
         { label: 'Not possible yet', slug: 'not-yet' },
         { label: 'Troubleshooting', slug: 'troubleshooting' },
         { label: 'Releases', slug: 'releases' },

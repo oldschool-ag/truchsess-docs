@@ -48,6 +48,7 @@ export const REQUIRED_PAGES = [
   '/agents/pricing-and-business-models/',
   '/agents/visibility-in-ai-search/',
   '/agents/linkedin-posting/',
+  '/operator/chatgpt-personal-plan/',
   '/not-yet/',
   '/troubleshooting/',
   '/releases/',

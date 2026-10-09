@@ -6,7 +6,7 @@ import NotYet from '~/components/NotYet.astro';
 
 An [agent](/start/glossary/#agent) is the helper that does the work. It comes in a package: a signed file that ends in `.truchsess-bundle.tar`. You install and manage agents on the page **Agents**. The rules for every agent are under **Administration** › **Agent rules**.
 
-The page **Agents**, from top to bottom: **Agents you can use** (everyone sees it; each agent has **Open in chat**), then, for the administrator only, **Installed agents**, **Store** and **Install from a package file**. Members see **Agents you can use** but not the other three panels.
+The page **Agents**, from top to bottom: **Agents you can use** (everyone sees it; each agent has **Open in chat**), then, for the administrator only, **Your agents**, **Store** and **Install from a file**. Members see **Agents you can use** but not the other three parts.
 
 **Administration** › **Agent rules**, from top to bottom: **Owner policy**, **Which AI providers may see your data**, **Autonomy levels**, **AI of this box**, **Model lanes**, **Trusted publishers**. The panel **Autonomy levels** is explained on [Autonomy levels](/admin/autonomy-levels/). The data rule and the model lanes are explained on [AI providers and lanes](/admin/ai-providers-and-lanes/). The **Self-tests** are under **Administration** › **System**.
 
@@ -25,7 +25,6 @@ The administrator. Adding or removing a trusted publisher works only in the offi
 
 New to Agent rules? Read [Agent rules explained](/admin/agent-rules/) first: what decides what an agent may do, in plain words, with examples.
 
-
 An agent is installed only when its package is signed by a publisher in this list. A new box trusts nobody: "Every install fails closed until one is registered."
 
 1. Open **Administration** › **Agent rules**, panel **Trusted publishers**.
@@ -35,10 +34,11 @@ An agent is installed only when its package is signed by a publisher in this lis
 
 **Remove**, then **Confirm remove**, stops new installs signed with that key: "Bundles signed with it are refused from now on; installed agents keep running."
 
+For a store publisher, go back to **Agents**, **Store** afterwards and press **Refresh catalog**. See [Store](/admin/store/#the-publisher-is-not-trusted-here-yet).
+
 ## Owner policy
 
 How the owner policy combines with install answers, levels and the data rule: [Agent rules explained](/admin/agent-rules/).
-
 
 The owner policy is the list of permissions any agent may receive. An agent receives exactly the permissions it asks for that are also on this list. Everything else is declined at install. A new box allows nothing.
 
@@ -62,7 +62,7 @@ The words the portal shows, for example:
 | Model lane | "Run in one model lane" |
 | Browser | "Render web pages and take screenshots with the browser inside its sandbox" |
 
-A repository chosen as an install answer is allowed by that answer. You do not have to list every repository in the owner policy.
+A repository, product or website chosen as an install answer is allowed by that answer. You do not have to list it in the owner policy.
 
 A saved owner policy applies to the next install, update or **Change**. Agents that are already installed keep their permissions until then.
 
@@ -78,29 +78,55 @@ Some agents ask questions at install, under "This agent asks you to choose:".
 
 An optional question offers **Skip (the permission is declined)**. The Install button stays greyed out until every required question is answered: "Answer the questions above first."
 
+When you install all agents of a function at once with **Install all**, a question that several of them ask (the same repository or the same product) is asked once. See [Store](/admin/store/#install-all-agents-of-a-function).
+
+## Your agents
+
+The part **Your agents** on the page **Agents**: "The functions you subscribed to and the agents you installed from a file". There is one card per function you subscribed to, or that still has an agent installed here. There is one card per package installed from a file, marked "Installed from a file".
+
+A function's card shows its name, its monthly price, a badge with the subscription state and a line in words, for example "Subscribed, not installed yet". It also holds **Cancel subscription** and **Manage subscription**. See [Store](/admin/store/#manage-a-subscription).
+
+Inside the card, each agent of the function is listed with each of its installs. One install shows:
+
+- its name, and the product it works for, if any;
+- its state in words, for example "Running";
+- "Ready", or "Needs ... from the admin" with **Open Connections**, while it is a working install. See [Connections](/admin/connections/#what-ready-means);
+- its lane, for example "Standard lane";
+- "N permissions": how many it was granted;
+- your install answers, one per line, for example "Which website: www.example.com (this website only)";
+- only the buttons its state allows (see the table below);
+- **Details**: open it for **Package id**, **Version**, **Install id**, **Agent id**, **Model**, **Sandbox image**, **Came from**, **State on record**, and the lists "Granted:" and "Declined:".
+
+An agent of a subscribed function that is not installed yet shows "Not installed yet", what it may do, its questions and **Install** right there. See [Store](/admin/store/#install-a-store-agent).
+
+The page fits a screen from 360 px wide. Nothing scrolls sideways. On a phone each table row is shown as one block.
+
 ## Install from a package file
 
-1. Open **Agents**, panel **Install from a package file**.
+1. Open **Agents**, panel **Install from a file**.
 2. Choose the **Bundle file** (up to 64 MB).
 3. Press **Upload and inspect**.
-4. Read the inspection: **Package id**, **Version**, **Publisher** ("trusted" or "NOT trusted on this appliance"), **Signature** ("verified"), **Package digest**, "Declares:", "Will be granted (declared and allowed by the owner policy):", "Declined (declared but not allowed):".
-5. Enter the **Name for this install**. The chat shows this name.
-6. Answer the install questions.
-7. Press **Install**.
-8. Follow the steps: "Write the install record", "Verify, unpack and bind the package".
-9. If the box asks "Product mapping needed for ...", choose an existing product for each name or **Create a new product**, then press **Resume the install**.
+4. Read the inspection: **Package id**, **Version**, **Bundle file**, **Publisher key id**, **Publisher** ("trusted" or "NOT trusted on this appliance"), **Signature** ("verified"), **Package digest**.
+5. Read "What it may do:". Each permission is one line with a mark: "granted", "not allowed by your rules" or "you choose at install".
+6. Enter the **Name for this install**. The chat shows this name.
+7. Answer the install questions.
+8. Press **Install**.
+9. Follow the steps: "Write the install record", "Verify, unpack and bind the package".
+10. If the box asks "Product mapping needed for ...", choose an existing product for each name or **Create a new product**, then press **Resume the install**.
 
-A store agent is installed from the panel **Store** instead. See [Store](/admin/store/#install-a-store-agent).
+The agent then appears under **Your agents** on its own card, marked "Installed from a file".
+
+A store agent is installed in **Your agents** instead. See [Store](/admin/store/#install-a-store-agent).
 
 An uploaded file that you did not install is listed under "Uploaded, not installed:". Press **discard** to delete it.
 
 ## Install the same package again
 
-A signed package file can be installed several times, for example one agent per website. Upload the file again. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory.
+A signed package file can be installed several times, for example one agent per website. Upload the file again. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory. All installs of the package are listed on its card in **Your agents**.
 
 ## Update
 
-Upload the newer file of an installed agent in **Agents**, panel **Install from a package file**, and press **Upload and inspect**. What you see next depends on whether the new version changes what the agent may do.
+Upload the newer file of an installed agent in **Agents**, panel **Install from a file**, and press **Upload and inspect**. What you see next depends on whether the new version changes what the agent may do.
 
 ### The same permissions
 
@@ -139,52 +165,66 @@ If the file changed after you read the change, the box refuses: "The bundle chan
 
 ### After either update
 
-Each install keeps its name, answers and workspace. If the new version adds a required question that is still open, that install waits: its row shows "needs_slot_choices" and **Choose**. A failure in one install does not stop the others.
+Each install keeps its name, answers and workspace. If the new version adds a required question that is still open, that install waits: it shows "Waiting for your answers" and **Choose**. A failure in one install does not stop the others.
 
 ## Change an install
 
-1. In **Agents**, panel **Installed agents**, press **Change** on the row.
+1. In **Agents**, panel **Your agents**, press **Change** on the install.
 2. Change the **Name** or the answers.
 3. Press **Save and apply**.
 
 "The install keeps its workspace, memory and identity; its grants, website, repository token and product knowledge follow the new answers."
 
+**Levels** on a running install opens **Administration** › **Agent rules**, where you set its [autonomy levels](/admin/autonomy-levels/).
+
 ## Failed install: Retry or Remove
 
-A failed install never stays half installed. Its row in **Installed agents** shows "failed", the badge "Not running" and the error.
+A failed install never stays half installed. It shows "Install failed" and the error.
 
 - **Retry** runs the install again from the stored file.
 - **Remove**, then **Confirm remove**, closes it: "Nothing of it is active; what the failed attempt left behind is reverted and its record is closed."
 
-After **Remove** of a store install, the row says whether the store still holds it:
+After **Remove** the install leaves the list. The result line says "Removed; nothing of the failed install is left on the appliance." For a store install it adds whether the store still holds it:
 
-- "The store still holds this install. Install the package again from the store card; the new install takes it over." See [Store](/admin/store/#an-install-the-store-still-holds).
-- "The store no longer lists this install."
-- "The store could not be reached to check whether it still holds this install. Check again when the box is online." Press **Check with the store again**.
+- "The store still holds this install; Install on the store card takes it over." See [Store](/admin/store/#an-install-the-store-still-holds).
+- "The store no longer lists it."
+- "The store could not be reached to check whether it still holds this install; use Check with the store again." The install then stays in the list with **Check with the store again**. Press it when the box is online.
 
 ## Uninstall
 
-1. In **Agents**, panel **Installed agents**, press **Uninstall** on the row.
+1. In **Agents**, panel **Your agents**, press **Uninstall** on the install.
 2. Press **Confirm uninstall**.
 
 "Every binding is reversed and the agent's workspace is removed." The box keeps a signed receipt and shows each checked effect as "verified". For a store agent the receipt goes to the store. See [Store](/admin/store/#what-happens-to-an-installed-agent).
 
+The uninstalled agent then leaves the list. It stays in the activity history (**Administration** › **Overview**, **Recent activity**).
+
+### Finish an unfinished uninstall
+
+If an uninstall stopped halfway, the install stays in the list with "Uninstall not finished" and the note "This uninstall did not finish: the agent no longer runs, but its files may still be on the box and no receipt was signed. Finish uninstall completes it."
+
+1. Press **Finish uninstall**.
+2. Press **Confirm uninstall**.
+
 ## What you see afterwards
 
-The panel **Installed agents** shows each install: **Package**, **State** ("active", "failed", "stopped", "uninstalled", "removed", or waiting for a choice), **Ready**, **Agent id**, **Model**, **Sandbox image**, **Permissions** ("N granted, M declined", and the install answers in words).
+Each install in **Your agents** shows its state in words, and only the buttons that state allows:
 
-The badge in **Ready**:
+| State | Meaning | Buttons |
+| --- | --- | --- |
+| "Running" | The agent takes tasks. | **Change**, **Levels**, **Uninstall** |
+| "Waiting for your answers" | A required install question is open. | **Choose**, **Change**, **Uninstall** |
+| "Waiting for a product mapping" | A product name in the package is not a product of the box yet. | **Map products**, **Change**, **Uninstall** |
+| "Being set up" or "Install not finished" | The install is running or was interrupted. | **Uninstall** |
+| "Stopped: the subscription ended" | The store subscription ended. It says "Files are kept until you uninstall." Subscribe again to bring it back. See [Store](/admin/store/#what-happens-to-an-installed-agent). | **Uninstall** |
+| "Install failed" | The install failed. | **Retry**, **Remove** |
+| "Uninstall incomplete" | An uninstall failed partway. | **Uninstall** |
+| "Uninstall not finished" | An uninstall stopped before its receipt. | **Finish uninstall** |
+| "Removed" | A removed store install the store could not be asked about. | **Check with the store again** |
 
-| Badge | Meaning |
-| --- | --- |
-| Ready | The agent takes tasks. |
-| Needs ... from the admin | A connection is missing. See [Connections](/admin/connections/#what-ready-means). |
-| Not running | The install failed. Use **Retry** or **Remove**. |
-| Stopped | The store subscription ended. The row says "Files are kept until you uninstall." Subscribe again to bring it back. See [Store](/admin/store/#what-happens-to-an-installed-agent). |
-| Removed | A failed install that was removed. |
-| Uninstalled | An agent that was uninstalled. |
+A working install also shows "Ready", or "Needs ... from the admin" with **Open Connections**. See [Connections](/admin/connections/#what-ready-means).
 
-A removed or uninstalled row is a finished record without buttons. It stays in the list and is harmless.
+Uninstalled agents and removed failed installs are not listed. They stay in the activity history.
 
 ## Your choices
 
@@ -197,15 +237,16 @@ A removed or uninstalled row is a finished record without buttons. It stays in t
 | **Update and grant** | Moves every install to the new version. Each install receives what the owner policy allows plus its answers. | You read **Adds** and **Removes** and agree with the change. | No direct way back. Before you press it, nothing has changed. |
 | **Change** | New answers or a new name. | An agent should work on another repository, product or website. | Yes: **Change** again. |
 | **Retry** / **Remove** | Repeats or closes a failed install. | After a failed install. | n/a |
-| **Uninstall** | Removes the agent and its workspace. | The agent is no longer needed. | No. Install again for a fresh start. |
+| **Uninstall** / **Finish uninstall** | Removes the agent and its workspace. | The agent is no longer needed, or an uninstall stopped halfway. | No. Install again for a fresh start. |
 
 <NotYet>
-You cannot go back to an earlier version of an agent, update a store agent from the box, install a store agent twice, or change the permissions of an installed agent by saving the owner policy alone. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed package file; to apply a changed owner policy, press **Change** on the row and save a new answer or name, or install again.
+You cannot go back to an earlier version of an agent, update a store agent from the box, install a store agent twice, or change the permissions of an installed agent by saving the owner policy alone. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed package file; to apply a changed owner policy, press **Change** on the install and save a new answer or name, or install again.
 </NotYet>
 
 ## Related pages
 
 - [Store](/admin/store/)
+- [Agent rules explained](/admin/agent-rules/)
 - [Autonomy levels](/admin/autonomy-levels/)
 - [Connections](/admin/connections/)
 - [AI providers and lanes](/admin/ai-providers-and-lanes/)

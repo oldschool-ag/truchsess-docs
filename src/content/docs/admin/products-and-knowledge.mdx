@@ -1,16 +1,16 @@
 ---
 title: Products and knowledge
-description: Add products, decide product and agent requests, import a product's documents, and older revisions.
+description: Add, rename, archive and restore products, decide product and agent requests, import a product's documents, and older revisions.
 ---
 import NotYet from '~/components/NotYet.astro';
 
 A [product](/start/glossary/#product) is a part of your company that work belongs to. Products decide which members see what, and which [knowledge](/start/glossary/#knowledge) an agent may read.
 
-The administrator finds both on **Administration** › **Knowledge**: the section **Products and their knowledge** (panels **Products**, **Add a product** and **Product catalog**) and the panel **Import documents**.
+The administrator finds both on **Administration** › **Knowledge**: the section **Products and their knowledge** (panels **Products**, **Archived products**, **Add a product** and **Product catalog**) and the panel **Import documents**.
 
 ## Who can do this
 
-- The administrator adds products, decides requests and imports knowledge.
+- The administrator adds, renames, archives and restores products, decides requests and imports knowledge.
 - Members request products and agents at the end of **Agents**, in the section **Ask for a product or an agent**, and see their requests there under **Your requests**. Their own products are listed under **Your products**.
 
 ## Before you start
@@ -25,6 +25,37 @@ The administrator finds both on **Administration** › **Knowledge**: the sectio
 1. Open **Administration**, then **Knowledge**, panel **Add a product**.
 2. Enter **Product id** and **Product name**.
 3. Press **Add product**. The product is active at once.
+
+### Rename a product
+
+1. Open **Administration**, then **Knowledge**, panel **Products**.
+2. Press **Rename** on the product's row.
+3. Type the **New name** and press **Save**. "Every page shows the new name; earlier history lines keep the old one."
+
+The product id stays the same, so installed agents, knowledge and runs are not touched. History lines keep the name they were written with, followed by "(now: ...)" with the new name. The box refuses an empty name, the same name, or a name another product has ("Another product is already called ...").
+
+### Archive a product
+
+Archiving takes a product out of every list and menu. Nothing is deleted.
+
+1. Press **Archive** on the product's row.
+2. If an installed agent still works on the product, nothing happens yet. The page says "... cannot be archived while an installed agent works on it. Change the agent's product answer or uninstall it, then archive again:" and lists each agent with **Change or uninstall**. That link opens **Agents**. Change the agent's product answer or uninstall it, then come back.
+3. Otherwise the button now reads **Archive** and the product's name, with what archiving does. Press it again to archive.
+
+After archiving:
+
+- The product is gone from every product list and menu: the product lists, the request, access and import selectors, install questions and product mapping.
+- People lose their access to it.
+- Pending requests for it close as "closed: product archived".
+- No agent reads or writes its knowledge any more.
+- Its runs, knowledge (every revision) and history stay, read-only, with "(archived)" after the name.
+
+### Restore a product
+
+1. Open the panel **Archived products**. It shows each archived product, when (**Archived**) and by whom (**By**).
+2. Press **Restore**, then confirm.
+
+The product comes back with its knowledge. People's access does not come back on its own: "assign it again under People and access". See [People and access](/admin/users/#give-product-access).
 
 ### Decide a request
 
@@ -49,6 +80,7 @@ An approved product request makes the product active, and the requester becomes 
 ## What you see afterwards
 
 - The new product appears in the panel **Products** and in every product list of the portal.
+- The panel **Product catalog** says "This box ships with no ready-made products. Your products: N.", with **Open Products**.
 - After an import: "Imported N document(s) into ... Earlier versions of changed documents stay readable." Agents on that product read the documents in their next task. See [Knowledge](/use/knowledge/).
 
 ### Older revisions
@@ -61,7 +93,10 @@ To go back to an earlier text, import the earlier file again: it shows as "chang
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Add product** | Creates an active product. | A new area of work. | No: a product cannot be deleted or renamed. |
+| **Add product** | Creates an active product. | A new area of work. | Yes: archive it. |
+| **Rename** | A new name everywhere; the id stays. | A typo, or the product has a new name. | Yes: rename again. |
+| **Archive** | Takes the product out of every list; people lose access; nothing is deleted. | The product is finished. | Yes: **Restore** (assign access again). |
+| **Restore** | Brings an archived product back with its knowledge. | The product is needed again. | Yes: archive again. |
 | **Approve** a product request | Makes the product active, the requester its owner. | The cost and purpose are fine. | No. |
 | **Deny** | Rejects the request. | | No. |
 | **Import selected** | Writes the chosen documents. | After reading the review. | Partly: import the earlier file again. A new document cannot be removed. |
@@ -72,7 +107,7 @@ Limits of an import: at most 50 MB and 2,000 files per upload, at most 64 KB per
 Skipped files and why: "not a text document" (not `.md` or `.txt`), "binary", "too large" (over 64 KB), "bad name", "link", "path with ..", "same key as another file", "more than 2,000 files".
 
 <NotYet>
-You cannot delete or rename a product, withdraw a request, see the knowledge documents or their revisions in the portal, or delete a document. An approved agent request does not create an agent; install one under **Agents** for that. Ask an agent with knowledge permission to read or quote documents for you.
+A product can be renamed and archived; an archived product can be restored. Nothing is ever deleted. You cannot withdraw a request, see the knowledge documents or their revisions in the portal, or delete a document. An approved agent request does not create an agent; install one under **Agents** for that. Ask an agent with knowledge permission to read or quote documents for you.
 </NotYet>
 
 ## Related pages

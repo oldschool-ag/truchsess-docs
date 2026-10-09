@@ -3,6 +3,7 @@ title: "Visibility in AI search"
 description: "What the Visibility in AI search function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
 ---
 import NotYet from '~/components/NotYet.astro';
+import { Aside } from '@astrojs/starlight/components';
 
 Store function id: `visibility-in-ai-search`. Price and full description: [Visibility in AI search in the store catalog](https://faivr.ai/catalog/visibility-in-ai-search).
 
@@ -71,6 +72,16 @@ Shown and changed under **Administration** › **Agent rules**, panel **Autonomy
 - Reach hosts, repositories or products it was not given.
 - Merge on GitHub, push to the default branch, or create tags or releases.
 - Read a stored key or password.
+
+## One website per install
+
+Gideon checks exactly the website you entered at install. The box blocks every other website for it. Give it tasks about that website only.
+
+To check another website, change the answer: **Agents**, panel **Your agents**, Gideon's row, **Change**, then choose the other website and **Save and apply**. One install checks one website at a time.
+
+<Aside type="caution" title="Known issue">
+If you ask Gideon about a website other than the one it was installed for, it writes a misleading report that says the site is unreachable. The site is fine: the box blocked it. Until an update fixes this, ask only about the installed website.
+</Aside>
 
 ## Example tasks
 

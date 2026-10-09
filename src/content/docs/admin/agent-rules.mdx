@@ -32,7 +32,7 @@ The policy applies when an agent is installed, changed or updated. Saving it alo
 
 Some permissions are about one thing you choose: one website, one repository, one product. The agent asks for it at install, under "This agent asks you to choose:". Your answer is your permission for exactly that one thing. You do not need to list it in the owner policy too. One website means one website: the agent reaches that host and no other one from its answers.
 
-To change an answer later: **Agents**, panel **Installed agents**, **Change** on the row, then **Save and apply**.
+To change an answer later: **Agents**, panel **Your agents**, **Change** on the row, then **Save and apply**.
 
 ### 4. "Reach the internet" is not the whole internet
 
@@ -74,7 +74,7 @@ Gideon (function [Visibility in AI search](/agents/visibility-in-ai-search/)) de
 1. In **Owner policy**, tick **Read files in its own workspace**, **Create and change files in its own workspace**, **Run commands inside its sandbox**, **Reach the internet through the allowlist proxy** and **Render web pages and take screenshots with the browser inside its sandbox**. Under **Reach one named host**, enter `html.duckduckgo.com` and press **Allow**. Under **Run in one model lane**, choose `standard` and press **Allow**. Press **Save policy**.
 2. Install Gideon. Answer "Which website should it audit for AI search visibility?" with your website, for example `www.example.com`.
 3. Gideon now **can**: open and screenshot `www.example.com`, search on `html.duckduckgo.com`, write its report in its workspace.
-4. Gideon **cannot**: open any other website (not in its answers, not on your list), change your website (it has no repository permission), publish or send anything (it declares no protected action).
+4. Gideon **cannot**: open any other website (not in its answers, not on your list), change your website (it has no repository permission), publish or send anything (it declares no protected action). Ask it only about `www.example.com`: about any other site it currently writes a misleading "unreachable" report (a known issue; see [One website per install](/agents/visibility-in-ai-search/#one-website-per-install)).
 5. If you skipped `html.duckduckgo.com` in step 1, it is listed as declined: Gideon installs, but cannot search.
 
 ### Example 2: Website Owner works on your repository
@@ -92,7 +92,7 @@ Website Owner (function [Website care](/agents/website-care/)) declares **Push i
 
 You use an agent installed from a package file. The publisher sends version 1.1, which adds **Reach one named host** `api.example.com`.
 
-1. Upload the new file on **Agents**, panel **Install from a package file**, and press **Upload and inspect**.
+1. Upload the new file on **Agents**, panel **Install from a file**, and press **Upload and inspect**.
 2. The page says "Version 1.1 changes what this package may do." Under **Adds:** it shows the host with "would be declined (the owner policy does not allow it)" or "would be granted (the owner policy allows it)".
 3. Nothing has changed yet. Your agent keeps running on its old version.
 4. If you agree: allow `api.example.com` under **Reach one named host** in **Owner policy** and **Save policy**, then upload and inspect again; it now says "would be granted". Press **Update and grant (the install)**.
@@ -106,7 +106,7 @@ You use an agent installed from a package file. The publisher sends version 1.1,
 | an agent to ask me before every outside action | **Autonomy levels**: raise **Publishes** and **Sends messages outside the box** to **Always asks, with a reason**, and **Revoke** its standing approvals on **Approvals**. |
 | an agent to ask before it writes knowledge or the workboard | **Autonomy levels**: raise **Writes company knowledge** or **Changes the workboard** to **Asks you first**. |
 | to read every result before anyone else sees it | **Autonomy levels**: raise **Writes files in its own workspace** to **Waits for your check**. |
-| to stop an agent from reaching the internet | **Owner policy**: untick **Reach the internet through the allowlist proxy**, **Save policy**, then **Agents**, **Installed agents**, **Change**, **Save and apply** for that agent. |
+| to stop an agent from reaching the internet | **Owner policy**: untick **Reach the internet through the allowlist proxy**, **Save policy**, then **Agents**, **Your agents**, **Change**, **Save and apply** for that agent. |
 | to allow one more website | A website answered at install: **Change** on the install and choose the other website (one per install). A fixed host the agent declares: allow it under **Reach one named host** in **Owner policy**, then **Change**, **Save and apply**. |
 | one agent to hand work to another | **Owner policy**: **Hand work to one other installed package** with the other package's id, **Allow**, **Save policy**, then **Change**, **Save and apply**. |
 | my data never kept or trained on | **Which AI providers may see your data**: keep **Never kept, never trained on**. |

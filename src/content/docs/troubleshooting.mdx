@@ -16,6 +16,15 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "Truchsess is unavailable" | The portal cannot reach its own service. Wait a minute and reload. If an update is running, wait until it ends. |
 | "Starting the assistant" does not go away. | Wait two minutes and reload. If it stays, the AI provider key may be wrong: the administrator checks it with **Change AI provider**. |
 
+### The box is not reachable by name
+
+**https://truchsess.local/** does not open, opens the wrong box, or works only sometimes.
+
+- **Two boxes in one office.** Both answer on `truchsess.local`, so the name can lead to either one. Open each box by its own address instead: `https://` followed by the address shown on the box's screen or in your router's list of devices. Accept the certificate warning after comparing the fingerprint. See [Two boxes in one office](/setup/unbox-and-connect/#two-boxes-in-one-office).
+- **One box, but the name does not open.** Some networks and some Android phones do not resolve `.local` names. Use the box's address as above, or the remote address if your administrator switched it on.
+
+A fix that gives every box its own name is coming with a later update.
+
 ## Signing in
 
 | What you see | What to do |
@@ -26,6 +35,8 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "The security token is missing or expired. Refresh the page and try again." | Reload the page. |
 | You are signed out after some hours. | A session lasts 12 hours. Sign in again. |
 | "Enter this in the office, on the local address." | You are on the remote address. Do this in the office on **https://truchsess.local/**. See [Remote access](/admin/remote-access/#what-works-where). |
+| On the remote address, no one-time code arrives. | Look in spam. Wait a few minutes before asking again (repeated requests are slowed down). Then ask the administrator to check that your exact e-mail is on the remote access list: Cloudflare says "code sent" even for an address that is not allowed. See [If no code arrives](/admin/remote-access/#if-no-code-arrives). |
+| A pasted one-time or temporary password is refused with "Email or password is incorrect." | Copy it again without the space after it, or type it. |
 | "Your e-mail is not a member of this Truchsess. Ask your admin." | The remote address lets in only active accounts of the box. Your account may be unknown, disabled or removed, or its e-mail address was changed. Ask your administrator. |
 | Forgot your password. | Ask your administrator for a one-time password. See [Users](/admin/users/#reset-a-forgotten-password). The administrator's own password: see [Administrator password](/admin/administrator-password/). |
 | You were signed out right after a password change. | Changing your password signs out your other browsers. Sign in with the new password. |
@@ -54,6 +65,7 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | A row in **Autonomy levels** shows "Fixed". | That kind of action cannot be raised. |
 | An agent's answer says it could not hand work over (not granted, already part of the chain, too many open, too deep, the local model, or the budget). | The limits of hand-offs. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents). For "The owner did not grant it", the administrator allows **Hand work to one other installed package** for that agent. |
 | A new task shows "Created, waiting for the worker" for a long time. | Other tasks wait for work they handed over. It starts when one of them finishes. |
+| An agent that checks a website (for example Gideon) reports that a site is unreachable. | It may be a site other than the one it was installed for: the box blocks every other website. Ask only about the installed website, or change it with **Change** on the agent's row under **Agents**. See [One website per install](/agents/visibility-in-ai-search/#one-website-per-install). |
 | "The reply names a file that is not among this run's files: ..." | The agent mentioned a file it did not save. Ask it again to save the file. |
 
 ## Administration
@@ -69,7 +81,7 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | "This appliance has no products yet. Add one on the Products tab, then install again." | Add a product under **Administration** › **Knowledge**, **Add a product**. (The message still names the old Products tab.) |
 | An install shows "failed" and "Not running". | Read the error on the row. Press **Retry**, or **Remove** it and start again. See [Install and manage agents](/admin/packages/#failed-install-retry-or-remove). |
 | An install failed with "duplicate permission". | Fixed in the current release: update the box (see [Updates](/admin/updates/)), then press **Retry** on the row. |
-| The store card says "The store still holds an install from this box that never finished." | Press **Install**: it takes that install over with your answers. See [Store](/admin/store/#an-install-the-store-still-holds). |
+| An agent says "Not installed here yet: the store still holds an install from this box that never finished." | Press **Install** on that agent under **Agents**, **Your agents**: it takes that install over with your answers. See [Store](/admin/store/#an-install-the-store-still-holds). |
 | A removed store install says "The store could not be reached to check whether it still holds this install." | Press **Check with the store again** when the box is online. |
 | Chat says "The subscription for ... has ended. Subscribe again to use this worker." | The function's subscription ended; the agent is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-agent). |
 | "GitHub has not granted ... to this box yet." | Follow the steps on the card. See [Connections](/admin/connections/#when-the-box-asks-for-new-github-permissions). |
