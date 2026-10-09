@@ -8,7 +8,7 @@ import NotYet from '~/components/NotYet.astro';
 
 ## Who can do this
 
-- The administrator switches it on (in the office) and off.
+- The administrator switches it on (in the office) and off, on **Administration** › **Remote access**.
 - Everyone with an account uses the remote address.
 
 ## Before you start
@@ -24,14 +24,18 @@ See [Remote access setup](/setup/remote-access/#steps).
 
 ### Use the remote address (everyone)
 
+On the remote address you never need a password. Cloudflare checks your e-mail with a one-time code, and the box lets you in when that e-mail belongs to an active account on the box.
+
 1. Open the remote address your administrator sent you.
 2. Enter your work e-mail.
 3. Type the one-time code that arrives by e-mail.
 4. You are in the portal as yourself. A session lasts 12 hours.
 
+This also works for a new member who still has a temporary password: the remote address does not ask for it. The password is changed only in the office, on **https://myai.local/**. On the remote address, **Your account** (press your name at the bottom of the navigation) says: "On the remote address you sign in with your e-mail code; your password is changed in the office, on the local address."
+
 ### Switch off
 
-1. Open **Administration**, sub-tab **Remote access**.
+1. Open **Administration**, then **Remote access**, panel **Remote access**.
 2. Press **Switch off**, then **Confirm switch off**.
 
 "Remote access stops for everyone and the stored code is deleted. A new code from the operator is needed to switch it on again." You can switch off from the remote address too.
@@ -45,18 +49,21 @@ See [Remote access setup](/setup/remote-access/#steps).
 
 | Works on the remote address | Only in the office, on https://myai.local/ |
 | --- | --- |
-| Chat, Runs, Approvals, Products, Requests | Signing in with a password, changing your password |
-| Reading the Administration pages | Choosing the AI provider |
-| Approving and refusing | Adding users, resetting a password, enabling a person, changing a name or e-mail |
-| Installing and uninstalling workers | SSH keys and the SSH switch |
-| Switching remote access off | Store enrolment, trusted publishers |
-| Disabling and removing a person | |
-| | Switching remote access on |
-| | Connections (GitHub, API keys) |
-| | Knowledge import |
-| | Updates, backups, restore, backup downloads |
+| **Chat**, **Runs**, **Approvals**, **Agents** (with your products and requests) | Signing in with a password, changing a password (also a temporary one) |
+| Voice input (**Hold to talk**) | **Change AI provider** |
+| Reading the Administration pages | **Switch to managed AI** with an activation code |
+| Approving and refusing, standing approvals | Adding users, resetting a password, enabling a person, changing a name or e-mail |
+| Installing and uninstalling agents (store and package file) | **Operator access over SSH**: SSH keys and the SSH switch |
+| Owner policy, data rule, autonomy levels, model lanes | Store enrolment, trusted publishers |
+| Budget: editing, top-up requests and their download | Switching remote access on |
+| Adding a product, assigning and removing product access | Connections (GitHub, API keys) |
+| Disabling and removing a person | Knowledge import |
+| Company name, the **Voice input** setting, self-tests | Updates, backups, restore, backup downloads |
+| Switching remote access off | |
 
 On the remote address these show: "Enter this in the office, on the local address."
+
+Voice input works on the remote address too. The recording then passes through Cloudflare like typed text, and the chat says: "On the remote address your recording passes through Cloudflare on its way to this box."
 
 ## Messages on the remote address
 
@@ -73,8 +80,10 @@ On the remote address these show: "Enter this in the office, on the local addres
 | **Switch on** | Opens the remote address through Cloudflare. While it is on, Cloudflare can read what you see and type on the remote address. | People work outside the office. | Yes: **Switch off**. |
 | **Switch off** | Closes it and deletes the code. | Not needed, or a code may have leaked. | Only with a new code from the vendor. |
 
+The same page also holds the panel **Operator access over SSH**: the keys that let the operator reach the box over SSH, and the switch **Turn SSH on** or **Turn SSH off**. It works only in the office.
+
 <NotYet>
-The first sign-in of a new member (the temporary password) and every secret need the office. There is no other way to reach the box from outside, for example a VPN.
+Changing a password, including the temporary password of a new member, and entering any secret need the office. There is no other way to reach the box from outside, for example a VPN.
 </NotYet>
 
 ## Related pages

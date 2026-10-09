@@ -6,7 +6,7 @@ import NotYet from '~/components/NotYet.astro';
 
 This step is optional. Remote access is off until you switch it on.
 
-With remote access, the box has a second address that works inside and outside the office. A person opens it, enters their e-mail, types the one-time code that arrives by e-mail, and is in the portal as themselves. No VPN and no app are needed. The office address keeps working.
+With remote access, the box has a second address that works inside and outside the office. A person opens it, enters their e-mail, types the one-time code that arrives by e-mail, and is in the portal as themselves. No password, no VPN and no app are needed. The office address keeps working.
 
 ## Who can do this
 
@@ -19,7 +19,7 @@ The administrator, in the office on **https://myai.local/**.
 
 ## Steps
 
-1. Open **Administration**, sub-tab **Remote access**.
+1. Open **Administration**, then **Remote access**, panel **Remote access**.
 2. Read the text that begins "Remote access runs through Cloudflare."
 3. Paste the code into **Remote access code (from the operator; it is entered once and never shown again)**.
 4. Tick **I have read what passes through Cloudflare**.
@@ -30,7 +30,7 @@ The administrator, in the office on **https://myai.local/**.
 ## What you see afterwards
 
 - The panel shows "State: Connected.", the **Address**, **Last contact** and who switched it on.
-- On the remote address, everyone sees: "You are on the remote address. Secrets, SSH and updates can only be changed in the office, on the local address."
+- On the remote address, the administrator sees on **Administration**: "You are on the remote address. Secrets, SSH and updates can only be changed in the office, on the local address."
 - Only people with an account on the box get in. Others see "Your e-mail is not a member of this Truchsess. Ask your admin."
 
 ## Your choices
@@ -40,10 +40,14 @@ The administrator, in the office on **https://myai.local/**.
 | **Switch on** | Opens the remote address. | When people work outside the office. | Yes: **Switch off**. |
 | **Switch off** | "Remote access stops for everyone and the stored code is deleted." | When you no longer need it. | Only with a new code from the vendor. |
 
-These things work only in the office, never on the remote address: signing in with a password, changing a password, the AI provider, adding users, SSH, the store enrolment, publishers, switching remote access on, connections, knowledge import, updates and backups. The remote address shows "Enter this in the office, on the local address."
+These things work only in the office, never on the remote address: signing in with a password, changing a password, changing the AI provider, switching to the managed AI with an activation code, adding users, SSH, the store enrolment, publishers, switching remote access on, connections, knowledge import, updates and backups. The remote address shows "Enter this in the office, on the local address." The full list is under [What works where](/admin/remote-access/#what-works-where).
+
+Voice input works on the remote address too. The recording passes through Cloudflare like typed text.
+
+Members never need a password on the remote address: they sign in with their e-mail and a one-time code. A new member can use the remote address before changing the temporary password. See [Use the remote address](/admin/remote-access/#use-the-remote-address-everyone).
 
 <NotYet>
-A member cannot sign in with a password on the remote address, and cannot set the first password there. Members do their first sign-in in the office, then use the e-mail code outside.
+A member cannot sign in with a password on the remote address, and cannot change a password there, not even the temporary one. A member who also works in the office changes the temporary password at the first sign-in there.
 </NotYet>
 
 ## Related pages
