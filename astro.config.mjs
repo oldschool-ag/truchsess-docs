@@ -22,6 +22,7 @@ export default defineConfig({
     '/workers/visibility-in-ai-search/': '/agents/visibility-in-ai-search/',
     '/workers/linkedin-posting/': '/agents/linkedin-posting/',
     '/setup/first-worker/': '/setup/first-agent/',
+    '/operator/chatgpt-personal-plan/': '/setup/ai-providers/',
   },
   integrations: [
     starlight({
@@ -109,12 +110,6 @@ export default defineConfig({
             { label: 'Pricing and business models', slug: 'agents/pricing-and-business-models' },
             { label: 'Visibility in AI search', slug: 'agents/visibility-in-ai-search' },
             { label: 'LinkedIn posting (planned)', slug: 'agents/linkedin-posting' },
-          ],
-        },
-        {
-          label: 'For the operator',
-          items: [
-            { label: 'A personal ChatGPT plan', slug: 'operator/chatgpt-personal-plan' },
           ],
         },
         { label: 'Not possible yet', slug: 'not-yet' },
