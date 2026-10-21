@@ -664,7 +664,9 @@ An upload of a new version whose permissions or questions differ shows the chang
 Checked against release **Truchsess 2026.10.21-84a4137** (`truchsess-iso-20261021-84a4137`, published
 2026-10-21 08:23 UTC, source commit `84a4137`). Anything only on master: none (master equals this
 release). Not merged when checked, and not documented: #146, #150, #151, #152, #153, #157, #160,
-#161, #162.
+#161. Part 7b: #162 merged after 84a4137 and is in release **Truchsess 2026.10.21-abe4009**
+(published 2026-10-21 11:26 UTC); it changes nothing a person sees, so it has one line on
+/releases/ only. Part 7b pages are checked against 84a4137 (abe4009 adds only #162).
 
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
@@ -755,6 +757,7 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #156 | T117: the ChatGPT sign-in finishes on the box's OpenClaw and says why in plain words | none | /setup/ai-providers/ |
 | #158 | T118: one Truchsess app at Microsoft; Outlook.com and Hotmail as the private mailbox | yes | /use/email/ (Coming soon only) |
 | #159 | T114: the exact version on Settings > Updates, and "Newest" always says where she stands | none | /admin/updates/, /releases/ |
+| #162 | T121: the update check can never roll back a night update | none (nothing a person sees) | /releases/ (one line, release Truchsess 2026.10.21-abe4009) |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
