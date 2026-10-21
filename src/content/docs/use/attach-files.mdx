@@ -1,0 +1,100 @@
+---
+title: Attach files in Chat
+description: Give an agent a PDF, a Word, Excel or PowerPoint file, a text file or a picture with your message. What the box reads, how much, and what happens to the file.
+---
+import NotYet from '~/components/NotYet.astro';
+
+You can attach files to a message in **Chat**: PDF, Word, Excel, PowerPoint, text files and pictures. The box reads the text of each file itself, and the agent gets that text with your message. No file goes to an outside service to be read.
+
+## Who can do this
+
+Administrators and members, in a chat with an installed agent. Files go only to installed agents: with no agent chosen, Chat says "Files go to installed agents only; choose an agent."
+
+## What you need
+
+- An installed agent, chosen under **Agent** in **Chat**. See [Start a task](/use/start-a-task/).
+- The file in one of these formats:
+
+| Kind | Formats |
+| --- | --- |
+| PDF | `.pdf` |
+| Word | `.docx` |
+| Excel | `.xlsx` |
+| PowerPoint | `.pptx` |
+| Text | `.txt`, `.md`, `.csv`, `.json` |
+| Pictures | `.png`, `.jpg`, `.webp` |
+
+- At most 25 MB a file, 10 files a message, and 50 MB for all files of one message together.
+- An older `.doc`, `.xls` or `.ppt` file: open it in Word, Excel or PowerPoint and save it in the new format (`.docx`, `.xlsx`, `.pptx`) first.
+
+## Steps
+
+1. Open **Chat** and choose the agent under **Agent**.
+2. Add the files in one of three ways: press **Attach** and choose them, drop them on the message box, or paste them into it.
+3. Each file shows as a chip with its name and size. While a file is still on its way to the box, the chip says "uploading" after the size.
+4. To take a file off again, press **Remove** on its chip.
+5. Write your message: say what the agent should do with the files.
+6. Press **Send**, or press Enter. A file that is still uploading is waited for.
+
+## What you see afterwards
+
+- The agent gets the text of each file, marked with the file name and the page, sheet or slide. It can say where an answer comes from, for example page 3 of an offer.
+- The task card lists the files under "Attachments:".
+- When the box could not give the agent everything, one line says so, under the chat and on the task card. The lines are below.
+
+### How much the agent reads
+
+The agent reads about 80,000 characters of your files per message: roughly 27 pages of ordinary text, fewer pages of dense small print. A long typed message leaves a little less room for the files. Files are read in the order you attached them, page by page.
+
+When a file does not fit whole, a line says which part the agent read, for example "The agent read pages 1 to 12 of 40 of report.pdf; the rest did not fit into one task." For the rest, send another message about the later pages, or attach a shorter extract.
+
+| Line | What it means |
+| --- | --- |
+| "The agent read pages ... of ... of ...; the rest did not fit into one task." | Only these pages of a PDF or Word file reached the agent. For Excel it names the sheets, for PowerPoint the slides. |
+| "The agent read the first ... percent of ...; the rest did not fit into one task." | Only the beginning of a text file reached the agent. |
+| "The agent did not get ...: the files before it filled the task." | The files before this one used all the room. Send this file in a new message. |
+| "... is a picture; the agent's model reads text only, so it did not see it." | The picture is attached and named, but the agent cannot see it. |
+| "... has no text the box can read (scanned pages?)." | The PDF holds only pictures of pages, for example a scan. |
+| "Could not read ...: reading it took longer than 30 seconds." | The file is too complex to read in time. Attach a shorter extract or a simpler version. |
+| "Could not read ...: ..." with another reason | The file is damaged or not readable. The rest of your message still goes to the agent. |
+
+### Your files are yours
+
+- Other people on the box cannot use your files.
+- The file itself is deleted once the agent has its text. The text stays with the task and is deleted with it.
+- A file you attached but never sent is deleted after a day.
+- Nothing from your files goes into the company knowledge. **Remember this** on a task keeps only the sentence you write yourself, never the text of a file. See [What Truchsess has learned](/use/what-truchsess-learned/).
+- The box checks the text of your files like your message: a password or a key in a file stops the message.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "... cannot be attached. Chat takes PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx), text (.txt, .md, .csv, .json) and pictures (.png, .jpg, .webp)." | Save the file in one of these formats. An old `.doc`, `.xls` or `.ppt`: save it as `.docx`, `.xlsx` or `.pptx`. |
+| "...; a file can be at most 25 MB." | Attach a smaller file, or split it. |
+| "A message can carry at most 10 files; ... was not attached." | Send the other files in a second message. |
+| "The files of one message can be at most 50 MB together; ... was not attached." | Send the other files in a second message. |
+| "... is empty." | Check the file and attach it again. |
+| "... is not a PDF, although its name says so." (or another kind) | The file's name does not match what is in it. Save it again in the right format. |
+| "One of the files is no longer on the box; attach it again." | Attach the file again, then send. |
+| "Files go to installed agents only; choose an agent." | Choose an installed agent under **Agent**. |
+| "This looks like a key or password. It was not sent to the AI. ..." | Remove the password or key from the file, or attach another file. |
+| "This conversation is too long for one message to the AI. ..." | See [When a task fails](/use/follow-a-run/#when-a-task-fails). |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Attach** (or drop, or paste) | Adds files to the message. | The agent needs what is in a document. | Yes: **Remove** on the chip, before you send. |
+| **Remove** | Takes one file off the message. | You attached the wrong file. | Attach it again. |
+
+<NotYet>
+An agent cannot see pictures yet: today's models on the box read text only. Describe the picture in your message, or attach a PDF or Word file with the text. An agent also cannot open the original file, only its text.
+</NotYet>
+
+## Related pages
+
+- [Start a task](/use/start-a-task/)
+- [Follow a run](/use/follow-a-run/)
+- [What Truchsess has learned](/use/what-truchsess-learned/)
+- [Troubleshooting](/troubleshooting/#tasks)

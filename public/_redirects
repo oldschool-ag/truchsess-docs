@@ -17,4 +17,4 @@
 /setup/first-worker/ /setup/first-agent/ 301
 
 # 2026-10-09: the operator page leaves the public manual (operator docs stay in the product repository).
-/operator/chatgpt-personal-plan/ /setup/ai-providers/ 301
+/operator/chatgpt-personal-plan/ /admin/chatgpt-subscription/ 301

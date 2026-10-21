@@ -463,6 +463,8 @@ Closed in docs part 7a (release Truchsess 2026.10.21-84a4137): G5 (who may use a
 its card, #141), G19 (store installs update, #85 and #134), G22 (updates at night, #149). Added in
 part 7a: G37 to G40 (mail and calendars). Closed in docs part 7b: G34 and G35 (the box activates
 with the code from the card and gets its starter credit in the guided first setup, #143 and #147).
+Closed in docs part 7c: G25 (PDF, Word, Excel, PowerPoint and pictures as Chat attachments, #164;
+an agent still cannot see pictures, which /use/attach-files/ says).
 
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
@@ -481,7 +483,6 @@ with the code from the card and gets its starter credit in the guided first setu
 | G21 | The box | Change the box's name or address (always `truchsess.local`; `myai.local` also works). | None. | Support. |
 | G23 | The box | Choose the backup time or how many backups are kept, or back up to another place automatically. | Backups run at 03:30 and 7 are kept. Download a backup and keep it elsewhere. | Administrator. |
 | G24 | The box | A model running on the box ("On this box only"). | No local model ships yet; this choice refuses every run. Use PHOENIQS (Switzerland) for "Switzerland only". | Administrator. |
-| G25 | Tasks | Images, PDFs or other binary files as task attachments. | Text files only, up to 48 KB. Put a link in the message instead. | Administrator. |
 | G26 | The box | Remote sign-in for secrets (passwords, keys, updates, knowledge import). | Do these in the office on the local address. | Administrator. |
 | G27 | Agents and the store | The LinkedIn posting agent. | Planned, not in the store yet. | Support. |
 | G28 | Agents and the store | Change the owner policy for an already installed agent. | Use "Change" for the install questions, or uninstall and install again. | Administrator. |
@@ -672,6 +673,24 @@ never goes missing) merged as master 7b0c440, checked there; its release is not 
 /releases/ waits. Still not merged, not documented: #146, #150, #151, #152, #153, #157, and the
 open #163 to #167.
 
+Part 7c: release **Truchsess 2026.10.21-7b0c440** (published 2026-10-21 18:18 UTC) carries #161;
+it is the current release on /releases/. Then Train 1 (#168) merged as master `5e03941`: #166
+(T125), #165 (T124), #164 (T123) and #163 (T122). Part 7c is checked against `5e03941`. Its
+release is not out yet, so /releases/ has no entry for it; it will be named after `5e03941`. Not
+merged, not documented: #146, #150, #151, #152, #153, #157, #167 (T126, Chat remembers for the
+company by default), #169 (T128). From #164's text, the T126 note is left out for that reason.
+Not as on `5e03941`:
+- #166: "Sign in with ChatGPT" is not on Settings > Advanced > AI itself but on the page "Choose
+  the appliance AI", opened there with Change AI provider (section "Sign in with ChatGPT (operator
+  only)"). The docs say so.
+- #163: "A failed routine or a task nobody started is shown to the administrators on Home." The
+  box builds that item ("A routine of <agent> did not finish", "Open the task") into Home's data
+  (`box.items`), but the portal draws only the Box tiles, so nothing shows. The docs send the
+  administrator to the run history instead.
+- #164: "Nothing goes into the company knowledge unless you press Remember this." Remember this
+  keeps only the sentence the person writes (a lesson), never a file's text. The docs say nothing
+  from the files goes into knowledge, and what Remember this keeps.
+
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
 Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
@@ -764,6 +783,11 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #162 | T121: the update check can never roll back a night update | none (nothing a person sees) | /releases/ (one line, release Truchsess 2026.10.21-abe4009) |
 | #161 | T120: an agent's face never goes missing on one box | none (the PR has no such section; its "For the CEO" names the changes) | /admin/packages/ (one line on faces, the "Installed from a file" line); /releases/ once its release is out |
 | #160 | T119: Truchsess gets his own face | none (the PR has no such section; its "For the CEO" names the places) | /agents/truchsess/, /use/home/, /use/ask-truchsess/, /setup/first-run/, /releases/ (release Truchsess 2026.10.21-4f542d0) |
+| #166 | T125: a ChatGPT subscription turn works, or fails once with one plain line (Train 1, master 5e03941) | yes | /admin/chatgpt-subscription/ (new), /admin/ai-providers-and-lanes/, /use/follow-a-run/, /troubleshooting/ |
+| #165 | T124: a follow-up after a long text works, and no failure shows internal words (Train 1) | yes | /use/follow-a-run/ (When a task fails), /use/start-a-task/, /troubleshooting/ |
+| #164 | T123: real files in Chat (PDF, Word, Excel, PowerPoint, text, pictures), read on the box (Train 1) | yes | /use/attach-files/ (new), /use/start-a-task/, /start/member/, /troubleshooting/; closes G25 |
+| #163 | T122: an agent's card shows only your own work (Train 1) | yes | /use/home/, /admin/packages/ |
+| #168 | Train 1: T125, T124, T123, T122 (merge of #163 to #166) | the four sections above | none of its own |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1549,3 +1573,34 @@ Confidence: 0.85 against the stub and Microsoft's documentation. The real-tenant
 #### #159 T114: the exact version on Settings > Updates, and "Newest" always says where she stands
 
 none
+
+#### #166 T125: a ChatGPT subscription turn works, or fails once with one plain line
+
+**For the user docs, "Using your ChatGPT subscription":**
+1. The operator switches the ChatGPT sign-in on. Then, in Settings > Advanced > AI, press "Sign in with ChatGPT", open OpenAI's page and enter the code.
+2. The data rule must be "never trained on", not "never kept", because ChatGPT keeps conversations for a while. For a Plus or Pro plan, switch off "Improve the model for everyone" in ChatGPT and confirm it on the AI page. Business and Enterprise need nothing more.
+3. Press "Use ChatGPT on all lanes". The box sends ChatGPT one short test message per lane and switches only if ChatGPT answers. If it does not, your previous AI stays, and the page says why in one line.
+4. Tasks on ChatGPT are not charged to the box's budget. They count against your plan's own limits. When the limit is reached, a task says so and when it resets. When the sign-in expires, a task says so: sign in again on the same page.
+
+#### #165 T124: a follow-up after a long text works, and no failure shows internal words
+
+**For the user docs, "When a message fails":** If the AI service cannot be reached, Truchsess says "The AI service could not be reached. Nothing was charged. Try again in a minute." Press **Try again** to send the same message once more. If your conversation is too long for one message, press **Start a new conversation** and send a shorter text or fewer attachments. With a ChatGPT plan, Truchsess tells you when the plan's limit is reached and when it resets, or that you need to sign in to ChatGPT again under Settings > Advanced > AI. In those cases waiting or signing in helps; sending again does not. Nothing is charged for a message that failed before the AI answered.
+
+#### #163 T122: an agent's card shows only your own work
+
+**For the user docs, "What does the red "Problem" tag on an agent card mean?":** one of your own tasks with this agent did not finish. The tag says why in a few words. "Open the task" shows what happened, and "Ask Truchsess why" explains it. You only ever see this for your own tasks. A failed routine or a task nobody started is shown to the administrators on Home.
+
+#### #164 T123: real files in Chat (PDF, Word, Excel, PowerPoint, text, pictures), read on the box
+
+**For the user docs, "Attaching files in Chat":**
+- Drop files on the message box, paste them, or press Attach. Each file shows as a chip with its name and size; Remove takes it off again.
+- Chat takes PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx), text (.txt, .md, .csv, .json) and pictures (.png, .jpg, .webp). Up to 25 MB a file, 10 files and 50 MB a message. Older .doc, .xls and .ppt files: save them in the new format first.
+- The box reads the text of your files itself; no file goes to an outside service. The agent gets the text with the file name and the page, sheet or slide, so it can say where an answer comes from.
+- A long document: the agent reads about 80,000 characters per message (roughly 27 pages of ordinary text, about 20 pages of dense small print; a 30-page contract fits). A long typed message leaves a little less room for the files. A line under the chat says which part it read, for example "pages 1 to 27 of 40". For the rest, send another message about the later pages, or attach a shorter extract.
+- Pictures are attached and named, but today's models on the box read text only; a line says so.
+- A file the box cannot read (damaged, a scan without text, too complex) gets one line; the rest of your message still goes to the agent.
+- Your files are yours: other people on the box cannot use them. The file itself is deleted once the agent has its text; the text stays with the task and is deleted with it. Nothing goes into the company knowledge unless you press "Remember this". (This changes with T126: Chat will remember for the company by default, with a checkbox to keep a message private.)
+
+#### #168 Train 1: T125, T124, T123, T122
+
+The four sections above, from #168's body.
