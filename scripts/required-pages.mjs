@@ -24,6 +24,10 @@ export const REQUIRED_PAGES = [
   '/use/workboard/',
   '/use/report-a-problem/',
   '/use/your-account/',
+  '/use/email/',
+  '/use/private-mailbox/',
+  '/use/calendars/',
+  '/use/agent-needs-something/',
   '/admin/agent-rules/',
   '/admin/users/',
   '/admin/administrator-password/',
@@ -33,6 +37,7 @@ export const REQUIRED_PAGES = [
   '/admin/ai-providers-and-lanes/',
   '/admin/budget/',
   '/admin/connections/',
+  '/admin/company-mail/',
   '/admin/autonomy-levels/',
   '/admin/backup-and-restore/',
   '/admin/updates/',
@@ -85,3 +90,22 @@ export const MOVED_PAGES = {
   '/setup/first-worker/': '/setup/first-agent/',
   '/operator/chatgpt-personal-plan/': '/setup/ai-providers/',
 };
+
+// Every address the FAIVR docs may link to (the fixed list of the manual's first release, plus the
+// old addresses that moved since). Never remove a line: check-pages fails unless each one opens a
+// built page, directly or through a 301 redirect to one.
+export const FIXED_ADDRESSES = [
+  '/', '/start/member/', '/start/roles/', '/start/glossary/',
+  '/setup/unbox-and-connect/', '/setup/first-run/', '/setup/ai-providers/', '/setup/budget/', '/setup/members/',
+  '/setup/connections/', '/setup/store-enrolment/', '/setup/first-agent/', '/setup/backup/', '/setup/remote-access/',
+  '/use/start-a-task/', '/use/follow-a-run/', '/use/phone-and-voice/', '/use/approvals-and-checks/', '/use/knowledge/',
+  '/use/workboard/', '/use/report-a-problem/', '/use/your-account/',
+  '/admin/agent-rules/', '/admin/users/', '/admin/administrator-password/', '/admin/packages/', '/admin/store/',
+  '/admin/products-and-knowledge/', '/admin/ai-providers-and-lanes/', '/admin/budget/', '/admin/connections/',
+  '/admin/autonomy-levels/', '/admin/backup-and-restore/', '/admin/updates/', '/admin/remote-access/', '/admin/audit-and-status/',
+  '/agents/', '/agents/software-delivery/', '/agents/product-ownership/', '/agents/website-care/', '/agents/design-review/',
+  '/agents/marketing-planning/', '/agents/strategy-and-challenge/', '/agents/pricing-and-business-models/',
+  '/agents/visibility-in-ai-search/', '/agents/linkedin-posting/',
+  '/not-yet/', '/troubleshooting/', '/releases/',
+  ...Object.keys(MOVED_PAGES),
+];

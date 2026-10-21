@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readdirSync, statSync } from 'node:fs';
-import { REQUIRED_PAGES, REQUIRED_LINKS, MOVED_PAGES } from './required-pages.mjs';
+import { REQUIRED_PAGES, REQUIRED_LINKS, MOVED_PAGES, FIXED_ADDRESSES } from './required-pages.mjs';
 import { SUPPORT_CONTACT } from '../src/config/support.mjs';
 
 const dist = new URL('../dist/', import.meta.url).pathname;
@@ -33,6 +33,14 @@ for (const [from, to] of Object.entries(MOVED_PAGES)) {
   if (!REQUIRED_PAGES.includes(to)) problems.push(`moved page ${from} points to ${to}, which is not a fixed page`);
 }
 
+// Every fixed address opens a built page: directly, or through a 301 redirect to a built page.
+for (const address of FIXED_ADDRESSES) {
+  if (htmlFor(address) !== null) continue;
+  const line = redirectLines.find(([a, , code]) => a === address && code === '301');
+  if (!line) problems.push(`fixed address ${address} opens nothing: no page and no 301 redirect`);
+  else if (htmlFor(line[1]) === null) problems.push(`fixed address ${address} redirects to ${line[1]}, which is not a built page`);
+}
+
 // The support contact: on the troubleshooting page, and once in every "Not possible yet" box.
 const supportLink = `href="mailto:${SUPPORT_CONTACT}"`;
 const troubleshooting = htmlFor('/troubleshooting/');
@@ -60,4 +68,4 @@ if (problems.length) {
   for (const line of problems) console.error(`  ${line}`);
   process.exit(1);
 }
-console.log(`check-pages: all ${REQUIRED_PAGES.length} fixed pages present, ${Object.keys(MOVED_PAGES).length} moved addresses redirected (301), every required store link in place, the support contact in all ${boxes} "Not possible yet" boxes and on /troubleshooting/`);
+console.log(`check-pages: all ${REQUIRED_PAGES.length} fixed pages present, all ${FIXED_ADDRESSES.length} addresses the FAIVR docs may link to resolve, ${Object.keys(MOVED_PAGES).length} moved addresses redirected (301), every required store link in place, the support contact in all ${boxes} "Not possible yet" boxes and on /troubleshooting/`);

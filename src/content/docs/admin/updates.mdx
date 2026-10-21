@@ -1,101 +1,131 @@
 ---
 title: Updates
-description: Check for a new box release, update, cancel, roll back, what happens during an update, and the company name.
+description: Updates at night by themselves, or Update now. Find the exact version of your box, update your agents, and go back to the previous version.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-Updates are on **Administration** › **System**, panel **System**. "Every change on this appliance comes from a signed release the box verifies before switching. No files are edited by hand."
-
-The same page holds the [company name](#the-company-name), **Voice input**, the **Self-tests** (see [Audit and status](/admin/audit-and-status/)) and **Earlier assistant conversations**.
+Updates are on **Settings** › **Updates**: "New versions of Truchsess and of your agents." Updates come from the store: a box gets them once it is connected to the store.
 
 ## Who can do this
 
-The administrator, in the office on **https://truchsess.local/**. The company name can also be changed on the remote address.
+The administrator. **Check for updates**, **Update now** and **Cancel update** also work on the remote address when **Allow Settings on the remote address** is on. **Roll back** works only in the office.
 
-## Before you start
+## What you need
 
-- No task is running. The AI part of the box restarts during an update, and running tasks may fail.
-- Recommended: press **Back up now** on **Administration** › **Backups**.
+- The box is connected to the store. Otherwise the box says: "Updates come through the store. Connect this box to the store (Agents > Store) to receive updates." See [Store](/admin/store/).
+- For an update by hand: no task is running. Truchsess restarts during the switch, and a running task may fail.
 
 ## Steps
 
-### Update
+### Let updates install at night
 
-1. Open **Administration**, then **System**, panel **System**.
+1. Open **Settings**, section **Updates**.
+2. Tick **Install updates automatically**.
+
+The line under it reads "Box and agents update at night, between 02:00 and 05:00 your time." A new box has it on.
+
+An existing box keeps updating by hand until you answer the question on **Home**, **Needs you**: "Install updates automatically at night? Recommended." Press **Yes, install them at night** or **No, I update myself**. Either answer is kept, so it is not asked again.
+
+To stop: untick the box. The line then reads "Nothing installs by itself. Home says when an update is ready; you press Update now."
+
+### Find the exact version of your box
+
+1. Open **Settings**, section **Updates**.
+2. Under **On this box** you see the update's name in bold, for example **October 2026 update**, and under it a line that starts with "Version", for example "Version 2026.10.21-84a4137, installed 21.10.2026, 10:15".
+
+Give that number to support. The same number is in the support bundle and on [Releases](/releases/).
+
+A box that was installed from the installer and never updated has no version line yet. It gets one with its first update.
+
+### Update by hand
+
+1. Open **Settings**, section **Updates**.
 2. Press **Check for updates**.
-3. **Newest available** shows the newest release. The button now reads **Update now to** and the release name.
-4. Press it, then **Confirm update** within 10 seconds.
-5. The box checks once more for the newest release. If a newer one appeared meanwhile, nothing is installed and the button offers the newer one. Press it again.
-6. Follow the steps: "Verify the release signature", "Download the system closure", "Verify the closure (sha256 and signature)", "Import the closure into the Nix store", "Switch to the new system generation", "Restart the assistant runtime", "Self-check (services and health endpoints)", "Record the release and prune old generations".
-7. During the switch the page shows "Portal restarting, reconnecting". Wait. It continues by itself.
+3. If there is something new, **Newest** shows its name, its version and how much it downloads, for example "Version 2026.10.21-84a4137 · 2.2 MB to download, only what changed", then **What is new**.
+4. Press **Update now to the** and the update's name, for example **Update now to the October 2026 update**.
+5. Confirm. The page asks: "Update the box to the ... ? Truchsess restarts during the switch; the box keeps the previous version, so it can go back."
+6. Wait. "The update is running. It takes about 5 minutes; this page reconnects by itself."
+
+**Update now** is there only when there is something to install. If **Home** shows "An update is ready", its **Update now** does the same.
+
+Before an update by hand, make a safety copy: **Settings** › **Safety copies**, **Back up now**. An update makes no safety copy of its own.
+
+### Update your agents
+
+- **With the switch on:** your agents update at night with the box.
+- **By hand:** under **Your agents** in **Settings** › **Updates**, press **Update all**. Or press **Update** on an agent's card on **Agents**.
+
+An agent whose new version may do something more never updates at night. **Home**, **Needs you** asks you first, one agent at a time: "The new version of ... asks for more". See [Install and manage agents](/admin/packages/).
 
 ### Cancel an update
 
-**Cancel update** is shown while the update downloads and checks. Press it, then **Confirm stop**. "It stops before switching: nothing changes on the appliance, and what was downloaded is kept for the next Update now." After the switch has started, an update cannot be cancelled.
+**Cancel update** is shown while the update downloads and checks. Press it and confirm: "It stops before switching: nothing changes on the box, and what was downloaded is kept for the next Update now." After the switch has started, an update cannot be cancelled.
 
-### Roll back
+### Go back to the previous version
 
-1. Press **Roll back**, then **Confirm roll back**.
-2. The box switches to the previous version. The portal and the AI part restart.
+1. Open **Settings**, press **Advanced (for experts)**, go to **Box**, panel **Version and log**.
+2. Press **Roll back** and confirm: "Roll back to the previous system generation? The portal and the assistant restart during the switch."
 
 **Roll back** is greyed out when there is no previous version, for example on a box that was never updated.
 
 ## What you see afterwards
 
-- **Running release** shows the new release.
-- The outcome line, for example "Now running ..., generation ..., took ... min ... s".
-- "reboot pending (new kernel)": the update is active, but part of it needs a restart of the computer. Restart the box when convenient.
+- **On this box**: the new update's name and "Version ..., installed ...".
+- **Newest**: "You have the newest version." and "Checked ..." with the date and time.
+- "The last update worked" with the time.
+- **Home** shows "What is new in the October 2026 update (version ...)" once, with the release notes. **Close** hides it.
+- An open page shows "A new version of Truchsess is running." Press **Reload**.
+- "A restart finishes it: Settings > Advanced > Box, Restart the box." Restart when convenient.
 
 ## What happens by itself
 
-- The box looks for a new release once a day. It never installs it by itself.
-- When a new release is ready, **Administration** › **Overview** lists "Version ... is ready to install." under **Needs your attention**.
-- If the switch fails, or the self-check after the switch fails (it waits up to 7 minutes), the box returns to the previous version by itself.
-- The box keeps the three newest versions.
-- The box never restarts the computer during an update.
-- A slow download is retried. If it still fails: "The download from GitHub is too slow or stopped. Nothing was changed. Try again later."
-- An older release is never offered: "not offered: older than the running release".
+- **Small downloads.** The box downloads only what changed since its version, when the release carries it: "only what changed".
+- **If an update does not start correctly,** the box goes back to the previous version by itself. Nothing is lost. After a night update, **Home** says the next morning: "Last night's update did not start correctly." and "Your box went back to the previous version, the ...".
+- That update is not tried again the next night. After a second failure it waits for **Update now** or a newer release.
+- **With the switch off,** or when the box was off at night for 7 nights in a row, **Home** shows "An update is ready" with **Update now**.
+- **A security fix** is marked "It fixes a security problem." If it waits 14 days, **Home**, **Needs you** reminds you once: "An important update has waited ... days".
+- The box keeps the three newest versions and never restarts the computer during an update.
+- An older release is never offered.
 
 ## The company name
 
-The panel **Company name** is the first panel on **Administration** › **System**. The name is "Shown in the navigation and on the sign-in page."
-
-1. Open **Administration**, then **System**, panel **Company name**.
-2. Type the name in **Company name** (at most 80 characters).
-3. Press **Save**. The panel shows "Saved."
-
-Afterwards:
-
-- Everyone sees the name in the navigation, under their own name and after their role.
-- The sign-in page says "Sign in to the Truchsess box of" and the name.
-- **Administration** › **Overview**, **Recent activity** records the change.
-
-The name may stay empty. Until it is set, the navigation shows the role alone. To remove the name, empty the field and press **Save**: "The company name is cleared."
+The company name is now on **Settings** › **Your company**: **Company name**, then **Save**. It is shown in the menu and on the sign-in page ("Sign in to the Truchsess box of" and the name).
 
 ### After the update that brings the new address
 
-The office address is now **https://truchsess.local/**; `myai.local` keeps working. The outcome line of that update ends with "The office address is now truchsess.local; myai.local still works. Your browser will warn once more about the box's certificate."
+The office address is **https://truchsess.local/**; `myai.local` keeps working on a box set up before October 2026. After the update that brought the new address:
 
-- The box renewed its certificate once, to cover both names. Each browser warns once more: compare the fingerprint with "Certificate fingerprint of this Truchsess" on the box's screen or in **Administration** › **Remote access**, then accept.
+- The box renewed its certificate once, to cover both names. Each browser warns once more: compare the fingerprint with "Certificate fingerprint of this Truchsess" on the box's screen, then accept.
 - Sign in once more on `truchsess.local`. A password saved in the browser for `myai.local` may need to be typed once.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| **Newest**: "The last check did not work" | Press **Check for updates** again later. |
+| **Newest**: "Not checked yet" | Press **Check for updates**. |
+| "Updates come through the store. Connect this box to the store (Agents > Store) to receive updates." | Connect the box to the store: [Store](/admin/store/). |
+| "The last update did not work. The box went back to the version before; Settings > Advanced > Box has the details." | Nothing is lost. Send **Details (update log)** from **Settings** › **Advanced** › **Box** to support. |
+| "A newer update came out after this page showed the last one. Nothing was installed. ..." | Press **Update now** again to install the newest one. |
+| "The session ended while the update ran; sign in again to see the result." | Sign in again. |
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Check for updates** | Looks for the newest release. | Any time. | n/a |
-| **Update now** | Installs the newest release. | When no task is running. | Yes: **Roll back**. |
+| **Install updates automatically** | Box and agents update at night, 02:00 to 05:00 your time. | Recommended. | Yes: untick it. |
+| **Check for updates** | Asks the store for the newest release. | Any time. | Not needed. |
+| **Update now** | Installs the newest release now. | The switch is off, or you want it today. | Yes: **Roll back**. |
+| **Update all** | Updates every agent that waits. | Agent updates wait. | Not offered. |
 | **Cancel update** | Stops before the switch. | You started at a bad time. | Press **Update now** again later. |
 | **Roll back** | Returns to the previous version. | The new version causes a problem. | Yes: update again. |
-| **Save** (company name) | Shows the name in the navigation and on the sign-in page. | Once, at setup. | Yes: change it or empty it. |
-
-If the page shows "The session ended while the update ran; sign in again to see the result.", sign in again. If it shows "The portal has not answered for 15 minutes", reload the page and look at **Details (update log)**.
 
 <NotYet>
-Updates do not install themselves, and you cannot choose an older release. To go back, use **Roll back** (one step back). For anything else, ask support. What changed in each release is listed on [Releases](/releases/).
+You cannot choose an older release or the night time. To go back, use **Roll back** (one step back). For anything else, ask support. What changed in each release is listed on [Releases](/releases/).
 </NotYet>
 
 ## Related pages
 
 - [Releases](/releases/)
+- [Install and manage agents](/admin/packages/)
 - [Backup and restore](/admin/backup-and-restore/)

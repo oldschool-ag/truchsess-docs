@@ -1,0 +1,88 @@
+---
+title: Add a private mailbox
+description: Connect one private mailbox, for example your Gmail, that only you and your own tasks use. With the exact Google steps for a Gmail app password.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Next to your company mailboxes you can connect one private mailbox, for example your own Gmail. Your agent reads it and writes drafts for you there, like in your company mail. It never sends.
+
+## Only you
+
+- Only you and the tasks you give can use it.
+- Administrators never see its address, its mail or its drafts. They only see that a private mailbox was connected or removed, and by whom.
+- It never goes into company knowledge, company lessons or the company signature.
+- Drafts in it get no company signature.
+- Its mail is marked "private" on your Home, next to the address.
+- Settings › **Plan and costs** shows one line for all private mailboxes of the box together, with no names and no addresses, for example "Private mailboxes: CHF 1.20 this month. Included in the AI use above."
+
+Each person can connect one private mailbox.
+
+## What you need
+
+- The address of your private mailbox.
+- For Gmail: an app password from Google (the steps are below). Your normal Google password does not work and never goes into the box.
+- For an address at your own domain: the provider where its mail is, and the mailbox password.
+- You are in the office, on **https://truchsess.local/**.
+
+## Steps
+
+### Gmail: create an app password
+
+Do this first, in your browser, signed in to your Google account.
+
+1. Open **myaccount.google.com/security** and turn on **2-Step Verification**.
+2. Open **myaccount.google.com/apppasswords**.
+3. Type a name, for example Truchsess, and press **Create**.
+4. Copy the 16 characters Google shows.
+
+Type the app password only into the box on the page below. Never paste it into a chat, a task or an e-mail.
+
+### Connect the private mailbox
+
+1. Press the picture with your initials at the top right. The page **Your account** opens.
+2. In **Your connections**, panel **Email inbox**, press **Add a private mailbox (only you)**.
+3. Type your address under **Email address**, for example your Gmail address.
+4. For Gmail and other free-mail addresses, the **Mail server** appears by itself. For an address at your own domain, choose the provider under **Where is this mailbox?**: **Hostpoint**, **Infomaniak**, **cyon**, **METANET**, **green.ch**, **Swisscom (bluewin)** or **Gmail or Google Workspace (IMAP, app password)**.
+5. Paste the app password under **App password** (Gmail), or type the mailbox password under **Password**.
+6. Press **Let Penn read your private mailbox. Only you will see it.**
+
+The box tests the connection before it saves it.
+
+## What you see afterwards
+
+- The line "... is connected."
+- A card with your address and the mark **Private: only you**.
+- "Only you and the tasks you give can use it. Administrators never see its address or its mail. Drafts get no company signature."
+
+To remove it: **Disconnect** on its card, then confirm. Its password is deleted from the box at once. Then you can connect another private mailbox.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "You already have a private mailbox (...). Each person has one: disconnect it first." | Disconnect the old one, then add the new one. |
+| "... is a company mailbox: use Add another company mailbox." | The address belongs to the company. Connect it as a company mailbox: see [Connect your company mailbox](/use/email/). |
+| "Enter the app password." | Paste the 16 characters from Google, then press the button again. |
+| "The mailbox could not be connected." | For Gmail: check that 2-Step Verification is on and that you pasted the app password, not your Google password. Create a new app password if needed. |
+| "Proton Mail cannot be connected: its mail is end-to-end encrypted, and only Proton Mail Bridge on your own computer can read it." | Proton Mail cannot be used. |
+| "Tuta mail cannot be connected: its mail is end-to-end encrypted and has no IMAP access." | Tuta mail cannot be used. |
+| "Outlook.com and Hotmail addresses cannot be connected: ..." | Not possible yet. It comes with "Connect with Microsoft". |
+| "The box cannot read mailboxes at ... yet." | This provider is not supported yet. |
+| "This provider needs an app password: create one in your account settings there and type it below, never into a chat." | Create an app password in that provider's account settings (for example iCloud, Yahoo, GMX), then type it in. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Add a private mailbox (only you)** | Connects your one private mailbox. | Your agent should also look after your own mail. | Yes: **Disconnect**. |
+| **Disconnect** | Agents stop using it; the password is deleted at once. | You no longer want it read. | Connect it again. |
+
+<NotYet>
+Outlook.com and Hotmail: not yet. They come with "Connect with Microsoft", which is coming soon. Proton Mail cannot be connected: its mail is end-to-end encrypted, and only Proton Mail Bridge on your own computer can read it. Use a Gmail or another IMAP mailbox instead.
+</NotYet>
+
+## Related pages
+
+- [Connect your company mailbox](/use/email/)
+- [Connect your calendars](/use/calendars/)
+- [Your account](/use/your-account/)

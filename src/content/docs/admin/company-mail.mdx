@@ -1,0 +1,99 @@
+---
+title: Company mail
+description: Set the company's mail domains and the mail server of each, or list company mailboxes by address, so people can connect their company mailbox.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Before anyone can connect a company mailbox, the box must know the company's mail domains and where the mail of each is. "Agents read mail and write drafts, never send."
+
+The panel is **Settings** › **Advanced** › **Connections**, panel **Company mail**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+
+## Who can do this
+
+The administrator, in the office on **https://truchsess.local/**.
+
+## What you need
+
+- The company's mail domains, for example `example.ch`.
+- For each domain: the provider where its mail is, or the IMAP server the provider names. The box connects with TLS on port 993 and checks the server's certificate.
+
+## Steps
+
+### Add a mail domain
+
+1. Open **Settings**, press **Advanced (for experts)**, then go to **Connections**, panel **Company mail**.
+2. Type the domain under **Mail domain**, for example `example.ch`. For a second domain press **Add a domain** first.
+3. Choose the provider under **Mail provider**: **Hostpoint**, **Infomaniak**, **cyon**, **METANET**, **green.ch**, **Swisscom (bluewin)**, **Gmail or Google Workspace (IMAP, app password)**, or **Another provider**.
+4. Check **Incoming mail server (IMAP)**. A provider fills it in. For **Another provider**, type the server your provider names for IMAP.
+5. Optional: **Webmail address (optional)** and **Drafts folder address (optional)**. With them, people get an **Open your drafts** button.
+6. Press **Save**.
+
+Each domain has its own mail server. A company with two domains at two providers adds two rows.
+
+### Google Workspace
+
+1. Add the domain and choose **Gmail or Google Workspace (IMAP, app password)**. Press **Save**.
+2. Each person turns on 2-Step Verification in their Google account and creates an app password at myaccount.google.com/apppasswords.
+3. Each person connects on **Your account** › **Email inbox**: the server appears by itself; they paste the app password and press **Test and connect**.
+
+If your Google Workspace administrator switched app passwords off, the test fails with Google's answer. Switch them on in the Google Admin console.
+
+### Company mailboxes by address
+
+For a company without its own domain, for example a Gmail address as the company's mail.
+
+1. In the same panel, under **Company mailboxes by address**, press **Add a company mailbox by address**.
+2. Type the **Address**.
+3. Choose the person under **Belongs to**.
+4. Press **Save**.
+
+Free-mail domains such as gmail.com are never company domains: if gmail.com were one, every person's private Gmail would count as company mail. List each company address at a free-mail provider one by one instead. "Gmail, GMX, iCloud, Yahoo and bluewin addresses" can be listed this way.
+
+### Change a domain's mail server
+
+1. Choose another **Mail provider** or type another **Incoming mail server (IMAP)** on the domain's row.
+2. Press **Save**.
+
+"Changing a domain's server disconnects the mailboxes in that domain; their owners see "Connect again" on Home." Each person connects again with their password.
+
+### Remove a domain or an address
+
+Press **Remove domain** or **Remove address** on the row, then **Save**.
+
+## What you see afterwards
+
+People connect their own company mailbox on **Your account** › **Email inbox**: see [Connect your company mailbox](/use/email/). Only an address in one of your domains, or on your list, can be connected as a company mailbox. Any other address is the person's one private mailbox: see [Add a private mailbox](/use/private-mailbox/).
+
+You never see a person's mail, nor the address or the mail of a private mailbox. **Settings** › **Plan and costs** shows one line for all private mailboxes together, for example "Private mailboxes: CHF 1.20 this month".
+
+## The signature samples
+
+The tick box **Collect signature samples for the company standard** is on by default. It means: "only tasks the administrator starts; only the closing lines of the last 5 sent mails of your own mailbox, and of each person who said yes to sharing theirs". Untick it and press **Save** to stop.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "... is a free-mail provider, never a company domain. Add the company's addresses there one by one instead." | Remove the domain row. Use **Add a company mailbox by address** for each company address. |
+| People see "The administrator has not set the company's mail domains yet, so no company mailbox can be connected." | Add at least one domain or one address, then **Save**. |
+| A person's test fails | Check the server with your provider. For Gmail or Google Workspace: app passwords must be allowed. |
+| "For safety, passwords, keys and other secrets are entered only in the office." | Change the settings in the office. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Add a domain** | One more company mail domain with its own server. | The company uses several domains. | Yes: **Remove domain**. |
+| **Add a company mailbox by address** | One company address at a free-mail provider, with its person. | The company has no own domain. | Yes: **Remove address**. |
+| Another **Mail provider** or server | Changes where the box reads that domain's mail. | You moved your mail to another provider. | Yes, but people connect again each time. |
+| **Collect signature samples for the company standard** | Lets your tasks read signature closing lines. | You want one company signature. | Yes: untick it. |
+
+<NotYet>
+"Connect with Microsoft" for Microsoft 365 mailboxes is coming soon. Until then, ask support about Microsoft 365 mailboxes. Agents never send mail: people send each draft themselves.
+</NotYet>
+
+## Related pages
+
+- [Connect your company mailbox](/use/email/)
+- [Add a private mailbox](/use/private-mailbox/)
+- [Connections](/admin/connections/)

@@ -459,11 +459,13 @@ run `npm run sync:not-yet` after a change (CI fails when the page and this table
 
 Closed in the checked release (they no longer appear on `/not-yet/`): G1 (reset a forgotten
 password), G2 (remove, disable or rename a user, change an e-mail), G4 (change your own password).
+Closed in docs part 7a (release Truchsess 2026.10.21-84a4137): G5 (who may use an agent is set on
+its card, #141), G19 (store installs update, #85 and #134), G22 (updates at night, #149). Added in
+part 7a: G37 to G40 (mail and calendars).
 
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
 | G3 | Accounts and roles | A second administrator, or making a member an administrator. | Share administration tasks by asking the one CEO administrator. | Support. |
-| G5 | Accounts and roles | Limit which agents a member sees in Chat. | Every member sees every installed agent. Install only agents everyone may use. | Administrator. |
 | G6 | Accounts and roles | See other people's runs as a member, or share a run. | Members see own runs only. Share the result file or text another way. | Administrator (sees all runs). |
 | G7 | Approvals and autonomy | Approve or refuse as a member, or as a product owner. | Only the CEO administrator decides. | Administrator. |
 | G11 | Knowledge, workboard and products | See, search or edit the company knowledge in the portal, or look at older revisions. | Ask an agent with knowledge permission to search, read or quote a document (it can also read an older revision). | Administrator. |
@@ -474,24 +476,26 @@ password), G2 (remove, disable or rename a user, change an e-mail), G4 (change y
 | G16 | Knowledge, workboard and products | An approved request for another agent installs it. | Approval only records the request. The administrator installs the agent under Agents. | Administrator. |
 | G17 | Agents and the store | Install the same store package twice. | A store package installs once per box. A sideloaded package (signed file) can be installed several times. | Support. |
 | G18 | Agents and the store | Roll back an agent to an earlier version. | Not offered. Uninstall and install the earlier signed file (the workspace is lost). | Support. |
-| G19 | Agents and the store | Store updates for store installs. | "Update all installs" works for uploaded package files only. | Support. |
 | G20 | Agents and the store | Leave the store (undo enrolment). | Not offered in the portal. Cancel every subscription. | Support. |
 | G21 | The box | Change the box's name or address (always `truchsess.local`; `myai.local` also works). | None. | Support. |
-| G22 | The box | Automatic updates. | The box looks for a new release every day, but it installs only when the admin presses "Update now". | Administrator. |
 | G23 | The box | Choose the backup time or how many backups are kept, or back up to another place automatically. | Backups run at 03:30 and 7 are kept. Download a backup and keep it elsewhere. | Administrator. |
 | G24 | The box | A model running on the box ("On this box only"). | No local model ships yet; this choice refuses every run. Use PHOENIQS (Switzerland) for "Switzerland only". | Administrator. |
 | G25 | Tasks | Images, PDFs or other binary files as task attachments. | Text files only, up to 48 KB. Put a link in the message instead. | Administrator. |
 | G26 | The box | Remote sign-in for secrets (passwords, keys, updates, knowledge import). | Do these in the office on the local address. | Administrator. |
 | G27 | Agents and the store | The LinkedIn posting agent. | Planned, not in the store yet. | Support. |
 | G28 | Agents and the store | Change the owner policy for an already installed agent. | Use "Change" for the install questions, or uninstall and install again. | Administrator. |
-| G29 | Approvals and autonomy | Notifications (e-mail or chat) when an approval or a check waits, or a run ends. | Open Approvals (the navigation shows how many wait; panels "Waiting for your decision" and "Tells you after") or the run card. | Administrator. |
+| G29 | Approvals and autonomy | Notifications (e-mail or chat) when an approval or a check waits, or a run ends. | Open Home: the menu entry shows how many things wait, and Needs you lists them. | Administrator. |
 | G30 | The box | A language other than English in the portal. | None. | Support. |
 | G31 | The box | Show the certificate fingerprint on the very first screen. | Read it on the box's console (screen and keyboard) after the automatic login. | Support. |
 | G32 | Approvals and autonomy | A different autonomy level for one install of a package. | A level applies to every install of the package. Install a separate package if you need different levels. | Administrator. |
 | G33 | Approvals and autonomy | Approve a repository comment, issue or push before it happens. | Repository actions can be raised to "Waits for your check" only. To approve each change, remove the repository permission and ask the agent to describe the change in its answer. | Administrator. |
-| G34 | Activation and AI | Activate the box with the activation code from the card (it would enrol the box and deliver the managed AI). | The store's activation service is not live yet, and a new box has no store address. Choose "Use my own AI key instead" at the first run, or later "Change AI provider" under Administration › Agent rules. | Support. |
-| G35 | Activation and AI | The one-time starter credit of CHF 50. | It comes only with an activation. With your own key, set your own budget under Administration › Budget. | Support. |
+| G34 | Activation and AI | Activate the box with the activation code from the card (it would enrol the box and deliver the managed AI). | The store's activation service is not live yet, and a new box has no store address. Choose "Use my own AI key instead" at the first run, or later "Change AI provider" under Settings › Advanced › AI. | Support. |
+| G35 | Activation and AI | The one-time starter credit of CHF 50. | It comes only with an activation. With your own key, set your own monthly limit under Settings › Plan and costs. | Support. |
 | G36 | Tasks | Speech recognition by the phone itself (Apple or Google). | Use "Hold to talk": the box turns speech into text, and the audio stays on the box. | Administrator. |
+| G37 | Mail and calendars | "Connect with Microsoft": Microsoft 365, Outlook.com and Hotmail mailboxes and Microsoft 365 calendars. | Coming soon. Use a mailbox at the company's own mail server or Gmail over IMAP. For Microsoft 365, ask support. | Support. |
+| G38 | Mail and calendars | Proton Mail or Tuta mail. | Not possible: their mail is end-to-end encrypted. Use another mailbox. | Support. |
+| G39 | Mail and calendars | An agent sends, deletes or moves mail. | Never: agents read mail and write drafts. You read each draft and send it yourself. | Administrator. |
+| G40 | Mail and calendars | An agent creates, changes or answers a meeting. | Never: agents only read calendars. Make the change in your calendar yourself. | Administrator. |
 
 ## 16. Workers (store functions)
 
@@ -746,7 +750,7 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #147 | T107: the guided first setup (five steps to a first answer from Truchsess, included in the box) | yes | /setup/first-run/ |
 | #148 | Polish batch 4: the seed test's port race, the first page's words for too many wrong codes, two free word ceilings | none | /setup/first-run/ |
 | #149 | T108: updates install by themselves at night (one switch for the box and the agents, the night in her zone, what Home says, the way back) | yes | /admin/updates/ |
-| #154 | T113: several company mailboxes and one private mailbox per person, one Penn | yes | /use/email/, /admin/company-mail/ |
+| #154 | T113: several company mailboxes and one private mailbox per person, one Penn | yes | /use/email/, /use/private-mailbox/, /admin/company-mail/ |
 | #155 | T115: an agent asks for what it needs before it runs, not after | yes | /use/agent-needs-something/ |
 | #156 | T117: the ChatGPT sign-in finishes on the box's OpenClaw and says why in plain words | none | /setup/ai-providers/ |
 | #158 | T118: one Truchsess app at Microsoft; Outlook.com and Hotmail as the private mailbox | yes | /use/email/ (Coming soon only) |
