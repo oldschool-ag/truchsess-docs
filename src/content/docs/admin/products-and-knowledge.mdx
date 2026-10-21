@@ -1,12 +1,14 @@
 ---
 title: Products and knowledge
-description: Add, rename, archive and restore products, decide older requests, import a product's documents, and older revisions.
+description: Add, rename, archive and restore products, decide older requests, import a product's documents or the old system's memory, and look after the company memory.
 ---
 import NotYet from '~/components/NotYet.astro';
 
 A [product](/start/glossary/#product) is a part of your company that work belongs to. Products decide which members see what, and which [knowledge](/start/glossary/#knowledge) an agent may read.
 
-Products are for experts. The administrator finds them on **Settings** › **Advanced** › **Knowledge**: the panels **Products**, **Archived products**, **Add a product**, **Product catalog**, **Import documents**, **Assign product access** and **Product access**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+Products are for experts. The administrator finds them on **Settings** › **Advanced** › **Knowledge**: the panels **Products**, **Archived products**, **Add a product**, **Product catalog**, **Import documents**, **Import from V1**, **Assign product access**, **Product access** and **What Truchsess has learned**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+
+Besides the product documents, the box keeps one **company memory**: the company's standards, what each person taught the agents, facts agents found while working, and one knowledge page per customer, contact, product or supplier. The memory finds things by meaning, not only by the words you type. The administrator looks after it on **Settings** › **Advanced** › **Box**, panel **Memory**. What people taught the agents is explained on [What Truchsess has learned](/use/what-truchsess-learned/).
 
 ## Who can do this
 
@@ -17,6 +19,7 @@ Products are for experts. The administrator finds them on **Settings** › **Adv
 
 - A product id: lowercase letters, digits and hyphens, for example `design-system`. An agent refers to a product by this id.
 - For an import: the documents as `.md` or `.txt` files, or one `.zip` with them. You must be in the office on **https://truchsess.local/**.
+- For an import from V1: the zip the export of the old system made, at most 200 MB and 5,000 files. Also only in the office.
 
 ## Steps
 
@@ -76,17 +79,86 @@ An approved product request makes the product active, and the requester becomes 
 6. Tick or untick documents under **Import**. Unchanged documents are not selected.
 7. Press **Import selected**, or **Discard** to stop.
 
+### Import from V1
+
+**Import from V1** moves the old system's memory into the box: its wiki pages and the agents' memory. You see every item, where it would go and what the scan found before anything is written. The box never connects to the old system.
+
+1. Open **Settings** › **Advanced** › **Knowledge**, panel **Import from V1**.
+2. Under **The export (.zip)**, choose the zip.
+3. Press **Upload and review**.
+4. Read the summary above the list: how many sources, entities, syntheses, concepts, reports and agent memory files, how many are new, changed or unchanged, and how many the scan blocked.
+5. To see part of the list, choose **Kind**, **State**, **Scan** or **Folder**, or type in **Find**. The list shows 100 items per page; use **Previous** and **Next**.
+6. Check the **Place** of each item: "company", a product, an agent, a person, or "do not import". The hint under it says why the box proposed it.
+7. To give every item shown the same place, choose it under **Place for everything shown** and press **Set place**.
+8. Tick or untick items under **Import**, or press **Tick all shown** or **Untick all shown**. An item the scan blocked cannot be ticked.
+9. Press **Import selected**, or **Discard** to stop.
+10. The page says "Importing: ... of ... items written. You can leave the page; the import goes on."
+
+What the import does with V1's pages:
+
+| In V1 | In Truchsess |
+| --- | --- |
+| A source page | A source in the company memory. |
+| An entity page of a person, company, contact, product or project | A knowledge page with its facts and its text as notes; its relationships become links between pages. |
+| A synthesis or concept page, or an entity of another type | A topic page, with its claims beside it. |
+| A report | Proposed "do not import": V1 made it from other pages. |
+| An agent's memory (`MEMORY.md` and its daily notes) | The memory of the agent with the same name on this box. Without such an agent: not imported, unless you choose a place. |
+
+- V1's status of a claim stays (for example supported, draft, disputed or stale). A claim V1 marked as disputed becomes a memory check: **Confirm** or **Delete**.
+- Every imported record counts as unconfirmed, at most 60 percent, until a person confirms it on its check or changes it on its page.
+- What V1 marks restricted, V1's cards of its agents and its copies of agent events are proposed "do not import". A claim with restricted evidence is left out.
+
+What is never imported, listed under **Files that are not items** with the reason: pages without front matter (navigation and control pages), V1's history log (`.jsonl`), every database and V1's vectors, agent run events and ownership markers, files that are not Markdown, files over 1 MiB, and files that are not UTF-8 text.
+
+The scan blocks an item that holds a token or key, a password, a private key, an internal address, an SSH key or an account number. The row shows the type and the line, never the secret. Remove it from the zip and upload again.
+
+### Look after the company memory
+
+1. Open **Settings** › **Advanced** › **Box**, panel **Memory**.
+2. Read the figures: **Records**, **Last change**, **Index**, **Search by meaning**, **Waiting for a person**, **Due for review**, **Search, last 24 hours**, **Test set (last night)**, **Database**, **Last backup with the memory**, **Last check** and **Learning**. Each one says OK, Needs a look or Needs action, with one sentence on why.
+3. Press **Check now** to run the nightly check at once. It takes seconds.
+4. Under **Waiting for your check**, answer the memory checks: two different answers to one question, a fact due for review, a likely duplicate, a claim V1 marked as disputed. Press the button that fits: **Keep**, **Replace**, **Merge**, **Delete** or **Confirm**.
+5. To look something up, type it under **Ask the memory**. To see what the memory knew on a day, choose **As of (optional)**. Press **Search**.
+6. Under **Knowledge pages**, press **Open** on a page. Change a fact with **Edit**, remove it with **Delete** (**Undo** brings it back), add one with **Add a fact**, and change the free text with **Edit the notes**.
+
+The nightly check runs at 3 at night. It fixes only safe things by itself: it indexes missing records and merges exact copies. Nothing is deleted unless a person chooses it. **Home** shows one line per kind of check, for example "3 memory facts are due for review", with the button **Check**.
+
+### Search by meaning
+
+The memory finds what you mean, not only the words you type: a question about "our small plan" finds the page with the plan's name and price. It works in German and English and runs entirely on the box: nothing is sent anywhere to be indexed.
+
+After a new install, the box downloads its search model once (about 560 MB), a few minutes after it starts. Then it reads through the company memory in the background. The line under **Settings** › **Advanced** › **Box**, panel **Version and log**, and the figure **Search by meaning** in the panel **Memory** show the progress: "Search by meaning: preparing", then "Search by meaning: on, indexing", then "Search by meaning: on." Until then, search works with the exact words. If the download fails, the line says why and the box tries again by itself.
+
+Search by meaning is for the company memory. Product documents from **Import documents** are found by the words in them.
+
 ## What you see afterwards
 
 - The new product appears in the panel **Products** and in every product list of the portal.
 - The panel **Product catalog** says "This box ships with no ready-made products. Your products: ...", with **Open Products**.
 - After an import: "Imported ... document(s) into ... Earlier versions of changed documents stay readable." Agents on that product read the documents in their next task. See [Knowledge](/use/knowledge/).
+- After an import from V1: "Imported from V1: ... records; ... need review under Settings > Advanced > Box." **Home** shows "... records imported from V1, ... need review" while something waits, and for a week after. The zip and your choices are removed from the box.
+- The same zip imported again shows its items as "unchanged".
+- Every safety copy holds the company memory. A restore asks you to confirm when memory changes made since that copy would be lost. See [Safety copies and restore](/admin/backup-and-restore/).
 
 ### Older revisions
 
 Each import of a changed document makes a new revision. The earlier revisions stay in the box, with who wrote them and when. An agent with knowledge permission can read an older revision on request.
 
 To go back to an earlier text, import the earlier file again: it shows as "changed", and **Import selected** makes it the current version.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "Upload the zip the export made (a .zip file)." | Choose the zip of the V1 export. |
+| "The zip is larger than ... MB." | The limit is 200 MB. Export less, or split the export into two zips. |
+| "blocked: ..." in the **Scan** column | Remove the secret from that file in the zip, then upload the zip again. |
+| "That upload is older than six hours and was removed. Upload the zip again." | Upload the zip again. |
+| "The import stopped: ... What was written stays; upload the zip again to import the rest (written items show as unchanged)." | Upload the same zip again and import the rest. |
+| An agent's memory shows "do not import" | No agent of that name is on this box. Choose an agent under **Place**, or leave it out. |
+| A memory figure says Needs a look or Needs action | Read its sentence. For the index, the nightly check and the test set, press **Check now**. For the backup, make a safety copy under **Settings** › **Safety copies**. If the test set stays red, tell support. |
+| "Search by meaning" stays at preparing | The model is still downloading, or the download waits for its next attempt. Wait; search works with the exact words meanwhile. |
+| Files are listed under **Skipped** after **Upload and review** | Each row says why. Fix the file and upload again. |
 
 ## Your choices
 
@@ -100,6 +172,10 @@ To go back to an earlier text, import the earlier file again: it shows as "chang
 | **Deny** | Rejects the request. | | No. |
 | **Import selected** | Writes the chosen documents. | After reading the review. | Partly: import the earlier file again. A new document cannot be removed. |
 | **Discard** | Throws the upload away. Nothing is written. | Wrong files. | n/a |
+| **Import selected** (Import from V1) | Writes the ticked V1 items to the company memory, unconfirmed. | After reading the review. | Partly: **Delete** a fact on its page; **Undo** brings it back. |
+| **Set place** | Gives every item shown the same place. | Many items belong to one product or agent. | Yes: set another place before you import. |
+| **Check now** | Runs the nightly memory check at once. | After an import, or when a figure needs a look. | n/a |
+| **Keep**, **Replace**, **Merge**, **Delete**, **Confirm** | Answers a memory check. | When a check waits for you. | **Delete** on a page line: yes, with **Undo**. |
 
 Limits of an import: at most 50 MB and 2,000 files per upload, at most 64 KB per document, text in UTF-8 only. An upload is deleted after an hour, or when you leave the page.
 
