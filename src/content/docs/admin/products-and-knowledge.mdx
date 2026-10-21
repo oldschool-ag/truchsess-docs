@@ -12,7 +12,8 @@ Besides the product documents, the box keeps one **company memory**: the company
 
 ## Who can do this
 
-- The administrator adds, renames, archives and restores products, decides older requests and imports knowledge.
+- The administrator adds, renames, archives and restores products, decides older requests, imports knowledge and V1's memory, and looks after the company memory.
+- Every person answers the memory checks of their own memory under **Your account** › **What Truchsess has learned**.
 - Members do not request products any more. A member who wants an agent presses **Add this agent** on its card under **Agents**, **More agents on this box**. The administrator answers on Home, **Needs you**.
 
 ## What you need
@@ -88,7 +89,7 @@ An approved product request makes the product active, and the requester becomes 
 3. Press **Upload and review**.
 4. Read the summary above the list: how many sources, entities, syntheses, concepts, reports and agent memory files, how many are new, changed or unchanged, and how many the scan blocked.
 5. To see part of the list, choose **Kind**, **State**, **Scan** or **Folder**, or type in **Find**. The list shows 100 items per page; use **Previous** and **Next**.
-6. Check the **Place** of each item: "company", a product, an agent, a person, or "do not import". The hint under it says why the box proposed it.
+6. Check the **Place** of each item: company, a product, an agent, a person, or "do not import". The hint under it says why the box proposed it.
 7. To give every item shown the same place, choose it under **Place for everything shown** and press **Set place**.
 8. Tick or untick items under **Import**, or press **Tick all shown** or **Untick all shown**. An item the scan blocked cannot be ticked.
 9. Press **Import selected**, or **Discard** to stop.
@@ -121,11 +122,11 @@ The scan blocks an item that holds a token or key, a password, a private key, an
 5. To look something up, type it under **Ask the memory**. To see what the memory knew on a day, choose **As of (optional)**. Press **Search**.
 6. Under **Knowledge pages**, press **Open** on a page. Change a fact with **Edit**, remove it with **Delete** (**Undo** brings it back), add one with **Add a fact**, and change the free text with **Edit the notes**.
 
-The nightly check runs at 3 at night. It fixes only safe things by itself: it indexes missing records and merges exact copies. Nothing is deleted unless a person chooses it. **Home** shows one line per kind of check, for example "3 memory facts are due for review", with the button **Check**.
+The nightly check runs at 3 at night. It fixes only safe things by itself: it indexes missing records and merges exact copies. Nothing is deleted unless a person chooses it. **Home** shows one line per kind of check, for example "... memory facts are due for review", with the button **Check**.
 
 ### Search by meaning
 
-The memory finds what you mean, not only the words you type: a question about "our small plan" finds the page with the plan's name and price. It works in German and English and runs entirely on the box: nothing is sent anywhere to be indexed.
+The memory finds what you mean, not only the words you type: a question about *our small plan* finds the page with the plan's name and price. It works in German and English and runs entirely on the box: nothing is sent anywhere to be indexed.
 
 After a new install, the box downloads its search model once (about 560 MB), a few minutes after it starts. Then it reads through the company memory in the background. The line under **Settings** › **Advanced** › **Box**, panel **Version and log**, and the figure **Search by meaning** in the panel **Memory** show the progress: "Search by meaning: preparing", then "Search by meaning: on, indexing", then "Search by meaning: on." Until then, search works with the exact words. If the download fails, the line says why and the box tries again by itself.
 
@@ -172,7 +173,7 @@ To go back to an earlier text, import the earlier file again: it shows as "chang
 | **Deny** | Rejects the request. | | No. |
 | **Import selected** | Writes the chosen documents. | After reading the review. | Partly: import the earlier file again. A new document cannot be removed. |
 | **Discard** | Throws the upload away. Nothing is written. | Wrong files. | n/a |
-| **Import selected** (Import from V1) | Writes the ticked V1 items to the company memory, unconfirmed. | After reading the review. | Partly: **Delete** a fact on its page; **Undo** brings it back. |
+| **Import selected** (Import from V1) | Writes the ticked V1 items to the company memory, unconfirmed. | After reading the review. | Not as a whole. Correct a record on its page, or answer its check. |
 | **Set place** | Gives every item shown the same place. | Many items belong to one product or agent. | Yes: set another place before you import. |
 | **Check now** | Runs the nightly memory check at once. | After an import, or when a figure needs a look. | n/a |
 | **Keep**, **Replace**, **Merge**, **Delete**, **Confirm** | Answers a memory check. | When a check waits for you. | **Delete** on a page line: yes, with **Undo**. |
@@ -188,4 +189,6 @@ A product can be renamed and archived; an archived product can be restored. Noth
 ## Related pages
 
 - [Knowledge](/use/knowledge/)
+- [What Truchsess has learned](/use/what-truchsess-learned/)
 - [Users](/admin/users/)
+- [Safety copies and restore](/admin/backup-and-restore/)
