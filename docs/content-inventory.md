@@ -474,7 +474,7 @@ part 7a: G37 to G40 (mail and calendars).
 | G14 | The box | Report a problem from the portal. | Use "Copy logs" (installer) or the run's "Audit" and "Details (update log)"; send them with a description to support. | Support. |
 | G15 | Knowledge, workboard and products | Withdraw a request. | Deny pending requests. Products can be renamed, archived and restored; nothing is deleted. | Administrator. |
 | G16 | Knowledge, workboard and products | An approved request for another agent installs it. | Approval only records the request. The administrator installs the agent under Agents. | Administrator. |
-| G17 | Agents and the store | Install the same store package twice. | A store package installs once per box. A sideloaded package (signed file) can be installed several times. | Support. |
+| G17 | Agents and the store | A second copy of a store agent when the store does not sell copies. | When the store sells copies, the agent's settings offer Add another copy. Otherwise a signed package file can be installed several times. | Support. |
 | G18 | Agents and the store | Roll back an agent to an earlier version. | Not offered. Uninstall and install the earlier signed file (the workspace is lost). | Support. |
 | G20 | Agents and the store | Leave the store (undo enrolment). | Not offered in the portal. Cancel every subscription. | Support. |
 | G21 | The box | Change the box's name or address (always `truchsess.local`; `myai.local` also works). | None. | Support. |
