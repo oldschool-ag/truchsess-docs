@@ -1,0 +1,229 @@
+---
+title: Home
+description: What each part of Home shows for members and administrators, and how to decide, answer an agent's question, mark a task done or hide it, open a draft and undo.
+---
+import NotYet from '~/components/NotYet.astro';
+
+**Home** is the first page after you sign in and the first entry in the menu. It shows what waits for you, what your agents found for today, your agents and your recent results. Administrators also see the box. Home updates by itself within a few seconds: items appear and leave without a reload.
+
+## Who can do this
+
+| Part of Home | Members | Administrators |
+| --- | --- | --- |
+| Greeting, **Needs you**, **Today**, **Your agents**, **Recent results** | Yes, for their own items and agents | Yes |
+| **Waiting for others**, **Answers to your requests** | Yes | No (they decide instead) |
+| Update notes, **Set up your box**, **Box**, "Told you after" notices | No | Yes |
+| The number next to **Home** in the menu | No: the greeting says it | Yes |
+
+You see only your own items and the company's items. An administrator never sees a member's own items, for example the drafts of the member's mail.
+
+## What you need
+
+- An account on the box. Sign in, and **Home** opens.
+- For mail items: your mailbox connected (see [Connect your company mailbox](/use/email/)). For meetings: your calendars connected (see [Connect your calendars](/use/calendars/)).
+
+## What is on Home
+
+From top to bottom:
+
+1. **The date and the greeting.** "Good morning", "Good afternoon" or "Good evening" with your first name, then how many things need you, for example "1 thing needs you." or "Nothing needs you."
+2. **One-line notices**, only when they apply, each with its button: the AI key of the box was refused (administrators: **Check the key again**, **Open AI provider settings**), a routine stopped after 3 failures (**Turn it on again**), or a mailbox must be connected again (**Connect again**).
+3. **Update notes** (administrators): "Last night's update did not start correctly.", "What is new in the ..." once after an update, or "An update is ready" with **Update now**. **Close** hides a note for good. See [Updates](/admin/updates/).
+4. **Set up your box** (administrators, only on an older box that has no AI yet). See [Set up your box](#set-up-your-box).
+5. **Needs you**, "Only a person can unblock these.": everything that waits for your decision or your answer. Decide right in the card. When nothing waits: "Nothing waits for you. Your agents tell you here when they need a decision."
+6. **Waiting for others** (members): your tasks that wait for an administrator, for example "Waiting for an administrator", with **Open** to see the task. There is nothing to click for you; the task goes on once it is decided.
+7. **Answers to your requests** (members): what the administrator answered to a request of the last seven days, for example "... allowed it. Try the task again." with **Open the task**.
+8. **Today**, "Meetings, tasks and mail your agents found for you.", in three groups: **Meetings**, **Tasks** and **Mail**. Each group says how many are open. When there is nothing: "Nothing for today."
+9. **Your agents**: one card per agent, with what it is doing now.
+10. **Recent results**, "The last finished tasks, and what agents did on their own." It shows once the box has finished its first task.
+11. **Box**, "Only administrators see this." (administrators): four tiles.
+
+### Needs you
+
+Each card shows the agent, a tag, the title, one line and when it started ("Waiting since", "Ready since" or "Asked at"). The tags are **Approval**, **Check**, **Request**, **Question**, **Updates** and **Important**.
+
+Members see the questions agents ask them, the websites an agent wants to read for their own tasks, and the questions the box asks them. Administrators also see approvals, checks, members' requests and the box's update questions. An item leaves **Needs you** once it is decided. It has no **Hide**.
+
+### Today
+
+- **Meetings** from your calendars, with the time: "From your calendar. Nothing prepared.", or the briefing an agent prepared, with a link to open it. **Join the meeting** opens an online meeting.
+- **Tasks** an agent found for you. A tag says "Due today" or "Overdue ... days". Each task has **Done** and **Hide**.
+- **Mail**: drafts the agents wrote (tag **Drafts**, link **Open Drafts**), follow-ups (tag **Follow-up**, link **Open draft**) and warnings about suspicious mail (tag **Warning**, red): "Do not open the link. Delete it in your mailbox." Each mail item has **Hide**. With several mailboxes, an item shows the address the mail came to. Agents only read mail and write drafts; they never send. See [Connect your company mailbox](/use/email/).
+
+A drafts item leaves Home by itself after a day; warnings and reports after a week. On a phone each group shows three items, then **Show ... more**.
+
+### Your agents
+
+Beside the heading: how many agents are active (administrators: also the cost this month) and **See all agents**. **Truchsess**, the agent included in the box, comes first with **Ask Truchsess**. Up to eight cards follow; with more agents, **See all ... agents** opens **Agents**.
+
+Each card shows the agent's picture or first letter, its name (click it to open the agent's chat) and what it does for the company. The **...** menu has **Details** (the full description) and **Settings**. Under the name, a tag says what the agent is doing:
+
+| Tag | What it means | The button |
+| --- | --- | --- |
+| **Idle** | Ready for work. | None. |
+| "Working on: ..." | The task it is doing now. "Working on a task for someone else" for a colleague's task. | None. |
+| **Waiting for you** | Something of it is in **Needs you**. | **Open** jumps to that item. |
+| "Paused: budget used up" | The AI budget of this month is used up. | Administrators: **Open Plan and costs**. Members: **Ask your administrator**. |
+| "Problem: ..." | In plain words, for example "Problem: could not read the website you named". | **Open the task** and **Ask Truchsess why** when the last task failed; **Open Connections** when a connection is the reason. |
+| "Needs something to go on" | Its last task needs something first. | **Open the task**. See [When an agent needs something first](/use/agent-needs-something/). |
+
+Under the tag, a card says when the agent last finished a task, for example "Last task finished 13 Oct: ...". It never shows the agent's own reply: open the task or **Recent results** for that. Administrators also see the cost line: "This month" with the amount, or "No cost recorded".
+
+When you have no agent yet, Home shows **Get your first agent** with **Open Store** (administrators) or **Open Agents** (members).
+
+On a phone, the agents are a row of faces with a short tag, then one line for each agent with a problem or a pause.
+
+### Recent results
+
+One row per result: the title (for example "Report ready: ..." or "Could not finish: ..."), the agent, the kind (**Report**, **Could not finish** or **Cancelled**) and the time. Click a row to open it. **Download** saves the report as a PDF.
+
+Administrators also see what agents did on their own, each with the tag **Told you after**, and **Mark as seen**. See [Approvals and checks](/use/approvals-and-checks/#read-notices).
+
+### Box (administrators)
+
+Four tiles, each a link to its place:
+
+| Tile | What it shows | It opens |
+| --- | --- | --- |
+| **Last safety copy** | When the last safety copy was made. "Too old" after 7 days, or "No safety copy yet". | **Settings** › **Safety copies** |
+| **Update** | "Up to date" or "A new version is available". | **Settings** › **Updates** |
+| **AI costs this month** | The amount used of the budget, with a bar. | **Settings** › **Plan and costs** |
+| **Reach your box from home** | "On", "Off", "Connecting" or "Problem". | **Settings** › **Your company** |
+
+**Open Settings** beside the heading opens **Settings**.
+
+## Steps
+
+### Decide what needs you
+
+1. Open **Home** and find the card in **Needs you**.
+2. Read the title and the line. Press **Read the report** first if the card shows it.
+3. Press the button for your decision:
+
+| The card | Your buttons |
+| --- | --- |
+| **Approval** | **Approve** or **Refuse**. **Open in chat** shows the whole task first. When the action needs a written reason, **Decide** opens the task in **Chat**. |
+| **Approval** with website changes | **Review ... changes** shows a tick box per change. Untick what you do not want, then press **Approve ... changes**. **Back** closes the list. |
+| An agent wants to read a website | **Allow** or **Refuse**. |
+| **Check** (a result to check) | **Accept**, or **Send back** (it opens the task in **Chat**). |
+| **Question** | **Answer in chat**. See [Answer an agent's question](#answer-an-agents-question). |
+| **Request** from a member | **Allow**, **Allow for** the agent, or **Accept**; **Not now** tells the member. For a paused agent: **Open Plan and costs** or **Not now**. |
+| "... wants to hand work to ... Add ... to your agents?" | **Add** the agent, or **Put aside**. |
+| Something Truchsess proposes to remember about you | **Keep** or **Delete**. **Open What Truchsess has learned** shows everything it remembers. |
+| **Updates** | "Install updates automatically at night? Recommended.": **Yes, install them at night** or **No, I update myself**. "... agent updates are ready": **Open Agents**. "The new version of ... asks for more": **Review the update**. |
+| **Important** (an update that waited 14 days) | **Update now** or **Not now**. |
+| An agent cannot work yet | The one button that fixes it, and **Open the agent**. See [When an agent needs something first](/use/agent-needs-something/). |
+
+What each decision does, and how to decide in **Chat** instead, is on [Approvals and checks](/use/approvals-and-checks/). Updates are on [Updates](/admin/updates/).
+
+### Answer an agent's question
+
+Sometimes an agent needs your decision before it can go on, for example which supplier to contact first. It asks you one short question. Only you see the question and your answer; others, the administrator included, see only that the task waits for your answer.
+
+1. On **Home**, in **Needs you**, find the card with the tag **Question**: "... asks: ...". The agent's card says **Waiting for you**.
+2. Press **Answer in chat**. The agent's chat opens at the task, with the question quoted.
+3. If the agent gave choices, press one. Otherwise type your answer in the message box and press **Send**. While the agent waits, the line above the message box says "Send answers ...'s question."
+4. To give the agent new work instead, press **Start a new task instead**.
+
+The task goes on with your answer in the same place in the chat, and the question leaves Home.
+
+An agent never asks you for a password, a key or a code. If it needs access to a service, it says which connection your administrator should set up.
+
+### Mark a task done or hide an item
+
+1. In **Today**, find the item.
+2. Press **Done** when you did the task, or **Hide** when you do not need it. A green line says "Done: ..." or "Hidden: ...".
+3. Changed your mind? Press **Undo** on the green line. The item comes back.
+
+Tasks have **Done** and **Hide**; mail items have **Hide**; meetings have neither. A member can change only their own items. On an item from an agent's routine, **Hide** first asks why (optional): the agent learns from your answer. Press **Hide** again to hide it.
+
+### Open a draft or a mail
+
+1. In **Today**, group **Mail**, find the item.
+2. Press **Open Drafts** (a drafts item) or **Open draft** (a follow-up). Your webmail opens in a new tab, at your Drafts folder.
+3. Read the draft and send it yourself from your mailbox, or delete it.
+
+For a warning, press **Why ... thinks so** to read the agent's reason in the card. Do not open the link in that mail; delete the mail in your mailbox.
+
+Links that leave the box (your webmail, a pull request, an online meeting) open in a new tab.
+
+### Share your mail signature
+
+When an administrator sets one company signature, Home asks you once: "Share your mail signature with the company?"
+
+1. Read the line under the question.
+2. Press **Yes, share the closing lines of my last 5 sent mails**, or **No, keep my mail private**.
+
+Only the closing lines of your last 5 sent mails are read, never the mails themselves. To change your answer later, open **Your account** › **Email inbox** (see [Connect your company mailbox](/use/email/#your-company-signature)).
+
+### Manage the box from outside the office (administrators)
+
+On the remote address you work as a member until you enter the box password once per session. Home shows it first in **Needs you**: "You are signed in from outside the office. Enter your box password once to manage the box."
+
+1. Type your password in "Your box password".
+2. Press **Manage the box**. Home opens again, now with **Settings** in the menu.
+
+This works only when **Allow Settings on the remote address** is on. See [Remote access](/admin/remote-access/).
+
+### Ask your administrator when an agent is paused (members)
+
+1. On the agent's card ("Paused: budget used up"), press **Ask your administrator**.
+2. The card shows when you asked, for example "Asked ... at 09:12", and the ask waits under **Waiting for others**.
+
+You can ask once a day per agent. If the administrator keeps the budget, the card says "... kept the budget as it is".
+
+### Set up your box
+
+On a box set up with an older version that has no AI yet, Home shows **Set up your box** to administrators, with "... of 7 steps done". The steps are **AI ready**, **Recovery sheet saved**, **First safety copy made**, **First agent installed**, **Reach your box from home**, **Members added** and **Members signed in**.
+
+1. Read the open steps at the top. Each says why it matters.
+2. Press the step's button, for example **Open Safety copies**, and do the step there.
+3. If you only work in the office, press **Not needed** on **Reach your box from home**.
+
+Done steps fold into one line, for example "6 steps done": **Show** lists them, **Hide** folds them again. **Members signed in** says "Waiting for your team" while members have not signed in yet. When every step is done, the section disappears. A new box gets the guided first setup instead (see [First run and activation](/setup/first-run/)).
+
+## What you see afterwards
+
+- A decision shows a green line in **Needs you**, for example "Accepted. The report is in Recent results." The item leaves, and the greeting and the number next to **Home** go down by one.
+- **Done** and **Hide** show a green line with **Undo**. The item leaves **Today**.
+- After your answer to a question, the agent's card shows "Working on: ..." again.
+- After 7 days without your answer, the agent stops waiting: the task shows "Stopped: no answer". You can give the task again at any time.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "Could not load your Home: ..." | Reload the page. If it stays, see [Report a problem](/use/report-a-problem/). |
+| "Could not load this. The box's run service did not answer; try again in a minute." | Wait a minute. The other parts of Home still work. |
+| "Could not load your mail items. The box cannot reach your mailbox." | Press **Open Connections** and connect your mailbox again. |
+| "Could not load your agents." | Press **Open Agents**. |
+| "Your administrator has not set the webmail address for ... yet." instead of **Open Drafts** | Ask your administrator to enter the Drafts folder address (see [Company mail](/admin/company-mail/)). Until then, open your Drafts in your mail app. |
+| "... · private" and "Open it in your own mail app." | The mail is in your private mailbox. Open it in your own mail app. |
+| A card says "Problem: ..." | Press the card's button: **Open the task**, **Ask Truchsess why** or **Open Connections**. |
+| You cannot find **Hide** on a **Needs you** item | Decide it: it leaves Home once decided. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Done** | Marks a task as done. | You did it. | Yes: **Undo** on the green line. |
+| **Hide** | Removes an item from your Home. | You do not need it. | Yes: **Undo** on the green line. |
+| **Answer in chat** | Opens the task to answer the agent's question. | An agent asks you something. | No: the task goes on with your answer. |
+| **Start a new task instead** | **Send** starts new work; the question still waits. | You want something else from the agent. | Yes: answer the question later on **Home**. |
+| **Yes, share the closing lines of my last 5 sent mails** | Lets an administrator's task read your signature lines. | The company builds one signature. | Yes: **Your account** › **Email inbox**. |
+| **No, keep my mail private** | Nobody's task reads your sent mail for the signature. | You prefer not to share. | Yes: **Your account** › **Email inbox**. |
+| **Ask your administrator** | Asks for more budget for a paused agent. | A member's agent is paused. | Not needed. |
+
+<NotYet>
+A decision on **Home** (Approve, Refuse, Allow, Accept, Not now) cannot be undone: the green line has no **Undo**. If you decided wrongly, give the agent a new task in **Chat**; an administrator can change the agent's rules on its card or under **Settings** › **Advanced** › **Agent rules**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+</NotYet>
+
+## Related pages
+
+- [Your first day as a member](/start/member/)
+- [Approvals and checks](/use/approvals-and-checks/)
+- [When an agent needs something first](/use/agent-needs-something/)
+- [Follow a run](/use/follow-a-run/)
+- [Connect your company mailbox](/use/email/)
+- [Connect your calendars](/use/calendars/)
+- [Updates](/admin/updates/)
