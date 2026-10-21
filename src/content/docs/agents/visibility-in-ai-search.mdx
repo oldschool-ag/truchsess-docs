@@ -1,6 +1,6 @@
 ---
-title: "Visibility in AI search"
-description: "What the Visibility in AI search function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
+title: Visibility in AI search
+description: What the Visibility in AI search function is for, its agents, their permissions and install questions, default autonomy levels and example tasks.
 ---
 import NotYet from '~/components/NotYet.astro';
 import { Aside } from '@astrojs/starlight/components';
@@ -41,15 +41,15 @@ Checks and improves how one website is found, described, cited and recommended b
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
 | Open web pages and take screenshots with its own browser (needs its own tools and the allowed addresses) | None | Tick it |
-| Reach one named host | "Which website should it audit for AI search visibility?" | Allowed by your answer |
+| Reach one named host | *Which website should it audit for AI search visibility?* | Allowed by your answer |
 | Reach one named host: `html.duckduckgo.com` (a web search page) | None | **Reach one named host**: enter `html.duckduckgo.com` and press **Allow** |
-| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Read one product's knowledge | *Which product's knowledge may it read for context?* (optional) | Allowed by your answer |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which website should it audit for AI search visibility?" Required. You choose one website address, for example `www.example.com`.
-- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
+- *Which website should it audit for AI search visibility?* Required. You choose one website address, for example `www.example.com`.
+- *Which product's knowledge may it read for context?* Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
 **Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Website Owner, Ivy. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed agent** with the package id of each one, for example `faivr.agent.website-owner`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
@@ -79,7 +79,7 @@ Gideon checks exactly the website you entered at install. The box blocks every o
 
 To check another website, change the answer: **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**, Gideon's install, **Change**, then enter the other website and press **Save and apply**. One install checks one website at a time.
 
-<Aside type="caution" title="Known issue">
+<Aside type="caution" title='Known issue'>
 If you ask Gideon about a website other than the one it was installed for, it writes a misleading report that says the site is unreachable. The site is fine: the box blocked it. Until an update fixes this, ask only about the installed website.
 </Aside>
 
@@ -87,9 +87,9 @@ If you ask Gideon about a website other than the one it was installed for, it wr
 
 Write these in **Chat** after choosing the agent. Change the details to your company.
 
-1. "Audit our website for AI search visibility and list the findings with how strong the evidence is."
-2. "Search for our company name and tell us how the results describe us."
-3. "Write the three most important fixes for our home page as ready-to-use text."
+1. *Audit our website for AI search visibility and list the findings with how strong the evidence is.*
+2. *Search for our company name and tell us how the results describe us.*
+3. *Write the three most important fixes for our home page as ready-to-use text.*
 
 <NotYet>
 A store agent can be installed only once per box. For a second copy, ask the publisher for a signed package file and install it from the file. See [Not possible yet](/not-yet/).

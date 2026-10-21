@@ -11,7 +11,7 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 | What you see | What to do |
 | --- | --- |
 | The browser cannot open **https://truchsess.local/**. | Check that your computer is on the office network. Some networks do not resolve `.local` names: open the box's address from your router's list of devices instead, with `https://`. |
-| The browser warns that the connection is not private. | Normal once per device. Compare the fingerprint with the one on the **Sign in** screen or the box's screen, then accept. See [Check the certificate](/setup/unbox-and-connect/#check-the-certificate). |
+| The browser warns that the connection is not private. | Normal once per device. Compare the fingerprint with the one on the **Sign in** screen, then accept. See [Check the certificate](/setup/unbox-and-connect/#check-the-certificate). |
 | "This appliance is currently using local HTTP. Use it only on the trusted office network until HTTPS is configured." | You opened the box without `https://`. Use **https://truchsess.local/**. |
 | "Truchsess is unavailable" | The portal cannot reach its own service. Wait a minute and reload. If an update is running, wait until it ends. |
 | "Starting the assistant" does not go away. | Wait two minutes and reload. If it stays, the AI provider key may be wrong: the administrator checks it with **Change AI provider** under **Settings** › **Advanced** › **AI**, panel **Own AI key**. |
@@ -20,10 +20,8 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 
 **https://truchsess.local/** does not open, opens the wrong box, or works only sometimes.
 
-- **Two boxes in one office.** Both answer on `truchsess.local`, so the name can lead to either one. Open each box by its own address instead: `https://` followed by the address shown on the box's screen or in your router's list of devices. Accept the certificate warning after comparing the fingerprint. See [Two boxes in one office](/setup/unbox-and-connect/#two-boxes-in-one-office).
-- **One box, but the name does not open.** Some networks and some Android phones do not resolve `.local` names. Use the box's address as above, or the remote address if your administrator switched it on.
-
-A fix that gives every box its own name is coming with a later update.
+- **Two boxes in one office.** Only one of them answers on `truchsess.local`. Open each box by its own name instead: `truchsess-` followed by four characters and `.local`, shown on the box's screen in the line "This box: ...". Accept the certificate warning after comparing the fingerprint. See [Two boxes in one office](/setup/unbox-and-connect/#two-boxes-in-one-office).
+- **One box, but the name does not open.** Some networks and some Android phones do not resolve `.local` names. Use the box's address from your router's list of devices, with `https://`, or the remote address if your administrator switched it on.
 
 ## Signing in
 

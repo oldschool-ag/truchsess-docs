@@ -1,6 +1,6 @@
 ---
-title: "Design review"
-description: "What the Design review function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
+title: Design review
+description: What the Design review function is for, its agents, their permissions and install questions, default autonomy levels and example tasks.
 ---
 import NotYet from '~/components/NotYet.astro';
 
@@ -40,18 +40,18 @@ Reviews the product or website material you give it for clarity, ease of use, co
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
 | Open web pages and take screenshots with its own browser (needs its own tools and the allowed addresses) | None | Tick it |
-| Read one repository | "Which repository should this worker review?" (the agent) | Allowed by your answer |
-| Push its own branches and open pull requests on one repository, never merges (includes read) | "In which repository may it open pull requests with its revisions?" (optional) | Allowed by your answer |
-| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Read one repository | The repository to review | Allowed by your answer |
+| Push its own branches and open pull requests on one repository, never merges (includes read) | *In which repository may it open pull requests with its revisions?* (optional) | Allowed by your answer |
+| Read one product's knowledge | *Which product's knowledge may it read for context?* (optional) | Allowed by your answer |
 | Read the company task list | None | Tick it |
 | Change the company task list | None | Tick it |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which repository should this worker review?" (the agent) Required. You choose a repository of your GitHub connection.
-- "In which repository may it open pull requests with its revisions?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
-- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
+- The repository to review. Required. You choose a repository of your GitHub connection.
+- *In which repository may it open pull requests with its revisions?* Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
+- *Which product's knowledge may it read for context?* Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
 **Default autonomy levels**
 
@@ -80,9 +80,9 @@ Shown and changed in **Settings** › **Advanced** › **Agent rules**, panel **
 
 Write these in **Chat** after choosing the agent. Change the details to your company.
 
-1. "Review the sign-up page in the review repository for clarity and accessibility, and give your verdict."
-2. "Render our home page and list the five most serious design problems, most severe first."
-3. "Propose the revisions for your top three findings as a pull request."
+1. *Review the sign-up page in the review repository for clarity and accessibility, and give your verdict.*
+2. *Render our home page and list the five most serious design problems, most severe first.*
+3. *Propose the revisions for your top three findings as a pull request.*
 
 <NotYet>
 A store agent can be installed only once per box. For a second copy, ask the publisher for a signed package file and install it from the file. See [Not possible yet](/not-yet/).

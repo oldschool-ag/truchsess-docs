@@ -1,6 +1,6 @@
 ---
-title: "Software delivery"
-description: "What the Software delivery function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
+title: Software delivery
+description: What the Software delivery function is for, its agents, their permissions and install questions, default autonomy levels and example tasks.
 ---
 import NotYet from '~/components/NotYet.astro';
 
@@ -39,15 +39,15 @@ Turns a request into one GitHub issue that a coding tool can carry out: goal, co
 | Create and change its own files | None | Tick it |
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
-| Read one repository | "For which repository does it write issues?" | Allowed by your answer |
-| Create and update issues in one repository | "For which repository does it write issues?" | Allowed by your answer |
-| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Read one repository | *For which repository does it write issues?* | Allowed by your answer |
+| Create and update issues in one repository | *For which repository does it write issues?* | Allowed by your answer |
+| Read one product's knowledge | *Which product's knowledge may it read for context?* (optional) | Allowed by your answer |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "For which repository does it write issues?" Required. You choose a repository of your GitHub connection.
-- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
+- *For which repository does it write issues?* Required. You choose a repository of your GitHub connection.
+- *Which product's knowledge may it read for context?* Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
 **Default autonomy levels**
 
@@ -76,12 +76,12 @@ Keeps the repository's instruction files for coding tools correct and short: che
 | Create and change its own files | None | Tick it |
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
-| Push its own branches and open pull requests on one repository, never merges (includes read) | "Which repository's coding-tool instructions does it keep?" | Allowed by your answer |
+| Push its own branches and open pull requests on one repository, never merges (includes read) | *Which repository's coding-tool instructions does it keep?* | Allowed by your answer |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which repository's coding-tool instructions does it keep?" Required. You choose a repository of your GitHub connection.
+- *Which repository's coding-tool instructions does it keep?* Required. You choose a repository of your GitHub connection.
 
 **Default autonomy levels**
 
@@ -109,16 +109,16 @@ Gives an independent verdict that can be repeated on one pull request at one com
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
 | Open web pages and take screenshots with its own browser (needs its own tools and the allowed addresses) | None | Tick it |
-| Read one repository | "Which repository's pull requests does it review?" | Allowed by your answer |
-| Read test results and logs in one repository | "Which repository's pull requests does it review?" | Allowed by your answer |
-| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | "Which repository's pull requests does it review?" | Allowed by your answer |
-| Read one product's knowledge | "Which product's knowledge may it read for context?" (optional) | Allowed by your answer |
+| Read one repository | *Which repository's pull requests does it review?* | Allowed by your answer |
+| Read test results and logs in one repository | *Which repository's pull requests does it review?* | Allowed by your answer |
+| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | *Which repository's pull requests does it review?* | Allowed by your answer |
+| Read one product's knowledge | *Which product's knowledge may it read for context?* (optional) | Allowed by your answer |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which repository's pull requests does it review?" Required. You choose a repository of your GitHub connection.
-- "Which product's knowledge may it read for context?" Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
+- *Which repository's pull requests does it review?* Required. You choose a repository of your GitHub connection.
+- *Which product's knowledge may it read for context?* Optional: **Skip (the permission is declined)** is offered. You choose a product of the box.
 
 **Default autonomy levels**
 
@@ -149,13 +149,13 @@ Gives an independent security verdict on one pull request at one commit: secrets
 | Create and change its own files | None | Tick it |
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
-| Read one repository | "Which repository's pull requests does it review for security?" | Allowed by your answer |
-| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | "Which repository's pull requests does it review for security?" | Allowed by your answer |
+| Read one repository | *Which repository's pull requests does it review for security?* | Allowed by your answer |
+| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | *Which repository's pull requests does it review for security?* | Allowed by your answer |
 | Use one level of AI: **Frontier** (the strongest) | None | **Use one level of AI (cheap, standard or the strongest)**: choose `frontier` and press **Allow** |
 
 **Install questions**
 
-- "Which repository's pull requests does it review for security?" Required. You choose a repository of your GitHub connection.
+- *Which repository's pull requests does it review for security?* Required. You choose a repository of your GitHub connection.
 
 **Default autonomy levels**
 
@@ -183,14 +183,14 @@ Finds out why the checks of one pull request fail: it separates infrastructure f
 | Create and change its own files | None | Tick it |
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
-| Read one repository | "Which repository's failing checks does it diagnose?" | Allowed by your answer |
-| Read test results and logs in one repository | "Which repository's failing checks does it diagnose?" | Allowed by your answer |
-| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | "Which repository's failing checks does it diagnose?" | Allowed by your answer |
+| Read one repository | *Which repository's failing checks does it diagnose?* | Allowed by your answer |
+| Read test results and logs in one repository | *Which repository's failing checks does it diagnose?* | Allowed by your answer |
+| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | *Which repository's failing checks does it diagnose?* | Allowed by your answer |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which repository's failing checks does it diagnose?" Required. You choose a repository of your GitHub connection.
+- *Which repository's failing checks does it diagnose?* Required. You choose a repository of your GitHub connection.
 
 **Default autonomy levels**
 
@@ -219,14 +219,14 @@ Decides whether one pull request is ready for a person to merge (green checks, p
 | Create and change its own files | None | Tick it |
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
-| Read one repository | "Which repository's pull requests does it gate?" | Allowed by your answer |
-| Read test results and logs in one repository | "Which repository's pull requests does it gate?" | Allowed by your answer |
-| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | "Which repository's pull requests does it gate?" | Allowed by your answer |
+| Read one repository | *Which repository's pull requests does it gate?* | Allowed by your answer |
+| Read test results and logs in one repository | *Which repository's pull requests does it gate?* | Allowed by your answer |
+| Comment on and review pull requests in one repository (never pushes, never approves, never merges; includes read) | *Which repository's pull requests does it gate?* | Allowed by your answer |
 | Use one level of AI: **Standard** | None | **Use one level of AI (cheap, standard or the strongest)**: choose `standard` and press **Allow** |
 
 **Install questions**
 
-- "Which repository's pull requests does it gate?" Required. You choose a repository of your GitHub connection.
+- *Which repository's pull requests does it gate?* Required. You choose a repository of your GitHub connection.
 
 **Default autonomy levels**
 
@@ -252,9 +252,9 @@ Shown and changed in **Settings** › **Advanced** › **Agent rules**, panel **
 
 Write these in **Chat** after choosing the agent. Change the details to your company.
 
-1. Bob - Issue Writer: "Write an issue for this request: customers want to export their invoices as CSV."
-2. Bob - QA Reviewer: "Review pull request 42 against the acceptance criteria of its issue and give your verdict."
-3. Bob - Merge Gate: "Is pull request 42 ready to merge? If yes, draft its release notes."
+1. Bob - Issue Writer: *Write an issue for this request: customers want to export their invoices as CSV.*
+2. Bob - QA Reviewer: *Review pull request 42 against the acceptance criteria of its issue and give your verdict.*
+3. Bob - Merge Gate: *Is pull request 42 ready to merge? If yes, draft its release notes.*
 
 <NotYet>
 A store agent can be installed only once per box. For a second copy, ask the publisher for a signed package file and install it from the file. See [Not possible yet](/not-yet/).

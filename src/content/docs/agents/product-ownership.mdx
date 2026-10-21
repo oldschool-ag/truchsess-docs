@@ -1,6 +1,6 @@
 ---
-title: "Product ownership"
-description: "What the Product ownership function is for, its agents, their permissions and install questions, default autonomy levels and example tasks."
+title: Product ownership
+description: What the Product ownership function is for, its agents, their permissions and install questions, default autonomy levels and example tasks.
 ---
 import NotYet from '~/components/NotYet.astro';
 
@@ -39,20 +39,20 @@ Owns one product as its accountable product owner: the problem, the users, the v
 | Create and change its own files | None | Tick it |
 | Use its own tools, closed off from the rest of the box | None | Tick it |
 | Reach the internet addresses your company allows | None | Tick it |
-| Read one product's knowledge | "Which product does this product owner own?" | Allowed by your answer |
-| Write one product's knowledge | "Which product does this product owner own?" | Allowed by your answer |
-| Read one repository | "Which repository holds the product's code and documents (read only)?" (optional) | Allowed by your answer |
-| Read one repository | "In which repository does it track issues (it reads them and may file and update issues there)?" (optional) | Allowed by your answer |
-| Create and update issues in one repository | "In which repository does it track issues (it reads them and may file and update issues there)?" (optional) | Allowed by your answer |
+| Read one product's knowledge | *Which product does this product owner own?* | Allowed by your answer |
+| Write one product's knowledge | *Which product does this product owner own?* | Allowed by your answer |
+| Read one repository | *Which repository holds the product's code and documents (read only)?* (optional) | Allowed by your answer |
+| Read one repository | *In which repository does it track issues (it reads them and may file and update issues there)?* (optional) | Allowed by your answer |
+| Create and update issues in one repository | *In which repository does it track issues (it reads them and may file and update issues there)?* (optional) | Allowed by your answer |
 | Read the company task list | None | Tick it |
 | Change the company task list | None | Tick it |
 | Use one level of AI: **Frontier** (the strongest) | None | **Use one level of AI (cheap, standard or the strongest)**: choose `frontier` and press **Allow** |
 
 **Install questions**
 
-- "Which product does this product owner own?" Required. You choose a product of the box.
-- "Which repository holds the product's code and documents (read only)?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
-- "In which repository does it track issues (it reads them and may file and update issues there)?" Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
+- *Which product does this product owner own?* Required. You choose a product of the box.
+- *Which repository holds the product's code and documents (read only)?* Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
+- *In which repository does it track issues (it reads them and may file and update issues there)?* Optional: **Skip (the permission is declined)** is offered. You choose a repository of your GitHub connection.
 
 **Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Website Owner, Bob - Issue Writer, Bob - Instructions Keeper, Bob - QA Reviewer, Bob - Security Reviewer, Bob - CI Fixer, Bob - Merge Gate, Ivy, Strategy, Challenger, Cora, Gideon, Ivo V2. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed agent** with the package id of each one, for example `faivr.agent.website-owner`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
@@ -84,9 +84,9 @@ Shown and changed in **Settings** › **Advanced** › **Agent rules**, panel **
 
 Write these in **Chat** after choosing the agent. Change the details to your company.
 
-1. "Read the product knowledge and write the top five priorities for next quarter, with the reason for each."
-2. "List the open issues in our issue repository and create workboard cards for the three most urgent ones."
-3. "Write the requirements for the new invoice export into the product knowledge."
+1. *Read the product knowledge and write the top five priorities for next quarter, with the reason for each.*
+2. *List the open issues in our issue repository and create workboard cards for the three most urgent ones.*
+3. *Write the requirements for the new invoice export into the product knowledge.*
 
 <NotYet>
 A store agent can be installed only once per box. For a second copy, ask the publisher for a signed package file and install it from the file. See [Not possible yet](/not-yet/).
