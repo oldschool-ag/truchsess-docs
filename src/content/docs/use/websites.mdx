@@ -17,12 +17,13 @@ When the agent needs another website, a card asks you first. When it has changes
 - Everyone names websites in a task for an agent they may use.
 - The person who started the task decides a card that asks for another website. An administrator can decide it too.
 - Only an administrator sends website changes to Website care.
+- Everyone downloads the report of their own tasks.
 - The administrator lists the company's own websites under **Your websites** when installing the agent.
 
 ## What you need
 
 - An agent that may read the websites a person names. In its list of what it may do (in **Chat**, the link "... permissions · show" next to the agent's name), it has the line "Read the websites a person names in a task (only those, only for that task)". On a new box the company rules allow this by default.
-- For website changes: Website care is installed for that website, and the website is listed under **Your websites** of the agent that found the changes. See [Website care](/agents/website-care/).
+- For website changes: Website care is installed for that website, and the website is listed under **Your websites** of the agent that found the changes (or is the website that agent was installed for). See [Website care](/agents/website-care/).
 
 ## Steps
 
@@ -46,7 +47,7 @@ When the agent needs a website you did not name, the run card shows a card "... 
 1. Read which websites the agent wants and why.
 2. Press **Allow for this task**, or **Not now**.
 
-The agent does not wait for your answer: without the website it goes on with what it has. It can ask at most three times per task, for at most five websites each time.
+The task goes on while the card is open, and the agent may finish without the website. It can ask at most three times per task, for at most five websites each time.
 
 ### Send website changes to Website care (administrators)
 
@@ -91,6 +92,7 @@ Website changes go to Website care only for these websites. To change the list l
 | What you see | What to do |
 | --- | --- |
 | "... cannot read websites. ... can." under the answer, with a button **Give the task to** another agent. | Another of your agents can read the websites you name. Press the button: that agent gets the same task. See [When an agent needs something first](/use/agent-needs-something/). |
+| "No agent on this box can read websites ..." under the answer. | No installed agent can read the websites a person names. An administrator presses **Open in Store** (or **Open the Store**) and installs one; a member asks the administrator with the button. See [When an agent needs something first](/use/agent-needs-something/). |
 | "... needs permission to read websites you name." under the answer. | An administrator presses **Allow for** the agent (only this agent gets it), then runs the task again. A member presses **Ask the administrator**. |
 | "... cannot read websites you name, so it did not open ..." | This version of the agent cannot read the websites a person names. The administrator updates the agent or installs one that can; a member asks the administrator. |
 | "Your company rules do not allow ... to read the websites a person names in a task yet" | An administrator presses **Allow for** the agent (only this agent gets it), or changes the company rules in **Settings** › **Advanced** › **Agent rules**. A member asks the administrator with **Ask the administrator**. Then run the task again. |

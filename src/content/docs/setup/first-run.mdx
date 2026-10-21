@@ -1,84 +1,164 @@
 ---
-title: 'Step 2: First run'
-description: Create the administrator account on a new box, activate the box or choose your own AI key, or restore a backup instead.
+title: 'Step 2: Set up your box'
+description: The guided first setup in five steps, from your account to a first answer from Truchsess, the agent included in your box.
 ---
 import NotYet from '~/components/NotYet.astro';
 
+A new box guides you through its first setup in five short steps: your company and your account, the activation, your recovery sheet, a first question to Truchsess and your team. Each step is one page with "Step 1 of 5" to "Step 5 of 5" at the top and one thing to do. The pages work on a phone too.
+
+Nothing in the setup costs money. The setup buys nothing in the store, connects no mailbox or calendar and installs no agent. The only AI it uses is Truchsess's answer in step 4, paid from the starter credit that comes with the box.
+
+The box remembers where you are. If you reload the page or the box restarts, the setup comes back at the same step.
+
 ## Who can do this
 
-The administrator, once, on a new box, in the office.
+The person who will be the administrator of the box, once, on a new box. Do the setup on the office network, at the box's own address, not on the remote address.
 
 ## What you need
 
-- The box is installed. See [Unbox and connect](/setup/unbox-and-connect/).
-- The **CEO bootstrap code** from the end of the installation. The first page calls it **Code from the installer**.
+- The box, connected to your office network and switched on. See [Unbox and connect](/setup/unbox-and-connect/).
+- The card that came with the box. It has the box's address, a QR code and your code, which starts with `TRS-`. You type the code once.
+- A computer or a phone with a web browser, on the same office network as the box.
+- Your company's name, your name and your work e-mail address.
 - A password for yourself: at least 12 characters, with upper-case and lower-case letters and a number.
-- One of these for the AI:
-  - the **activation code** from the card in the box (it starts with `TRS-`), or
-  - your own AI provider key. See [AI providers](/setup/ai-providers/).
+- A printer, or a safe place for a file that is not the box (a password manager, or a USB stick you lock away). You need it for the recovery sheet in step 3.
+- If you want to add colleagues now: their names and work e-mail addresses. You can also add them later.
+- About 20 minutes, as the card says. The five steps take about ten minutes; for the rest you wait while the box gets the newest software.
 
-The bootstrap code and the activation code are two different codes. The bootstrap code proves that you are at the box. The activation code belongs to your purchase.
+A box installed from the USB stick has no card. It asks for the code the installer showed at its end (**Code from the installer**), and for the activation code separately in step 2.
 
 ## Steps
 
-### Create the administrator
+### Open the box
 
-1. Open **https://truchsess.local/** in your browser.
-2. The page **Welcome to your Truchsess box** opens. Press **Set up a new box**.
-3. The page **Your company and your account** opens. Enter your **Company name**.
-4. Enter your name under **Your name**.
-5. Enter your e-mail address under **Work email**. You sign in with it.
-6. Enter your **Password**.
-7. Enter the bootstrap code under **Code from the installer**.
-8. Check the **Time zone**. Press **Change** if it is not yours.
-9. Press **Create account**.
+1. Open the address on the card in your browser, or scan the QR code on the card with your phone. The box's screen shows the same address.
+2. Accept the browser's warning about the certificate. See [Check the certificate](/setup/unbox-and-connect/#check-the-certificate).
+3. The page **Welcome to your Truchsess box** opens: "You set it up in five short steps, in about ten minutes. Nothing in the setup costs money."
+4. Press **Set up a new box**.
+
+Moving the data of an old box onto this one? Press **I am moving from another Truchsess box** instead. See [Move to a new box](/setup/backup/#move-to-a-new-box).
+
+### Your company and your account
+
+"Step 1 of 5". This account looks after the box: the people, the agents, the costs and everything that happens on it.
+
+1. Enter your **Company name**.
+2. Enter your name under **Your name**.
+3. Enter your e-mail address under **Work email**. You sign in with it.
+4. Enter your **Password**.
+5. Enter the code from the card under **Code from the card**: "It is on the card that came with the box. It also activates the box, so you type it only once." On a box installed from the USB stick, the field is **Code from the installer**.
+6. Check the line **Time zone**. It shows your browser's time zone. If it is not yours, press **Change** and choose it from the list.
+7. Press **Create account**.
+
+Under the button the page shows the box's own address: "This box's own address: ... It stays the same when more boxes join the network." Bookmark that address. If the name does not open on a computer, the line also gives the address in numbers.
+
+The time zone becomes your company's time zone and the box's clock. The nightly safety copy, the update checks and the routines of your agents run on that time. You can change it later under **Settings** › **Your company**, **Time zone**.
 
 ### Activate this box
 
-The page **Activate this box** opens right after it: "Enter the activation code from the card in the box. It enrols the box in the store and sets up the AI, with a starter credit, so you can start right away. The AI only uses providers that never keep or train on your data."
+"Step 2 of 5". With the code from the card there is nothing to do: the box activates itself. The page says "The box activates itself with the code from the card: it enrols in the store and sets up the AI, with a starter credit, so you can start right away. The AI only uses providers that never keep or train on your data."
 
-1. Enter the code under **Activation code**.
-2. Press **Activate**.
-3. Follow the steps on the page: "Enrol this box in the store", "Store the AI key", "Set up the managed AI (never kept, never trained on)", "Set the starter credit", "Test the AI".
-4. When the page says "AI is ready.", press **Continue**.
-5. The first setup goes on with the next steps on the screen.
+1. Wait while the page ticks off its steps: "Enrol this box in the store", "Store the AI key", "Set up the managed AI (never kept, never trained on)", "Set the starter credit", "Test the AI".
+2. The page says "AI is ready." and opens **The newest software** by itself.
+3. The page says "Truchsess, the agent included in your box, is on, with ... of AI credit included." The amount is the starter credit your code carries.
+4. Wait while the box looks for newer software ("Looking for newer software at the store…") and installs it: "Getting the newest software, about ... minutes. The box restarts its programs once; this page goes on by itself." You may close the page meanwhile; the box goes on without it.
+5. When the page says "Done. Your box has the newest software." or "Your box already has the newest software.", the next step opens by itself.
 
-The box now uses the managed AI with a one-time starter credit of CHF 50. See [Budget](/admin/budget/).
+On a box installed from the USB stick, the page **Activate this box** asks for the code: enter it under **Activation code** and press **Activate**. Then the same steps follow.
 
-Instead of activating:
+While the page waits for a code, or after a step failed, it offers two links instead:
 
-- **Use my own AI key instead** opens the page **Choose the appliance AI**. Continue with [AI providers](/setup/ai-providers/).
-- **Activate later** opens the portal without AI. The page says "The AI is not set up yet." Activate later under **Settings** › **Advanced** › **AI**, panel **AI of this box**, or choose your own key there in the panel **Own AI key** with **Change AI provider**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**. Until then, nobody can give an agent a task.
+- **Use my own AI key instead** opens the page **Choose the appliance AI**. See [AI providers](/setup/ai-providers/). After you save your key, the setup goes on with step 3.
+- **Activate later** goes on with step 3 without the AI. Truchsess then cannot answer in step 4. Activate later under **Settings** › **Advanced** › **AI**, panel **AI of this box**, **Switch to managed AI with an activation code**, or choose your own key there in the panel **Own AI key** with **Change AI provider**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
 
-<NotYet>
-The store's activation service may not answer for your box yet. If **Activate** stops with "The store does not know this activation code. Check the code on the card and press Try again." although the code is right, or the store cannot be reached, choose **Use my own AI key instead**, or **Activate later**. Ask support for an activation that works.
-</NotYet>
+### Your recovery sheet
+
+"Step 3 of 5". "If the box ever breaks, this sheet brings your company's data back onto a new box." Only you have it, the publisher does not.
+
+1. Press **Print or save your recovery sheet**. Your browser's print window opens with the sheet. Print it, or save it as a PDF.
+2. Or press **Save it as a file instead**. The browser saves the file `truchsess-recovery-sheet.txt`.
+3. The box starts its first safety copy by itself: "Making the first safety copy…", then "The first safety copy is made."
+4. Put the sheet somewhere safe, away from the box.
+5. Tick **I have kept my recovery sheet**.
+6. Press **Continue**.
+
+**Continue** works only when the sheet was printed or saved and the tick is set. You can go on before the first safety copy is finished.
+
+The sheet has your company's name, your recovery key on one line, three steps to bring the data back and the date. The file holds the same words and the key on a line of its own. What the sheet is for and how to use it: see [Backup](/setup/backup/).
+
+### Meet Truchsess
+
+"Step 4 of 5". Truchsess is the agent included in your box. It answers everyone in your company about the box, and helps you choose the agents that do the work.
+
+1. Press one of the example questions: "What can you do for my company?", "How do I add a colleague?" or "Which agent helps with mail?". Or type your own question under **Ask Truchsess something** and press **Ask**.
+2. Wait for the answer: "Truchsess is looking this up…".
+3. Ask more if you like.
+4. Press **Continue**.
+
+**Continue** also works without an answer. See [Truchsess, included in your box](/agents/truchsess/).
+
+### Your team
+
+"Step 5 of 5". This step is optional. Each colleague you add gets a one-time password to sign in with.
+
+1. Enter a colleague's **Name** and **Work email**. The page has two rows; press **Add one more** for another row.
+2. Press **Add colleagues**. If you do not want to add anyone now, press **Skip for now** and go on with step 5 below.
+3. The page lists each colleague with their one-time password: "Give each colleague their one-time password. They choose their own the first time they sign in." Give each password to its colleague. The page shows them only now.
+4. Press **Continue**.
+
+You can add more people later under **Settings** › **People**. See [People](/admin/users/).
+
+### Your box is ready
+
+1. The page says "Your box is ready." and "Truchsess is included and works for your team."
+2. Press **Add your first agent**. The **Store** opens on the page **Agents**, with each agent's price. See [First agent](/setup/first-agent/).
 
 ## What you see afterwards
 
-- You are signed in. Your initials show in the picture at the top right. It opens **Your account**.
-- When the first setup is done, the portal opens on **Home**.
-- The bootstrap code is used up. It cannot create a second account.
+- You are signed in. Your initials show in the picture at the top right; it opens **Your account**.
+- From now on the portal opens on **Home** after sign-in. Truchsess is the first card under **Your agents**.
+- The code from the card is used up. It cannot create a second account.
+- The box uses the managed AI with its starter credit. See [Budget](/admin/budget/#the-starter-credit).
+- **Settings** › **Safety copies** says "Recovery sheet made ..." with the date and who made it. Every night at 03:30 the box makes a safety copy.
+- The colleagues you added are in **Settings** › **People**.
+
+The next steps of this guide cover what the setup does not do: an AI key of your own, the budget, connections, agents and remote access. Skip the steps the setup already did.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| The address on the card does not open. | Use the address in numbers from the box's screen, with `https://`. See [Unbox and connect](/setup/unbox-and-connect/#if-it-does-not-work). |
+| "This is not the code on the card that came with this box. Check it and try again." | Check the code on the card and type it again. No account was made, and the code was not used up. |
+| "The code is missing or wrong. It was shown at the end of the installation." | A box installed from the USB stick: enter the code the installer showed. If you lost it, ask support. As long as no account exists, support can show it again on the box. |
+| "Too many wrong codes. Please wait 15 minutes and try again." | Wait 15 minutes, then type the code again. |
+| A step of the activation failed, with one sentence and **Try again**. | Do what the sentence says, then press **Try again**. It goes on at the step that failed. |
+| "The store could not be reached. Check that the box is connected to the internet, then press Try again. The code was not used." | Check that the box's network cable goes to a router with internet. Then press **Try again**. |
+| "The store does not know this activation code. Check the code on the card and press Try again." | Check the code and press **Try again**. |
+| "This code was already used. If nobody here used it, contact support." | Contact support. Meanwhile you can press **Use my own AI key instead** or **Activate later**. |
+| "The box is connected to the store, but this code carries no AI. Use your own AI key instead, or contact support." | Press **Use my own AI key instead**, or contact support. |
+| "Portal restarting, reconnecting…" | Wait. The box restarts its programs while it installs the newest software, and the page goes on by itself. |
+| "The box has not answered for 15 minutes. Wait a little longer, then reload the page." | Wait a few minutes more, then reload. The setup comes back at its step. |
+| The newest software failed: "... Your box works with the software it has. You can install the newest software later under Settings, Updates." | Press **Continue**. Install the newest software later under **Settings** › **Updates**. See [Updates](/admin/updates/). |
+| You closed the print window without printing. | Press **Print or save your recovery sheet** again. It prints the same sheet. |
+| "The first safety copy did not work now. The box makes one every night." | Press **Continue**. The box makes a copy at night; you can also press **Back up now** under **Settings** › **Safety copies**. |
+| "This box has safety copies already; its recovery sheet is under Settings, Safety copies." | You reloaded the page after the first copy was made. The sheet you printed or saved is the right one: tick **I have kept my recovery sheet** and press **Continue**. |
+| "Truchsess cannot answer right now. You can go on and ask again later in Chat." | Press **Continue**. Ask again later in **Chat**. The AI may not be set up yet (**Activate later**), or the starter credit is used up. |
+| "Enter a name and an e-mail address for each colleague." | Fill in both fields of each row, or empty the row. |
+| "Another Truchsess box on this network already answers on ..." | Use this box's own address that the line names, and bookmark it. |
+| "This address now opens another Truchsess box. Nothing was sent to it." | Open your box at the address the page shows. |
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Create account** | Creates the one administrator account of the box. | A new box for a new start. | No. The account cannot be removed or replaced in the portal. |
-| **I am moving from another Truchsess box** (on the first page) | Opens **Restore from a backup**. Brings back the people, agents, tasks and settings of another box from a backup file. You sign in with the accounts from the backup. | You move to a new box, or you replace a broken box. See [Backup and restore](/admin/backup-and-restore/#restore-on-a-new-box). | No, once started. |
-| **Activate** | Enrols the box in the store and sets up the managed AI with a starter credit. | You have the activation code. | Yes: switch to your own key at any time with **Change AI provider**. |
+| **Set up a new box** | Starts the five steps. | A new start. | No. The account cannot be removed or replaced in the portal. |
+| **I am moving from another Truchsess box** | Opens **Restore from a backup**: the people, agents, tasks and settings of another box come back from a safety copy and its recovery sheet. You sign in with the accounts from the copy. | You move to a new box, or you replace a broken one. See [Move to a new box](/setup/backup/#move-to-a-new-box). | No, once started. |
+| **Change** (time zone) | Lists the time zones to choose from. | Your browser's zone is not your company's. | Yes, under **Settings** › **Your company**. |
 | **Use my own AI key instead** | Opens the provider page. | Your company has its own AI provider account. | Yes: activate later under **Settings** › **Advanced** › **AI**, panel **AI of this box**. |
-| **Activate later** | Opens the portal without AI. | You want to look around first. | Yes. |
-
-## If it does not work
-
-- "The code is missing or wrong. It was shown at the end of the installation.": check the code. Letters are upper-case. The letters O and I and the numbers 0 and 1 are never used.
-- "Too many wrong codes. Please wait 15 minutes and try again.": wait 15 minutes.
-- Lost the bootstrap code: ask support. As long as no account exists, support can print it again on the box's console (screen and keyboard).
-- A step of **Activate** failed: the page says why in one sentence. Fix it and press **Try again**; it continues at that step.
-- "This code was already used. If nobody here used it, contact support.": ask support.
-- "The store does not know this activation code. Check the code on the card and press Try again.": check the code.
-- "The store could not be reached. Check that the box is connected to the internet, then press Try again. The code was not used.": check the box's internet connection.
+| **Activate later** | The setup goes on without the AI. | You want to activate later. | Yes. |
+| **Print or save your recovery sheet** or **Save it as a file instead** | Makes your recovery key and gives it to you on paper or as a file. | Paper for a safe, a file for a password manager. Both work for a restore. | You can make a new sheet later under **Settings** › **Safety copies**. |
+| **Add colleagues** or **Skip for now** | Adds colleagues with one-time passwords, or goes on without them. | Add them now if they start right away. | Yes: add or remove people under **Settings** › **People**. |
 
 <NotYet>
 You cannot change the administrator's e-mail address in the portal. Keep the password in a password manager. A forgotten administrator password is reset on the box itself, not in the portal: see [Administrator password](/admin/administrator-password/).
@@ -86,6 +166,8 @@ You cannot change the administrator's e-mail address in the portal. Keep the pas
 
 ## Related pages
 
-- Next step: [AI providers](/setup/ai-providers/)
+- Next step, only if you use your own AI key: [AI providers](/setup/ai-providers/)
+- [Truchsess, included in your box](/agents/truchsess/)
+- [Backup](/setup/backup/)
 - [Roles](/start/roles/)
 - [Budget](/admin/budget/)

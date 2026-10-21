@@ -4,6 +4,8 @@ description: Give work to an installed agent in Chat.
 ---
 import NotYet from '~/components/NotYet.astro';
 
+You give an agent work by writing a message in **Chat**. Each message is one task.
+
 ## Who can do this
 
 Administrators and members.
@@ -19,18 +21,38 @@ Administrators and members.
 2. Choose the agent under **Agent**. You can also open **Agents**: click an agent's name under **Your agents**, or click its card and press **Start a chat**.
 3. Optional: press the link "... permissions · show" (for example "13 permissions · show") next to the agent's name to see what it may do.
 4. Click into the message box and describe the work in plain words.
-5. Put links (web pages, files on GitHub) directly into the text.
+5. Put links (web pages, files on GitHub) directly into the text. To have the agent read a website, name it in the text, for example `www.example.com`: see [Let an agent read a website](/use/websites/).
 6. Optional: press **Attach** to add text files, or drop them on the message box.
 7. Press **Send**, or press Enter. (Shift+Enter starts a new line.)
 
 On a phone, or to speak your task instead of typing it with **Hold to talk**, see [Use it on your phone](/use/phone-and-voice/).
 
+## Tips for good tasks
+
+- Say what you want as a result: a list, a pull request, a one-page summary.
+- Say where: the repository, the product, or the website.
+- One task per message. A new message is a new run.
+- Never paste a password or a key. The box refuses it: "This looks like a key or password. It was not sent to the AI." Ask your administrator to store it under **Settings** › **Advanced** › **Connections** (the link **Advanced (for experts)** at the bottom of **Settings**).
+
 ## What you see afterwards
 
+- The message box empties when you press **Send**: your text has left for the box.
 - A card appears for your task. This is one [run](/start/glossary/#run).
 - The card shows the state, for example "Created, waiting for the agent" or "Running", and the time it has been running.
 - When the agent is done, the card shows its reply, a result file if there is one, and the files it made.
+- When the agent read websites, the card lists them under **Pages read**, and you can download the result as a report.
 - Continue with [Follow a run](/use/follow-a-run/).
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| Your text is back in the message box with a reason under it. | The task could not be sent. Nothing is lost: read the reason, then press **Send** again. |
+| "This agent is not ready yet. Your admin needs to connect ... under Settings > Advanced > Connections." | The agent needs a connection. Ask your administrator. |
+| The task shows **Needs something** with one line and one button, for example for your mailbox. | Press the button. See [When an agent needs something first](/use/agent-needs-something/). |
+| A red budget banner. | The monthly budget is used up. New tasks start again in the next period or when the budget is raised. Ask your administrator. |
+| The **Send** button is greyed out and a note names the data rule. | The agent's model does not meet the box's data rule. Ask your administrator. |
+| The card says the agent could not open a website. | See [Let an agent read a website](/use/websites/#if-it-does-not-work). |
 
 ## Your choices
 
@@ -41,19 +63,6 @@ On a phone, or to speak your task instead of typing it with **Hold to talk**, se
 | **Send** | Starts the run. | | You can cancel the run, but what the agent already did stays. |
 | **New conversation** | Reloads the agent's run list. It deletes nothing. | When the list looks old. | n/a |
 
-## Tips for good tasks
-
-- Say what you want as a result: a list, a pull request, a one-page summary.
-- Say where: the repository, the product, or the web page.
-- One task per message. A new message is a new run.
-- Never paste a password or a key. The box refuses it: "This looks like a key or password. It was not sent to the AI." Ask your administrator to store it under **Settings** › **Advanced** › **Connections** (the link **Advanced (for experts)** at the bottom of **Settings**).
-
-## If the task does not start
-
-- "This agent is not ready yet. Your admin needs to connect ... under Settings > Advanced > Connections.": the agent needs a connection. Ask your administrator. An agent that needs something from you, for example your mailbox, says so with one button: see [When an agent needs something first](/use/agent-needs-something/).
-- A red budget banner: the monthly budget is used up. New tasks start again in the next period or when the budget is raised. Ask your administrator.
-- The **Send** button is greyed out and a note names the data rule: the agent's model does not meet the box's data rule. Ask your administrator.
-
 <NotYet>
 You cannot attach images, PDFs or office documents. Put a link in the message, or paste the text. A message can have up to 12,000 characters.
 </NotYet>
@@ -61,6 +70,8 @@ You cannot attach images, PDFs or office documents. Put a link in the message, o
 ## Related pages
 
 - [Follow a run](/use/follow-a-run/)
+- [Let an agent read a website](/use/websites/)
+- [When an agent needs something first](/use/agent-needs-something/)
 - [Use it on your phone](/use/phone-and-voice/)
 - [Approvals and checks](/use/approvals-and-checks/)
 - [The agents in the store](/agents/)

@@ -53,6 +53,8 @@ Checks and improves how one website is found, described, cited and recommended b
 
 **Hand-offs:** during a task it may hand part of the work to these agents, if they are installed: Website Owner, Ivy. The other agent works with its own permissions only. In **Owner policy**, allow **Hand work to one other installed agent** with the package id of each one, for example `faivr.agent.website-owner`. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
 
+**Improvements for your website:** when Gideon finds improvements for your website and Website care is installed for the same website, it hands them to Website care. They always wait for an administrator first, on a card with one tick box per change: see [Send website changes to Website care](/use/websites/#send-website-changes-to-website-care-administrators). The pull request then appears on Gideon's run card. Gideon never hands work over for another website.
+
 **Default autonomy levels**
 
 Shown and changed in **Settings** › **Advanced** › **Agent rules**, panel **Autonomy levels**. It has no protected actions, so it never asks for an approval unless you raise a level to "Asks you first".
@@ -79,8 +81,11 @@ Gideon checks exactly the website you entered at install. The box blocks every o
 
 To check another website, change the answer: **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**, Gideon's install, **Change**, then enter the other website and press **Save and apply**. One install checks one website at a time.
 
-<Aside type="caution" title='Known issue'>
-If you ask Gideon about a website other than the one it was installed for, it writes a misleading report that says the site is unreachable. The site is fine: the box blocked it. Until an update fixes this, ask only about the installed website.
+If you ask Gideon about another website, the box does not let it open that website. The website is fine. The run card says why in one sentence, for example "... may reach only the websites it is set up for. This is a rule of this box, not a fault of the websites."
+When the task has ended, one line under the answer names an agent on your box that can read the websites you name, or a Store function that has one, with one button. See [When an agent needs something first](/use/agent-needs-something/).
+
+<Aside type="note" title='A version that reads the websites you name'>
+When the version of Gideon on your box can read the websites a person names, its list of what it may do has the line "Read the websites a person names in a task (only those, only for that task)". It then reads any website you name in a task, for that task only, and asks for no fixed website at install. You list your own websites under **Your websites** instead. See [Let an agent read a website](/use/websites/).
 </Aside>
 
 ## Example tasks
@@ -99,4 +104,6 @@ A second copy of a store agent: when the store sells copies, the agent's setting
 
 - [All agents](/agents/)
 - [First agent](/setup/first-agent/)
+- [Let an agent read a website](/use/websites/)
+- [Website care](/agents/website-care/)
 - [Autonomy levels](/admin/autonomy-levels/)

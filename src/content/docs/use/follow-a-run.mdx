@@ -56,7 +56,8 @@ The full list of every run is for experts: **Settings** › **Advanced** › **A
 - A finished run shows "Finished", the agent's reply, the result and its files.
 - The card shows the run's [autonomy level](/admin/autonomy-levels/) as a colored label, and notices as "Told you after: ...".
 - A cancelled run shows "Cancelled" with the reason.
-- A failed run shows "Failed:" and the reason in the box's own words. When it failed without a result, "The agent's last message" shows what the agent said last, as plain text without links.
+- A failed run shows "Failed:" and the reason in the box's own words.
+  When it failed without a result, "The agent's last message" shows what the agent said last, as plain text without links.
 - When the agent could not open a website, the card says why in one sentence: the agent cannot read websites you name, your company rules do not allow it yet, or the website is not one the agent is set up for. An administrator sees where to change it; a member sees whom to ask. See [Let an agent read a website](/use/websites/#if-it-does-not-work).
 - A task that read websites shows **Pages read** and the screenshots the agent took. A finished run offers "Download the report:" with **PDF**, **Markdown** and **HTML**. See [Let an agent read a website](/use/websites/).
 
@@ -79,7 +80,7 @@ The full list of every run is for experts: **Settings** › **Advanced** › **A
 
 An agent that the administrator allowed to "Hand work to one other installed agent" can give part of a task to that other agent while it works, and use the answer in its own reply. The other agent works with its own permissions only, never those of the agent that asked.
 
-- The card of a task that handed work over shows the chain of agents at the top of a block, for example "Gideon → Website Owner", with the note "... handed parts of the task to these agents; the answer below is ...'s."
+- The card of a task that handed work over shows the chain of agents at the top of a block (for example Gideon → Website Owner), with the note "... handed parts of the task to these agents; the answer below is ...'s."
 - Under it, one line per handed-over task: "Handed to ..." with the agent's name (a link to its card), the website it works on, the pull request it opened ("→ pull request" with the link), its state and its cost. The line "Cost with the handed-over tasks" shows the total.
 - The card of a handed-over task says "Started by ...'s run", with a link back, and the website it works on for that run.
 - A website agent such as Website care takes work only for its own website. An agent with a website of its own hands over work for that website only; an agent without one names the website. When Website care is installed twice for one website, the agent asks you which one should take the work: answer its question.
@@ -91,7 +92,11 @@ An agent that the administrator allowed to "Hand work to one other installed age
 
 An agent step may take up to 10 minutes, or 30 minutes for an agent that uses a web browser. If a step takes longer, the box tries once more, then the run fails.
 
-The cost line shows the cost, with "so far" while the run is going. With the managed AI it is the cost the provider reported. With your own AI key, when the provider reports no cost, "(estimated)" means the box estimated it from the provider's public price list ("(partly estimated)": for some of the agent's steps). "price unknown" means neither is known; the box never shows 0.00 instead.
+The cost line shows the cost, with "so far" while the run is going.
+With the managed AI it is the cost the provider reported.
+With your own AI key, when the provider reports no cost, "(estimated)" means the box estimated it from the provider's public price list.
+"(partly estimated)" means this for some of the agent's steps.
+"price unknown" means neither is known; the box never shows 0.00 instead.
 
 ## Your choices
 

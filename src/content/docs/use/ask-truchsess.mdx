@@ -1,0 +1,109 @@
+---
+title: Ask Truchsess
+description: Ask about this box in your own words, on every page. Truchsess names the page and the button, and you decide.
+---
+import NotYet from '~/components/NotYet.astro';
+
+**Ask Truchsess** is the help on every page of the portal. Ask in your own words what a setting does and where it is, why an agent cannot do something, which address to use, or why a task failed. Truchsess answers from the manual of this release, the box's own pages and settings, and what the box knows about itself. It names the exact page and button, and each place it names is a link that takes you there. It changes nothing itself: you decide and press the button.
+
+Ask Truchsess is for questions about the box. Work for an agent goes in **Chat**: see [Start a task](/use/start-a-task/).
+
+## Who can do this
+
+- Everyone: administrators and members.
+- A member gets answers about their own tasks, connections and agents. For company settings, keys and codes, the budget, the audit or other people's tasks, Truchsess says "Ask your administrator" and gives you a text to copy.
+- Only the administrator can switch the AI of the help off or on. See [Switch the AI off or on](#switch-the-ai-off-or-on).
+
+## What you need
+
+- You are signed in to the portal.
+- For answers with AI: the box's AI is set up. Without it, Truchsess searches the manual and the settings on the box instead.
+
+## Steps
+
+### Ask a question
+
+1. Press **Ask Truchsess**, the question mark in the left menu (button title "Ask Truchsess about this box"). On a phone it is the round question-mark icon in the bar at the top.
+2. The panel "Truchsess · Help" opens, with the line "For questions about this box. Work for agents goes in Chat." On a wide screen it opens beside the page; on a phone it fills the screen.
+3. Type your question in the field at the bottom, in German or English. For example: *Where do I change the monthly limit?*, *What may Gideon do?* or *Woran arbeitet Penn gerade?*
+4. Press **Ask**, or press Enter.
+5. Read the answer. To go to a place it names, press the place.
+6. Do the step there yourself.
+
+The panel always says which page you are on. Truchsess uses it to understand your question.
+
+### Ask about one task
+
+1. In **Chat**, press the run card of the task. The panel shows that your question is about this task.
+2. Ask, for example: *Why did this stop?*
+3. To ask about something else again, press "Not about this run".
+
+On **Home**, under **Your agents**, an agent whose last task failed has the button **Ask Truchsess why**. It opens the panel with the question already written for you. Press **Ask**.
+
+### Clear the conversation
+
+The box keeps your conversation with Truchsess, only for you. It stays when you change the page or come back another day.
+
+1. Open **Ask Truchsess**.
+2. Press "Clear the conversation". Your questions and the answers are deleted.
+
+### Switch the AI off or on
+
+For the administrator.
+
+1. Open **Settings** and press **Advanced (for experts)** at the bottom.
+2. Go to **Box**, panel **Ask Truchsess**.
+3. Tick or untick "Ask Truchsess answers with AI".
+
+On, the panel says "On: everyone can ask Truchsess; a member only about their own runs, connections and agents." Off, it says "Off: Ask Truchsess searches the manual and the settings only, without AI, and costs nothing."
+
+## What you see afterwards
+
+- The answer is in the language of your question. Page and button names stay as the portal writes them.
+- Each place the answer names is a link. A member only gets links to pages a member can open; other places are plain text.
+- An address of the manual opens the manual in a new tab.
+- If you ask for a setting that does not exist, Truchsess says so and names the nearest real one.
+- If it finds no exact answer, it says "These places may help:" and names the three places most likely to help, then the support address: "For anything else, ... can help."
+- An answer found without AI ends with "Found on the box without AI." It lists the closest places and pages of the manual.
+- With the AI switched off, the panel says "Truchsess is switched off on this box: your question searches the manual and the settings, without AI." The button reads **Search** instead of **Ask**.
+- Each answer with AI counts in the budget as "Truchsess". The administrator sees it under **Settings** › **Advanced** › **AI**, panel **Costs in detail**, table **Per agent this period**: the row "Truchsess" counts questions, with one line per person who asked. See [Budget](/admin/budget/).
+
+Never type a key, a password or a code into the help. Truchsess does not send it and does not keep it. It answers "This looks like ... Truchsess never needs it, so it was not sent and not kept." and names the place where it belongs.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "Write a question first." | Type a question, then press **Ask**. |
+| "This looks like ... Truchsess never needs it, so it was not sent and not kept." | Remove the key, password or code from your question. Type it only in the place the answer names. |
+| "Ask your administrator" with a text to copy | The question is about something only the administrator manages. Copy the text and send it to your administrator. |
+| "I could not find an exact answer in this box's sources." | Try the places it lists, or ask in other words. For anything else write to support@truchsess.com. |
+| "The AI of this box is not set up yet, so Truchsess answers from the manual only." | The administrator sets up the AI: see [AI providers](/setup/ai-providers/). Until then the answer comes from the manual and the settings. |
+| "Truchsess answers with an OpenRouter key, and this box has none, so it answers from the manual only." | The answer comes from the manual and the settings. Read the places it names. |
+| "No provider of the Standard lane meets the company's data rule ... so Truchsess answers from the manual only." | The administrator checks the data rule under **Settings** › **Advanced** › **Agent rules**, or the Standard lane under **Settings** › **Advanced** › **AI**. See [AI providers and lanes](/admin/ai-providers-and-lanes/). |
+| "... Truchsess answers from the manual only until then." | The AI budget for this period is used up. The administrator raises the limit: see [Budget](/admin/budget/). |
+| "The AI did not answer just now, so here is what the manual and the settings map say. Try again in a moment." | Wait a moment and ask again. |
+| "The administrator has switched Truchsess off on this box, so here is what the manual and the settings map say." | The AI of the help is off. Read the places and pages it lists, or ask your administrator. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Ask** | Truchsess answers your question with AI, from the box's own sources. | Any question about the box. | n/a |
+| **Search** (AI off) | Searches the manual and the settings on the box, without AI and without cost. | When the AI is switched off. | n/a |
+| "Not about this run" | The next question is no longer about the task you selected. | You want to ask about something else. | Press the task again. |
+| "Clear the conversation" | Deletes your questions and the answers. | You want to start fresh. | No. |
+| "Ask Truchsess answers with AI" (administrator) | Switches the AI of the help on or off for everyone. | Off: to save costs, or if no AI may be used. | Yes: tick it again. |
+
+<NotYet>
+Truchsess does not change anything on the box for you. It names the page and the button; open the place it names and press the button yourself.
+</NotYet>
+
+## Related pages
+
+- [Your first day as a member](/start/member/)
+- [Start a task](/use/start-a-task/)
+- [Follow a run](/use/follow-a-run/)
+- [Budget](/admin/budget/)
+- [Report a problem](/use/report-a-problem/)
+- [Troubleshooting](/troubleshooting/)
