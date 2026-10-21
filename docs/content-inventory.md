@@ -461,7 +461,8 @@ Closed in the checked release (they no longer appear on `/not-yet/`): G1 (reset 
 password), G2 (remove, disable or rename a user, change an e-mail), G4 (change your own password).
 Closed in docs part 7a (release Truchsess 2026.10.21-84a4137): G5 (who may use an agent is set on
 its card, #141), G19 (store installs update, #85 and #134), G22 (updates at night, #149). Added in
-part 7a: G37 to G40 (mail and calendars).
+part 7a: G37 to G40 (mail and calendars). Closed in docs part 7b: G34 and G35 (the box activates
+with the code from the card and gets its starter credit in the guided first setup, #143 and #147).
 
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
@@ -489,8 +490,6 @@ part 7a: G37 to G40 (mail and calendars).
 | G31 | The box | Show the certificate fingerprint on the very first screen. | Read it on the box's console (screen and keyboard) after the automatic login. | Support. |
 | G32 | Approvals and autonomy | A different autonomy level for one install of a package. | A level applies to every install of the package. Install a separate package if you need different levels. | Administrator. |
 | G33 | Approvals and autonomy | Approve a repository comment, issue or push before it happens. | Repository actions can be raised to "Waits for your check" only. To approve each change, remove the repository permission and ask the agent to describe the change in its answer. | Administrator. |
-| G34 | Activation and AI | Activate the box with the activation code from the card (it would enrol the box and deliver the managed AI). | The store's activation service may not answer for your box yet. Choose "Use my own AI key instead" at the first run, or later "Change AI provider" under Settings › Advanced › AI. | Support. |
-| G35 | Activation and AI | The one-time starter credit of CHF 50. | It comes only with an activation. With your own key, set your own monthly limit under Settings › Plan and costs. | Support. |
 | G36 | Tasks | Speech recognition by the phone itself (Apple or Google). | Use "Hold to talk": the box turns speech into text, and the audio stays on the box. | Administrator. |
 | G37 | Mail and calendars | "Connect with Microsoft": Microsoft 365, Outlook.com and Hotmail mailboxes and Microsoft 365 calendars. | Coming soon. Use a mailbox at the company's own mail server or Gmail over IMAP. For Microsoft 365, ask support. | Support. |
 | G38 | Mail and calendars | Proton Mail or Tuta mail. | Not possible: their mail is end-to-end encrypted. Use another mailbox. | Support. |
