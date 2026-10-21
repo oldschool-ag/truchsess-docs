@@ -1,0 +1,134 @@
+---
+title: Company mail (Penn)
+description: What Penn does with your mail, what it needs before it starts, what it may do, the new-mail check on a schedule, and what it costs.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Penn is the agent of the store function Company mail. Penn reads your mail and writes drafts for you. Penn never sends: you read each draft and send it yourself.
+
+Penn's package comes from the store. The exact permissions of your Penn are on its card: open **Agents**, click Penn's card and read "What ... may do". Penn's price per month is on its card in **Agents** › **Store**.
+
+## What it is for
+
+- **Reads your mail.** Your company mailboxes and, if you connected one, your private mailbox. With several company mailboxes you still have one Penn: it works on all of them as one inbox. Penn reads mail only for a task you give it, or for the new-mail check you switched on.
+- **Writes drafts.** A reply goes into the Drafts folder of the mailbox the mail came to, with the signature for that mailbox's domain. For a new mail Penn asks you once which mailbox to use. A draft in your private mailbox gets no company signature.
+- **Never sends, deletes, moves or marks mail.** "Read your mail and write drafts. Agents never send, delete, move or mark mail; reading leaves it unread."
+- **Checks new mail on a schedule**, when you switch it on: see [Let Penn check new mail on a schedule](#let-penn-check-new-mail-on-a-schedule).
+- **Puts what it found on Home**, under **Today**, column **Mail**: for example the drafts it wrote, with **Open your Drafts**, or a mail that needs you, with **Open the e-mail**. A mail or a draft of your private mailbox is marked with its address and "private".
+- **Learns how you write.** When you change a draft before you send it, Penn learns from it. You see it in Penn's settings under **How it works with you**.
+- **Follows the company mail standard**, for example the company signature, that the administrator sets.
+
+Only you and the tasks you give can use your mailboxes. An administrator never reads your mail: the run history shows that a task ran, not what Penn read or wrote.
+
+## Who can do this
+
+- **The administrator** subscribes to Company mail in the store, installs Penn, decides **Who may use it** on Penn's card, and sets the company mail standard.
+- **Everyone who has Penn in their agents** gives Penn tasks for their own mail and switches the new-mail check on for themselves.
+- **Only you** can let Penn read your mailbox. Nobody else can say yes for it, and you cannot say yes for a colleague's.
+
+## What you need
+
+- Penn is installed on the box. See [Install a store agent](/admin/store/#install-a-store-agent).
+- Penn is in your own **Your agents** on **Agents**. If not, press **Add this agent** on its card under **More agents on this box**. A member waits for the administrator's **Allow**.
+- The company rules allow reading mail and writing drafts. A new box allows both. The administrator checks it in **Settings** › **Advanced** › **Agent rules**, panel **Owner policy**, family **Company mail**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+- Your mailbox is connected in **Your account** › **Email inbox**. See [Connect your company mailbox](/use/email/) and [Your private mailbox](/use/private-mailbox/).
+- Your own yes, **Let Penn read your mailbox**. Penn asks for it the first time.
+- For the new-mail check: the administrator allows work on a schedule (see [Agents that work on a schedule](/admin/packages/#agents-that-work-on-a-schedule)).
+
+## Steps
+
+### Give Penn its first task
+
+1. Open **Agents** and click Penn's card.
+2. Press **Start a chat**.
+3. If Penn says "Penn cannot read your mailbox yet.", press **Let Penn read your mailbox**. If your mailbox is not connected yet, **Your account** › **Email inbox** opens: connect it there. See [When an agent needs something first](/use/agent-needs-something/).
+4. Write your task, for example *Answer the newest mail from the bakery with a short, friendly draft.*
+5. Press **Send**.
+6. Open your Drafts folder in your mail app, or press **Open your Drafts** on **Home**.
+7. Read the draft, change it if you like, and send it yourself.
+
+If you typed your task before you pressed the button, it waits and runs by itself as soon as Penn can.
+
+### Let Penn check new mail on a schedule
+
+1. Open **Agents** and click Penn's card.
+2. Under **Works on its own**, tick the new-mail check. Its line says when it runs, for example "Check new mail every 15 minutes, Mon to Fri, 07:00 to 19:00".
+3. To change it, press **Change the schedule**, choose how often, the days and the hours, and press **Save the schedule**.
+
+The check runs as you, with your own mailboxes and budget. It never sends mail.
+
+### Set the company mail standard (administrators)
+
+1. Open **Settings** › **Advanced** › **Knowledge**, panel **What Truchsess has learned**.
+2. Type the rule into **Add to the company mail standard**, for example *Every mail ends with the company signature.*
+3. With two or more company mail domains, choose under **For**: **Every company mailbox**, or the mailboxes at one domain.
+4. Press **Add**.
+
+Penn can also learn the company signature from the closing lines of sent mails. See [The signature samples](/admin/company-mail/#the-signature-samples) and [Share your mail signature](/use/home/#share-your-mail-signature).
+
+## What you see afterwards
+
+- **In Chat:** Penn's answer names the drafts it wrote, and the run card says how many, for example "1 draft in your Drafts folder".
+- **On Home:** Penn's items under **Today**, column **Mail**.
+- **On Penn's card:** the last line, for example "Last task finished" with the date and what you asked.
+- **With the new-mail check on:** the line under the switch says what the last check found, for example "Checked 10:15, no new mail". The first check only notes where your inbox stands: "Checked ...: ... looks at the mail that arrives from now on". When new mail arrived, one task starts for all of it (up to 50 mails per check). When you open Penn in **Chat**, one quiet line above the input says what it prepared, for example "Prepared at 10:15: 3 new mails, 1 needs you".
+
+## What it may do
+
+The mail and calendar permissions, as **Settings** › **Advanced** › **Agent rules** shows them. Penn's card lists the ones Penn asks for and the state of each.
+
+| Permission | What it means | Autonomy level |
+| --- | --- | --- |
+| "Read the company mailbox of the person who gives the task" | "It never sends mail." | **Runs on its own**, cannot be raised |
+| "Write drafts in the company mailbox of the person who gives the task (never sends)" | "You read each draft and send it yourself." | **Tells you after**, cannot be raised |
+| "Read the calendars of the person who gives the task (never changes them)" | "It never creates, changes, accepts or declines anything." | **Runs on its own**, cannot be raised |
+| "Put items on Home for the person it works for (tasks, meetings, drafts, reports)" | "The agent can put tasks, meetings, drafts and reports on your Home and ask you one question at a time." | It has no level of its own |
+
+The autonomy levels are set in **Settings** › **Advanced** › **Agent rules**, panel **Autonomy levels**. See [Autonomy levels](/admin/autonomy-levels/).
+
+Penn reads the mail of the person who gives the task, never anyone else's. A task that read your private mailbox puts nothing from it into the company memory, the company lessons or the company signature.
+
+## What it costs
+
+- **The price:** Penn's price per month is on its card in **Agents** › **Store**.
+- **The AI:** each task's AI cost counts toward the box's budget. Administrators see Penn's cost this month on its card.
+- **The new-mail check:** a check that finds no new mail starts no task and costs nothing. The line on Penn's card says what the check cost this month: "This month:" with the amount, the checks and the runs.
+- **Private mailboxes:** **Settings** › **Plan and costs** shows one line for everyone's private mailboxes together, "Private mailboxes: ... this month", included in the box's AI use.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "Penn is not in your agents. Add it on the Agents page; an administrator may need to allow it first." | Press **Add this agent** on Penn's card under **More agents on this box**. |
+| "Penn cannot read your mailbox yet." | Press **Let Penn read your mailbox**. See [When an agent needs something first](/use/agent-needs-something/). |
+| "Penn may not read mailboxes on this box yet. ... decides." | Your company has not allowed reading mail yet. Press the button: it asks your administrator. |
+| "Only the person whose mailbox it is can say yes." | Each person says yes for their own mailbox. |
+| "Your administrator has not allowed agents to work on a schedule." | Ask your administrator to allow it in **Settings** › **Advanced** › **Agent rules**, panel **Agents may work on a schedule**. |
+| "Checked ...: your mailbox did not answer. Open Connections to check it." | Check your mailbox in **Your account** › **Email inbox**. |
+| "Waiting since ...: the budget is used up" | The administrator raises the limit in **Settings** › **Plan and costs**. |
+| "Waiting since ...: the AI provider refused this box's key" | The administrator checks the AI key. See [Plan and costs](/admin/budget/). |
+| The check stopped after 3 failed runs in a row | Fix the reason it names, then press **Turn it on again** on **Home** or on Penn's card. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Let Penn read your mailbox** | Your own yes, and the mailbox connect if needed. | Before Penn's first task with your mail. | Yes: **Disconnect** the mailbox in **Your account** › **Email inbox**. |
+| Tick the new-mail check | Penn checks new mail on its schedule and prepares the work. | You want answers ready before you ask. | Yes: untick it, or **Pause until …**. |
+| **Run now** | Runs the check at once. | You expect a mail now. | Not needed. |
+| **Change the schedule** | How often, which days, which hours. | Your office hours differ. | Yes: change it again. |
+| **Add to the company mail standard** (administrators) | A rule Penn follows in every company mailbox, or in one domain's mailboxes. | For the company signature or a house style. | Yes: delete it in the same panel. |
+
+<NotYet>
+Penn cannot send a mail, delete, move or mark mail, or change a calendar. Send each draft yourself from your mail app. Penn cannot work on a schedule you invent yourself, for example a newsletter every Monday: use the new-mail check, or give Penn the task in **Chat**.
+</NotYet>
+
+## Related pages
+
+- [All agents](/agents/)
+- [Connect your company mailbox](/use/email/)
+- [Your private mailbox](/use/private-mailbox/)
+- [When an agent needs something first](/use/agent-needs-something/)
+- [Home](/use/home/)
+- [Company mail (administrator)](/admin/company-mail/)
+- [Install and manage agents](/admin/packages/)

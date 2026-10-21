@@ -54,7 +54,7 @@ export default defineConfig({
           label: 'Setup (administrator, in order)',
           items: [
             { label: '1. Unbox and connect', slug: 'setup/unbox-and-connect' },
-            { label: '2. First run and activation', slug: 'setup/first-run' },
+            { label: '2. Set up your box', slug: 'setup/first-run' },
             { label: '3. AI providers', slug: 'setup/ai-providers' },
             { label: '4. Budget', slug: 'setup/budget' },
             { label: '5. Members', slug: 'setup/members' },
