@@ -10,7 +10,7 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 
 | What you see | What to do |
 | --- | --- |
-| The browser cannot open **https://truchsess.local/**. | Check that your computer is on the office network. Some networks do not resolve `.local` names: open the box's address from your router's list of devices instead, with `https://`. |
+| The browser cannot open **https://truchsess.local/**. | Check that your computer is on the office network. If the name still does not open, use the address in numbers on the box's screen, with `https://`. See [The box is not reachable by name](#the-box-is-not-reachable-by-name). |
 | The browser warns that the connection is not private. | Normal once per device. Compare the fingerprint with the one on the **Sign in** screen, then accept. See [Check the certificate](/setup/unbox-and-connect/#check-the-certificate). |
 | "This appliance is currently using local HTTP. Use it only on the trusted office network until HTTPS is configured." | You opened the box without `https://`. Use **https://truchsess.local/**. |
 | "Truchsess is unavailable" | The portal cannot reach its own service. Wait a minute and reload. If an update is running, wait until it ends. |
@@ -18,23 +18,45 @@ Find the message you see, then follow the advice. If nothing helps, see [Report 
 
 ### The box is not reachable by name
 
-**https://truchsess.local/** does not open, opens the wrong box, or works only sometimes.
+**https://truchsess.local/** or the box's own name does not open, opens the wrong box, or works only sometimes.
 
-- **Two boxes in one office.** Only one of them answers on `truchsess.local`. Open each box by its own name instead: `truchsess-` followed by four characters and `.local`, shown on the box's screen in the line "This box: ...". Accept the certificate warning after comparing the fingerprint. See [Two boxes in one office](/setup/unbox-and-connect/#two-boxes-in-one-office).
-- **One box, but the name does not open.** Some networks and some Android phones do not resolve `.local` names. Use the box's address from your router's list of devices, with `https://`, or the remote address if your administrator switched it on.
+Every box has its own name, `truchsess-` followed by four characters and `.local`. The box's screen shows it in the line "This box: ...", with its address in numbers under it. The first page, the **Sign in** page and **Settings** › **Advanced** › **Box**, panel **Version and log**, show "This box's own address: ..." and, next to it, "If the name does not open, use ..." with the address in numbers.
+
+- **Use the address in numbers.** Open `https://` followed by the address in numbers on the box's screen and `/`. It works from every computer that reaches the box. Bookmark it.
+- **Two or more boxes.** Use each box's own name. `truchsess.local` opens whichever box took it first. When another box holds it, the page says "Another Truchsess box on this network already answers on ..." and names the address to use for this box. See [Two boxes in one office](/setup/unbox-and-connect/#two-boxes-in-one-office).
+- **Two networks in one office.** Names ending in `.local` do not cross a router. Some offices have two networks, for example the cable from the internet router and a Wi-Fi from a second router. A computer on the other network reaches the box only by its address in numbers. You can tell: the computer's own address starts differently from the box's. Any one of these fixes it:
+  - use the address in numbers and bookmark it;
+  - connect the computer to the box's network, with a cable to the same router or on that router's Wi-Fi;
+  - reserve the box's address in the router the box is plugged into, so the address stays the same;
+  - set the second router to access-point mode, so the office has one network. Ask whoever set up the network: this changes it for every device.
+- **No name works from a laptop on Wi-Fi, but the address in numbers does.** The Wi-Fi access point may filter the messages that announce the names (settings such as multicast enhancement or client isolation). Use the address in numbers, or switch that filter off.
+- **The certificate warning comes again.** The browser warns once for each name and for the address in numbers. The box's certificate names the box, not its address in numbers. Compare the fingerprint with the one on the **Sign in** screen, then accept.
+- **"This address now opens another Truchsess box".** Another box now answers on the name you used, for example after an update or a restart. The page has stopped and sent nothing to that box: "Nothing was sent to the other box. Open your box at its own address." Open your box at the address the page shows after "Your box is at".
+- **After an update.** The box keeps its own name. A page open on that name stays on it while the box restarts.
+- **Some Android phones** do not resolve `.local` names at all. Use the address in numbers, or the remote address if your administrator switched it on.
+
+## The first page
+
+| What you see | What to do |
+| --- | --- |
+| "This is not the code on the card that came with this box. Check it and try again." | Type the code from the card again. Upper and lower case do not matter. |
+| "The code is missing or wrong. It was shown at the end of the installation." | Type the code the installation showed at its end. |
+| "Too many wrong codes. Please wait 15 minutes and try again." | Wait 15 minutes, then type the code again. |
 
 ## Signing in
 
 | What you see | What to do |
 | --- | --- |
-| "Email or password is incorrect." | Check the e-mail and the password. Upper and lower case count. A disabled account also gets this message: ask your administrator. |
+| "Email or password is incorrect. If you received a one-time password: check that you copied the whole one-time password and nothing more." | Check the e-mail and the password. Upper and lower case count. Copy a one-time password whole, or type it. A disabled account also gets this message: ask your administrator. |
 | "Too many login attempts. Wait 15 minutes and try again." | Wait 15 minutes. |
 | "Change the temporary password before continuing." | Set your own password on **Change your temporary password**. |
 | "The security token is missing or expired. Refresh the page and try again." | Reload the page. |
 | You are signed out after some hours. | A session lasts 12 hours. Sign in again. |
 | "Enter this in the office, on the local address." | You are on the remote address. Do this in the office on **https://truchsess.local/**. See [Remote access](/admin/remote-access/#what-works-where). |
+| "Enter your box password once to use Settings on the remote address." | You are an administrator on the remote address. Open **Home** and enter your box password under **Needs you**. Until then you work like a member. See [Settings on the remote address](/admin/remote-access/#settings-on-the-remote-address-administrator). |
+| "Settings are available in the office only." | **Allow Settings on the remote address** is off. On the remote address you work like a member. Manage the box in the office. |
 | On the remote address, no one-time code arrives. | Look in spam. Wait a few minutes before asking again (repeated requests are slowed down). Then ask the administrator to check that your exact e-mail is on the remote access list: the sign-in page says a code was sent even for an address that is not allowed. See [If no code arrives](/admin/remote-access/#if-no-code-arrives). |
-| A pasted one-time or temporary password is refused with "Email or password is incorrect." | Copy it again without the space after it, or type it. |
+| A pasted one-time or temporary password is refused. | Spaces before and after it are ignored. Copy the whole password again and nothing more, or type it. |
 | "Your e-mail is not a member of this Truchsess. Ask your admin." | The remote address lets in only active accounts of the box. Your account may be unknown, disabled or removed, or its e-mail address was changed. Ask your administrator. |
 | Forgot your password. | Ask your administrator for a one-time password. See [Users](/admin/users/#reset-a-forgotten-password). The administrator's own password: see [Administrator password](/admin/administrator-password/). |
 | You were signed out right after a password change. | Changing your password signs out your other browsers. Sign in with the new password. |

@@ -4,7 +4,7 @@ description: Install, update, change and uninstall agents from the store or from
 ---
 import NotYet from '~/components/NotYet.astro';
 
-An [agent](/start/glossary/#agent) is the helper that does the work. It comes in a package: a signed file that ends in `.truchsess-bundle.tar`. Everyone sees the agents on the page **Agents**. The administrator also adds agents from the **Store** there. Files, the store connection, each install in detail and the trusted publishers are in **Settings** › **Advanced** › **Agents**. The rules for every agent are in **Settings** › **Advanced** › **Agent rules**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+An [agent](/start/glossary/#agent) is the helper that does the work. It comes in a package: a signed file that ends in `.truchsess-bundle.tar`. Everyone sees the agents on the page **Agents**, and each person has their own agents there. The administrator also adds agents from the **Store** there. Files, the store connection, each install in detail and the trusted publishers are in **Settings** › **Advanced** › **Agents**. The rules for every agent are in **Settings** › **Advanced** › **Agent rules**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
 
 **Settings** › **Advanced** › **Agents**, from top to bottom: **Update or install from files**, **Store connection**, **Installed agents in detail**, **One file in detail**, **Trusted publishers**.
 
@@ -14,7 +14,8 @@ How the store checks publishers and packages before they reach you: [Trust](http
 
 ## Who can do this
 
-The administrator. Members see the cards on **Agents** and ask for an agent with its card's button. Trusting a publisher works only in the office, on the local address.
+- **The administrator** installs, updates, changes and removes agents, adds copies, decides who may use an agent and what it may do, and allows work on a schedule. Trusting a publisher works only in the office, on the local address.
+- **Everyone** has their own agents: adds an agent with its card's button (a member asks an administrator first), removes it from their own agents, asks to allow a permission, and switches an agent's routines on for themselves.
 
 ## What you need
 
@@ -23,23 +24,85 @@ The administrator. Members see the cards on **Agents** and ask for an agent with
 
 ## Your agents
 
+Each person has their own agents. A person gives tasks only to the agents in their own row **Your agents**, and the box itself checks this before every task: a task for an agent that is not in the person's agents does not start. The person reads "... is not in your agents. Add it on the Agents page; an administrator may need to allow it first." An administrator may use every agent and adds any agent at once.
+
 The page **Agents** shows cards in two rows:
 
-- **Your agents**: the agents you may use.
+- **Your agents**: the agents you may use. Truchsess, the agent that comes with the box, is always first.
 - **More agents on this box**: the other agents on the box. Each card has **Add this agent** (or **Add these agents** for a function with several agents).
 
-When a member may not add an agent alone, **Add this agent** asks an administrator. The card then says "Asked" and the administrator's name. The administrator answers on **Home**, section **Needs you**, with **Allow** or **Not now**.
+An agent you install from the store or from a file goes into your own **Your agents**. The other people add it themselves, or you add them under **Who may use it** on its card.
 
-Click a card to open the agent's settings. Everyone sees **Start a chat**, **Recent tasks**, what the agent may do, and **How it works with you**. **Remove from my agents** takes it off your own row; you can add it again under **More agents on this box**.
+### Add an agent to your agents
+
+1. Open **Agents**.
+2. Under **More agents on this box**, press **Add this agent** on the agent's card.
+
+An administrator gets it at once: "Added. ... is in your agents." For a member, the button asks an administrator: "You see the answer here and on Home." The card then shows whom you asked and at what time. The administrator answers on **Home**, section **Needs you** ("... asks to use ..."), with **Allow** or **Not now**. The member sees the answer on the card and on **Home**: "... allowed .... It is in your agents now." or "... did not allow ... for now." A member can ask once a day per agent.
+
+Adding an agent costs the person nothing. The company pays for its agents.
+
+### Open an agent's settings
+
+Click a card to open the agent's settings: a panel beside the page, or the whole screen on a phone. Everyone sees:
+
+- **Start a chat**;
+- **Recent tasks**: your last five tasks with this agent;
+- "What ... may do": every permission the agent asks for, in plain words, with its state (see [What an agent may do](#what-an-agent-may-do));
+- **Works on its own**, when the agent offers work on a schedule (see [Agents that work on a schedule](#agents-that-work-on-a-schedule));
+- "Your connections ... uses", when the agent uses one of your connections;
+- **How it works with you**: what the agent learned from you;
+- **Remove from my agents**, which takes it off your own row. You can add it again under **More agents on this box**. An agent that is open to everyone stays in your agents.
 
 An administrator also sees the part **For administrators**:
 
-- **Who may use it**: choose **Everyone** or **These people**. **Everyone** also covers people you add later. With **These people**, the list shows each person with **Remove**; choose a person and press **Add** to add one.
+- **Who may use it**: choose **Everyone** or **These people**. **Everyone** also covers people you add later: "Every person on this box may use ..., also people you add later." With **These people**, the list shows each person with **Remove**; choose a person and press **Add** to add one. Truchsess is always for everyone: "Truchsess is for everyone on this box".
 - **Allowed without asking**: the agent's standing approvals, read only. They are changed in **Settings** › **Advanced** › **Agent rules**.
 - **Its install answers**: what you answered at install.
-- **Remove from this box**, then **Confirm remove**: "Every binding is reversed and its workspace is removed; nobody can use it after that." For a store function, all of its agents are removed together.
+- **Another copy** with **Add another copy**, when the store sells copies of the agent (see [Add another copy](#add-another-copy)).
+- **Remove from this box**, then **Confirm remove**: "Every binding is reversed and its workspace is removed; nobody can use it after that." For a store function, all of its agents are removed together. A paid copy beyond the first has **Stop this copy** instead (see [Add another copy](#add-another-copy)).
 
 On the page **Agents** an administrator also has the button **Store**. See [Store](/admin/store/).
+
+### What a card shows
+
+- The agent's name and one line under it: the store function it belongs to. An agent installed from a file shows the store function its package belongs to, or the package's own title.
+- The agent's face: the picture of its store function, however the agent was installed. The box refreshes the store's list and its pictures once a day by itself; a picture that could not be loaded is fetched again the next day. Until then the card shows the agent's first letter.
+- An agent installed from a file says so on its card and at the top of its settings: "Installed from a file, not from the store: no updates from the store."
+- A tag with its state, for example "Idle", or "Working on: ..." with what was asked while it works.
+- Its last line: when it last finished a task and what was asked, for example "Last task finished 13 Oct: Check example-bakery.ch". It never shows the agent's own answer. Open the task or **Home** › **Recent results** for that.
+- When the last task failed: "Problem:" and the reason, with **Open the task** and **Ask Truchsess why**.
+- For administrators: the agent's cost this month, "This month" and the amount in your budget's currency, or "No cost recorded". It is the same amount as in **Settings** › **Advanced** › **AI**, panel **Costs in detail**.
+- For administrators: what the agent needs from you, at most one line, for example a repository it cannot reach, with the buttons that fix it. The fix applies to every agent of the function that needs it.
+
+### What an agent may do
+
+"What ... may do" in the agent's settings is the one place for what this agent may do. Each line has one state:
+
+| State | Meaning |
+| --- | --- |
+| "Allowed" | Your company rules allow it. |
+| "Allowed for this agent only" | An administrator allowed it for this agent alone. |
+| "Not allowed by your company rules" | The owner policy does not allow it. |
+| "Declined at install" | It was declined when the agent was installed, for example a skipped question. |
+| "Needs a connection" | It needs a connection first, for example your mailbox. |
+
+- **Administrator:** press **Allow for** and the agent's name on a line, then confirm. Only this agent gets it, at once. A protected permission (publishing, sending messages, spending, passwords and keys, deploying) asks you to tick a second line first: "I understand this and allow it for ... only." **Remove** takes it back: "The company rules apply to ... again."
+- **Member:** press **Ask to allow** on a line. The administrator decides on **Home**, section **Needs you**. You see the answer on the line and on **Home**.
+
+All hand-offs of one agent are one line, with **Allow all hand-offs for** and the agent's name. **Details** shows each agent it can hand work to, each with its own **Allow**. An agent that is not installed here is marked "(not installed)".
+
+### Functions with several agents
+
+Some store functions have several agents that work together, for example Bob for software delivery. They are one card. You add, remove and allow them together, as the store sells them as one.
+
+A function with a lead answers as one agent. You talk to the lead, for example Bob, and Bob decides which of his roles takes the task, and can hand it to several in turn. In **Chat** the function is one entry. The run shows the chain, for example "Bob → QA Reviewer → Merge Gate", what each role did and what it cost, and the total. A role that would change a repository still waits for your approval.
+
+The function's settings list its agents by role, each with its own "What ... may do". Only the lead has **Start a chat**. An administrator has **Test this role alone** on each other role: it opens **Chat** with that one role, for testing. A member who sends a task to one role reads "Ask ... decides which role takes the task and hands it on." and nothing starts.
+
+A function has one lead. Installing a second lead is refused with a sentence that names the first one, "... already has a lead: ...", and says to remove that lead from this box first.
+
+**Settings** › **Advanced** › **AI**, panel **Costs in detail**, part **Per agent this period**, lists the function's tasks one line each, with the chain and its cost.
 
 ### Installed agents in detail
 
@@ -154,7 +217,7 @@ To update the agents the files are newer for, see [Update](#update).
 9. Follow the steps: "Write the install record", "Verify, unpack and bind the package".
 10. If the box asks for a product mapping ("Product mapping needed for ..."), choose an existing product for each name or **Create a new product**, then press **Resume the install**.
 
-The agent then appears on the page **Agents** and in **Installed agents in detail**, marked "Installed from a file". Set who may use it on its card, under **Who may use it**.
+The agent then appears in your own **Your agents** on the page **Agents**, and in **Installed agents in detail**, marked "Installed from a file". Set who else may use it on its card, under **Who may use it**.
 
 A store agent is installed from the store instead. See [Store](/admin/store/#install-a-store-agent).
 
@@ -163,6 +226,54 @@ An uploaded file that you did not install is listed under "Uploaded, not install
 ## Install the same package again
 
 A signed package file can be installed several times, for example one agent per website. Upload the file again in **One file in detail**. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory. All installs of the package are listed on its card in **Installed agents in detail**.
+
+## Add another copy
+
+A second copy of a store agent works on its own: its own name, its own answers (for example another product or another website) and its own work. It costs the same price again. The box offers it only when the store sells copies of the agent's function, and only for a function of one agent. When the store does not, you do not see **Add another copy** at all.
+
+1. Open **Agents** and click the agent's card.
+2. Under **For administrators**, part **Another copy**, press **Add another copy**.
+3. Check **Its name**. The box proposes one, for example "Product Owner (second product)" or "Gideon (second website)".
+4. Answer the agent's install questions, for example which product or which website.
+5. Press **Next**.
+6. Read the price: "... costs ... per month more." and "Your monthly total becomes ...".
+7. Press the button that names the price, for example **Pay CHF 249 per month and add it**. **Not now** leaves without paying.
+8. Press **Open the payment page** and pay on the store's payment page.
+
+The box waits ("Waiting for the payment …") and installs the copy as soon as the payment is confirmed: "Added. ... is in your agents." Press **Open** and the copy's name to see its settings. The copy is its own card on **Agents** and **Home**, with its own name.
+
+- If you stop before paying, nothing is installed: "If you stop here, nothing is installed and your answers are kept for the next try." **Add another copy** opens again with your answers.
+- A copy you paid for while the page was closed is installed the next time an administrator opens **Agents**.
+- **Settings** › **Plan and costs** lists each paid copy as its own line, for example "Product Owner, second copy: CHF 249", and the agents' total per month.
+
+To end a copy, open its card and press **Stop this copy** (the button names the price per month), then confirm. That copy stops working at once, its price ends with the period already paid for, and its finished work stays readable. The first copy is not touched.
+
+A signed package file can be installed several times without the store: see [Install the same package again](#install-the-same-package-again).
+
+## Agents that work on a schedule
+
+Some agents offer work on a schedule, a routine, so the work is ready before people ask. Penn, for example, checks new mail during office hours. A routine runs as one person: the person who switched it on, with their own connections, permissions and budget.
+
+### Allow work on a schedule (administrators)
+
+1. Open **Settings** › **Advanced** › **Agent rules**, panel **Agents may work on a schedule**.
+2. Choose **Off**, **On, at most every 15 minutes**, **On, at most hourly** or **On, at most daily**.
+3. Press **Save**.
+
+You see "Saved. People can switch routines on in their agents' settings." or, with **Off**, "Saved. No agent works on a schedule." A new box starts with **On, at most every 15 minutes**. A box that was set up with an older version starts with **Off**.
+
+### Switch a routine on for yourself
+
+1. Open **Agents** and click the agent's card.
+2. Under **Works on its own**, tick the routine. Its line says what it does and when, for example "Check new mail every 15 minutes, Mon to Fri, 07:00 to 19:00".
+
+The line under it says what the last check found, for example "Checked 10:15, no new mail". A check that finds nothing starts no task and costs nothing. Below that, "This month:" shows the cost and the number of checks and runs.
+
+- **Run now** runs it at once.
+- **Pause until …** with **Tomorrow**, **Monday** or **A date …**, then **Pause**. **Let it run again** ends the pause.
+- **Change the schedule**: how often (never more often than the agent or your company rule allows), the days and the hours, then **Save the schedule**. Times are on the box's clock (**Settings** › **Your company**, **Time zone**).
+
+After 3 failed runs in a row the routine stops itself. Your **Home** then shows one line with **Turn it on again**. Routine runs carry the tag "Routine" in the run history, with their own filter **Routines**.
 
 ## Update
 
@@ -287,11 +398,30 @@ A working install also shows "Ready", or "Needs ... from the admin" with **Open 
 
 Uninstalled agents and removed failed installs are not listed. They stay in the history.
 
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "... is not in your agents. Add it on the Agents page; an administrator may need to allow it first." | Add the agent under **More agents on this box** with **Add this agent**. A member waits for the administrator's **Allow**. |
+| "You asked already. You see the answer here and on Home." | The ask waits for an administrator. You can ask once a day per agent. |
+| No **Add another copy** in the agent's settings | The store does not sell copies of this function yet, the agent came from a file, or the function has several agents. See the box below. |
+| "Your store account does not allow a second subscription yet. Please contact Truchsess support." | Contact support. Your answers for the copy are kept. |
+| "The payment was not finished. Nothing was installed; your answers are kept for the next try." | Press **Add another copy** again when you are ready. |
+| "Your administrator has not allowed agents to work on a schedule." | An administrator chooses a setting other than **Off** in **Settings** › **Advanced** › **Agent rules**, panel **Agents may work on a schedule**. |
+| "Stopped after 3 failed runs in a row (...). Turn it on again to go on." | Read the reason in the brackets, fix it, then press **Turn it on again**. |
+| "Install failed" on an install | See [Failed install: Retry or Remove](#failed-install-retry-or-remove). |
+
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
+| **Add this agent** | Puts an agent into your own **Your agents**. A member asks an administrator first. | You want to give the agent tasks. | Yes: **Remove from my agents**. |
 | **Who may use it** | **Everyone**, or **These people**. | When only some people need the agent. | Yes: choose again. |
+| **Allow for** (one agent) | Gives one permission to this agent only. | One agent needs more than your company rules allow. | Yes: **Remove** on the line. |
+| **Add another copy** | A second copy of a store agent, with its own name and answers, at the same price again. | A second product or a second website. | Yes: **Stop this copy**. |
+| **Test this role alone** | Opens **Chat** with one role of a function, for testing. | You want to check one role without its lead. | Not needed. |
+| **Agents may work on a schedule** | Allows routines, and how often they may run at most. | Agents should prepare work before people ask. | Yes: choose **Off**. |
+| Tick a routine under **Works on its own** | Runs the routine for you on its schedule. | You want the work ready before you ask. | Yes: untick it. |
 | **Add publisher** | Trusts a publisher's signature. | Before the first install from that publisher. | Yes: **Remove**. |
 | **Save policy** | Sets what agents may receive. | Before installing. | Yes. Installed agents keep their permissions until their next update, **Change**, **Apply the rules** or a new install. |
 | **Install** / **Install another** | Installs an agent. | | Yes: **Uninstall** (the workspace is deleted). |
@@ -303,7 +433,7 @@ Uninstalled agents and removed failed installs are not listed. They stay in the 
 | **Remove from this box** / **Uninstall** / **Finish uninstall** | Removes the agent and its workspace. | The agent is no longer needed, or an uninstall stopped halfway. | No. Install again for a fresh start. |
 
 <NotYet>
-You cannot go back to an earlier version of an agent, install a store agent twice, or change the permissions of an installed agent by saving the owner policy alone. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed package file; to apply a changed owner policy, press **Apply the rules** on the install in **Installed agents in detail**, or press **Change** and save.
+You cannot go back to an earlier version of an agent, add a second copy of a store function with several agents (for example Bob) or of an agent whose function the store does not sell as copies, schedule a task of your own, or change the permissions of an installed agent by saving the owner policy alone. Workarounds: to go back, uninstall and install the older signed file (its workspace is lost); for a second copy, ask the publisher for a signed package file and install it from the file; instead of your own schedule, use a routine the agent offers under **Works on its own**, or start the task in **Chat**; to apply a changed owner policy, press **Apply the rules** on the install in **Installed agents in detail**, or press **Change** and save.
 </NotYet>
 
 ## Related pages
@@ -314,3 +444,5 @@ You cannot go back to an earlier version of an agent, install a store agent twic
 - [Connections](/admin/connections/)
 - [AI providers and lanes](/admin/ai-providers-and-lanes/)
 - [Agents](/agents/)
+- [Company mail (Penn)](/agents/company-mail/)
+- [Roles: who can do what](/start/roles/)

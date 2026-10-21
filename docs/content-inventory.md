@@ -461,7 +461,8 @@ Closed in the checked release (they no longer appear on `/not-yet/`): G1 (reset 
 password), G2 (remove, disable or rename a user, change an e-mail), G4 (change your own password).
 Closed in docs part 7a (release Truchsess 2026.10.21-84a4137): G5 (who may use an agent is set on
 its card, #141), G19 (store installs update, #85 and #134), G22 (updates at night, #149). Added in
-part 7a: G37 to G40 (mail and calendars).
+part 7a: G37 to G40 (mail and calendars). Closed in docs part 7b: G34 and G35 (the box activates
+with the code from the card and gets its starter credit in the guided first setup, #143 and #147).
 
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
@@ -489,8 +490,6 @@ part 7a: G37 to G40 (mail and calendars).
 | G31 | The box | Show the certificate fingerprint on the very first screen. | Read it on the box's console (screen and keyboard) after the automatic login. | Support. |
 | G32 | Approvals and autonomy | A different autonomy level for one install of a package. | A level applies to every install of the package. Install a separate package if you need different levels. | Administrator. |
 | G33 | Approvals and autonomy | Approve a repository comment, issue or push before it happens. | Repository actions can be raised to "Waits for your check" only. To approve each change, remove the repository permission and ask the agent to describe the change in its answer. | Administrator. |
-| G34 | Activation and AI | Activate the box with the activation code from the card (it would enrol the box and deliver the managed AI). | The store's activation service may not answer for your box yet. Choose "Use my own AI key instead" at the first run, or later "Change AI provider" under Settings › Advanced › AI. | Support. |
-| G35 | Activation and AI | The one-time starter credit of CHF 50. | It comes only with an activation. With your own key, set your own monthly limit under Settings › Plan and costs. | Support. |
 | G36 | Tasks | Speech recognition by the phone itself (Apple or Google). | Use "Hold to talk": the box turns speech into text, and the audio stays on the box. | Administrator. |
 | G37 | Mail and calendars | "Connect with Microsoft": Microsoft 365, Outlook.com and Hotmail mailboxes and Microsoft 365 calendars. | Coming soon. Use a mailbox at the company's own mail server or Gmail over IMAP. For Microsoft 365, ask support. | Support. |
 | G38 | Mail and calendars | Proton Mail or Tuta mail. | Not possible: their mail is end-to-end encrypted. Use another mailbox. | Support. |
@@ -664,7 +663,14 @@ An upload of a new version whose permissions or questions differ shows the chang
 Checked against release **Truchsess 2026.10.21-84a4137** (`truchsess-iso-20261021-84a4137`, published
 2026-10-21 08:23 UTC, source commit `84a4137`). Anything only on master: none (master equals this
 release). Not merged when checked, and not documented: #146, #150, #151, #152, #153, #157, #160,
-#161, #162.
+#161. Part 7b: #162 merged after 84a4137 and is in release **Truchsess 2026.10.21-abe4009**
+(published 2026-10-21 11:26 UTC); it changes nothing a person sees, so it has one line on
+/releases/ only. Part 7b pages are checked against 84a4137 (abe4009 adds only #162). Then #160
+(Truchsess's own face) merged as master 4f542d0, release **Truchsess 2026.10.21-4f542d0**, the
+current one; checked on 4f542d0. Then #161 (an agent's face
+never goes missing) merged as master 7b0c440, checked there; its release is not out yet, so
+/releases/ waits. Still not merged, not documented: #146, #150, #151, #152, #153, #157, and the
+open #163 to #167.
 
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
@@ -755,6 +761,9 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #156 | T117: the ChatGPT sign-in finishes on the box's OpenClaw and says why in plain words | none | /setup/ai-providers/ |
 | #158 | T118: one Truchsess app at Microsoft; Outlook.com and Hotmail as the private mailbox | yes | /use/email/ (Coming soon only) |
 | #159 | T114: the exact version on Settings > Updates, and "Newest" always says where she stands | none | /admin/updates/, /releases/ |
+| #162 | T121: the update check can never roll back a night update | none (nothing a person sees) | /releases/ (one line, release Truchsess 2026.10.21-abe4009) |
+| #161 | T120: an agent's face never goes missing on one box | none (the PR has no such section; its "For the CEO" names the changes) | /admin/packages/ (one line on faces, the "Installed from a file" line); /releases/ once its release is out |
+| #160 | T119: Truchsess gets his own face | none (the PR has no such section; its "For the CEO" names the places) | /agents/truchsess/, /use/home/, /use/ask-truchsess/, /setup/first-run/, /releases/ (release Truchsess 2026.10.21-4f542d0) |
 
 ### 25.2 The "For the user docs" sections, verbatim
 

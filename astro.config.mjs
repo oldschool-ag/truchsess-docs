@@ -54,7 +54,7 @@ export default defineConfig({
           label: 'Setup (administrator, in order)',
           items: [
             { label: '1. Unbox and connect', slug: 'setup/unbox-and-connect' },
-            { label: '2. First run and activation', slug: 'setup/first-run' },
+            { label: '2. Set up your box', slug: 'setup/first-run' },
             { label: '3. AI providers', slug: 'setup/ai-providers' },
             { label: '4. Budget', slug: 'setup/budget' },
             { label: '5. Members', slug: 'setup/members' },
@@ -68,8 +68,10 @@ export default defineConfig({
         {
           label: 'Daily use',
           items: [
+            { label: 'Home', slug: 'use/home' },
             { label: 'Start a task', slug: 'use/start-a-task' },
             { label: 'Follow a run', slug: 'use/follow-a-run' },
+            { label: 'Let an agent read a website', slug: 'use/websites' },
             { label: 'Use it on your phone', slug: 'use/phone-and-voice' },
             { label: 'Approvals and checks', slug: 'use/approvals-and-checks' },
             { label: 'When an agent needs something first', slug: 'use/agent-needs-something' },
@@ -77,6 +79,8 @@ export default defineConfig({
             { label: 'Add a private mailbox', slug: 'use/private-mailbox' },
             { label: 'Connect your calendars', slug: 'use/calendars' },
             { label: 'Knowledge', slug: 'use/knowledge' },
+            { label: 'Ask Truchsess', slug: 'use/ask-truchsess' },
+            { label: 'What Truchsess has learned', slug: 'use/what-truchsess-learned' },
             { label: 'Workboard', slug: 'use/workboard' },
             { label: 'Report a problem', slug: 'use/report-a-problem' },
             { label: 'Your account', slug: 'use/your-account' },
@@ -106,6 +110,8 @@ export default defineConfig({
           label: 'Agents in the store',
           items: [
             { label: 'All agents', slug: 'agents' },
+            { label: 'Truchsess, included in your box', slug: 'agents/truchsess' },
+            { label: 'Company mail (Penn)', slug: 'agents/company-mail' },
             { label: 'Software delivery', slug: 'agents/software-delivery' },
             { label: 'Product ownership', slug: 'agents/product-ownership' },
             { label: 'Website care', slug: 'agents/website-care' },

@@ -37,12 +37,20 @@ This also works for a new member who still has a one-time password: the remote a
 
 ### Settings on the remote address (administrator)
 
-The e-mail code alone never opens Settings. What happens depends on **Allow Settings on the remote address** in **Reach your box from home**:
+The e-mail code alone never opens Settings. Until you enter your box password, you work like a member: you see **Home**, **Chat** and **Agents**. What happens next depends on **Allow Settings on the remote address** in **Reach your box from home**:
 
-- On: "an administrator on the remote address enters the box password once per session before Settings open. Members only need the e-mail code." Home shows it first under **Needs you**: "You are signed in from outside the office. Enter your box password once to manage the box." Type the password in "Your box password" and press **Manage the box**.
-- Off: "Settings are available in the office only. An administrator on the remote address works like a member."
+- On: "an administrator on the remote address enters the box password once per session before Settings open. Members only need the e-mail code."
+- Off: "Settings are available in the office only. An administrator on the remote address works like a member." You stay a member on the remote address. Chat shows "Settings are available in the office only."
 
-This switch is changed only in the office.
+With the switch on:
+
+1. Open **Home**. The first item under **Needs you** says "You are signed in from outside the office. Enter your box password once to manage the box."
+2. Type your box password (the one you use in the office) in the field "Your box password".
+3. Press **Manage the box**. **Settings** appears in the menu for the rest of this session.
+
+A wrong password shows "That password is not correct." Wrong attempts count like failed sign-ins: after too many, wait 15 minutes. Every confirmation and every wrong attempt is recorded in the activity record.
+
+This switch is changed only in the office. On the remote address the note under it adds: "This switch is changed in the office, on the local address."
 
 ### If no code arrives
 
@@ -64,7 +72,7 @@ If either is missing, or the two addresses differ in any letter, the person gets
 1. Open **Settings** › **Your company**, part **Reach your box from home**.
 2. Press **Switch off**, then **Confirm switch off**.
 
-"Reaching the box from home stops for everyone and the stored code is deleted. A new code from support is needed to switch it on again." You can switch off from the remote address too.
+"Reaching the box from home stops for everyone and the stored code is deleted. A new code from support is needed to switch it on again." You can switch off from the remote address too, after you entered your box password on **Home**.
 
 ## What you see afterwards
 
@@ -93,14 +101,18 @@ On the remote address, Settings says: "You are on the remote address. Secrets, S
 
 Voice input works on the remote address too: "Your recording is sent to this box over the internet." It then passes through Cloudflare like typed text.
 
-## Messages on the remote address
+## If it does not work
 
-| Message | Meaning |
+| What you see | What to do |
 | --- | --- |
-| "Your e-mail is not a member of this Truchsess. Ask your admin." | No active account with this e-mail on the box: unknown, disabled or removed. |
-| "Remote access needs the e-mail code. Open the remote address again and sign in with your e-mail." | Sign in again with your e-mail. |
-| "Remote access is switched off on this box. Use the local address in the office." | The administrator switched it off. |
-| "Settings are available in the office only." | **Allow Settings on the remote address** is off. |
+| "Your e-mail is not a member of this Truchsess. Ask your admin." | No active account with this e-mail on the box: unknown, disabled or removed. The administrator checks **Settings** › **People** and the e-mail on the access list. |
+| "Remote access needs the e-mail code. Open the remote address again and sign in with your e-mail." | Open the remote address again and sign in with your e-mail. |
+| "Remote access is switched off on this box. Use the local address in the office." | The administrator switched it off. Use the office address. |
+| "Settings are available in the office only." | **Allow Settings on the remote address** is off. Manage the box in the office. |
+| "Enter your box password once to use Settings on the remote address." | Open **Home** and enter your box password under **Needs you**. |
+| "That password is not correct." | Type the password you use in the office. After too many wrong attempts, wait 15 minutes. |
+| "For safety, passwords, keys and other secrets are entered only in the office." | Do this in the office. The message names the box's local address, and its address in numbers if the name does not open. |
+| No code arrives. | See [If no code arrives](#if-no-code-arrives). |
 
 ## Your choices
 

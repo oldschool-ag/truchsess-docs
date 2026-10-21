@@ -71,6 +71,16 @@ Shown and changed in **Settings** › **Advanced** › **Agent rules**, panel **
 | Changes the workboard | Tells you after | Waits for your check, Asks you first, Always asks, with a reason |
 | Hands work to other packages | Runs on its own | Tells you after, Waits for your check, Asks you first, Always asks, with a reason |
 
+## Work from other agents
+
+Other agents, for example Gideon of [Visibility in AI search](/agents/visibility-in-ai-search/), can hand website changes to Website care.
+
+- Website care takes work only for the website it was installed for. Install it once per website.
+- When it is installed twice for one website, the agent that hands over asks you which one should take the work.
+- When it is not installed for the website, the other agent says so in its answer ("... is not set up for ..."). Install Website care for that website, or give it the work yourself in a new task.
+- Changes handed over always wait for an administrator first: a card lists each change with a tick box, and only the ticked changes are sent with **Send to Website care**. This holds whatever the autonomy levels say. See [Let an agent read a website](/use/websites/#send-website-changes-to-website-care-administrators).
+- The pull request it opens appears on the run card of the agent that handed over the work: "Handed to ... for ... → pull request ...". It never merges.
+
 ## What every agent can never do
 
 - Work outside its own closed workspace on the box.
@@ -84,7 +94,7 @@ Write these in **Chat** after choosing the agent. Change the details to your com
 
 1. *Check the contact page on the live site and fix any broken link as a pull request.*
 2. *Update the opening hours on the home page to Monday to Friday, 8 to 17, as a pull request.*
-3. *Take a screenshot of the price page on a phone-sized screen and list what looks wrong.*
+3. *Take a screenshot of the price page and list what looks wrong.* The box's browser shows pages at desktop size only.
 
 <NotYet>
 A second copy of a store agent: when the store sells copies, the agent's settings on **Agents** offer **Add another copy**. Otherwise, ask the publisher for a signed package file and install it from the file. See [Not possible yet](/not-yet/).
@@ -94,4 +104,6 @@ A second copy of a store agent: when the store sells copies, the agent's setting
 
 - [All agents](/agents/)
 - [First agent](/setup/first-agent/)
+- [Let an agent read a website](/use/websites/)
+- [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents)
 - [Autonomy levels](/admin/autonomy-levels/)

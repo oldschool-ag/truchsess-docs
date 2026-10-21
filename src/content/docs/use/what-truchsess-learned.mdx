@@ -1,0 +1,144 @@
+---
+title: What Truchsess has learned
+description: Teach an agent with your notes, your decisions and your changes to its mail drafts, then see, change or undo what it learned.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Every agent learns from how you work with it. When you send a result back with a note, refuse an approval with a reason, hide a routine's Home item with a reason, change a mail draft before you send it, or use **Remember this**, Truchsess writes that down as short lessons. The agent's next tasks for you follow them.
+
+You see and change your lessons on **Your account** › **What Truchsess has learned**. Open **Your account** with the picture with your initials at the top right. The page says: "Only you see your lessons; administrators do not. A lesson applies at once; Undo takes the last change back."
+
+## Who can do this
+
+- Everyone, for their own lessons: **Remember this**, a reason when you hide a routine's Home item, and changes to mail drafts.
+- **Send back** on a result and **Refuse** on an approval are buttons of the administrator. Their note or reason teaches the agent too.
+- Only the administrator writes the company mail standard and decides lessons for everyone. See [For the administrator](#for-the-administrator).
+
+## What you need
+
+- An agent that worked for you.
+- To learn from your mail drafts: your company mailbox, connected with server and password (IMAP). See [Connect your company mailbox](/use/email/).
+
+## Steps
+
+### Teach an agent with Remember this
+
+**Remember this** is on every run card once the task has stopped working (in **Chat**, under each answer), and on your own Home items from an agent.
+
+1. Press **Remember this**.
+2. Write in your own words what the agent should do next time. For example: *keep answers to three sentences.*
+3. Press **Save**.
+
+The page says "Saved. ... uses it from your next task on". Your sentence is the lesson. The text of the answer or the item is never copied into it.
+
+### Teach with a note or a reason
+
+Truchsess learns from your own words when:
+
+- the administrator presses **Send back** on a result that waits for a check, writes what should change under "Note for the agent", and presses **Confirm send back**. See [Check a finished result](/use/approvals-and-checks/#check-a-finished-result).
+- the administrator presses **Refuse** on an approval, writes the reason, and presses **Confirm refuse**. Replace the prefilled "Not approved." with what was wrong. See [Decide an approval](/use/approvals-and-checks/#decide-an-approval).
+- you press **Hide** on a Home item from an agent's routine. A field "Why? (optional)" opens. Write why you do not want it, for example *newsletters are not new mail for me*, and press **Hide**. Press **Hide** with an empty field to hide it without teaching anything.
+
+Once a day a Learning run reads these notes and writes lessons from them. Until then the page says how many of your notes wait for the next Learning run.
+
+### Let it learn from your mail drafts
+
+1. A mail agent writes a draft in your company mailbox.
+2. Change it the way you want, in your mail program, and send it.
+
+Truchsess notices what you changed: how you greet, how you sign off, how long your mails are, your tone. Once a day it writes that down as lessons, and the next drafts follow them. It learns only from your company mailbox, never from a private mailbox.
+
+### See what an agent learned from you
+
+1. Open **Your account** › **What Truchsess has learned**.
+2. Your lessons are grouped by agent. Each lesson shows where it came from, for example a Send back with the date and your note in quotes, and the task.
+
+### Change, delete or undo a lesson
+
+1. Find the lesson under its agent.
+2. Press **Edit** to put it in your own words, change the text and press **Save**.
+3. Press **Delete** to remove it.
+4. Press **Undo** to take back the last change of that lesson.
+
+### Decide what an agent proposed
+
+An agent can propose to remember something about you. It shows under **Waiting for you**: "An agent proposed to remember these. Nothing here is used until you keep it." It also shows on your **Home**.
+
+1. Read the proposal. "from a task that read mail or web pages: check it" means it may come from someone outside.
+2. Press **Keep** to let it count, or **Delete** to throw it away.
+
+### Answer your memory checks
+
+Under **Memory checks**, Truchsess asks about things it cannot decide alone in your own memory, for example a fact due for review or a likely duplicate. **Home** shows one line per kind, with the button **Check**.
+
+1. Read the check and its hint.
+2. Press the button that fits: **Keep**, **Replace**, **Merge**, **Delete** or **Confirm**.
+
+Nothing is deleted unless you choose it.
+
+### Your pages and everything in your memory
+
+- **Your pages**: one page per person, company, product or project in your own memory. Press **Open**. Each fact is a line with **Edit** and **Delete**; **Undo** brings a deleted line back. **Add a fact** adds a new line. **Write notes** or **Edit the notes** holds free text that is not a fact.
+- **Everything in your memory**: every record in your own memory, with **Edit**, **Delete** and **Undo**. **Download** gives you all of it as one file.
+
+### For the administrator
+
+1. Open **Settings**, press **Advanced (for experts)** at the bottom, then go to **Knowledge**, panel **What Truchsess has learned**.
+2. To add to the company mail standard, write the rule under "Add to the company mail standard", for example *We answer in the language of the customer.* With several company mail domains, choose under **For** which mailboxes it is for. Press **Add**.
+3. Under each agent's lessons, press **Edit**, **Delete** or **Undo**.
+4. When two or more people taught an agent the same thing, it is proposed here for everyone, without names. Press **Keep for everyone** or **Delete**. **Home** shows it as a check: "... could learn something from ... people".
+5. Under **Rule change requests**, read what the box refused as a lesson. Change the rule yourself where it is needed, then press **Rule handled**, or press **Dismiss**.
+
+An agent may propose a line for the company mail standard. It applies only after you approve it on **Home**, **Needs you**.
+
+The limits for Learning are in **Settings** › **Advanced** › **Box**, panel **Memory**, form **Learning limits**: **Learning runs per day for the whole box** (20 when nobody changed it) and **Monthly limit for Learning, in US dollars (the AI provider's price)** (5 dollars). Press **Save limits**. When a limit is reached, the notes wait; nothing is lost.
+
+## What you see afterwards
+
+- A lesson applies at once, from the agent's next task for you. Only you see your lessons; administrators do not.
+- **Company mail standard**: "Set by the administrator; every mail draft follows it." Every member reads it here.
+- At the start of every task, the agent gets the company standards, your lessons and its own lessons. If it may read the company memory, it also gets a few records that fit the task, each with its date and source, as information, not as instructions.
+- If nothing was learned yet: "Nothing learned yet. When you send a result back with a note, change a draft or use Remember this, what the agent learns appears here."
+- **Numbers for experts** (open it with a click): "Your edits per week" (drafts, how much you changed before sending, drafts not sent) and "Your tasks sent back or declined per week". Only your own tasks; nobody else sees these numbers. Falling numbers mean the lessons work.
+- The administrator sees "Sent back or declined, per agent and week" across all members, never per person. A week with fewer than three people behind an agent's tasks shows "fewer than 3 people: not shown".
+- Each Learning run counts in the budget as "Learning".
+- When a member leaves the company, their personal memory is deleted. Company records they created stay, marked as from "a former member".
+- Your draft and sent texts are deleted after 90 days at the latest. The lessons stay.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "This cannot be a lesson: it holds ... It went to the administrator as a rule change request." | Lessons only shape how the work reads. Addresses, recipients, sending, money, publishing and access are rules the administrator sets. Ask your administrator to change the rule. |
+| No lesson from your mail drafts | Learning from drafts works only with company mailboxes connected with server and password (IMAP). With Microsoft 365 or Google, use **Remember this**. |
+| "... of your notes wait for the next Learning run (once a day)." | Nothing to do. The lessons appear after the next Learning run. |
+| The notes keep waiting for days | A Learning limit is reached. The administrator looks at **Settings** › **Advanced** › **Box**, panel **Memory**, figure **Learning**, and the form **Learning limits**. |
+| A lesson is wrong | Press **Edit** and correct it, or **Delete** it. **Undo** takes your last change back. |
+| **Remember this** is missing | It shows only on your own tasks once they stopped working, and on your own Home items from an agent. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Remember this** | Your sentence becomes a lesson for that agent at once. | You want the agent to do something differently next time. | Yes: **Undo** or **Delete**. |
+| **Hide** with a reason | The agent learns why you did not want a routine's item. | A routine shows you things you do not need. | Yes: **Undo** or **Delete** the lesson. |
+| **Hide** without a reason | Hides the item; nothing is learned. | You only want it gone. | n/a |
+| **Edit** | Puts a lesson in your own words. | A lesson is nearly right. | Yes: **Undo**. |
+| **Delete** | Removes a lesson or a record. | A lesson is wrong. | Yes: **Undo**. |
+| **Keep** | A proposal of an agent counts from now on. | It is true. | Yes: **Delete** it later. |
+| **Download** | One file with everything in your memory. | You want a copy. | n/a |
+| **Keep for everyone** (administrator) | An agent lesson from several people applies to everyone's tasks with that agent. | Many people taught the same thing. | Yes: **Delete** it later. |
+
+What Truchsess never learns: who should receive a mail, whether to send it, anything about money, payments, publishing or access, and nothing from mail other people sent you or from web pages. Such things are rules your administrator sets.
+
+<NotYet>
+Truchsess does not yet learn from your changes to drafts in a Microsoft 365 or Google mailbox. Use **Remember this** on the task to teach the agent instead.
+</NotYet>
+
+## Related pages
+
+- [Your account](/use/your-account/)
+- [Approvals and checks](/use/approvals-and-checks/)
+- [Connect your company mailbox](/use/email/)
+- [Ask Truchsess](/use/ask-truchsess/)
+- [Products and knowledge](/admin/products-and-knowledge/)

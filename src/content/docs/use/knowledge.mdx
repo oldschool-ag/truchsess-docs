@@ -6,19 +6,26 @@ import NotYet from '~/components/NotYet.astro';
 
 [Knowledge](/start/glossary/#knowledge) is the set of documents of a product that agents may read, for example a handbook or product notes. The administrator imports them under **Settings** › **Advanced** › **Knowledge**, panel **Import documents** (**Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**). See [Products and knowledge](/admin/products-and-knowledge/#import-documents).
 
+Agents find two kinds of things:
+
+- **Product documents**, on this page. An agent finds them by the words in them, so ask with the words the documents use.
+- **The company memory**: facts, one knowledge page per person, company, product or project, and what people taught the agents. An agent finds these by meaning, not only by the words you type. Ask *what does our small plan cost*, and the agent finds the page with the plan's name and its price, even though that page never says *small*. This works in German and English, and it runs entirely on your box: nothing is sent anywhere to be indexed.
+
 ## Who can do this
 
-Administrators and members, through an agent that has permission to read the product's knowledge.
+Administrators and members, through an agent that has permission to read the product's knowledge or to search the company memory.
 
 ## What you need
 
 - The administrator has imported documents for the product.
 - The agent has the permission "Read one product's knowledge" for that product. You see it under the link "... permissions · show" in **Chat**, or on the agent's card on **Agents**.
+- To search the company memory, the agent has the permission "Search the company memory".
+- For search by meaning: it is switched on by itself. A new box first downloads its search model and reads through the memory; until then, the memory is found by the exact words. The administrator sees the state under **Settings** › **Advanced** › **Box**. See [Search by meaning](/admin/products-and-knowledge/#search-by-meaning).
 
 ## Steps
 
 1. Open **Chat** and, under **Agent**, choose an agent with knowledge permission.
-2. Ask in plain words, for example: *Search the product knowledge for our refund rules and quote them.*
+2. Ask in plain words, for example: *Search the product knowledge for our refund rules and quote them.* Or, for the company memory: *What do we know about this customer?*
 3. Press **Send**.
 
 ## What you see afterwards
@@ -35,14 +42,16 @@ Administrators and members, through an agent that has permission to read the pro
 | Ask an agent to search or read | The agent reads documents of its products only. | Questions about the product. | n/a |
 | Ask an agent to write | Saves a new version of a document. | Only with an agent that may write. | Partly: the earlier version stays, and an agent can write it back as the newest version. |
 | Ask for an earlier version | An agent can read an older version of a document. | To compare or restore text. | n/a |
+| Ask an agent to search the company memory | The agent finds facts and pages by meaning, in German or English. | Questions about customers, contacts, prices or how the company works. | n/a |
 
 An agent that reads or writes knowledge always uses an AI provider that never trains on your data.
 
 <NotYet>
-You cannot browse, search or read the knowledge yourself in the portal, see the list of older versions, or delete a document. Ask an agent to search, list or quote documents for you. To replace a document, the administrator imports a new version.
+You cannot browse, search or read the knowledge yourself in the portal, see the list of older versions, or delete a document. Ask an agent to search, list or quote documents for you. To replace a document, the administrator imports a new version. A member cannot search the company memory in the portal either: ask an agent that may search it. You see your own memory under **Your account** › **What Truchsess has learned**; the administrator searches the whole memory under **Settings** › **Advanced** › **Box**, panel **Memory**, **Ask the memory**.
 </NotYet>
 
 ## Related pages
 
 - [Products and knowledge](/admin/products-and-knowledge/)
+- [What Truchsess has learned](/use/what-truchsess-learned/)
 - [Workboard](/use/workboard/)

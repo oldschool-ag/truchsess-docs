@@ -1,9 +1,13 @@
 ---
 title: 'Step 1: Unbox and connect'
-description: Connect the box to your office network and install Truchsess on it from the USB stick.
+description: Connect the box to your office network and open it in your browser, by its own name or by its address in numbers.
 ---
 import NotYet from '~/components/NotYet.astro';
 import { Aside } from '@astrojs/starlight/components';
+
+A box that comes with a card is ready to use: you plug it in and open the address on the card. A box that came with a USB installer stick instead is installed first; see [Install from the USB stick](#install-from-the-usb-stick).
+
+Every box has its own name, `truchsess-` followed by four characters, for example `truchsess-7f3a.local`. The box's screen and the card show it. Nobody signs in at the box itself: you do everything in the browser.
 
 ## Who can do this
 
@@ -11,39 +15,55 @@ The person who will be the administrator of the box.
 
 ## What you need
 
-- The box (a small computer) and its power supply.
-- The Truchsess USB installer stick.
-- A network cable to your office network. This is the easiest way. Wi-Fi also works.
-- A laptop or phone with a web browser on the same office network.
-- Recommended: a screen and a keyboard for the box, for this step only. The screen shows the addresses you need. You can do everything else in the browser.
+- The box and its power cable.
+- The card that came with the box.
+- A network cable to your office router.
+- Internet in your office.
+- A laptop or phone with a web browser, on the same office network.
+- Optional: a screen for the box. It shows the box's name and its addresses. You can do everything without it.
+
+For an installation from the USB stick you also need the **USB installer stick**, and a screen and a keyboard for the box are recommended for that step.
+
+## Steps
+
+### A box with a card
+
+1. Connect the network cable from your office router to the box.
+2. Connect the power cable and switch the box on.
+3. Wait until the box has an address from your network. If a screen is connected, it says "No network cable connected." until the cable is in, then shows the box's name and its addresses. The screen updates by itself.
+4. On your laptop, open the address on the card. It is `https://` followed by the box's own name and `/`. Or scan the QR code on the card with your phone.
+5. The browser warns about the certificate. See [Check the certificate](#check-the-certificate).
+6. The page **Welcome to your Truchsess box** opens. Continue in [Set up your box](/setup/first-run/).
+
+### Install from the USB stick
 
 <Aside type="danger" title={'This erases the disk of the box'}>
 Installing erases every file on the disk you choose. Do this only on a box that has nothing you need on it.
 </Aside>
 
-## Steps
-
 1. Connect the network cable and, if you have them, the screen and the keyboard.
 2. Put the **USB installer stick** into the box.
 3. Switch the box on. It starts from the stick. If it does not, open the computer's boot menu and choose the USB stick. The computer must start in UEFI mode.
-4. Wait until the box has a network address. With a cable this takes about half a minute.
-5. On your laptop, open the address that the box shows. The screen of the box lists it. Without a screen, find the box in your router's list of connected devices and open its address with `http://`.
+4. Wait until the box has a network address. With a cable this takes about half a minute. The screen says "Open in a browser on the office network:" and shows the address.
+5. On your laptop, open that address. Without a screen, find the box in your router's list of connected devices and open its address with `http://`.
 6. The page **Truchsess setup** opens. Look at the panel **Access**. Press **Refresh** if a value is missing.
 7. No cable? See [Use Wi-Fi instead of a cable](#use-wi-fi-instead-of-a-cable) first.
 8. In the panel **Target disk**, choose the disk. Only built-in disks are shown.
-9. In the panel **Install**, tick **I understand this will erase every partition and file on the selected disk.**
-10. Press **Erase and install**.
-11. In the box **Erase and install?**, press **Yes, erase this disk and continue**.
-12. Wait until the panel **Installation complete** appears.
-13. Write down the **CEO bootstrap code** shown on the page. It looks like `ABCD-EFGH-JKLM`. You need it once, in the next step, where the box calls it **Code from the installer**.
-14. Remove the USB stick. The box restarts by itself from its own disk.
+9. In the panel **Install**, read what is on the disk now. If an old disk group or disk array also spans another disk, the page warns: "An old disk group spans this disk and ... Installing breaks that group; the data on the other disk becomes unusable." Go on only if you do not need the data on that other disk.
+10. Tick **I understand this will erase every partition and file on the selected disk.**
+11. Press **Erase and install**.
+12. In the box **Erase and install?**, press **Yes, erase this disk and continue**.
+13. Wait until the panel **Installation complete** appears.
+14. Write down the **CEO bootstrap code** shown on the page. It looks like `ABCD-EFGH-JKLM`. You need it once, in the next step, where the box calls it **Code from the installer**.
+15. Remove the USB stick. The box restarts by itself from its own disk.
+16. Open the box at the address its screen shows, with `https://`. Continue in [Set up your box](/setup/first-run/).
 
 ### Use Wi-Fi instead of a cable
 
-If the box finds no cable network, it opens its own setup Wi-Fi. Its name is **Truchsess-Setup-** plus six characters. It has no password.
+Only the installer from the USB stick can join a Wi-Fi. If it finds no cable network, it opens its own setup Wi-Fi. Its name is **Truchsess-Setup-** plus six characters. It has no password.
 
 1. Join the setup Wi-Fi with your laptop or phone.
-2. Open the setup page. Its address is shown on the box's screen (row **Setup AP URL**).
+2. Open the setup page. The box's screen gives its address in the line "Or join the Wi-Fi ... and open ...".
 3. In the panel **WiFi**, press **Scan**.
 4. Choose your office Wi-Fi under **Network**, or type its name under **Manual network name**.
 5. Enter the **Password**.
@@ -53,56 +73,72 @@ If the box finds no cable network, it opens its own setup Wi-Fi. Its name is **T
 
 ## What you see afterwards
 
-After the restart, the box is installed. Its address in your office is:
+The box's screen shows:
 
-**https://truchsess.local/**
+- "This box: ..." with the box's own name;
+- "Open it in a browser on the office network, or scan the code:", then the box's own address, `https://` followed by its name, `.local` and `/`, and its address in numbers, `https://` followed by the numbers and `/`;
+- a QR code. A phone in the office opens the box with it. It holds the address in numbers, which works from every computer and phone in the office.
 
-Every box also has its own name, `truchsess-` followed by four characters and `.local`. The box's screen shows it in the line "This box: ...", with its addresses and a code you can scan with a phone.
+The box answers on these addresses:
+
+- **Its own name**, for example **https://truchsess-7f3a.local/**. Bookmark this one: it stays the same when more boxes join the network. The first page and the **Sign in** screen show it too: "This box's own address: ... It stays the same when more boxes join the network."
+- **https://truchsess.local/**, as long as it is the only box on the network.
+- **Its address in numbers**, shown on its screen. It always works on the same network. The first page and the **Sign in** screen add "If the name does not open, use ..." with this address. An administrator also finds it under **Settings** › **Advanced** › **Box**, panel **Version and log**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
 
 Boxes set up before October 2026 also answer on `myai.local`, so old bookmarks keep working. A box on a release older than `truchsess-iso-20261009-8551c68` answers only on **https://myai.local/**: use that address until you update it (see [Updates](/admin/updates/)).
 
-Open it in your browser. You continue in [First run](/setup/first-run/).
-
 ### Check the certificate
 
-The box makes its own security certificate. Your browser warns you once on each device, because it does not know this certificate yet.
+The box makes its own security certificate. Your browser warns you once on each device and once for each name you use, because it does not know this certificate yet.
 
 Before you accept the warning, compare the certificate's fingerprint (a long code of letters and numbers) with the one the box shows:
 
 - on the **Sign in** screen: "Certificate fingerprint of this Truchsess: ...";
-- for an administrator, under **Settings** › **Advanced** › **Support access**, panel **Let support help me**: "Certificate fingerprint of this Truchsess (self-signed): ...". **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+- for an administrator, under **Settings** › **Advanced** › **Support access**, panel **Let support help me**: "Certificate fingerprint of this Truchsess (self-signed): ...".
 
 The box's own screen does not show the fingerprint.
-
-The browser warns once on `truchsess.local`, and once more on `myai.local` if you also use that name.
 
 If the two match, accept the warning. If they do not match, stop and ask support.
 
 ### Two boxes in one office
 
-With two boxes on one network, only one of them answers on `truchsess.local`. Open each box by its own name instead:
+With two boxes on one network, only one of them answers on `truchsess.local`: the one that took the name first. Open each box by its own name instead:
 
-1. Read the box's own name on its screen, in the line "This box: ...". The **Sign in** screen shows it too: "This box's own address: ...".
+1. Read the box's own name on its screen, in the line "This box: ...", or on its card.
 2. Open `https://` followed by that name, `.local` and `/`.
-3. If the name does not open, use the box's address in numbers: it is on the box's screen, or in your router's list of connected devices. Open `https://` followed by that address and `/`. The browser warns about the certificate, because the address is not one of the box's names. Compare the fingerprint with the one on the **Sign in** screen, then accept.
+3. If the name does not open, use the box's address in numbers from its screen. The browser warns about the certificate, because the address is not one of the box's names. Compare the fingerprint with the one on the **Sign in** screen, then accept.
 
-Bookmark that address for each box. See [The box is not reachable by name](/troubleshooting/#the-box-is-not-reachable-by-name).
+Bookmark that address for each box. If the first page or the **Sign in** screen says "Another Truchsess box on this network already answers on ...", it names the address to use for this box.
+
+If a page says "This address now opens another Truchsess box", it has stopped and sent nothing to that box. Open your box at the address the page shows.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| The screen says "No network cable connected." | Plug the network cable into the box and into your router. The screen changes by itself. |
+| The screen says "Waiting for an address from the office network ..." for more than a minute. | Check that the cable goes to your office router and that the router gives out addresses. |
+| The box's own name (`.local`) does not open. | Use the address in numbers from the box's screen, with `https://`. It always works on the same network. |
+| A laptop on Wi-Fi opens the address in numbers but no `.local` name. | Your Wi-Fi filters the messages that `.local` names need. In the Wi-Fi settings this is often called multicast enhancement or client isolation. Use the address in numbers, or switch that filter off in your Wi-Fi. |
+| A computer opens no address of the box at all, but others do. | The office has two networks, for example the cable from the internet router and a Wi-Fi from a second router. A `.local` name does not reach the other network. Use the address in numbers and bookmark it; or connect the computer to the box's network; or reserve the box's address in the router; or set the second router to access-point mode. |
+| `truchsess.local` opens the wrong box. | Two boxes share the network. Use each box's own name. See [Two boxes in one office](#two-boxes-in-one-office). |
+| "No built-in installable disk detected." | The box has no disk Truchsess can use. Ask support. |
+| "The WiFi network '...' requires a password." | Enter the Wi-Fi password and press **Connect WiFi** again. |
+| "Install failed. ..." | Press **Copy logs** or **Download log file** in the panel **Logs** and send the file to support. The log contains your bootstrap code; do not share it with anyone else. |
+| The installer appears again after the restart. | Open the boot menu and choose **Linux Boot Manager** or the internal disk. |
+
+See also [The box is not reachable by name](/troubleshooting/#the-box-is-not-reachable-by-name).
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| Network cable | The box gets its address from your router. | Always, if you can. | Yes. |
-| Wi-Fi | The box joins your office Wi-Fi. | When there is no cable. | Yes: connect again with other details. |
-| Target disk | The disk Truchsess is installed on. Everything on it is erased. | The box's built-in disk. | Until you press **Yes, erase this disk and continue**. After that, no. |
-| **Write install plan** | Saves the plan first. Optional: **Erase and install** does this too. | You do not need it. | Yes. |
-
-## If it does not work
-
-- "No built-in installable disk detected.": the box has no disk Truchsess can use. Ask support.
-- "The WiFi network '...' requires a password.": enter the Wi-Fi password and press **Connect WiFi** again.
-- "Install failed. ...": press **Copy logs** or **Download log file** in the panel **Logs** and send the file to support. The log contains your bootstrap code; do not share it with anyone else.
-- The installer appears again after the restart: open the boot menu and choose **Linux Boot Manager** or the internal disk.
+| The box's own name | Opens this box, also when more boxes join the network. | For your bookmark. | n/a |
+| The address in numbers | Opens the box from every computer and phone on the office network. | When the name does not open. Your router may give the box another address later; reserve it in the router to keep it. | n/a |
+| Network cable (USB install) | The box gets its address from your router. | Always, if you can. | Yes. |
+| Wi-Fi (USB install) | The box joins your office Wi-Fi. | When there is no cable. | Yes: connect again with other details. |
+| Target disk (USB install) | The disk Truchsess is installed on. Everything on it is erased. | The box's built-in disk. | Until you press **Yes, erase this disk and continue**. After that, no. |
+| **Write install plan** (USB install) | Saves the plan first. Optional: **Erase and install** does this too. | You do not need it. | Yes. |
 
 <NotYet>
 You cannot choose the name of the box. You also cannot check the certificate fingerprint before the first account exists: neither the box's screen nor the first page shows it. Do the first setup only on your own office network, and compare the fingerprint on the **Sign in** screen afterwards.
@@ -110,5 +146,5 @@ You cannot choose the name of the box. You also cannot check the certificate fin
 
 ## Related pages
 
-- Next step: [First run](/setup/first-run/)
+- Next step: [Set up your box](/setup/first-run/)
 - [Troubleshooting](/troubleshooting/)

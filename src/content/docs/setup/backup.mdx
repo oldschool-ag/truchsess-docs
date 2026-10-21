@@ -1,21 +1,35 @@
 ---
 title: 'Step 9: Backup'
-description: Make the recovery sheet so the box makes a safety copy every night.
+description: Your recovery sheet from the first setup, nightly safety copies, and moving your data onto a new box.
 ---
 import NotYet from '~/components/NotYet.astro';
 import { Aside } from '@astrojs/starlight/components';
 
-The box makes no safety copy until a recovery sheet exists. If you printed or saved **Your recovery sheet** during the first setup, the sheet exists already: check it under **Settings** › **Safety copies** and go on with step 6 below. Otherwise do this step now.
+Your recovery sheet holds the key that opens every safety copy of your box. If the box ever breaks or is lost, the sheet and a safety copy bring your company's data back onto a new box. Only you have the key: the box keeps only a fingerprint of it, and the publisher has nothing.
+
+The box makes no safety copy until a recovery sheet exists. In the guided first setup you made it in step 3, **Your recovery sheet**, and the box made its first safety copy right after. Then only check it here and keep a copy outside the box. A box set up without the guided setup needs the sheet now: see [Make the recovery sheet](#make-the-recovery-sheet).
 
 ## Who can do this
 
-The administrator, in the office on **https://truchsess.local/**.
+The administrator, in the office, at the box's own address.
 
 ## What you need
 
-- A safe place for the recovery key that is not the box: a password manager, or a printout in a locked place.
+- A safe place for the recovery sheet that is not the box: a password manager, or the printout in a locked place.
+- For a copy outside the box: a computer or a drive where you keep files safe.
+- To move to a new box: the new box with its card, a safety copy file of the old box (a file ending in `.age`), and the recovery sheet of that copy.
 
 ## Steps
+
+### Check the sheet from the first setup
+
+1. Open **Settings** › **Safety copies**.
+2. Under **Recovery sheet**, read the line "Recovery sheet made ..." with the date and who made it.
+3. Under **Copies on this box**, find the first safety copy.
+
+### Make the recovery sheet
+
+Only if the box has no recovery sheet yet. **Settings** › **Safety copies** then says "No recovery sheet yet: the box makes no safety copy until it exists."
 
 1. Open **Settings** › **Safety copies**.
 2. Under **Recovery sheet**, press **Make the recovery sheet**.
@@ -23,29 +37,71 @@ The administrator, in the office on **https://truchsess.local/**.
 4. Press **Download as a file**, or **Copy** and paste it into your password manager.
 5. Press **I have saved it**.
 6. Press **Back up now** to make the first safety copy.
-7. When it is done, press **Download** next to the copy in **Copies on this box** and keep the file somewhere other than the box.
+
+### Keep a copy outside the box
+
+The safety copies stay on the box. If the box breaks, they break with it. Keep a copy elsewhere:
+
+1. Open **Settings** › **Safety copies**.
+2. Under **Copies on this box**, press **Download** next to the newest copy.
+3. Keep the file somewhere other than the box, apart from the recovery sheet.
+
+Do this regularly, for example once a week, and before big changes.
+
+### Move to a new box
+
+This is "I am moving from another Truchsess box". It brings the people, agents, tasks and settings of the old box onto a new box, from a safety copy file and its recovery sheet.
+
+1. Connect the new box and open the address on its card. See [Unbox and connect](/setup/unbox-and-connect/).
+2. On **Welcome to your Truchsess box**, press **I am moving from another Truchsess box**. Do not press **Set up a new box**: the restore works only before the first account exists.
+3. The page **Restore from a backup** opens.
+4. Enter the code from the new box's card under **Code from the card**. On a box installed from the USB stick, it is **Code from the installer**.
+5. Under **Backup file**, choose the safety copy file of the old box.
+6. Type the key from your recovery sheet under **Recovery key**. Or choose the file `truchsess-recovery-sheet.txt` under **or the recovery key file**; the box reads the key from it as it is.
+7. Press **Restore**.
+8. Wait while the page ticks off the steps of the restore. The box restarts its programs; the page reconnects by itself.
+9. Read the table **Enter these again**: "Secrets are never in a backup. Sign in with an account from the backup, then enter each of these where it says."
+10. Press **Sign in** and sign in with an account from the old box.
+11. Enter each item of the table where it says. For the AI, you can use the code from the new box's card under **Settings** › **Advanced** › **AI**, panel **AI of this box**, **Switch to managed AI with an activation code**. See [AI providers and lanes](/admin/ai-providers-and-lanes/#switch-to-managed-ai-with-an-activation-code). **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+
+The same steps are on the recovery sheet itself, under "How to bring the data back".
 
 <Aside type="danger" title={'Keep the recovery key'}>
-Every safety copy can only be opened with the key on its recovery sheet. If the key is lost, those copies are lost too. The box keeps only a fingerprint of the key, not the key itself.
+Every safety copy can only be opened with the key on its recovery sheet. If the key is lost, those copies are lost too. Anyone with the sheet and a safety copy of the box can read your company's data: keep the two apart, and away from the box.
 </Aside>
 
 ## What you see afterwards
 
-- The section says "Recovery sheet made ..." with the date and who made it.
-- Every night at 03:30 the box makes a safety copy and keeps the last 7.
+- **Settings** › **Safety copies** says "Recovery sheet made ..." with the date and who made it.
+- Every night at 03:30, in your company's time zone, the box makes a safety copy and keeps the last 7.
 - **Home** no longer says "No safety copy yet".
 - **Copies on this box** lists each copy with **Made**, **Size**, **How** and **Recovery sheet**.
+- After a move: the new box has the people, agents, tasks and settings of the copy. Everyone signs in with their accounts from the old box.
+
+What is not in a safety copy: passwords and keys. These are the AI provider key, connection keys, the store enrolment and the remote access code. After a restore, the box lists what to enter again under **Enter these again**.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "No recovery sheet yet: the box makes no safety copy until it exists." | Make it now. See [Make the recovery sheet](#make-the-recovery-sheet). |
+| The page asks for the code, and you do not have the new box's card. | The restore needs the code of the new box, not of the old one. Find the card that came with the new box, or ask support. |
+| "That is not a recovery key. It is the line that starts with AGE-SECRET-KEY-1, from the file you saved when the key was created." | Type the key exactly as it is on the sheet, or choose the sheet's file. |
+| "This recovery key does not open this backup. Use the recovery key that was current when the backup was made. Nothing was changed." | Use the sheet that was current when the copy was made. A copy made before a newer sheet opens only with the older sheet. |
+| "Choose the backup file first." | Choose the safety copy file under **Backup file**. |
+| "This box is already set up: sign in and restore under Settings > Safety copies." | The new box already has an account. Restore under **Settings** › **Safety copies**, section **Restore**. See [Safety copies and restore](/admin/backup-and-restore/). |
+| You have no safety copy file of the old box, and the old box is broken. | The data cannot come back. On the new box, press **Set up a new box**. From now on, download a copy regularly. |
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Make the recovery sheet** | Starts the nightly safety copies. | Now. | n/a |
-| **Make a new recovery sheet** | Replaces the key. Older copies then need the older key. | Only if the key may be known to someone else. Keep the old key as long as you keep its copies. | No. |
+| Print the sheet or save it as a file | Paper goes in a locked place, a file in a password manager. Both work for a restore. | Whichever you keep safe more easily. | n/a |
+| **Make the recovery sheet** | Starts the nightly safety copies. | Only if no sheet exists yet. | n/a |
+| **Make a new recovery sheet** | Replaces the key. Older copies then need the older key. | Only if the key may be known to someone else. Keep the old sheet as long as you keep its copies. | No. |
 | **Back up now** | Makes a safety copy at once. | Before big changes, for example an update. | n/a |
 | **Download** | Saves a safety copy file (`.age`, encrypted) to your computer. | Regularly, so a copy exists outside the box. | n/a |
-
-What is not in a safety copy: passwords and keys. These are the AI provider key, connection keys, the store enrolment and the remote access code. After a restore, the box lists what to enter again under **Enter these again**.
+| **I am moving from another Truchsess box** | Restores the old box's work onto a new box. | A new or replacement box, before its first account. | No, once started. |
 
 <NotYet>
 You cannot choose the time of the safety copy or the number of copies kept, and the box cannot copy them to another place by itself. Download a copy regularly and keep it safe.
@@ -54,4 +110,5 @@ You cannot choose the time of the safety copy or the number of copies kept, and 
 ## Related pages
 
 - Next step: [Remote access](/setup/remote-access/)
-- [Backup and restore](/admin/backup-and-restore/)
+- [Set up your box](/setup/first-run/)
+- [Safety copies and restore](/admin/backup-and-restore/)

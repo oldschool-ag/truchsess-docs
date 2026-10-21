@@ -24,12 +24,16 @@ The administrator. Members see the agents on the page **Agents** and ask for one
 
 The box is connected to the store. The activation code connects it. See [Store enrolment](/setup/store-enrolment/). If it is not connected, the Store says "This box is not connected to the store yet. The activation code connects it; support can help under Advanced." **Connect to the store** opens **Settings** › **Advanced** › **Agents**, **Store connection**.
 
+When the box connects, **Store connection** shows "Connected. Starting the store connection on this box…" for a few seconds, then the result: "Connected to the store on ..." with the day. The catalog then appears by itself, without another click.
+
+Agents you installed from a file before you connected the store stay as they are: their card says "Installed from a file", with their answers and their work. Connecting the store does not replace them, even when the store sells the same agent.
+
 ## Steps
 
 ### See the catalog
 
 1. Open **Agents** and press **Store**.
-2. Read the cards. The catalog refreshes by itself when you open **Agents**. To fetch it now, press **Refresh catalog** in **Settings** › **Advanced** › **Agents**, **Store connection**.
+2. Read the cards. The catalog refreshes by itself when you open **Agents**. To fetch it now, press **Refresh catalog** in **Settings** › **Advanced** › **Agents**, **Store connection**. The button shows "Refreshing…" while it waits. Then the line next to it says "Catalog refreshed at ..." with the time, or "The catalog could not be refreshed: ..." with what to do.
 3. A function you have not subscribed to shows **Subscribe** and its agents.
 4. Under each agent, open "What it may do: ...". The summary counts the permissions, for example "What it may do: ... granted, ... not allowed by your rules, ... chosen at install". The list has one line per permission, with a mark:
    - "granted": your owner policy allows it;
@@ -53,7 +57,7 @@ This works only in the office, on the local address. The same choice, with the k
 
 1. In **Store**, press **Subscribe** on the function's card. ("Subscribe (no price yet)" cannot be pressed: "There is no price for it yet.")
 2. Press **Open the payment page**. Pay on the store's page.
-3. Come back to the box: "The store opens the payment page in your browser; come back here when it says the payment is received." The page checks every few seconds.
+3. Come back to the box: "The store opens the payment page in your browser; come back here when it says the payment is received." The page checks every few seconds. With two subscriptions started at once, each one is followed.
 4. After the payment the card lists its agents, each with **Install**.
 
 If you do not pay within a day, the card says "The payment was not completed within a day. Subscribe again to open a new payment page."
@@ -66,11 +70,13 @@ A subscribed function's card lists each of its agents. An agent that is not inst
 2. Read "What it may do:" under the agent.
 3. If the note next to **Install** asks you to press **Allow agents from** and the publisher's name first, do that. See [The publisher is not trusted here yet](#the-publisher-is-not-trusted-here-yet).
 4. Answer the install questions under "This agent asks you to choose:".
-5. Press **Install**.
+5. Press **Install** once. The button shows "Installing …" until the agent is ready. A second press does nothing.
 6. Wait for the steps "Reserve the installation at the store", "Download the signed package", "Verify, unpack and bind the package", "Acknowledge the activation to the store".
 7. If the box asks for a product mapping, choose a product for each name and press **Resume the install**.
 
-The agent then says "Installed". When every agent of the function is installed, the card says "Installed". The agent now has its card on **Agents**, where you choose **Who may use it**. Each install in detail: [Installed agents in detail](/admin/packages/#installed-agents-in-detail).
+The agent then says "Installed". When every agent of the function is installed, the card says "Installed". A greyed-out **Install** says why next to it, for example "Subscribe first."
+
+**Install** installs an agent once. If it is already installed, the card says "... is already installed on this box." For a second copy, use **Add another copy** in the agent's settings, when the store sells copies. The agent now has its card on **Agents**, where you choose **Who may use it**. Each install in detail: [Installed agents in detail](/admin/packages/#installed-agents-in-detail).
 
 ### Install all agents of a function
 
@@ -88,7 +94,7 @@ An install that failed and was removed can still be held by the store. The agent
 
 ### Update a store agent
 
-When the store has a newer version, the agent's card on **Agents** says "Update available" and the version, and so does the function's card in **Store**. Press **Update**. If the new version asks for a new permission, you read it first and decide: "This update asks for a new permission. You see it and decide before anything changes." See [Update](/admin/packages/#update).
+When the store has a newer version, the agent's card on **Agents** says "Update available" and the version, and so does the function's card in **Store**: "Update available: ... (this box runs ...)", with the publisher's release notes under it. A version without release notes shows only the version and **Update**. Press **Update**. If the new version asks for a new permission, you read it first and decide: "This update asks for a new permission. You see it and decide before anything changes." See [Update](/admin/packages/#update).
 
 ### Manage a subscription
 
@@ -134,6 +140,21 @@ When a subscription has ended and none of its agents is installed, the function 
 - Uninstall stays your decision. The box never uninstalls an agent by itself.
 - Your tasks, files and knowledge stay on the box. They never went to the store.
 - If the store cannot be reached, the box keeps the receipt and sends it later.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "This box is not connected to the store yet. The activation code connects it; support can help under Advanced." | Press **Connect to the store**. See [Store enrolment](/setup/store-enrolment/). |
+| "Your store account has no agents yet. The publisher decides which agents your account sees; when they offer one, press Refresh catalog." | Wait until the publisher offers an agent, then press **Refresh catalog**. |
+| "The store could not be reached. Check that this box is online, then try again." | Check that the box reaches the internet, then press **Try again**. |
+| "The catalog could not be refreshed: ..." next to **Refresh catalog**. | Check that the box reaches the internet, then press **Refresh catalog** again. |
+| The note next to a greyed-out **Install** asks you to press **Allow agents from** and the publisher's name first. | Allow the publisher first. See [The publisher is not trusted here yet](#the-publisher-is-not-trusted-here-yet). |
+| "Add a product first (Settings > Advanced > Knowledge)." | Add a product under **Settings** › **Advanced** › **Knowledge**, panel **Add a product**, then install again. |
+| "Connect GitHub first (Settings > Advanced > Connections)." | Connect GitHub under **Settings** › **Advanced** › **Connections**, then install again. |
+| "... is already installed on this box." | The agent is already on the box. For a second copy, use **Add another copy** in its settings, when the store sells copies. |
+| "Another request is still running on this box. Try again when it has finished." | Wait until the other install or update ends, then try again. |
+| "The payment was not completed within a day. Subscribe again to open a new payment page." | Press **Subscribe** again. |
 
 ## Your choices
 
