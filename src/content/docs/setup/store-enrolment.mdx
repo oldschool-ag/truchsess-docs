@@ -1,5 +1,5 @@
 ---
-title: "Step 7: Store enrolment"
+title: 'Step 7: Store enrolment'
 description: Connect the box to the store once, so you can subscribe to agents.
 ---
 import NotYet from '~/components/NotYet.astro';
@@ -12,13 +12,12 @@ If you activated the box at the first run with the activation code, the box is a
 
 The administrator, in the office on **https://truchsess.local/**.
 
-## Before you start
+## What you need
 
 You need from the publisher:
 
-- the **store address**;
-- a one-time **enrolment code**. It looks like `TRS-XXXXX-XXXXX-XXXXX-XXXXX`;
-- the publisher's public key: a `.pub` file. You need it if the Store says the publisher is "NOT trusted here yet".
+- the **store address**, if the box does not fill it in by itself;
+- a one-time **enrolment code**. It looks like `TRS-XXXXX-XXXXX-XXXXX-XXXXX`.
 
 How buying works is explained in the store's own documentation: [How buying works](https://faivr.ai/docs/how-buying-works).
 
@@ -26,34 +25,31 @@ How buying works is explained in the store's own documentation: [How buying work
 
 ### Enrol
 
-1. Open **Agents**.
-2. Find the panel **Store**. It says "This appliance is not enrolled with a store yet."
-3. Enter the **Store address**.
+1. Open **Settings** › **Advanced** › **Agents**, panel **Store connection**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**. On **Agents**, the button **Connect to the store** in the **Store** opens this panel too.
+2. The panel says "This box is not connected to a store yet. Enter the one-time code the publisher gave you."
+3. Check the **Store address**. Enter it if it is empty.
 4. Enter the **Enrolment code**.
 5. Optional: enter a **Label for this appliance**, for example your company name.
 6. Press **Enrol**.
-7. Wait until the steps are done and the panel says "Enrolled as ...".
+7. Wait until the steps are done and the panel says "Connected to the store on ...".
 
 ### After enrolling
 
-1. The Store may show nothing yet: "No catalog fetched yet. Press "Refresh catalog"." Press **Refresh catalog**.
-2. Read the line about publisher keys under the enrolment details: "Publisher key the store offered: ...". Each key says "trusted here" or "NOT trusted here yet: register it under Trusted publishers".
-3. If a key says "NOT trusted here yet", trust that publisher. Follow the next steps.
+1. The box loads the store's catalog by itself. To load it again later, press **Refresh catalog** in the panel **Store connection**.
+2. Open **Agents**. Above the **Store**, the box may ask: "The store's agents come from ... Allow agents from ... on this box so you can add them."
+3. If it asks, trust that publisher. Follow the next steps.
 
 ### Trust the store's publisher
 
-1. Open **Administration** › **Agent rules**, panel **Trusted publishers**.
-2. Paste the publisher's public key (the PEM text from its `.pub` file) under **Public key (PEM, from the .pub file)**. Or choose the file under **Or upload the .pub file**.
-3. Enter a **Label**, for example the publisher's name.
-4. Press **Add publisher**.
-5. Go back to **Agents**, **Store** and press **Refresh catalog**. The key now says "trusted here".
+1. On **Agents**, above the **Store**, press **Allow agents from** and the publisher's name.
+2. The question disappears, and the **Store** lists the publisher's agents.
 
-A one-click trust button on the store card is coming with a later update. Until then, paste the key as above. More: [Trusted publishers](/admin/packages/#trusted-publishers).
+The panel **Store connection** says the same: "... is a trusted publisher on this box." To undo it, remove the publisher under **Settings** › **Advanced** › **Agents**, panel **Trusted publishers**. That panel also takes a publisher's public key from a `.pub` file, for agents from outside the store. More: [Trusted publishers](/admin/packages/#trusted-publishers).
 
 ## What you see afterwards
 
-- The panel shows **Enrolled as**, **Store**, **Label**, **Enrolled**, **Last contact** and **Appliance key id**.
-- After **Refresh catalog**, the Store lists the functions the store offers you, with their monthly price and their agents.
+- The panel **Store connection** says "Connected to the store on ..." and the last contact. **Details** shows **Store**, **Name of this box at the store**, **Box id at the store** and **Key of this box**.
+- On **Agents**, the **Store** lists the functions the store offers you, with their monthly price and their agents.
 - The enrolment code is used once and is not kept on the box.
 
 ## Your choices
@@ -61,16 +57,16 @@ A one-click trust button on the store card is coming with a later update. Until 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Enrol** | Connects this box to the store. | Once. | No, not in the portal. |
-| **Private test server (advanced)** | A certificate for a private test store. | Only for a test store, when the publisher asks for it. | n/a |
-| **Refresh catalog** | Fetches the store's current catalog. | After enrolling, and after you trusted a publisher. | n/a |
-| **Add publisher** | Trusts the publisher's signature. | When the Store says "NOT trusted here yet". | Yes: **Remove** under **Trusted publishers**. |
+| **Private test server (advanced)** | A certificate for a private test store. Shown only when support switched it on for your box. | Only for a test store, when the publisher asks for it. | n/a |
+| **Refresh catalog** | Fetches the store's current catalog. | When the store offers something new. | n/a |
+| **Allow agents from** the publisher | Trusts the publisher's signature. | When **Agents** asks for it above the **Store**. | Yes: **Remove** under **Trusted publishers**. |
 
 What leaves the box: the box's identity, which agents it asks for, and receipts for installs and uninstalls. Your tasks, files, knowledge and keys never go to the store.
 
 Paying and cancelling: see [Billing](https://faivr.ai/docs/billing) and [Cancel](https://faivr.ai/docs/cancel) in the store's documentation.
 
 <NotYet>
-You cannot undo the enrolment in the portal. To stop paying, cancel each subscription. See [Store](/admin/store/#cancel-a-subscription). The Store does not trust a publisher with one click yet; paste its key under **Trusted publishers** as described above.
+You cannot undo the enrolment in the portal. To stop paying, cancel each subscription. See [Store](/admin/store/#cancel-a-subscription).
 </NotYet>
 
 ## Related pages

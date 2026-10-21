@@ -8,7 +8,7 @@ import NotYet from '~/components/NotYet.astro';
 
 Administrators and members.
 
-## Before you start
+## What you need
 
 - At least one agent is installed. If **Chat** says "No agent is installed, so there is nothing to give work to.", ask your administrator.
 - Know what the agent may do. Each agent has a page in this manual; see [the agents in the store](/agents/).
@@ -16,8 +16,8 @@ Administrators and members.
 ## Steps
 
 1. Open **Chat** in the navigation.
-2. Choose the agent under **Agent**. You can also open **Agents**, panel **Agents you can use**, and press **Open in chat** next to the agent.
-3. Optional: press the link "N permissions · show" under the agent's name to see what it may do.
+2. Choose the agent under **Agent**. You can also open **Agents**: click an agent's name under **Your agents**, or click its card and press **Start a chat**.
+3. Optional: press the link "... permissions · show" (for example "13 permissions · show") next to the agent's name to see what it may do.
 4. Click into the message box and describe the work in plain words.
 5. Put links (web pages, files on GitHub) directly into the text.
 6. Optional: press **Attach** to add text files, or drop them on the message box.
@@ -28,7 +28,7 @@ On a phone, or to speak your task instead of typing it with **Hold to talk**, se
 ## What you see afterwards
 
 - A card appears for your task. This is one [run](/start/glossary/#run).
-- The card shows the state, for example "Running in the package sandbox", and the time it has been running.
+- The card shows the state, for example "Created, waiting for the agent" or "Running", and the time it has been running.
 - When the agent is done, the card shows its reply, a result file if there is one, and the files it made.
 - Continue with [Follow a run](/use/follow-a-run/).
 
@@ -43,14 +43,14 @@ On a phone, or to speak your task instead of typing it with **Hold to talk**, se
 
 ## Tips for good tasks
 
-- Say what you want as a result: "a list", "a pull request", "a one-page summary".
+- Say what you want as a result: a list, a pull request, a one-page summary.
 - Say where: the repository, the product, or the web page.
 - One task per message. A new message is a new run.
-- Never paste a password or a key. The box refuses it: "This looks like a key or password. It was not sent to the AI." Ask your administrator to add it under **Administration** › **Connections**.
+- Never paste a password or a key. The box refuses it: "This looks like a key or password. It was not sent to the AI." Ask your administrator to store it under **Settings** › **Advanced** › **Connections** (the link **Advanced (for experts)** at the bottom of **Settings**).
 
 ## If the task does not start
 
-- "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections." (the agent): the agent needs a connection. Ask your administrator.
+- "This agent is not ready yet. Your admin needs to connect ... under Settings > Advanced > Connections.": the agent needs a connection. Ask your administrator. An agent that needs something from you, for example your mailbox, says so with one button: see [When an agent needs something first](/use/agent-needs-something/).
 - A red budget banner: the monthly budget is used up. New tasks start again in the next period or when the budget is raised. Ask your administrator.
 - The **Send** button is greyed out and a note names the data rule: the agent's model does not meet the box's data rule. Ask your administrator.
 

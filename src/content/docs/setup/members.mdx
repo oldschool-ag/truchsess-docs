@@ -1,64 +1,60 @@
 ---
-title: "Step 5: Members"
-description: Create accounts for your colleagues and give them access to products.
+title: 'Step 5: Members'
+description: Add your colleagues to the box, and choose who may use which agent.
 ---
-import NotYet from '~/components/NotYet.astro';
 
 ## Who can do this
 
-The administrator creates the accounts. Each member then signs in once and sets a password.
+The administrator adds the people. Each member then signs in once and sets a password.
 
-## Before you start
+## What you need
 
 - The name and work e-mail of each person.
-- At least one [product](/start/glossary/#product). To add one, see [Products and knowledge](/admin/products-and-knowledge/#add-a-product).
-- You are in the office, on **https://truchsess.local/**. Accounts cannot be created from the remote address.
+- You are in the office, on **https://truchsess.local/**. People cannot be added from the remote address.
 
 ## Steps
 
-### Create an account
+### Add a person
 
-1. Open **Administration**, then **People and access**.
-2. In the panel **Add a user**, enter the **Name** and the **Work email**.
-3. Press **Create user**.
-4. The box shows a line "Temporary password for ...". Copy the password now. It is not shown again. Copy it exactly, without the space after it. A **Copy** button is coming with a later update.
-5. Give the temporary password to the person in a safe way (in person, or by phone). Do not send it in the same e-mail as the address of the box.
-
-### Give access to a product
-
-1. On the same page, in the panel **Assign product access**, choose the **User**.
-2. Choose the **Product**.
-3. Choose the **Access**: **Member** or **Owner**.
-4. Press **Assign access**.
+1. Open **Settings** › **People**.
+2. Under **Add a person**, enter the **Name** and the **Work email**.
+3. Press **Add the person**.
+4. The box shows "One-time password for ... Copy it now; it is not shown again." Press **Copy** next to the password.
+5. Give the one-time password to the person in a safe way (in person, or by phone), with the box's address. Do not send it in the same e-mail as the address of the box.
 
 ### The member's first sign-in
 
 1. The member opens **https://truchsess.local/** in the office.
-2. On **Sign in**, the member enters the **Work email** and the temporary **Password**.
+2. On **Sign in**, the member enters the **Work email** and the one-time **Password**.
 3. The page **Change your temporary password** opens.
 4. The member enters the **Temporary password**, then a **New password** (at least 12 characters, upper-case and lower-case letters and a number).
 5. The member presses **Change password**.
 
 If [remote access](/admin/remote-access/#use-the-remote-address-everyone) is on, a member can also sign in on the remote address with their e-mail and a one-time code. No password is needed there. The temporary password is still changed in the office, at the first sign-in on **https://truchsess.local/**.
 
+### Choose who may use an agent
+
+A new person sees the company's agents at once. To limit one agent to some people:
+
+1. Open **Agents** and press the agent's card. Its settings open.
+2. Under **For administrators**, **Who may use it**, choose **These people** and pick the people. **Everyone** also covers people you add later.
+
+A member who wants an agent they cannot use yet presses **Add this agent** on its card under **More agents on this box**. You answer on **Home**, under **Needs you**.
+
 ## What you see afterwards
 
-- The new person appears in the panel **People and access** with the role "Member". Until the first sign-in the state is "Must change password".
-- The assignment appears in the panel **Product access**.
-- The member sees **Chat**, **Runs** and **Agents** in the navigation, and every installed agent in **Chat**. At the end of **Agents** the member finds **Your products**, the requests for a new product or another agent, and **Your requests**.
-- The member opens **Your account** (to change their password) by pressing their name at the bottom of the navigation.
+- The new person appears in **Settings** › **People** with the role "Member". Until the first sign-in the state is "Not signed in yet".
+- The member sees **Home**, **Chat** and **Agents** in the menu.
+- The member opens **Your account** (for example to change their password) with the picture with their initials at the top right.
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Create user** | Creates a member account. | For each colleague. | Yes: **Disable**, then **Remove** (see [Users](/admin/users/#remove-a-person)). |
-| Access **Member** | The person sees the product and its agents. | Default. | Yes: **Remove** in **Product access**. |
-| Access **Owner** | The same as Member in this release. | When the person is responsible for the product. | Yes. |
-
-<NotYet>
-Every member sees every installed agent in **Chat**; you cannot hide an agent from a member. Install only agents everyone may use.
-</NotYet>
+| **Add the person** | Creates a member account. | For each colleague. | Yes: **Remove** in the person's row (see [Users](/admin/users/#remove-a-person)). |
+| **Who may use it**: **Everyone** | Every person on the box may use the agent, also people added later. | Default. | Yes. |
+| **Who may use it**: **These people** | Only the people you pick may use the agent. | An agent only some people need. | Yes. |
+| Product access **Member** or **Owner** | Who sees which product. A box set up with this release shows every product to everyone. Change it under **Settings** › **Advanced** › **Knowledge**, panel **Assign product access**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**. | Only when a product is not for everyone. | Yes: **Remove** in the panel **Product access**. |
 
 ## Related pages
 

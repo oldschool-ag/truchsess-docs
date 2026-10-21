@@ -1,10 +1,10 @@
 ---
-title: "Step 10: Remote access"
+title: 'Step 10: Remote access'
 description: Optional. Let members reach the box from outside the office with an e-mail code.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-This step is optional. Remote access is off until you switch it on.
+This step is optional. Remote access is off until you switch it on. The portal calls it **Reach your box from home**.
 
 With remote access, the box has a second address that works inside and outside the office. A person opens it, enters their e-mail, types the one-time code that arrives by e-mail, and is in the portal as themselves. No password, no VPN and no app are needed. The office address keeps working.
 
@@ -12,25 +12,26 @@ With remote access, the box has a second address that works inside and outside t
 
 The administrator, in the office on **https://truchsess.local/**.
 
-## Before you start
+## What you need
 
-- A **remote access code** from the vendor (the portal calls the vendor "the operator"). It starts with `truchsess-remote-v1.`.
-- Read what passes through the remote service: remote access runs through Cloudflare. While it is on, Cloudflare can read what you see and type on the remote address.
+- A **code from support**. It starts with `truchsess-remote-v1.`.
+- Read what passes through the remote service: Cloudflare runs it for Truchsess. While it is on, the service can read what you see and type on the remote address.
 
 ## Steps
 
-1. Open **Administration**, then **Remote access**, panel **Remote access**.
-2. Read the text that begins "Remote access runs through Cloudflare."
-3. Paste the code into **Remote access code (from the operator; it is entered once and never shown again)**.
-4. Tick **I have read what passes through Cloudflare**.
+1. Open **Settings** › **Your company**, part **Reach your box from home**.
+2. Read the text that begins "Reaching your box from home goes through our remote service."
+3. Paste the code into **Code from support (entered once, never shown again)**.
+4. Tick **I have read what passes through the remote service**.
 5. Press **Switch on**.
-6. Wait until the state shows "Connected" and an **Address**.
+6. Wait until the line shows "State: ..." with "Connected" and an address.
 7. Send the address to your members.
 
 ## What you see afterwards
 
-- The panel shows "State: Connected.", the **Address**, **Last contact** and who switched it on.
-- On the remote address, the administrator sees on **Administration**: "You are on the remote address. Secrets, SSH and updates can only be changed in the office, on the local address."
+- The line shows "State: Connected.", the address, the last contact and who switched it on.
+- **Allow Settings on the remote address** is on. Then an administrator on the remote address enters the box password once per session before **Settings** open. Members only need the e-mail code.
+- On the remote address, **Settings** says: "You are on the remote address. Secrets, SSH and rolling back can only be changed in the office, on the local address."
 - Only people with an account on the box get in. Others see "Your e-mail is not a member of this Truchsess. Ask your admin."
 
 ## Your choices
@@ -38,11 +39,12 @@ The administrator, in the office on **https://truchsess.local/**.
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Switch on** | Opens the remote address. | When people work outside the office. | Yes: **Switch off**. |
-| **Switch off** | "Remote access stops for everyone and the stored code is deleted." | When you no longer need it. | Only with a new code from the vendor. |
+| **Switch off** | "Reaching the box from home stops for everyone and the stored code is deleted." | When you no longer need it. | Only with a new code from support. |
+| **Allow Settings on the remote address** | On: an administrator may use **Settings** on the remote address after entering the box password. Off: "Settings are available in the office only." | Turn it off if nobody administers the box from outside. | Yes, in the office. |
 
-These things work only in the office, never on the remote address: signing in with a password, changing a password, changing the AI provider, switching to the managed AI with an activation code, adding users, SSH, the store enrolment, publishers, switching remote access on, connections, knowledge import, updates and backups. The remote address shows "Enter this in the office, on the local address." The full list is under [What works where](/admin/remote-access/#what-works-where).
+These things work only in the office, never on the remote address: signing in with a password, changing a password, changing the AI provider, activating the box or switching to the managed AI with an activation code, adding people and giving them a new one-time password, SSH, the store enrolment, trusting publishers, switching remote access on, the switch **Allow Settings on the remote address**, connections and mailboxes, knowledge import, safety copies and restores, and rolling back an update. The remote address says why, for example "For safety, passwords, keys and other secrets are entered only in the office.", and names the office address. Checking for updates and **Update now** work on the remote address too. The full list is under [What works where](/admin/remote-access/#what-works-where).
 
-Voice input works on the remote address too. The recording passes through Cloudflare like typed text.
+Voice input works on the remote address too. The recording passes through the remote service like typed text.
 
 Members never need a password on the remote address: they sign in with their e-mail and a one-time code. A new member can use the remote address before changing the temporary password. See [Use the remote address](/admin/remote-access/#use-the-remote-address-everyone).
 

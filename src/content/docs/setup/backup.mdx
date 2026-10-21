@@ -1,54 +1,54 @@
 ---
-title: "Step 9: Backup"
-description: Create the recovery key so the box makes a backup every night.
+title: 'Step 9: Backup'
+description: Make the recovery sheet so the box makes a safety copy every night.
 ---
 import NotYet from '~/components/NotYet.astro';
 import { Aside } from '@astrojs/starlight/components';
 
-The box makes no backup until a recovery key exists. Do this step now.
+The box makes no safety copy until a recovery sheet exists. If you printed or saved **Your recovery sheet** during the first setup, the sheet exists already: check it under **Settings** › **Safety copies** and go on with step 6 below. Otherwise do this step now.
 
 ## Who can do this
 
 The administrator, in the office on **https://truchsess.local/**.
 
-## Before you start
+## What you need
 
 - A safe place for the recovery key that is not the box: a password manager, or a printout in a locked place.
 
 ## Steps
 
-1. Open **Administration**, then **Backups**, panel **Backups**.
-2. Under **Recovery key**, press **Create the recovery key**.
-3. The key appears with the warning "This is the only time the box shows this key."
+1. Open **Settings** › **Safety copies**.
+2. Under **Recovery sheet**, press **Make the recovery sheet**.
+3. The key appears with the warning "The box shows this only once. Save it now, away from the box (a password manager, or printed and locked away). Every copy from now on opens only with it."
 4. Press **Download as a file**, or **Copy** and paste it into your password manager.
 5. Press **I have saved it**.
-6. Press **Back up now** to make the first backup.
-7. When it is done, press **Download** next to the backup in **Backups on this box** and keep the file somewhere other than the box.
+6. Press **Back up now** to make the first safety copy.
+7. When it is done, press **Download** next to the copy in **Copies on this box** and keep the file somewhere other than the box.
 
-<Aside type="danger" title="Keep the recovery key">
-Every backup can only be opened with its recovery key. If the key is lost, those backups are lost too. The box keeps only a fingerprint of the key, not the key itself.
+<Aside type="danger" title={'Keep the recovery key'}>
+Every safety copy can only be opened with the key on its recovery sheet. If the key is lost, those copies are lost too. The box keeps only a fingerprint of the key, not the key itself.
 </Aside>
 
 ## What you see afterwards
 
-- The panel says "Recovery key ..." with its fingerprint and when it was created.
-- Every night at 03:30 (box time) the box makes a backup and keeps the newest 7.
-- **Administration** › **Overview** no longer lists "There is no recovery key yet, so the box cannot make backups. Create it on Backups." under **Needs your attention**.
-- "Backups on this box" lists each backup with **Made**, **Size**, **How** and **Recovery key**.
+- The section says "Recovery sheet made ..." with the date and who made it.
+- Every night at 03:30 the box makes a safety copy and keeps the last 7.
+- **Home** no longer says "No safety copy yet".
+- **Copies on this box** lists each copy with **Made**, **Size**, **How** and **Recovery sheet**.
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Create the recovery key** | Starts the nightly backups. | Now. | n/a |
-| **Create a new recovery key** | Replaces the key. Older backups then need the older key. | Only if the key may be known to someone else. Keep the old key as long as you keep its backups. | No. |
-| **Back up now** | Makes a backup at once. | Before big changes, for example an update. | n/a |
-| **Download** | Saves a backup file (`.age`, encrypted) to your computer. | Regularly, so a copy exists outside the box. | n/a |
+| **Make the recovery sheet** | Starts the nightly safety copies. | Now. | n/a |
+| **Make a new recovery sheet** | Replaces the key. Older copies then need the older key. | Only if the key may be known to someone else. Keep the old key as long as you keep its copies. | No. |
+| **Back up now** | Makes a safety copy at once. | Before big changes, for example an update. | n/a |
+| **Download** | Saves a safety copy file (`.age`, encrypted) to your computer. | Regularly, so a copy exists outside the box. | n/a |
 
-What is not in a backup: secrets. These are the AI provider key, connection keys, the store enrolment and the remote access code. After a restore, the box lists what to enter again.
+What is not in a safety copy: passwords and keys. These are the AI provider key, connection keys, the store enrolment and the remote access code. After a restore, the box lists what to enter again under **Enter these again**.
 
 <NotYet>
-You cannot choose the backup time or the number of backups kept, and the box cannot copy backups to another place by itself. Download a backup regularly and keep it safe.
+You cannot choose the time of the safety copy or the number of copies kept, and the box cannot copy them to another place by itself. Download a copy regularly and keep it safe.
 </NotYet>
 
 ## Related pages
