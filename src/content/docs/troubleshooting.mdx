@@ -51,7 +51,7 @@ A fix that gives every box its own name is coming with a later update.
 | "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." | The administrator presses **Request top-up** or **Use my own AI key** in the banner. See [Budget](/admin/budget/). |
 | "The AI key of this box has no credit left. New runs are paused. ..." | The administrator presses **Request top-up** or **Use my own AI key** in the banner. Ask support. |
 | "The AI provider refused this box's key. Agents wait until it works again; the box checks it by itself." | Wait: the box checks the key again by itself. The administrator can press **Check the key again** in the banner. If it stays, ask support. |
-| "Budget exhausted: ..." and **Send** is greyed out. | Wait for the next period, or the administrator raises the budget or requests a top-up. See [Budget](/admin/budget/). |
+| "Budget exhausted: ..." and **Send** is greyed out. | Wait for the next period, or the administrator raises the **Monthly limit** in **Settings** › **Plan and costs**, or requests a top-up. See [Budget](/admin/budget/). |
 | **Send** is greyed out with a note about the data rule. | The agent's model does not meet the box's data rule. The administrator changes the lane's model or the rule. See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes). |
 | "... is larger than 48 KB; put a link to it in the message instead." | Attach smaller text files, or put a link in the message. |
 | "... is not a text file; the work chat takes text files up to 48 KB." | Only text files can be attached. |
@@ -63,11 +63,11 @@ A fix that gives every box its own name is coming with a later update.
 | "Sent back once already: accept it, or cancel the run." | A run can be sent back only once. Accept it, or cancel the run and start a new task. |
 | "Write what the agent should change first." | **Send back** needs a note. |
 | "Write a reason first: this action always needs one." | This action is at "Always asks, with a reason". Write a reason, then confirm. |
-| A row in **Autonomy levels** shows "Fixed". | That kind of action cannot be raised. |
+| A row in **Autonomy levels** (**Settings** › **Advanced** › **Agent rules**) shows "Fixed". | That kind of action cannot be raised. |
 | An agent's answer says it could not hand work over (not granted, already part of the chain, too many open, too deep, the local model, or the budget). | The limits of hand-offs. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents). For "The owner did not grant it", the administrator allows **Hand work to one other installed agent** for that agent. |
 | A new task shows "Created, waiting for the agent" for a long time. | Other tasks wait for work they handed over. It starts when one of them finishes. |
 | An agent that checks a website (for example Gideon) reports that a site is unreachable. | It may be a site other than the one it was installed for: the box blocks every other website. Ask only about the installed website, or change it with **Change** on the agent's row in **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**. See [One website per install](/agents/visibility-in-ai-search/#one-website-per-install). |
-| "The reply names a file that is not among this run's files: ..." or "The reply names files that are not among this run's files: ..." | The agent mentioned a file it did not save. Ask it again to save the file. |
+| "The reply names ... not among this run's files: ..." | The agent mentioned a file it did not save. Ask it again to save the file. |
 
 ## Settings and agents
 
