@@ -1,0 +1,130 @@
+---
+title: Let an agent read a website
+description: Name a website in your task so an agent may read it, allow another website, send website changes to Website care and download the result as a report.
+---
+import NotYet from '~/components/NotYet.astro';
+
+An agent reads only the websites you name in your message, together with their www. form, and only for this task. It can read pages there, nothing more:
+
+- It can open pages and read them, also with the box's own browser, and take screenshots.
+- It never sends anything to a website: no forms, no logins, no cookies, no downloads.
+- It never reads a local address or the box itself.
+
+When the agent needs another website, a card asks you first. When it has changes for one of your own websites, a second card asks before anything goes to Website care. The result can be downloaded as a report.
+
+## Who can do this
+
+- Everyone names websites in a task for an agent they may use.
+- The person who started the task decides a card that asks for another website. An administrator can decide it too.
+- Only an administrator sends website changes to Website care.
+- The administrator lists the company's own websites under **Your websites** when installing the agent.
+
+## What you need
+
+- An agent that may read the websites a person names. In its list of what it may do (in **Chat**, the link "... permissions · show" next to the agent's name), it has the line "Read the websites a person names in a task (only those, only for that task)". On a new box the company rules allow this by default.
+- For website changes: Website care is installed for that website, and the website is listed under **Your websites** of the agent that found the changes. See [Website care](/agents/website-care/).
+
+## Steps
+
+### Name a website in your message
+
+1. Open **Chat** and choose the agent under **Agent**.
+2. Write the task and name the website in it, for example *Please review www.example.com and list what is missing on the price page.* A full address such as `https://www.example.com/prices` works too.
+3. Press **Send**.
+
+The agent may now read `www.example.com` and `example.com`, for this task and for the work it hands to other agents. Nothing else counts:
+
+- At most 10 websites per message.
+- Only your own words count. A website in the agent's text, on a web page or in a file is never added.
+- A name needs a real ending such as `.com` or `.ch`. A file name such as `report.pdf` and the part after the @ of an e-mail address are not websites.
+- Addresses in numbers, local names (for example ending in `.local` or `.lan`, or `localhost`) and the box itself are never read.
+
+### Allow another website
+
+When the agent needs a website you did not name, the run card shows a card "... wants to read ...", with the websites and the agent's reason (for example: Gideon wants to read shop.example.org), and the note "Read only, for this task and the work it hands over. Nothing is sent to these websites; the grant ends with the task." The card is also on **Home**, in **Needs you**.
+
+1. Read which websites the agent wants and why.
+2. Press **Allow for this task**, or **Not now**.
+
+The agent does not wait for your answer: without the website it goes on with what it has. It can ask at most three times per task, for at most five websites each time.
+
+### Send website changes to Website care (administrators)
+
+When an agent has changes for one of your websites, the run card shows a card "... wants to send ... website changes for ... to ..." (for example: Gideon wants to send 3 website changes for www.example.com to Website Owner). Each change has a tick box, and all are ticked. This card always appears, whatever the agent's [autonomy levels](/admin/autonomy-levels/) say. It is also on **Home**, in **Needs you**.
+
+1. Read the changes. Open **The whole request** to read the full text.
+2. Untick each change you do not want.
+3. Press **Send to Website care**. The button carries the name of your Website care agent, for example **Send to Website Owner**.
+
+Website care gets only the ticked changes and works with its own permissions. **Not now** sends nothing. A member sees "Waiting for the CEO administrator to decide."
+
+Website care makes the changes as a pull request. A person merges it on GitHub; Website care never merges.
+
+### Download the report
+
+1. Wait until the run has ended. The card shows "Download the report:".
+2. Press **PDF**, **Markdown** or **HTML**.
+
+The report holds the task, the result, the websites named for the task and every page read. For a website your company does not own, send the report to its owner.
+
+### For the administrator: Your websites
+
+An agent that reads the websites a person names asks for no fixed website at install. The install form shows **Your websites (optional)** instead.
+
+1. Write the websites your company owns, one per line, for example `www.example.com`. At most 20.
+2. Finish the install as usual. See [Install questions](/admin/packages/#install-questions).
+
+Website changes go to Website care only for these websites. To change the list later: **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**, **Change** on the agent's row, then **Save and apply**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**. The row shows "Your websites: ...".
+
+## What you see afterwards
+
+- **Pages read** on the run card, with the number of pages. Open it:
+  - "Websites named for this task: ..." lists the websites you named and allowed.
+  - Each page with its status, or why it was not read: "(not read: ...)". A page over 5 MB shows "(cut at 5 MB)".
+  - A page opened with the box's browser ends with ", with browser", and one line under it says what the page loaded (how many requests, from how many websites).
+- Screenshots the agent took are on the card. Click one to open it next to the chat.
+- After **Send to Website care**, the card shows "Handed to ... for ... → pull request ..." with the website and a link to the pull request. See [Hand-offs between agents](/use/follow-a-run/#hand-offs-between-agents).
+- The agent reads at most 40 pages of one website per task, one page per second at most.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "... cannot read websites. ... can." under the answer, with a button **Give the task to** another agent. | Another of your agents can read the websites you name. Press the button: that agent gets the same task. See [When an agent needs something first](/use/agent-needs-something/). |
+| "... needs permission to read websites you name." under the answer. | An administrator presses **Allow for** the agent (only this agent gets it), then runs the task again. A member presses **Ask the administrator**. |
+| "... cannot read websites you name, so it did not open ..." | This version of the agent cannot read the websites a person names. The administrator updates the agent or installs one that can; a member asks the administrator. |
+| "Your company rules do not allow ... to read the websites a person names in a task yet" | An administrator presses **Allow for** the agent (only this agent gets it), or changes the company rules in **Settings** › **Advanced** › **Agent rules**. A member asks the administrator with **Ask the administrator**. Then run the task again. |
+| "... may reach only the websites it is set up for. This is a rule of this box, not a fault of the websites." | The agent opened a website you did not name and it is not set up for. Name the website in a new task, or ask the administrator. |
+| A page in **Pages read** shows "(not read: ...)". | The box refused that page, for example a local address. Nothing was read there. |
+| "Waiting for the person who started this task to decide." | Only the person who started the task, or an administrator, decides the card. Ask them. |
+| "Waiting for the CEO administrator to decide." | Website changes are sent by an administrator only. Ask your administrator. |
+| "Tick at least one change, or choose Not now." | Tick a change, or press **Not now**. |
+| The agent says "... is not set up for ..." | Website care is not installed for that website, or the website is not under **Your websites**. The administrator installs Website care for the website or adds it to **Your websites**. Or download the report and give it to Website care yourself in a new task. |
+| "The box's browser could not print the report right now. Download it as HTML or Markdown instead." | Press **HTML** or **Markdown**. |
+| No "Download the report:" on the card. | The run has not ended yet, or its result waits for the administrator's check. The report comes after **Accept**. See [Approvals and checks](/use/approvals-and-checks/). |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Allow for this task** | The agent may read these websites until the task ends, read only. | The website belongs to the task. | It ends with the task by itself. |
+| **Not now** (website card) | The agent does not read these websites. | The website is not needed or not trusted. | No. Name the website in a new task. |
+| Untick a change | That change is not sent. | You do not want it on the website. | Yes, before you press **Send to Website care**. |
+| **Send to Website care** | Website care gets the ticked changes and opens a pull request. | The changes are right for your website. | Close the pull request on GitHub without merging it. |
+| **Not now** (changes card) | Nothing is sent. | You want none of the changes. | No. Start a new task. |
+| **PDF**, **Markdown**, **HTML** | Downloads the report in that format. | PDF to send on; Markdown or HTML to edit. | n/a |
+| **Your websites** (administrator) | Changes go to Website care only for these websites. | At install, or with **Change** later. | Yes: **Change**. |
+
+<NotYet>
+- An agent cannot log in, fill in a form, accept cookies or download a file on a website. For your own website, send the changes to Website care; for another website, send the report to its owner.
+- The box's browser shows pages at desktop size only, and a screenshot shows the part of the page on the screen. Phone-sized pages and whole-page screenshots are not possible: check the page on a phone yourself.
+- A website you named or allowed is not kept for the next task, and a task an agent starts on its own schedule reads no named websites. Name the website again in a new task.
+</NotYet>
+
+## Related pages
+
+- [Start a task](/use/start-a-task/)
+- [Follow a run](/use/follow-a-run/)
+- [Website care](/agents/website-care/)
+- [Visibility in AI search](/agents/visibility-in-ai-search/)
+- [The agents in the store](/agents/)
