@@ -1,16 +1,16 @@
 ---
 title: Connections
-description: The GitHub App and its permissions, API keys, and what "ready" means.
+description: The GitHub App and its permissions, API keys, company mail, and what "ready" means.
 ---
-import NotYet from '~/components/NotYet.astro';
+Connections are for experts. They are on **Settings** › **Advanced** › **Connections**, with the panels **GitHub**, **Company mail**, **API keys** and **Recent changes**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
 
-Connections are on **Administration** › **Connections**. "Agents never come with connections. The box holds every connection here." An agent can use a connection within its permissions. It can never read or copy the secret.
+"Agents never come with connections." An agent can use a connection within its permissions. It can never read or copy the secret.
 
 ## Who can do this
 
 The administrator, in the office on **https://truchsess.local/**. Connections cannot be changed from the remote address.
 
-## Before you start
+## What you need
 
 - For GitHub: you can create GitHub Apps in your organisation.
 - For an API key: the key from the service.
@@ -41,11 +41,19 @@ After an update, the card may say "GitHub has not granted ... to this box yet." 
 
 ### Manage
 
+All on **Settings** › **Advanced** › **Connections**, panel **GitHub**:
+
 | Button | What it does |
 | --- | --- |
 | **Change repositories** | Opens GitHub, where you choose which repositories the App may reach. |
 | **Refresh** | Reads the list of repositories again. Press it after **Change repositories**. |
 | **Disconnect** | Press **Disconnect**, then **Confirm disconnect**: "The stored key is removed from this appliance and every agent with repository permissions stops reaching GitHub." Then press **Delete the App on GitHub**. |
+
+## Company mail
+
+The company's mail domains, and company mailboxes by address, are set in the panel **Company mail**. See [Company mail](/admin/company-mail/).
+
+Each person connects their own mailbox and calendars under **Your account**: see [Connect your company mailbox](/use/email/) and [Connect your calendars](/use/calendars/).
 
 ## API keys
 
@@ -58,13 +66,15 @@ The panel **API keys** shows one card for each key that an installed agent needs
 
 ## What "ready" means
 
-On the page **Agents**, panel **Your agents**, the column **Ready** shows:
+On **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**, each agent shows:
 
 - **Ready**: every connection the agent needs is stored.
 - **Needs ... from the admin** (for example "Needs GitHub from the admin"): a connection is missing. Press **Open Connections**.
 - **Needs new GitHub permissions from the admin**: see [above](#when-the-box-asks-for-new-github-permissions).
 
-An agent that is not ready refuses every task before anything starts: "This worker is not ready yet. Your admin needs to connect ... under Administration > Connections." (the agent) Nothing is charged.
+The agent's card under **Agents** shows what it needs in one line, with the button that fixes it.
+
+An agent that is not ready refuses every task before anything starts: "This agent is not ready yet. Your admin needs to connect ... under Settings > Advanced > Connections." Nothing is charged.
 
 ## What you see afterwards
 
@@ -83,11 +93,8 @@ An agent that is not ready refuses every task before anything starts: "This work
 | **Add key** / **Replace** | Stores an API key. | An agent needs it. | Yes: **Remove**. |
 | **Remove** | Deletes the key. | The key is no longer needed or was leaked. | Add a new key. |
 
-<NotYet>
-Only GitHub and API keys can be connected. Mail, calendars and other accounts are not possible yet.
-</NotYet>
-
 ## Related pages
 
 - [Connections setup](/setup/connections/)
+- [Company mail](/admin/company-mail/)
 - [Install and manage agents](/admin/packages/)

@@ -1,19 +1,21 @@
 ---
 title: Remote access
-description: The remote address with an e-mail code, what works there, what only works in the office, and switching it off.
+description: Reach your box from home with an e-mail code, what works there, what only works in the office, and switching it off.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-"One address for this box that works inside and outside the office: a person opens it, enters their e-mail, types the one-time code Cloudflare sends, and is in the portal as themselves. No VPN, no app. The local address keeps working unchanged. Off unless the admin switches it on here."
+"Reaching your box from home goes through our remote service. It checks the e-mail code and passes your pages between your browser and this box; while it is on, the service can read what you see and type on the home address. Without the e-mail code nobody gets in, and only the people of this box can."
+
+The remote service is run by Cloudflare. The local address in the office keeps working unchanged. Remote access is off until the administrator switches it on.
 
 ## Who can do this
 
-- The administrator switches it on (in the office) and off, on **Administration** › **Remote access**.
+- The administrator switches it on (in the office) and off, on **Settings** › **Your company**, part **Reach your box from home**.
 - Everyone with an account uses the remote address.
 
-## Before you start
+## What you need
 
-- A remote access code from the vendor. It starts with `truchsess-remote-v1.`
+- A remote access code from support. It starts with `truchsess-remote-v1.`
 - The box reaches the internet.
 
 ## Steps
@@ -24,61 +26,72 @@ See [Remote access setup](/setup/remote-access/#steps).
 
 ### Use the remote address (everyone)
 
-On the remote address you never need a password. Cloudflare checks your e-mail with a one-time code, and the box lets you in when that e-mail belongs to an active account on the box.
+On the remote address you sign in with your e-mail. Cloudflare checks it with a one-time code, and the box lets you in when that e-mail belongs to an active account on the box.
 
 1. Open the remote address your administrator sent you.
 2. Enter your work e-mail.
 3. Type the one-time code that arrives by e-mail.
 4. You are in the portal as yourself. A session lasts 12 hours.
 
-This also works for a new member who still has a temporary password: the remote address does not ask for it. The password is changed only in the office, on **https://truchsess.local/**. On the remote address, **Your account** (press your name at the bottom of the navigation) says: "On the remote address you sign in with your e-mail code; your password is changed in the office, on the local address."
+This also works for a new member who still has a one-time password: the remote address does not ask for it. The password is changed only in the office, on **https://truchsess.local/**. On the remote address, **Your account** (the picture with your initials at the top right) says: "On the remote address you sign in with your e-mail code; your password is changed in the office, on the local address."
+
+### Settings on the remote address (administrator)
+
+The e-mail code alone never opens Settings. What happens depends on **Allow Settings on the remote address** in **Reach your box from home**:
+
+- On: "an administrator on the remote address enters the box password once per session before Settings open. Members only need the e-mail code." Home shows it first under **Needs you**: "You are signed in from outside the office. Enter your box password once to manage the box." Type the password in "Your box password" and press **Manage the box**.
+- Off: "Settings are available in the office only. An administrator on the remote address works like a member."
+
+This switch is changed only in the office.
 
 ### If no code arrives
 
 - Look in your spam folder.
 - Wait a few minutes before you ask for a new code. Repeated requests are slowed down.
-- Ask your administrator to check that your exact e-mail address is on the remote access list. Cloudflare says a code was sent even for an address that is not allowed, so "code sent" does not prove that you are on the list.
+- Ask your administrator to check that your exact e-mail address is on the remote access list. Cloudflare says a code was sent even for an address that is not allowed, so that message does not prove that you are on the list.
 
 ### Let a person in (administrator)
 
 Each person needs two things, with exactly the same e-mail address:
 
-1. Their e-mail on the Cloudflare access list. The operator manages this list; send them the address.
-2. An account on the box: **Administration** › **People and access**. See [People and access](/admin/users/).
+1. Their e-mail on the Cloudflare access list. Support manages this list; send them the address.
+2. An account on the box: **Settings** › **People**. See [Users](/admin/users/).
 
 If either is missing, or the two addresses differ in any letter, the person gets no code or sees "Your e-mail is not a member of this Truchsess. Ask your admin."
 
 ### Switch off
 
-1. Open **Administration**, then **Remote access**, panel **Remote access**.
+1. Open **Settings** › **Your company**, part **Reach your box from home**.
 2. Press **Switch off**, then **Confirm switch off**.
 
-"Remote access stops for everyone and the stored code is deleted. A new code from the operator is needed to switch it on again." You can switch off from the remote address too.
+"Reaching the box from home stops for everyone and the stored code is deleted. A new code from support is needed to switch it on again." You can switch off from the remote address too.
 
 ## What you see afterwards
 
-- "State: Off.", "State: Connecting." or "State: Connected.", with the **Address**, the **Last contact**, and who switched it on or off.
+- **State**: Off, Connecting or Connected, with the **Address**, the **Last contact**, and who switched it on or off.
 - A last error, if any, for example that the box cannot reach the remote service.
+- Home, part **Box** (administrators): the tile **Reach your box from home**.
 
 ## What works where
 
 | Works on the remote address | Only in the office, on https://truchsess.local/ |
 | --- | --- |
-| **Chat**, **Runs**, **Approvals**, **Agents** (with your products and requests) | Signing in with a password, changing a password (also a temporary one) |
-| Voice input (**Hold to talk**) | **Change AI provider** |
-| Reading the Administration pages | **Switch to managed AI** with an activation code |
-| Approving and refusing, standing approvals | Adding users, resetting a password, enabling a person, changing a name or e-mail |
-| Installing and uninstalling agents (store and package file) | **Operator access over SSH**: SSH keys and the SSH switch |
-| Owner policy, data rule, autonomy levels, model lanes | Store enrolment, trusted publishers |
-| Budget: editing, top-up requests and their download | Switching remote access on |
-| Adding a product, assigning and removing product access | Connections (GitHub, API keys) |
-| Disabling and removing a person | Knowledge import |
-| Company name, the **Voice input** setting, self-tests | Updates, backups, restore, backup downloads |
-| Switching remote access off | |
+| **Home**, **Chat**, **Agents** | Signing in with a password, changing a password (also a one-time one) |
+| Voice input (**Hold to talk**) | **Change AI provider**, **Switch to managed AI** with an activation code |
+| Reading **Settings** and **Advanced** (administrator, see above) | **Add the person**, **Reset password**, **Enable**, **Change name or e-mail** |
+| Decisions on Home, **Needs you**; standing approvals | **Support access**: SSH keys and the SSH switch |
+| Adding, updating and removing agents | **Store connection**, trusted publishers, **Allow agents from** a publisher |
+| Agent rules (owner policy, data rule, autonomy levels), model lanes | Switching remote access on, **Allow Settings on the remote address** |
+| **Plan and costs**, the budget and top-up requests | **Connections** (GitHub, company mail, API keys) |
+| Adding a product, assigning and removing product access | Connecting your own mailbox or calendar (**Your account**) |
+| **Remove** a person | Importing documents, **Import from V1** |
+| Company name, language, time zone, the **Voice input** setting, self-tests | **Safety copies**: recovery sheet, safety copies, restore, downloads |
+| **Check for updates**, **Update now**, **Install updates automatically**, **Restart the box** | **Roll back** |
+| Switching remote access off | **Old assistant conversations** |
 
-On the remote address these show: "Enter this in the office, on the local address."
+On the remote address, Settings says: "You are on the remote address. Secrets, SSH and rolling back can only be changed in the office, on the local address." An office-only action is refused with the reason, for example "For safety, passwords, keys and other secrets are entered only in the office.", and the box's local address.
 
-Voice input works on the remote address too. The recording then passes through Cloudflare like typed text, and the chat says: "On the remote address your recording passes through Cloudflare on its way to this box."
+Voice input works on the remote address too: "Your recording is sent to this box over the internet." It then passes through Cloudflare like typed text.
 
 ## Messages on the remote address
 
@@ -87,18 +100,20 @@ Voice input works on the remote address too. The recording then passes through C
 | "Your e-mail is not a member of this Truchsess. Ask your admin." | No active account with this e-mail on the box: unknown, disabled or removed. |
 | "Remote access needs the e-mail code. Open the remote address again and sign in with your e-mail." | Sign in again with your e-mail. |
 | "Remote access is switched off on this box. Use the local address in the office." | The administrator switched it off. |
+| "Settings are available in the office only." | **Allow Settings on the remote address** is off. |
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Switch on** | Opens the remote address through Cloudflare. While it is on, Cloudflare can read what you see and type on the remote address. | People work outside the office. | Yes: **Switch off**. |
-| **Switch off** | Closes it and deletes the code. | Not needed, or a code may have leaked. | Only with a new code from the vendor. |
+| **Switch off** | Closes it and deletes the code. | Not needed, or a code may have leaked. | Only with a new code from support. |
+| **Allow Settings on the remote address** | An administrator may use Settings from home after entering the box password. | You manage the box from home. | Yes: untick it in the office. |
 
-The same page also holds the panel **Operator access over SSH**: the keys that let the operator reach the box over SSH, and the switch **Turn SSH on** or **Turn SSH off**. It works only in the office.
+Support's own access is a separate place: **Settings** › **Advanced** › **Support access**, panel **Let support help me**. It holds the keys that let support reach the box over SSH, and the buttons **Turn SSH on** and **Turn SSH off**. It works only in the office: "For safety, SSH access can only be changed in the office."
 
 <NotYet>
-Changing a password, including the temporary password of a new member, and entering any secret need the office. There is no other way to reach the box from outside, for example a VPN.
+Changing a password, including the one-time password of a new member, and entering any secret need the office. There is no other way to reach the box from outside, for example a VPN.
 </NotYet>
 
 ## Related pages
