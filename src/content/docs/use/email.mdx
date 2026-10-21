@@ -1,0 +1,101 @@
+---
+title: Connect your company mailbox
+description: Let your agents read your company mail and write drafts. They never send. Connect one company mailbox or several, and see what agents may do.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Your agents can read your company mail and write replies as drafts in your **Drafts** folder. They never send: you read each draft and send it yourself.
+
+You connect your own mailbox on **Your account** › **Email inbox**. Only you and the tasks you give can use it. The administrator never reads your mail.
+
+For a mailbox only you should see, for example your private Gmail, see [Add a private mailbox](/use/private-mailbox/).
+
+## What you need
+
+- Your company e-mail address. It must be in one of the company's mail domains, or on the administrator's list of company mailboxes. The administrator sets these: see [Company mail](/admin/company-mail/).
+- The password of that mailbox. Some providers need an app password instead: the page says so.
+- You are in the office, on **https://truchsess.local/**. On the remote address the box refuses: "For safety, passwords, keys and other secrets are entered only in the office."
+
+## Steps
+
+### Connect your first company mailbox
+
+1. Press the picture with your initials at the top right. The page **Your account** opens.
+2. Scroll to **Your connections**, panel **Email inbox**. The form **Connect your company mailbox** is open.
+3. Type your address under **Email address**. If it is your sign-in address, it is already filled in.
+4. Check the **Mail server**. It shows "Set by your administrator". You cannot change it.
+5. Type the mailbox password under **Password**. It is "Stored encrypted on the box."
+6. Press **Test and connect**.
+
+"Truchsess tests the connection before saving it." The button reads "Testing the connection" while it works.
+
+### Add another company mailbox
+
+You can connect several company mailboxes, one per address, for example your own address and a shared one like the office address.
+
+1. On **Your account** › **Email inbox**, press **Add another company mailbox**.
+2. Type the address under **Email address**.
+3. Type its password under **Password**.
+4. Press **Test and connect**.
+
+Only addresses in the company's mail domains can be connected, and never another person's address.
+
+### Disconnect a mailbox
+
+1. On the mailbox's card, press **Disconnect**.
+2. Confirm. The page asks: "Disconnect ... ? Agents can no longer use it, and its password is deleted from the box at once."
+
+Each mailbox has its own **Disconnect**. The other mailboxes stay connected.
+
+## What you see afterwards
+
+- The line "... is connected."
+- A card for the mailbox with **Type** (for example "Email inbox · IMAP" and the server), **Status** "Connected", **Connected** (the date), and **Agents may**: "Read your mail and write drafts. They never send."
+- A line that names the agents that read it, for example "Penn reads this mailbox for your tasks." Or "None of your agents reads this mailbox yet."
+- **Open your drafts**, when your administrator entered the address of the company's Drafts folder on the web.
+
+With two or more company mailboxes, an agent works on them as one inbox: "An agent replies from the mailbox a mail came to, with the signature for its domain. For a new mail it asks you which mailbox to use. What it learns about how you write comes from your company mail only." On Home, each mail shows the address it came to.
+
+## What agents may do
+
+"Read your mail and write drafts. Agents never send, delete, move or mark mail; reading leaves it unread."
+
+An agent reads your mailbox only for a task you give it. Before an agent reads your mail for the first time, it asks you: see [When an agent needs something first](/use/agent-needs-something/).
+
+### Your company signature
+
+When the administrator collects signature samples for the company standard, your card shows "Company signature: not shared. Nobody's task reads your sent mail for it." To share, press **Yes, share the closing lines of my last 5 sent mails**. An administrator's task then reads only those closing lines, never the mails themselves. **Stop sharing my signature** takes it back.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "The administrator has not set the company's mail domains yet, so no company mailbox can be connected." | Ask your administrator to set the company mail domains: [Company mail](/admin/company-mail/). |
+| "... is not a company address (...). For your own mailbox, use Add a private mailbox (only you)." | The address is not in a company domain. For a private address, use [Add a private mailbox](/use/private-mailbox/). |
+| "... is already connected." | The mailbox is on your page already. |
+| "The mailbox could not be connected." | Check the password and press **Test and connect** again. |
+| "Enter the mailbox password." | Type the password, then press **Test and connect**. |
+| Card: "The connection stopped working (for example after a password change). Connect again to let agents use your mailbox." | You changed the mailbox password. Disconnect the mailbox and connect it again with the new password. |
+| Card: "The company changed its mail server. Connect it again so agents can use it." | Press **Connect again** and type the password. **Remove** takes it off the list. |
+| "For safety, passwords, keys and other secrets are entered only in the office." | Connect the mailbox in the office, on **https://truchsess.local/**. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Test and connect** | Tests the password and connects the mailbox. | Once per mailbox. | Yes: **Disconnect**. |
+| **Add another company mailbox** | Connects one more company address. | You also read a shared or second address. | Yes: **Disconnect** on its card. |
+| **Disconnect** | Agents stop using the mailbox; the password is deleted at once. | You no longer want agents in that mailbox. | Connect it again. |
+| **Yes, share the closing lines of my last 5 sent mails** | Lets an administrator's task read your signature lines. | The company builds one signature standard. | Yes: **Stop sharing my signature**. |
+
+<NotYet>
+"Connect with Microsoft" (sign in to Microsoft 365, Outlook.com or Hotmail instead of a password) is coming soon. Outlook.com and Hotmail addresses cannot be connected yet. Proton Mail and Tuta mail cannot be connected: their mail is end-to-end encrypted. Use a mailbox at your company's own mail server instead.
+</NotYet>
+
+## Related pages
+
+- [Add a private mailbox](/use/private-mailbox/)
+- [Connect your calendars](/use/calendars/)
+- [When an agent needs something first](/use/agent-needs-something/)
+- [Company mail (administrator)](/admin/company-mail/)
+- [Your account](/use/your-account/)

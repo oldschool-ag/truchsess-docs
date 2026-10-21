@@ -6,10 +6,10 @@ import NotYet from '~/components/NotYet.astro';
 
 ## Who can do this
 
-- The administrator reads and changes the budget on **Administration** › **Budget**.
-- Members see the budget banner above the chat and the budget line on **Runs**.
+- The administrator sets the monthly limit on **Settings** › **Plan and costs**. The details are on **Settings** › **Advanced** › **AI**, panel **Costs in detail**. Advanced is the link **Advanced (for experts)** at the bottom of **Settings**.
+- Members see the budget banner above the chat. When the budget is used up, **Home** shows their agent as paused, with **Ask your administrator**. The administrator answers on **Home** › **Needs you**: **Open Plan and costs** or **Not now**.
 
-## Before you start
+## What you need
 
 Know your billing mode (see [AI providers](/setup/ai-providers/#your-choices)):
 
@@ -19,9 +19,11 @@ Know your billing mode (see [AI providers](/setup/ai-providers/#your-choices)):
 
 ## Steps
 
-### Read the panel
+### Read the costs
 
-1. Open **Administration**, then **Budget**. The badge shows the state: "within budget", "warning", "paused: budget exhausted", "no limit" or "unknown".
+**Settings** › **Plan and costs** shows **AI cost this month** as a number and a bar, the **Monthly limit**, and the AI in one line. For the details:
+
+1. Open **Settings** › **Advanced** › **AI**, panel **Costs in detail**. The badge shows the state: "within budget", "warning", "paused: budget exhausted", "no limit" or "unknown".
 2. Press **Refresh usage** to read the newest numbers. With **Managed by Old School**, the box also refreshes by itself every 15 minutes.
 
 | Field | Meaning |
@@ -36,16 +38,25 @@ Know your billing mode (see [AI providers](/setup/ai-providers/#your-choices)):
 
 ### Change the budget
 
-1. Under **Edit the budget**, change **Monthly limit**, **Warn at (percent)**, **Stop new runs at (percent)**, **Period starts on day** or **Billing rate**.
-2. Press **Save budget**.
+The monthly limit:
+
+1. Open **Settings** › **Plan and costs**.
+2. Enter the **Monthly limit** (a whole amount).
+3. Press **Save**.
+
+The other levels (for experts):
+
+1. Open **Settings** › **Advanced** › **AI**, panel **Costs in detail**.
+2. Under **Edit the budget**, change **Warn at (percent)**, **Stop new runs at (percent)**, **Period starts on day** or **Billing rate**.
+3. Press **Save budget**.
 
 With **Managed by Old School** you can raise the limit only up to the metered key's limit. For more, request a top-up.
 
 ### Request a top-up
 
-1. Under **Top-up requests**, enter the **Top-up amount** and a **Note (optional)**.
+1. In **Settings** › **Advanced** › **AI**, panel **Costs in detail**, under **Top-up requests**, enter the **Top-up amount** and a **Note (optional)**.
 2. Press **Request top-up**. "Creates a signed request Old School reads."
-3. The request is signed by the box. The column **Signed** shows "yes". If the box cannot sign it, **Signed** shows "no (own key)", and the request is made all the same.
+3. The box signs the request. The column **Signed** says whether it did. If the box cannot sign it, the column shows "no (own key)", and the request is made all the same.
 4. Press **Download** on the request (the progress shows under the link) and send the file to the vendor.
 5. When the vendor raises your key's limit, the request closes by itself as fulfilled.
 
@@ -59,42 +70,43 @@ The starter credit comes only with an activation code. Switching with an activat
 
 A box that is switched to the managed AI with an activation code (see [AI providers and lanes](/admin/ai-providers-and-lanes/#switch-to-managed-ai-with-an-activation-code)) gets a one-time starter credit of CHF 50.
 
-- The panel shows **Starter credit** instead of **Monthly limit**, and **Used since activation** instead of **Used this period**. The panel says "Starter credit: the AI credit that came with this box, used once, with no monthly reset."
+- **Settings** › **Plan and costs** shows how much starter credit is left. The panel **Costs in detail** shows **Starter credit** instead of **Monthly limit**, and **Used since activation** instead of **Used this period**. The panel says "Starter credit: the AI credit that came with this box, used once, with no monthly reset."
 - There is no monthly reset. **Remaining** shows the date of the activation and "no monthly reset". **Projected** shows nothing: "a starter credit has no period".
-- At 80 percent, everyone sees a yellow banner, for example: "AI starter credit: 80 percent is used (CHF 40.00 of CHF 50.00). New runs stop at 100 percent. Request a top-up, or use your own AI key."
+- At 80 percent, everyone sees a yellow banner: "AI starter credit: ... percent is used ... New runs stop at ... percent. Request a top-up, or use your own AI key."
 - At 100 percent, everyone sees a red banner: "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." The administrator sees two buttons in the banner: **Request top-up** and **Use my own AI key**.
-- **Request top-up** opens **Administration** › **Budget** at **Top-up amount**. When the vendor raised the key's limit, runs go on and the open request closes as fulfilled.
+- **Request top-up** opens **Settings** › **Advanced** › **AI** at **Top-up amount**. When the vendor raised the key's limit, runs go on and the open request closes as fulfilled.
 - **Use my own AI key** opens **Choose the appliance AI**. A key you save there ends the starter credit.
-- **Save budget** is refused while the box runs on the starter credit: "The starter credit has no monthly limit to change. When it is used up, request a top-up or use your own AI key."
+- **Save** on **Plan and costs** and **Save budget** are refused while the box runs on the starter credit: "The starter credit has no monthly limit to change. When it is used up, request a top-up or use your own AI key."
 
 ### When the provider refuses the key
 
-With the managed AI, the provider can switch the key off, or the key can run out of credit. New runs then stop, and everyone sees a plain red banner instead of a technical error:
+With the managed AI, the provider can switch the key off, or the key can run out of credit. New runs then stop, and everyone sees one plain line instead of a technical error:
 
-- "The AI key of this box was switched off by the provider. New runs are paused. Request a top-up, or use your own AI key."
-- "The AI key of this box has no credit left. New runs are paused. Request a top-up, or use your own AI key."
+- "The AI provider refused this box's key at ... Agents wait."
+- "The AI provider says this box's key has no credit left (...). Agents wait."
 
-With a starter credit, a key without credit shows the starter credit sentence above. The administrator sees **Request top-up** and **Use my own AI key** in the banner. The stop ends by itself when the provider accepts the key again.
+The box checks the key again by itself, and the line says when. The administrator sees **Check the key again** and **Open AI provider settings** in the banner, and **Request top-up** when the key has no credit left. The stop ends by itself when the provider accepts the key again.
 
 ## What you see afterwards
 
 | Usage | What everyone sees | What happens |
 | --- | --- | --- |
 | Below the warn level | Nothing. | Normal work. |
-| At the warn level (80 percent by default) | A yellow banner: "Budget warning: ... percent of this month's budget is used ... New runs stop at 100 percent." | Tasks still start. |
+| At the warn level (80 percent by default) | A yellow banner: "Budget warning: ... percent of this month's budget is used ... New runs stop at ... percent." | Tasks still start. |
 | At the stop level (100 percent by default) | A red banner: "Budget exhausted: ... New runs are paused until the period ends on ... or the budget is raised. Runs already in progress finish their current step." **Send** is greyed out. The administrator sees **Request top-up** in the banner. | No new tasks start. |
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Save budget** | Sets the limits. | Monthly planning. | Yes. |
+| **Save** (Plan and costs) | Sets the monthly limit. | Monthly planning. | Yes. |
+| **Save budget** (Costs in detail) | Sets the warn and stop levels, the start day and the billing rate. | Rarely; the box sets good levels. | Yes. |
 | **Request top-up** | Creates a signed request for more budget. | The budget will not last the period. | Yes: **Cancel** while it is open. |
 | **Refresh usage** | Reads the newest numbers. | Before a decision. | n/a |
 | **Use my own AI key** (banner) | Opens the page to enter your own provider key. Ends the managed AI and its starter credit. | The starter credit is used up and you do not want a top-up. | Yes: switch to the managed AI again with a new activation code. |
 
 <NotYet>
-You cannot set a budget per agent or per member, and the box does not send the top-up request to the vendor by itself. Download it and send it. PHOENIQS (Switzerland) is never metered by the box; its costs come on PHOENIQS's own bill.
+You cannot set a budget per agent or per member. A top-up request reaches the vendor by itself only through the box's store connection; otherwise download it and send it. PHOENIQS (Switzerland) is never metered by the box; its costs come on PHOENIQS's own bill.
 </NotYet>
 
 ## Related pages

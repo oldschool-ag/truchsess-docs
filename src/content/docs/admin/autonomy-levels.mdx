@@ -11,7 +11,7 @@ An [autonomy level](/start/glossary/#autonomy-level) says how much an agent does
 - The administrator sees and raises the levels.
 - Members see the level of their runs on the run card, and "Waiting for the owner's check" when a result is held.
 
-## Before you start
+## What you need
 
 At least one agent is installed. See [First agent](/setup/first-agent/).
 
@@ -22,8 +22,8 @@ Each level is shown as a colored label on run cards, approval cards and in the p
 | Level | Color | What happens |
 | --- | --- | --- |
 | **Runs on its own** | green | It runs and is recorded. |
-| **Tells you after** | blue | It runs. Afterwards you get a notice: on the run card ("Told you after: ...") and on the page **Approvals**, panel **Tells you after**. |
-| **Waits for your check** | yellow | The run finishes, but its result is held until you press **Accept**, or **Send back** with a note. See [Checks](/use/approvals-and-checks/#checks). |
+| **Tells you after** | blue | It runs. Afterwards you get a notice: on the run card ("Told you after: ...") and on **Home** › **Recent results**. |
+| **Waits for your check** | yellow | The run finishes, but its result is held until you press **Accept**, or **Send back** with a note, on **Home** › **Needs you**. See [Checks](/use/approvals-and-checks/#checks). |
 | **Asks you first** | orange | You approve before the action happens. |
 | **Always asks, with a reason** | red | You approve before the action, every time, and your decision needs a reason. A standing approval never covers it. |
 
@@ -47,6 +47,9 @@ Each kind of action starts at its default, the floor. You can raise it for one p
 | Comments on and reviews pull requests | Tells you after | Waits for your check |
 | Creates and updates issues | Tells you after | Waits for your check |
 | Pushes its own branches and opens pull requests | Tells you after | Waits for your check |
+| Reads the company mailbox of the person who gives the task | Runs on its own | cannot be raised |
+| Writes drafts in that mailbox (never sends) | Tells you after | cannot be raised |
+| Reads the calendars of the person who gives the task (never changes them) | Runs on its own | cannot be raised |
 | Publishes | Asks you first | Always asks, with a reason |
 | Sends messages outside the box | Asks you first | Always asks, with a reason |
 | Chains further actions | Asks you first | Always asks, with a reason |
@@ -62,8 +65,8 @@ Some things are stronger than any level: spending above the agent's per-action l
 
 ### Raise a level
 
-1. Open **Administration** › **Agent rules**.
-2. Go to the panel **Autonomy levels**. Each installed package has its own table, headed by the names of its installs and the package id: **What it does**, **Now**, **Level**, **Floor**.
+1. Open **Settings** › **Advanced** › **Agent rules**. Advanced is the link **Advanced (for experts)** at the bottom of **Settings**.
+2. Go to the panel **Autonomy levels**. Each installed package has its own table, headed by the names of its agents: **What it does**, **Now**, **Level**, **Floor**.
 3. In the row you want to change, open the menu in the column **Level** and choose the new level. A row that shows "Fixed" cannot be changed.
 4. Press **Save levels** under that package.
 
@@ -79,23 +82,23 @@ Choose the floor (the level in the column **Floor**) in the same menu and press 
 
 A standing approval moves "Asks you first" to "Runs on its own" for one agent and one action, within a monthly limit and until a date.
 
-1. Open **Approvals**, panel **Grant a standing approval**.
-2. Choose the **Agent**, the **Action** (**Publish**, **Send messages outside**, **Spend money** or **Chain actions**), the **Limit per calendar month** and **Expires on**.
+1. Open **Settings** › **Advanced** › **Agent rules**, panel **Grant a standing approval**.
+2. Choose the **Agent**, the **Action** (**Publish**, **Send messages outside**, **Spend money** or **Chain actions**), the **Limit per calendar month (times)** and **Expires on**. A **Note (optional)** is kept with it.
 3. Press **Grant**.
 
-Over the limit, after the expiry, or after **Revoke**, the agent asks again. "Uses credentials" and "Deploys" always ask, so they cannot get a standing approval. A grant for them made in an earlier release shows "not used: this action always asks".
+The panel **Standing approvals** below lists every grant, with **Revoke**. The agent's card on **Agents** shows its own under **Allowed without asking** (read only). Over the limit, after the expiry, or after **Revoke**, the agent asks again. **Uses credentials** and **Deploys** always ask, so they cannot get a standing approval. A grant for them made in an earlier release shows "not used: this action always asks".
 
 ### Make an agent do less
 
 - Raise a level, as above.
-- Or remove the permission in **Administration** › **Agent rules**, panel **Owner policy**, and press **Save policy**. This affects agents installed afterwards. For an installed agent, open **Agents**, panel **Your agents**, press **Change** and skip an optional install question, or uninstall and install it again.
+- Or remove the permission in **Settings** › **Advanced** › **Agent rules**, panel **Owner policy**, and press **Save policy**. This affects agents installed afterwards. For an installed agent, open **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**, press **Change** on the agent, clear an optional install answer and press **Save and apply**, or uninstall it and install it again.
 
 ## What you see afterwards
 
 - Each run card shows the highest level the run reached, as a colored label.
-- At "Tells you after": "Told you after: ..." on the run card, and a line in the panel **Tells you after** on the page **Approvals**. Press **Mark all as seen** when you have read them.
-- At "Waits for your check": "Waiting for your check" on the run card and on the page **Approvals**.
-- At "Asks you first" or "Always asks, with a reason": an approval card with the level label.
+- At "Tells you after": "Told you after: ..." on the run card, and a "Told you after" line on **Home** › **Recent results**. Press **Mark as seen** when you have read it.
+- At "Waits for your check": "Waiting for your check" on the run card, and a check on **Home** › **Needs you** with **Accept** and **Send back**.
+- At "Asks you first" or "Always asks, with a reason": an approval card with the level label in the chat, and an approval on **Home** › **Needs you**. A decision that needs a reason is made in the chat.
 - The audit trail of each run records each held result, each check decision, each approval decision and each level change.
 
 ## Your choices

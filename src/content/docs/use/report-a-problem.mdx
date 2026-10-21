@@ -9,7 +9,7 @@ import SupportContact from '~/components/SupportContact.astro';
 
 Everyone. Members tell their administrator first. The administrator contacts support.
 
-## Before you start
+## What you need
 
 Look at [Troubleshooting](/troubleshooting/). Many problems have a simple fix there.
 
@@ -19,17 +19,17 @@ Look at [Troubleshooting](/troubleshooting/). Many problems have a simple fix th
 
 1. Note the time, the agent and what you asked for.
 2. Copy the exact message the portal showed.
-3. If it is about a run: open **Runs**, find the run (the filters and "Search tasks" help) and note its time and state.
+3. If it is about a run: open **Agents**, click the agent's card, and find the task under **Recent tasks**. Note its time and state.
 4. Send this to your administrator.
 
 ### Administrators
 
 1. Collect what the member sent.
-2. For a run: open **Runs**, press **Audit** on the run, and copy the events. The card in **Chat** shows the run's id when you hold the mouse over its top line.
-3. For an update: open **Administration** › **System**, panel **System**, and open **Details (update log)**.
+2. For a run: open **Settings** › **Advanced** › **Activity and audit trail**, panel **Run history**. Find the run (the filters and "Search tasks" help), press **Audit**, and copy the events. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+3. For an update: open **Settings** › **Advanced** › **Box**, panel **Version and log**, and open **Details (update log)**.
 4. For the installer: in the setup page, press **Copy logs** or **Download log file**.
-5. For an agent that cannot run: open **Agents**, panel **Your agents**, and copy its line (**State**, **Ready**, and the error if one is shown).
-6. Write down the **Running release** from **Administration** › **System**, panel **System**.
+5. For an agent that cannot run: copy the line on its card on **Agents**. Then open **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**, and copy its row (its state, for example "Not running", and the error if one is shown).
+6. Write down the version under **On this box** in **Settings** › **Updates**.
 7. Send all of this, with a short description, to support: <SupportContact />
 
 Never send passwords, API keys or the recovery key. The box never shows them in these places, but check what you paste. The installer log contains the one-time bootstrap code; it is used up once the administrator account exists.
@@ -42,12 +42,12 @@ Support answers you. When the fix needs a new box release, you install it with *
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Run the sandbox tests** (**Administration** › **System**, panel **Self-tests**) | Checks that the box keeps agents closed in. | Support asks for it, or you suspect a box problem. | n/a |
+| **Run the sandbox tests** (**Settings** › **Advanced** › **Box**, panel **Self-tests**) | Checks that the box keeps agents closed in. | Support asks for it, or you suspect a box problem. | n/a |
 | **Run the Connection secrecy test** | Checks that agents cannot read keys. | After connection problems. | n/a |
 | **Run the gateway test** | A deeper test. Chat is unavailable for several minutes. | Only when support asks. | n/a |
 
 <NotYet>
-There is no "Report a problem" button in the portal, and the box sends nothing to support by itself. Collect the details above and send them yourself.
+The portal has no button that reports a problem to support, and the box sends nothing to support by itself. Collect the details above and send them yourself.
 </NotYet>
 
 ## Related pages

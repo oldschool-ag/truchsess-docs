@@ -1,78 +1,52 @@
 ---
 title: Audit and status
-description: The Overview of the box, where the box records what happened and who did it, and how to check that the box is healthy.
+description: Where the box records what happened and who did it, and how to check that the box is healthy.
 ---
 import NotYet from '~/components/NotYet.astro';
 
+The records are for experts. They are on **Settings** › **Advanced** › **Activity and audit trail** ("Every task of every agent, the audit trail of one task, sign-ins and changes, and the older requests.") and **Settings** › **Advanced** › **Box**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+
 ## Who can do this
 
-The administrator. Members see the audit trail of their own runs only.
+The administrator. Members see their own recent tasks on each agent's card under **Agents**, and on Home.
 
-## Before you start
+## What you need
 
 Nothing. Everything here only reads.
 
-## The Overview
+## At a glance: Home
 
-**Administration** opens on **Overview**: "The state of this Truchsess box at a glance. Only you, as administrator, see this." The page has three parts.
-
-### Needs your attention
-
-A list of what waits for you. Each line has a tag, a sentence and a button that opens the right page. The box lists only what it already reports:
-
-| Tag | What it says | Button |
-| --- | --- | --- |
-| Request | How many product or agent requests wait for your decision. | **Open Approvals** |
-| Approval | How many runs wait for your decision or check. | **Open Approvals** |
-| Budget warning, or Budget used up | The same sentence as the budget banner above the chat. | **Open Budget** |
-| Update | "Version ... is ready to install." | **Open System** |
-| Backups | "There is no recovery key yet, so the box cannot make backups. Create it on Backups.", or that the last backup failed or was skipped, with the reason. | **Open Backups** |
-
-When nothing waits, the page says "Nothing needs your attention."
-
-### Areas
-
-One card for each of these pages, with its state in one line. Press a card to open the page.
-
-| Card | What it shows |
-| --- | --- |
-| **People and access** | How many people, and how many of them are members. |
-| **Budget** | What is used of the limit, and when the period ends. Without an enforced budget, the billing mode and what was used this period. |
-| **Connections** | "GitHub and API keys". Open the page to see what is connected. |
-| **System** | The running version, and "Update available" when there is one. |
-| **Backups** | The last backup: when, how large, and how many are kept. |
-| **Remote access** | Open the page to see whether it is on. On the remote address, the card adds "You are on the remote address now". |
-
-### Recent activity
-
-The activity of the whole box. See the table below.
+There is no Overview page any more. What waits for you is on Home, **Needs you**: "Only a person can unblock these." Administrators also see Home, **Box** ("Only administrators see this."), with the tiles **Last safety copy**, **Update**, **AI costs this month** and **Reach your box from home**, and the link **Open Settings**.
 
 ## Where things are recorded
 
 | Place | What it shows | Who |
 | --- | --- | --- |
-| **Runs**, **Audit** on a run | Every event of one run: when it started, each step, each approval decision with the name, each knowledge or workboard call, cancel, failure. | Administrator: every run. Member: own runs. |
-| **Administration** › **Overview**, **Recent activity** | The last 200 events of the box: sign-ins, accounts, product access, requests, approvals, work given to agents, agent installs, provider changes, the company name. Columns **Time**, **Person**, **Activity**, **Type**. | Administrator |
-| **Administration** › **Budget**, **Budget events** | Warnings, stops, refused runs, top-up requests. | Administrator |
-| **Administration** › **Backups**, **Backup history** | Backups, key changes, restores. | Administrator |
-| **Administration** › **Connections**, **Recent changes** | Who connected, replaced or removed a connection. Never a secret. | Administrator |
-| **Administration** › **Agent rules**, **Owner policy** | "Last change ... by ..." | Administrator |
-| **Administration** › **System**, **Earlier assistant conversations** | Old chats of the removed built-in assistant, kept for the record. | Administrator |
+| **Settings** › **Advanced** › **Activity and audit trail**, panel **Run history** | Every task given to an agent: state, timing, model lane, approvals used, result files. Filter by **Agent**, or with **All**, **Needs you**, **Active**, **Finished**, **Failed or cancelled**, **Routines**, and **Search tasks**. | Administrator |
+| The same, **Audit** on a task, panel **Audit trail** | Every event of one task: when it started, each step, each approval decision with the name, each knowledge or workboard call, cancel, failure. Columns **Time**, **Event**, **Actor**, **Summary**. | Administrator |
+| The same, panel **Recent activity** | The last 200 events of the box: sign-ins, accounts, product access, requests, approvals, work given to agents, agent installs, provider changes, the company name. Columns **Time**, **Person**, **Activity**. | Administrator |
+| The same, panel **Requests** | Older requests from members for a new product or another agent. | Administrator |
+| **Settings** › **Advanced** › **AI**, panel **Costs in detail**, **Budget events** | Warnings, stops, refused runs, top-up requests. | Administrator |
+| **Settings** › **Advanced** › **Box**, panel **Version and log**, **Backup history** | Safety copies, key changes, restores. | Administrator |
+| **Settings** › **Advanced** › **Connections**, panel **Recent changes** | "Who connected, replaced or removed what, and when. Never a secret." | Administrator |
+| **Settings** › **Advanced** › **Agent rules**, panel **Owner policy** | "Last change ... by ..." | Administrator |
+| **Settings** › **Advanced** › **Box**, panel **Old assistant conversations** | Old chats of the removed built-in assistant, kept for the record. | Administrator |
 
 ## Status
 
 ### Steps
 
-1. The status line at the bottom of the navigation shows the AI provider and model when the box is ready ("Ready"), or "Starting" while it starts.
-2. **Administration** › **Overview**: **Needs your attention** and **Areas**.
-3. **Administration** › **System**, panel **System**: **Running release** and **Newest available**. The company name is set on the same page; see [Updates](/admin/updates/#the-company-name).
-4. **Agents**: the line above the panel **Your agents** says what the box's helper did last ("Last helper request: ...").
-5. **Agents**, panel **Your agents**: **State** and **Ready** of each agent.
-6. **Administration** › **System**, panel **Self-tests**: press **Run the sandbox tests** or **Run the Connection secrecy test**. Each shows a result line and the full output.
+1. The status line at the bottom of the menu shows the AI provider and model when the box is ready ("Ready"), or "Starting" while it starts.
+2. Home: **Needs you**, and for administrators **Box**.
+3. **Settings** › **Updates**: **On this box** and **Newest**. See [Updates](/admin/updates/).
+4. **Settings** › **Advanced** › **Box**, panel **Version and log**: the exact release, the update log under **Details (update log)**, and **Updates at night**.
+5. **Settings** › **Advanced** › **Agents**: the line above **Store connection** says what the box's helper did last ("Last request: ...").
+6. **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**: the state of each agent, and **Ready** or what it needs.
+7. **Settings** › **Advanced** › **Box**, panel **Self-tests**: press **Run the sandbox tests** or **Run the Connection secrecy test**. Each shows its progress and the result in the panel.
 
 ## What you see afterwards
 
-A self-test ends with "Done" and the result line, or "Failed" and the probes that failed. The last run of each test stays visible.
+A self-test shows its result in the panel **Self-tests**. The last run of each test stays visible. To see the test tasks in **Run history**, tick **Show self-tests**.
 
 ## Your choices
 
@@ -80,11 +54,11 @@ A self-test ends with "Done" and the result line, or "Failed" and the probes tha
 | --- | --- | --- | --- |
 | **Run the sandbox tests** | Checks that agents stay inside their closed workspace. | After an update, or when support asks. | n/a |
 | **Run the Connection secrecy test** | Checks that agents cannot read any key. | After a connection change. | n/a |
-| **Run the gateway test** | "The gateway test restarts the assistant runtime twice and takes several minutes. Chat is unavailable meanwhile." Refused while a run is active. | Only when support asks. | n/a |
-| **Show self-tests** (Runs) | Shows the test runs in the run history. | When you look at a self-test. | Yes. |
+| **Run the gateway test** | "The gateway test restarts the assistant runtime twice and takes several minutes. Chat is unavailable meanwhile." Press it, then **Confirm gateway test**. Refused while a chat run is active. | Only when support asks. | n/a |
+| **Show self-tests** (Run history) | Shows the test tasks in the run history. | When you look at a self-test. | Yes. |
 
 <NotYet>
-You cannot search or export the activity or the audit trail, and the box keeps only the last 200 events in **Recent activity**. Copy what you need. The box sends no alerts.
+You cannot export the activity or the audit trail, and the box keeps only the last 200 events in **Recent activity**. Copy what you need. **Search tasks** searches the run history only. The box sends no alerts.
 </NotYet>
 
 ## Related pages

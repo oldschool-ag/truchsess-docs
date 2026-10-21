@@ -1,5 +1,5 @@
 ---
-title: "Step 2: First run"
+title: 'Step 2: First run'
 description: Create the administrator account on a new box, activate the box or choose your own AI key, or restore a backup instead.
 ---
 import NotYet from '~/components/NotYet.astro';
@@ -8,10 +8,10 @@ import NotYet from '~/components/NotYet.astro';
 
 The administrator, once, on a new box, in the office.
 
-## Before you start
+## What you need
 
 - The box is installed. See [Unbox and connect](/setup/unbox-and-connect/).
-- The **bootstrap code** from the end of the installation (shown on the box's screen).
+- The **CEO bootstrap code** from the end of the installation. The first page calls it **Code from the installer**.
 - A password for yourself: at least 12 characters, with upper-case and lower-case letters and a number.
 - One of these for the AI:
   - the **activation code** from the card in the box (it starts with `TRS-`), or
@@ -24,56 +24,59 @@ The bootstrap code and the activation code are two different codes. The bootstra
 ### Create the administrator
 
 1. Open **https://truchsess.local/** in your browser.
-2. The page **Create the CEO administrator** opens.
-3. Enter your name under **CEO name**.
-4. Enter your e-mail address under **Work email**. You sign in with it.
-5. Enter your **Password**.
-6. Enter the code under **Bootstrap code**.
-7. Press **Create administrator**.
+2. The page **Welcome to your Truchsess box** opens. Press **Set up a new box**.
+3. The page **Your company and your account** opens. Enter your **Company name**.
+4. Enter your name under **Your name**.
+5. Enter your e-mail address under **Work email**. You sign in with it.
+6. Enter your **Password**.
+7. Enter the bootstrap code under **Code from the installer**.
+8. Check the **Time zone**. Press **Change** if it is not yours.
+9. Press **Create account**.
 
 ### Activate this box
 
-The page **Activate this box** opens right after it: "Enter the activation code from the card in the box. It enrols the box in the store and sets up the AI, with a starter credit, so you can start right away."
+The page **Activate this box** opens right after it: "Enter the activation code from the card in the box. It enrols the box in the store and sets up the AI, with a starter credit, so you can start right away. The AI only uses providers that never keep or train on your data."
 
 1. Enter the code under **Activation code**.
 2. Press **Activate**.
 3. Follow the steps on the page: "Enrol this box in the store", "Store the AI key", "Set up the managed AI (never kept, never trained on)", "Set the starter credit", "Test the AI".
 4. When the page says "AI is ready.", press **Continue**.
+5. The first setup goes on with the next steps on the screen.
 
 The box now uses the managed AI with a one-time starter credit of CHF 50. See [Budget](/admin/budget/).
 
 Instead of activating:
 
 - **Use my own AI key instead** opens the page **Choose the appliance AI**. Continue with [AI providers](/setup/ai-providers/).
-- **Activate later** opens the portal without AI. The page says "The AI is not set up yet." Activate later under **Administration** › **Agent rules**, panel **AI of this box**, or choose your own key there under **Model lanes**, **Change AI provider**. Until then, nobody can give an agent a task.
+- **Activate later** opens the portal without AI. The page says "The AI is not set up yet." Activate later under **Settings** › **Advanced** › **AI**, panel **AI of this box**, or choose your own key there in the panel **Own AI key** with **Change AI provider**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**. Until then, nobody can give an agent a task.
 
 <NotYet>
-The store service that answers activation codes is not live yet, and a new box has no store address set. Until it is, **Activate** stops with "This box has no store address set." Choose **Use my own AI key instead**, or **Activate later**. Ask support for an activation that works.
+The store's activation service may not answer for your box yet. If **Activate** stops with "The store does not know this activation code. Check the code on the card and press Try again." although the code is right, or the store cannot be reached, choose **Use my own AI key instead**, or **Activate later**. Ask support for an activation that works.
 </NotYet>
 
 ## What you see afterwards
 
-- You are signed in. Your name and "Administrator" show at the bottom of the navigation on the left.
-- The portal opens on **Chat**.
+- You are signed in. Your initials show in the picture at the top right. It opens **Your account**.
+- When the first setup is done, the portal opens on **Home**.
 - The bootstrap code is used up. It cannot create a second account.
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Create administrator** | Creates the one administrator account of the box. | A new box for a new start. | No. The account cannot be removed or replaced in the portal. |
-| **Restore from a backup** (link under the form) | Brings back the users, agents, tasks and settings of another box from a backup file. You sign in with the accounts from the backup. | You move to a new box, or you replace a broken box. See [Backup and restore](/admin/backup-and-restore/#restore-on-a-new-box). | No, once started. |
+| **Create account** | Creates the one administrator account of the box. | A new box for a new start. | No. The account cannot be removed or replaced in the portal. |
+| **I am moving from another Truchsess box** (on the first page) | Opens **Restore from a backup**. Brings back the people, agents, tasks and settings of another box from a backup file. You sign in with the accounts from the backup. | You move to a new box, or you replace a broken box. See [Backup and restore](/admin/backup-and-restore/#restore-on-a-new-box). | No, once started. |
 | **Activate** | Enrols the box in the store and sets up the managed AI with a starter credit. | You have the activation code. | Yes: switch to your own key at any time with **Change AI provider**. |
-| **Use my own AI key instead** | Opens the provider page. | Your company has its own AI provider account. | Yes: activate later under **AI of this box**. |
+| **Use my own AI key instead** | Opens the provider page. | Your company has its own AI provider account. | Yes: activate later under **Settings** › **Advanced** › **AI**, panel **AI of this box**. |
 | **Activate later** | Opens the portal without AI. | You want to look around first. | Yes. |
 
-## If something goes wrong
+## If it does not work
 
-- "The bootstrap code is missing or wrong.": check the code. Letters are upper-case. The letters O and I and the numbers 0 and 1 are never used.
-- "Too many login attempts. Wait 15 minutes and try again.": wait 15 minutes.
-- Lost the bootstrap code: on the box's console (screen and keyboard), the command shown in the note under the form prints it again, as long as no account exists. Ask support if you need help.
+- "The code is missing or wrong. It was shown at the end of the installation.": check the code. Letters are upper-case. The letters O and I and the numbers 0 and 1 are never used.
+- "Too many wrong codes. Please wait 15 minutes and try again.": wait 15 minutes.
+- Lost the bootstrap code: ask support. As long as no account exists, support can print it again on the box's console (screen and keyboard).
 - A step of **Activate** failed: the page says why in one sentence. Fix it and press **Try again**; it continues at that step.
-- "This activation code was already used. Ask the operator for a new one.": ask support.
+- "This code was already used. If nobody here used it, contact support.": ask support.
 - "The store does not know this activation code. Check the code on the card and press Try again.": check the code.
 - "The store could not be reached. Check that the box is connected to the internet, then press Try again. The code was not used.": check the box's internet connection.
 

@@ -5,17 +5,23 @@ description: The words used in Truchsess and in this manual, in plain English.
 
 The words in this list are linked from the other pages. They are in alphabetical order.
 
+## Advanced
+
+The settings page for experts and support: "For experts and support. Nothing here is needed for everyday work."
+The administrator opens it with the link **Advanced (for experts)** at the bottom of [Settings](#settings). **Back to Settings** returns.
+Its parts: **Agent rules**, **AI**, **Agents**, **Connections**, **Knowledge**, **Box**, **Support access**, and **Activity and audit trail**.
+
 ## Agent
 
 An AI helper installed on the box that does tasks for you, for example reviewing code or planning marketing.
 Each installed agent has a name, permissions, a model lane and its own private workspace.
-The portal lists them under **Agents**. Earlier versions of the portal called it a "package", and earlier versions of this manual called it a "worker"; a few portal messages still say "worker" or "package". It is the same thing.
+The portal lists them under **Agents**. Earlier versions of the portal called an agent a package, and a few portal texts still do, for example "Hands work to other packages". It is the same thing.
 An agent comes in a [package](#package).
 
 ## Approval
 
 A decision by the administrator before an agent does a [protected action](#protected-action), or any action set to "Asks you first" or "Always asks, with a reason".
-The agent stops and asks. The administrator presses **Approve** or **Refuse** and gives a reason.
+The agent stops and asks. The administrator presses **Approve** or **Refuse** on **Home**, in **Needs you**, or on the run card in **Chat**.
 Every decision is written to the run's audit trail with the name of the person.
 See [Approvals and checks](/use/approvals-and-checks/).
 
@@ -45,7 +51,7 @@ See [Approvals and checks](/use/approvals-and-checks/).
 
 Access to an outside service that the box holds for its agents, for example your GitHub organisation or an API key of a service.
 The box keeps the secret. An agent can use a connection only within its permissions, and it can never read or copy the secret.
-See [Connections](/admin/connections/).
+The administrator manages them under **Settings** › **Advanced** › **Connections**. See [Connections](/admin/connections/).
 
 ## Data rule
 
@@ -53,14 +59,24 @@ The administrator's rule for which AI providers may see your data: whether a pro
 Every model request follows this rule. A run that cannot meet it is stopped before any data leaves the box.
 See [AI providers and lanes](/admin/ai-providers-and-lanes/).
 
+## Email inbox
+
+The panel on **Your account** where you connect your own mailbox, so your agents can read your mail and write drafts. They never send.
+See [Connect your company mailbox](/use/email/).
+
 ## Function
 
 A group of agents you buy together in the store, for example "Software delivery". The store calls it a function bundle.
 You pay one monthly price per function. See [the agents in the store](/agents/) and [Store](/admin/store/).
 
+## Home
+
+The page that opens after you sign in. **Needs you** lists everything that waits for your decision, for example an [approval](#approval) or a [check](#check). **Recent results** shows your last finished tasks and, for the administrator, what agents did on their own ("Told you after").
+The number next to **Home** in the menu counts what waits for the administrator.
+
 ## Install question
 
-A question the box asks the administrator when an agent is installed, for example "which repository should this agent review?" or "which website should it look after?".
+A question the box asks the administrator when an agent is installed, for example which repository the agent should review, or which website it should look after.
 The answer becomes part of the agent's permissions. The portal lists the questions under "This agent asks you to choose:".
 Some questions are optional: "Skip (the permission is declined)" means the agent does not get that permission.
 See [install questions](/admin/packages/#install-questions).
@@ -81,12 +97,12 @@ See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes).
 
 The administrator's list of permissions that any agent may receive.
 An agent receives only the permissions it asks for and that this list also allows. Everything else is declined at install.
-It is under **Administration** › **Agent rules**, panel **Owner policy**. See [owner policy](/admin/packages/#owner-policy).
+It is under **Settings** › **Advanced** › **Agent rules**, panel **Owner policy**. See [owner policy](/admin/packages/#owner-policy).
 
 ## Package
 
 The file that contains an agent, signed by its publisher.
-A package comes from the store or as a signed file (`.truchsess-bundle.tar`). The administrator installs it on **Agents**: from the store in the panel **Store**, a signed file in the panel **Install from a file**.
+A package comes from the store or as a signed file (`.truchsess-bundle.tar`). The administrator installs it from the store with **Store** on **Agents**, or a signed file under **Settings** › **Advanced** › **Agents**, panel **Update or install from files**.
 
 ## Product
 
@@ -101,17 +117,22 @@ An agent always asks before a protected action. See [Approval](#approval).
 
 ## Publisher
 
-The company that built and signed a package. The box installs only packages signed by a publisher the administrator trusts (**Administration** › **Agent rules**, panel **Trusted publishers**).
+The company that built and signed a package. The box installs only packages signed by a publisher the administrator trusts (**Settings** › **Advanced** › **Agents**, panel **Trusted publishers**).
 
 ## Run
 
-One task given to one agent. Each message you send in **Chat** becomes one run.
+One task given to one agent. Each message you send in **Chat** becomes one run. Your recent runs are on the agent's card on **Agents**; the administrator sees every run in **Settings** › **Advanced** › **Activity and audit trail**, panel **Run history**.
 A run has a state (for example "Running" or "Finished"), a cost, a result and an audit trail.
 See [Follow a run](/use/follow-a-run/).
 
+## Settings
+
+The administrator's page in the menu: "People, costs, safety copies, updates and your company." It has five sections: **People**, **Plan and costs**, **Safety copies**, **Updates** and **Your company**. At the bottom is the link **Advanced (for experts)**: see [Advanced](#advanced).
+Members do not see **Settings**.
+
 ## Standing approval
 
-A permission from the administrator for one installed agent to do one protected action without asking each time, up to a limit per month and until an expiry date.
+A permission from the administrator for one installed agent to do one protected action without asking each time, up to a limit per month and until an expiry date. It is set under **Settings** › **Advanced** › **Agent rules**.
 Over the limit, the agent asks again. See [Approvals and checks](/use/approvals-and-checks/#grant-a-standing-approval).
 
 ## Workboard
@@ -119,3 +140,9 @@ Over the limit, the agent asks again. See [Approvals and checks](/use/approvals-
 The box's list of work cards per product. Each card has a title, a description and a status: to do, in progress, blocked or done.
 Agents with the right permission read and change cards during a task.
 See [Workboard](/use/workboard/).
+
+## Your account
+
+Your own page, for everyone. Open it with the picture with your initials at the top right (button title "Your account").
+It holds **Light or dark**, **Change your password** and **Sign out**; then **Your connections** with **Email inbox** and **Calendars**; then **What Truchsess has learned**.
+See [Your account](/use/your-account/).

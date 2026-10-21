@@ -1,59 +1,61 @@
 ---
-title: Backup and restore
-description: The recovery key, nightly backups, downloading a backup, and restoring on the same box or a new one.
+title: Safety copies and restore
+description: The recovery sheet, nightly safety copies, downloading a copy, and restoring on the same box or a new one.
 ---
 import NotYet from '~/components/NotYet.astro';
 import { Aside } from '@astrojs/starlight/components';
 
+Safety copies (backups) are on **Settings** › **Safety copies**. The history of copies, key changes and restores is for experts: **Settings** › **Advanced** › **Box**, panel **Version and log**, **Backup history**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+
 ## Who can do this
 
-The administrator, in the office on **https://truchsess.local/**. Backups cannot be made, downloaded or restored from the remote address.
+The administrator, in the office on **https://truchsess.local/**. Safety copies cannot be made, downloaded or restored from the remote address: "For safety, the recovery key, backups and restores work only in the office."
 
-## Before you start
+## What you need
 
-- The recovery key that was current when the backup was made.
+- The recovery sheet (its key) that was current when the copy was made.
 - For a restore: a moment when nobody works on the box. Everyone is signed out afterwards.
 
-## The recovery key
+## The recovery sheet
 
-The box makes no backup until a recovery key exists: "No recovery key yet: the box makes no backup until one exists."
+The box makes no safety copy until a recovery sheet exists: "No recovery sheet yet: the box makes no safety copy until it exists."
 
-1. Open **Administration**, then **Backups**, panel **Backups**.
-2. Press **Create the recovery key**.
-3. Save the key: **Copy**, or **Download as a file**.
+1. Open **Settings** › **Safety copies**, part **Recovery sheet**.
+2. Press **Make the recovery sheet**.
+3. Save the key: **Copy**, or **Download as a file**. "The box shows this only once. Save it now, away from the box (a password manager, or printed and locked away)."
 4. Press **I have saved it**.
 
-"This is the only time the box shows this key." The box keeps only the key's fingerprint.
+The box keeps only the key's public half.
 
-**Create a new recovery key** replaces the key. "Backups made before it can then only be opened with the old key; keep the old key as long as you keep those backups." The table shows which key each backup needs: "current" or "earlier key" and its fingerprint.
+**Make a new recovery sheet** replaces the key. Press it, then **Confirm new key**: "Backups made before it can then only be opened with the old key; keep the old key as long as you keep those backups." The column **Recovery sheet** of **Copies on this box** shows which sheet each copy needs: "this sheet" or "an earlier sheet".
 
-## Nightly backups
+## Nightly safety copies
 
-- Every night at 03:30 by the box's clock, the box makes an encrypted backup.
-- Nightly and manual backups together: the newest 7 are kept.
-- In a backup: tasks and their history, users (with their passwords in protected form), installed agents and their answers, settings, the owner policy, the agents' workspaces, the SSH keys.
-- Never in a backup: the AI provider key, connection secrets (GitHub, API keys), the store enrolment, the remote access code.
-- Tasks that are running when a backup starts are waited for up to 5 minutes. After that, the backup notes that their unfinished files may be incomplete.
+- Every night at 03:30 by the box's clock, the box makes a locked (encrypted) safety copy.
+- Nightly and manual copies together: the newest 7 are kept.
+- In a copy: tasks and their history, people (their passwords only in protected form), installed agents and their answers, settings, the owner policy, the agents' workspaces, the SSH keys.
+- Never in a copy: the AI provider key, connection secrets (GitHub, API keys), the store enrolment, the remote access code.
+- Tasks that are running when a copy starts are waited for up to 5 minutes. After that, the copy notes that their unfinished files may be incomplete.
 
-**Back up now** makes a backup at once, for example before an update.
+**Back up now** (at the top of **Safety copies**) makes a copy at once, for example before an update.
 
-## Download a backup
+## Download a safety copy
 
-In **Backups on this box**, press **Download** on a backup. The progress shows under the link, for example "Downloading: 120.0 MiB of 412.3 MiB (29%)". The browser saves the file when it is complete. The file is called `truchsess-backup-` plus the time, and ends in `.age`. It is encrypted with the recovery key. Keep it outside the box.
+In **Copies on this box**, press **Download** on a copy. The progress shows under the link, in the form "Downloading: ... of ... (...%)". The browser saves the file when it is complete. The file is called `truchsess-backup-` plus the time, and ends in `.age`. It is encrypted with the recovery sheet's key. Keep it outside the box.
 
 If the connection breaks, the line says "The download broke ..." and nothing is saved. Press **Download** again.
 
 ## Restore on the same box
 
 <Aside type="caution">
-A restore puts the box back to the backup's state: "tasks, agents, users and settings made after it are gone, and everyone signs in again."
+"A restore puts the box back to the copy's state: tasks, agents, people and settings made after it are gone, and everyone signs in again."
 </Aside>
 
-1. On **Administration** › **Backups**, in the panel **Backups**, section **Restore**, choose the **Backup**: one of the box's backups, or **A backup file from this computer** and then the **Backup file**.
-2. Paste the **Recovery key**, or choose it under **or the recovery key file**.
+1. On **Settings** › **Safety copies**, part **Restore**, choose the **Safety copy**: one of the box's copies, or **A backup file from this computer** and then the **Safety copy file**.
+2. Paste **The key from your recovery sheet**, or choose it under **or the recovery sheet file**.
 3. Press **Restore**, then **Confirm restore** within 10 seconds.
 4. Follow the steps: "Open the backup with the recovery key", "Check the release and every file", "Keep a safety copy of the box", "Stop the services", "Put the backup in place", "Update the database to this release", "Start the services", "Check that everything runs".
-5. The box signs everyone out: "The restore has finished its work and signed everyone out." Sign in again with an account from the backup.
+5. The box signs everyone out: "The restore has finished its work and signed everyone out." Sign in again with an account from the copy.
 6. Read the table **Enter these again** and enter each secret where it says.
 
 If a step fails, the box returns to how it was before.
@@ -63,14 +65,14 @@ If a step fails, the box returns to how it was before.
 Use this when you move to a new box or replace a broken one.
 
 1. Install the new box. See [Unbox and connect](/setup/unbox-and-connect/).
-2. Open **https://truchsess.local/**. On **Create the CEO administrator**, press the link **Restore from a backup**. Do not create an account first.
-3. Enter the **Bootstrap code**.
+2. Open **https://truchsess.local/**. On "Welcome to your Truchsess box", press **I am moving from another Truchsess box**. Do not create an account first.
+3. If the page asks for it, enter the code (**Code from the card**, or **Code from the installer**).
 4. Choose the **Backup file**.
-5. Paste the **Recovery key**, or choose the key file.
+5. Paste the **Recovery key**, or choose it under **or the recovery key file**.
 6. Press **Restore**.
-7. When it is done, read **Enter these again** and press **Sign in**. Sign in with an account from the backup.
+7. When it is done, read **Enter these again** and press **Sign in**. Sign in with an account from the copy.
 
-On a box that is already set up this is refused. Restore there under **Administration** › **Backups** instead.
+On a box that is already set up this is refused. Restore there under **Settings** › **Safety copies** instead.
 
 ## What you see afterwards
 
@@ -78,33 +80,31 @@ The table **Enter these again** lists only what this box does not hold. Enter ea
 
 | What | Where to enter it |
 | --- | --- |
-| The AI provider key | **Administration** › **Agent rules**: **Change AI provider** in the head of the panel **Model lanes**. With the managed AI, use **Switch to managed AI** in the panel **AI of this box** with a new activation code (see [AI providers and lanes](/admin/ai-providers-and-lanes/#switch-to-managed-ai-with-an-activation-code)). |
-| GitHub | **Administration** › **Connections**: **Connect GitHub** |
-| The API key for a service | **Administration** › **Connections** |
-| The store enrolment | **Agents**, panel **Store**: **Enrol** |
-| Remote access (it is switched off) | **Administration** › **Remote access** |
+| The AI provider key | **Settings** › **Advanced** › **AI**, panel **Own AI key**: **Change AI provider**. With the managed AI, use the panel **AI of this box**, **Switch to managed AI with an activation code** (see [AI providers and lanes](/admin/ai-providers-and-lanes/#switch-to-managed-ai-with-an-activation-code)). |
+| GitHub | **Settings** › **Advanced** › **Connections**, panel **GitHub**: **Connect GitHub** |
+| The API key for a service | **Settings** › **Advanced** › **Connections**, panel **API keys** |
+| The store enrolment | **Settings** › **Advanced** › **Agents**, **Store connection**: **Enrol** |
+| Remote access (it is switched off) | **Settings** › **Your company**, **Reach your box from home** |
 
-The **Where** column of the table may still name the places of an older release. Use the places above.
-
-"Nothing: this box still holds every secret the backup's box had." means there is nothing to enter.
+"Nothing: this box still holds every password and key the copy's box had." means there is nothing to enter.
 
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Back up now** | A backup at once. | Before big changes. | n/a |
-| **Download** | Saves a backup file. | Regularly. | n/a |
-| **Restore** (same box) | Puts the box back to the backup. | After a mistake you cannot fix otherwise. | No. Make a backup first, so you can restore that one. |
-| **Restore from a backup** (new box) | Moves a box's work to a new box. | New or replacement box. | No. |
+| **Back up now** | A safety copy at once. | Before big changes. | n/a |
+| **Download** | Saves a copy as a file. | Regularly. | n/a |
+| **Restore** (same box) | Puts the box back to the copy. | After a mistake you cannot fix otherwise. | No. Make a copy first, so you can restore that one. |
+| **I am moving from another Truchsess box** (new box) | Moves a box's work to a new box. | New or replacement box. | No. |
 
-If something goes wrong:
+## If it does not work
 
 - "This recovery key does not open this backup. Use the recovery key that was current when the backup was made. Nothing was changed."
 - "This backup comes from a newer release (...). Update this box first, then restore."
 - "The disk is full: the restore stopped and the box was put back. Free some space and try again."
 
 <NotYet>
-You cannot choose the backup time, keep more than 7 backups, or send backups to another place automatically. Download backups yourself and keep them safe. A backup file can be up to 16 GiB for an upload.
+You cannot choose the time of the nightly copy or keep more than 7 copies. Copies are not sent to a place outside the box: download them yourself and keep them safe. A copy file can be up to 16 GiB for an upload.
 </NotYet>
 
 ## Related pages

@@ -1,18 +1,28 @@
 ---
-title: "Step 6: Connections"
-description: Connect your GitHub organisation and add the API keys your agents need.
+title: 'Step 6: Connections'
+description: Connect your GitHub organisation, add the API keys your agents need, and find where mail and calendars are connected.
 ---
-import NotYet from '~/components/NotYet.astro';
 
 A [connection](/start/glossary/#connection) lets agents use an outside service. The box keeps the secret. Agents never see it.
 
-You need a connection only when an agent needs it. Agents that work on code need GitHub. Some agents need an API key of another service. You can also do this step later: the list of installed agents tells you what is missing.
+You need a connection only when an agent needs it. Agents that work on code need GitHub. Some agents need an API key of another service. You can also do this step later: each agent's card on **Agents** tells you what it still needs. See [When an agent needs something first](/use/agent-needs-something/).
+
+GitHub and API keys are under **Settings** › **Advanced** › **Connections**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+
+## Mail and calendars
+
+Agents can read mail, write drafts and see calendars. Each person connects their own:
+
+- **Your account** › **Email inbox**: a person's company mailbox. See [Connect your company mailbox](/use/email/).
+- **Your account** › **Calendars**: a person's calendars. See [Connect your calendars](/use/calendars/).
+
+Before people connect a company mailbox, the administrator sets the company's mail domains under **Settings** › **Advanced** › **Connections**, panel **Company mail**. See [Company mail](/admin/company-mail/).
 
 ## Who can do this
 
 The administrator, in the office on **https://truchsess.local/**. Connections cannot be changed from the remote address.
 
-## Before you start
+## What you need
 
 - For GitHub: you can create apps in your GitHub organisation (you are an owner of the organisation), and you are signed in to GitHub in the same browser.
 - For an API key: the key from the service's website. The card of each key has a link **Where to get a key**.
@@ -21,17 +31,17 @@ The administrator, in the office on **https://truchsess.local/**. Connections ca
 
 ### Connect GitHub
 
-1. Open **Administration** › **Connections**.
-2. In the panel **GitHub**, enter your **GitHub organisation** (for example `my-org`). Leave it empty to use your personal GitHub account.
+1. Open **Settings** › **Advanced** › **Connections**, panel **GitHub**.
+2. Enter your **GitHub organisation** (for example `my-org`). Leave it empty to use your personal GitHub account.
 3. Press **Connect GitHub**.
 4. GitHub opens. Press **Create GitHub App**.
 5. GitHub sends you back to the box. Wait until the box shows **Choose the repositories on GitHub**, then press it.
 6. On GitHub, choose the repositories the box may reach, then confirm.
-7. GitHub sends you back again. The card shows "Connected: your organisation, N repositories".
+7. GitHub sends you back again. The card shows "Connected: ..." with your organisation and the number of repositories.
 
 ### Add an API key
 
-1. Open **Administration** › **Connections**, panel **API keys**.
+1. Open **Settings** › **Advanced** › **Connections**, panel **API keys**.
 2. Find the card that says ": needed" (one card per key that an installed agent needs).
 3. Press **Add key**.
 4. Paste the key.
@@ -39,9 +49,9 @@ The administrator, in the office on **https://truchsess.local/**. Connections ca
 
 ## What you see afterwards
 
-- The GitHub card lists the repositories, who connected it and when, and "Last used".
+- The GitHub card lists the repositories, who connected it and when, and **Last used**.
 - An API key card shows "Key ending ...", who added it and when.
-- On the page **Agents**, panel **Your agents**, the column **Ready** shows "Ready" for every agent that now has what it needs.
+- On **Agents**, the agent's card no longer names the key or GitHub as something it needs.
 - The panel **Recent changes** lists the change. It never shows a secret.
 
 ## Your choices
@@ -53,11 +63,10 @@ The administrator, in the office on **https://truchsess.local/**. Connections ca
 | Repositories on GitHub | Which repositories the box can reach at all. Each agent reaches only the repository it was given at install. | Choose only what agents need. | Yes: **Change repositories**. |
 | **Add key** / **Replace** / **Remove** | Stores, replaces or removes an API key. | When an agent needs a key. | Yes. An agent that needs a removed key refuses tasks. |
 
-<NotYet>
-You cannot connect services other than GitHub and API keys (for example a mail account or a calendar). An agent that needs such a service is not available yet.
-</NotYet>
-
 ## Related pages
 
 - Next step: [Store enrolment](/setup/store-enrolment/)
 - [Connections](/admin/connections/): permissions, "ready", and what to do when GitHub asks for new permissions
+- [Company mail](/admin/company-mail/)
+- [Connect your company mailbox](/use/email/)
+- [Connect your calendars](/use/calendars/)
