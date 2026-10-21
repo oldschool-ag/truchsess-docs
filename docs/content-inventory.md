@@ -665,7 +665,10 @@ Checked against release **Truchsess 2026.10.21-84a4137** (`truchsess-iso-2026102
 release). Not merged when checked, and not documented: #146, #150, #151, #152, #153, #157, #160,
 #161. Part 7b: #162 merged after 84a4137 and is in release **Truchsess 2026.10.21-abe4009**
 (published 2026-10-21 11:26 UTC); it changes nothing a person sees, so it has one line on
-/releases/ only. Part 7b pages are checked against 84a4137 (abe4009 adds only #162).
+/releases/ only. Part 7b pages are checked against 84a4137 (abe4009 adds only #162). Then #160
+(Truchsess's own face) merged as master 4f542d0, release **Truchsess 2026.10.21-4f542d0**, the
+current one; checked on 4f542d0. Still not merged, not documented: #146, #150, #151, #152, #153,
+#157, #161, and the open #163 to #167.
 
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
@@ -757,6 +760,7 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #158 | T118: one Truchsess app at Microsoft; Outlook.com and Hotmail as the private mailbox | yes | /use/email/ (Coming soon only) |
 | #159 | T114: the exact version on Settings > Updates, and "Newest" always says where she stands | none | /admin/updates/, /releases/ |
 | #162 | T121: the update check can never roll back a night update | none (nothing a person sees) | /releases/ (one line, release Truchsess 2026.10.21-abe4009) |
+| #160 | T119: Truchsess gets his own face | none (the PR has no such section; its "For the CEO" names the places) | /agents/truchsess/, /use/home/, /use/ask-truchsess/, /setup/first-run/, /releases/ (release Truchsess 2026.10.21-4f542d0) |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
