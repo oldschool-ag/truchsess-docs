@@ -15,20 +15,22 @@ The administrator.
 Decide two things:
 
 1. **Who pays the AI provider.**
-   - **Own key**: your company has an account with a provider and an API key (a secret code from the provider's website).
+   - **Own key**: your company has an account with an AI company and a key from it (a secret code from its website). You pay that company directly.
    - **Managed by Old School**: the vendor of the box issued a metered key for your box, with a monthly limit. You received this key from the vendor. (With an activation code the managed key arrives by itself; you do not paste it.)
 2. **Which provider.** If your data may only be processed in Switzerland, choose **PHOENIQS (Switzerland)**. See [Swiss-only](/admin/ai-providers-and-lanes/#the-swiss-only-option).
 
 ## Steps
 
-1. At the first run, press **Use my own AI key instead** on **Activate this box**: the page **Choose the appliance AI** opens. Later you find it under **Settings** › **Advanced** › **AI**, panel **Own AI key**, button **Change AI provider**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
-2. Choose the **Billing mode**: **Own key** or **Managed by Old School**.
-3. Choose the **Provider**. With **Managed by Old School** the provider is fixed to OpenRouter.
-4. Check the **Model ID**. The box suggests a default model for the provider. Keep it unless you know you need another.
-5. Choose the **Credential type** if there is more than one.
-6. Paste the key into the key field (its label names the key, for example "OpenAI API key").
-7. With **Managed by Old School** you may enter the **Key label from Old School (optional)**.
-8. Press **Save provider**.
+1. At the first run, press **Use my own AI key instead** on **Activate this box**: the page **The AI for your box** opens. Later you find it under **Settings** › **Advanced** › **AI**, panel **Own AI key**, button **Change AI provider**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**.
+2. Choose **How you pay**: **Own key** or **Managed by Old School**.
+3. Choose the **AI company**. With **Managed by Old School** it is fixed to OpenRouter.
+4. Check the **AI model**. The box suggests a default model for the AI company. Keep it unless you know you need another.
+5. Choose the **Kind of key** if there is more than one.
+6. Paste the key into the key field (its label names the key, for example "OpenAI key").
+7. With **Managed by Old School** you may enter the **Name of the key from Old School (optional)**.
+8. Press **Save**.
+
+Opened from **Settings**, the page keeps the menu on the left. **Back to Settings** at the top left returns to **Settings** › **Advanced** › **AI**, and **Cancel** returns to the page you came from. Neither saves anything. At the first run, **Cancel** returns to **Activate this box**.
 
 ## What you see afterwards
 
@@ -41,12 +43,12 @@ Decide two things:
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Own key** | Uses your company's own provider key. The vendor meters nothing. The budget is shown for information only and is not enforced. | You already pay a provider. | Yes, change it any time. |
-| **Managed by Old School** | Uses the metered key the vendor issued, through OpenRouter. The monthly [budget](/start/glossary/#budget) is enforced. | You want one bill from the vendor and a hard monthly limit. | Yes. |
-| OpenAI, Anthropic, Google Gemini, xAI / Grok, OpenRouter, Kimi / Moonshot | Well-known AI services. You need an API key from the service. | You have an account there. | Yes. |
-| **PHOENIQS (Switzerland)** | Open models hosted only in Switzerland. The provider states it never keeps your data and never trains on it. Needs a PHOENIQS API key. The box does not meter it. | Your data must stay in Switzerland. | Yes. |
-| **Local model / Ollama** | A model server in your own network. | You run your own model server. | Yes. |
-| **Private or custom provider** | Any service with a compatible interface. You enter **Provider name**, **API base URL** and **API format**. | Your IT runs a private model service. | Yes. |
+| **Own key** | "You use your own key and pay your AI company directly. Old School does not count or charge this use". **Settings** › **Plan and costs** shows what the box used, for you only. | You already pay a provider. | Yes, change it any time. |
+| **Managed by Old School** | Uses the key Old School gave this box, through OpenRouter, with a monthly limit. You get a warning near the limit; at the limit new tasks wait until money is added. See [budget](/start/glossary/#budget). | You want one bill from the vendor and a hard monthly limit. | Yes. |
+| OpenAI, Anthropic, Google Gemini, xAI / Grok, OpenRouter, Kimi / Moonshot | Well-known AI companies. You need a key from the company. | You have an account there. | Yes. |
+| **PHOENIQS (Switzerland)** | Open models hosted only in Switzerland. The provider states it never keeps your data and never trains on it. Needs a PHOENIQS key. The box does not meter it. | Your data must stay in Switzerland. | Yes. |
+| **Local AI / Ollama** | An AI server in your own network. | You run your own model server. | Yes. |
+| **Your own AI server** | Any AI service with a compatible interface. You enter **Name of the AI service**, **Server address** and **Server type**. | Your IT runs its own AI service. | Yes. |
 
 Changing the provider later rewrites the model lanes with the new provider's defaults. Then press **Apply to installed agents** under **Settings** › **Advanced** › **AI**, panel **Model lanes**, so that installed agents use the new models. See [AI providers and lanes](/admin/ai-providers-and-lanes/).
 

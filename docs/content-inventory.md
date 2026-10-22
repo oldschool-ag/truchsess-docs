@@ -691,6 +691,22 @@ Not as on `5e03941`:
   keeps only the sentence the person writes (a lesson), never a file's text. The docs say nothing
   from the files goes into knowledge, and what Remember this keeps.
 
+Part 7c, second step: release **Truchsess 2026.10.21-5e03941** (Train 1, published 2026-10-21
+21:04 UTC) is out and is now the current release on /releases/. Box 1 confirmed on 22 Oct 2026 that
+a PDF in Chat works. Then Train 2 (#171) merged as master `fded8b8`: #170 (T127, polish batch 5)
+and #169 (T128, design inventory: documents and screenshots only, nothing a person sees). #167
+(T126, Chat remembers) left the train and is not on master: not documented. Train 2's pages are
+checked against `fded8b8`; its release is not out yet, so /releases/ has no entry for it.
+Since `fded8b8` the page "Choose the appliance AI" is "The AI for your box" (#170), so the #166 note
+above now reads: "Sign in with ChatGPT" is on the page "The AI for your box".
+Not as on `fded8b8`:
+- #170: "Outlook and Microsoft 365 use the "Sign in with Microsoft" button instead." On master the
+  button is "Connect with Microsoft", and it is still not switched on (Coming soon, as since part
+  7a). The docs keep "Coming soon".
+- #170: "Names after an update": "A name a person chose stays." Naming an agent at install and
+  Rename are #151, not merged; the docs say only that an agent whose name is still the old package
+  name takes the new one.
+
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
 Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
@@ -788,6 +804,9 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #164 | T123: real files in Chat (PDF, Word, Excel, PowerPoint, text, pictures), read on the box (Train 1) | yes | /use/attach-files/ (new), /use/start-a-task/, /start/member/, /troubleshooting/; closes G25 |
 | #163 | T122: an agent's card shows only your own work (Train 1) | yes | /use/home/, /admin/packages/ |
 | #168 | Train 1: T125, T124, T123, T122 (merge of #163 to #166) | the four sections above | none of its own |
+| #170 | T127: polish batch 5 (app passwords on every mailbox form, HTML-only mails, plain AI page, What is new, Store card, names, answer files and mail links) (Train 2, master fded8b8) | yes | /use/email/, /use/private-mailbox/, /admin/company-mail/, /setup/ai-providers/, /admin/ai-providers-and-lanes/, /admin/chatgpt-subscription/, /setup/first-run/, /admin/budget/, /admin/updates/, /use/home/, /admin/store/, /admin/packages/, /use/follow-a-run/, /agents/company-mail/ |
+| #169 | T128: design inventory 2026-10 (documents and screenshots only) (Train 2) | none (nothing a person sees) | none |
+| #171 | Train 2: T128, T127 (merge of #169 and #170) | #170's sections | none of its own |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1604,3 +1623,35 @@ none
 #### #168 Train 1: T125, T124, T123, T122
 
 The four sections above, from #168's body.
+
+#### #170 T127: polish batch 5 (app passwords on every mailbox form, HTML-only mails, plain AI page, What is new, Store card, names, answer files and mail links)
+
+### Connecting a Gmail or Google Workspace mailbox (app password)
+
+Gmail and Google Workspace need an app password, not your Google password. This is the same for your company mailbox and for your private one.
+
+1. In your Google account, turn on 2-Step Verification, if it is not on yet.
+2. Open https://myaccount.google.com/apppasswords and sign in.
+3. Type a name, for example Truchsess, and press Create.
+4. Copy the 16 characters Google shows.
+5. In Truchsess, go to Your account > Email inbox, type your address, and paste the 16 characters into "App password (16 characters from Google)". Press Test and connect.
+
+Type the app password only into the box, never into a chat.
+
+- **Your company's administrator** puts the company domain on "Gmail or Google Workspace" once (Settings > Advanced > Connections > Company mail). The webmail address https://mail.google.com is filled in, and the administrator can change it.
+- **If the test fails**, your Google Workspace administrator may have switched off app passwords; they switch them on in the Google Admin console.
+- **iCloud, Yahoo, AOL, GMX and WEB.DE** show their own steps and link in the same place. **Outlook and Microsoft 365** use the "Sign in with Microsoft" button instead.
+
+### What is new after an update
+
+After an update, Home shows "What is new in the <month> update" with a few plain lines about what changed, once. Close it when you have read it. The same lines appear in Settings > Updates next to an update that is waiting. The lines come from the changes in that release. A release without such lines shows no "What is new".
+
+The supervisor's list for the docs (22 Oct 2026) also names, from the PR's report: HTML-only mails readable, the AI page "The AI for your box" with Back to Settings, the store card's installed/available line, names after an update, "Open the mail" links and hidden internal files.
+
+#### #169 T128: design inventory 2026-10
+
+none (documents and screenshots only)
+
+#### #171 Train 2: T128, T127
+
+#170's sections above.

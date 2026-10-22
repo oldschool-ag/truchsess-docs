@@ -94,7 +94,11 @@ An install that failed and was removed can still be held by the store. The agent
 
 ### Update a store agent
 
-When the store has a newer version, the agent's card on **Agents** says "Update available" and the version, and so does the function's card in **Store**: "Update available: ... (this box runs ...)", with the publisher's release notes under it. A version without release notes shows only the version and **Update**. Press **Update**. If the new version asks for a new permission, you read it first and decide: "This update asks for a new permission. You see it and decide before anything changes." See [Update](/admin/packages/#update).
+When the store has a newer version, the agent's card on **Agents** says "Update available" and the version. The function's card in **Store** shows both versions side by side, for example "Penn 1.1.1 installed · 1.3.1 available", with the first line of the publisher's release notes under it. A version without release notes shows only the versions and **Update**. Press **Update**.
+
+While it works, the card shows the same line as the agent's card on **Agents**: "Updating Penn …", then "Penn runs version 1.3.1." If it fails: "Penn could not be updated; it runs version 1.1.1 as before." If the new version would change what the agent may do: "Penn was not updated: the new version changes what it may do. Press Update to review it."
+
+If the new version asks for a new permission, you read it first and decide: "This update asks for a new permission. You see it and decide before anything changes." See [Update](/admin/packages/#update).
 
 ### Manage a subscription
 
