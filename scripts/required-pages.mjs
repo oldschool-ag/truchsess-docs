@@ -41,6 +41,8 @@ export const REQUIRED_PAGES = [
   '/admin/products-and-knowledge/',
   '/admin/ai-providers-and-lanes/',
   '/admin/chatgpt-subscription/',
+  '/admin/second-product/',
+  '/admin/product-rules/',
   '/admin/budget/',
   '/admin/connections/',
   '/admin/company-mail/',

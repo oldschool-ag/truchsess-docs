@@ -12,7 +12,7 @@ The administrator, in the office on **https://truchsess.local/**. Connections ca
 
 ## What you need
 
-- For GitHub: you can create GitHub Apps in your organisation.
+- For GitHub: you are an owner of the organisation on GitHub, so you can create GitHub Apps there.
 - For an API key: the key from the service.
 
 ## GitHub
@@ -23,7 +23,7 @@ See [Connections setup](/setup/connections/#connect-github) for the steps.
 
 ### What the GitHub App may do
 
-The box creates one GitHub App for your organisation. It asks GitHub for these permissions: read metadata, write contents, write pull requests, write issues, and read checks, statuses and actions.
+The box creates one GitHub App for each of your GitHub organisations. It asks GitHub for these permissions: read metadata, write contents, write pull requests, write issues, and read checks, statuses and actions.
 
 Each agent gets a key that is narrowed to the repositories of its own permissions. So:
 
@@ -39,9 +39,28 @@ After an update, the card may say "GitHub has not granted ... to this box yet." 
 2. Open the App's installation (link). Press **Review request**, then **Accept new permissions**.
 3. Come back to the box and press **Check again**.
 
+### Several GitHub organizations
+
+One GitHub App per organization. Use **Connect another GitHub organisation** to add one; each organization has its own **Disconnect**. An agent works in the repositories of one GitHub organization.
+
+1. Open **Settings** › **Advanced** › **Connections**, panel **GitHub**. Your first organization is listed first.
+2. Under the list, type the new organization's GitHub name under **GitHub organisation**. With one organization connected, the name is required.
+3. Press **Connect another GitHub organisation**.
+4. On GitHub's page **Create GitHub App**, leave everything as it is and press **Create GitHub App**.
+5. Back on the box, press **Choose the repositories on GitHub**, pick the repositories on GitHub and install the App.
+6. The new organization has its own block: "Connected: ..." with its name and the number of repositories.
+
+What it means for the agents:
+
+- An agent reaches only the repositories it was given, in one organization. A request for another organization's repository is refused before it leaves the box.
+- An install question with repositories lists them by organization, as `organization/repository`. One answer takes repositories of one organization only: "The repositories of one answer must all be in one GitHub organization."
+- To use the same agent in two organizations, add it twice, once per organization. For Bob, see [A second Bob](/admin/packages/#a-second-bob-for-a-second-product).
+
+To disconnect one organization, press **Disconnect** in its block. The question names it: "Disconnect ...? Its stored key is removed from this appliance and the agents that work in ... stop reaching GitHub; the other organisations stay connected. You then delete the App on GitHub." Its agents then show "Needs GitHub (...) from the admin" and take no tasks. The agents of the other organizations keep working.
+
 ### Manage
 
-All on **Settings** › **Advanced** › **Connections**, panel **GitHub**:
+All on **Settings** › **Advanced** › **Connections**, panel **GitHub**, in each organization's block:
 
 | Button | What it does |
 | --- | --- |
@@ -89,6 +108,7 @@ An agent that is not ready refuses every task before anything starts: "This agen
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
 | **Connect GitHub** | Creates the box's GitHub App. | Agents that work on code. | Yes: **Disconnect**. |
+| **Connect another GitHub organisation** | Creates one more GitHub App, for another organization. | A product whose code is in another organization. | Yes: **Disconnect** in its block. |
 | **Advanced: use an existing GitHub App** | Uses an App made elsewhere. | Your IT asks for it. | Yes: **Disconnect**. |
 | **Add key** / **Replace** | Stores an API key. | An agent needs it. | Yes: **Remove**. |
 | **Remove** | Deletes the key. | The key is no longer needed or was leaked. | Add a new key. |
@@ -96,5 +116,6 @@ An agent that is not ready refuses every task before anything starts: "This agen
 ## Related pages
 
 - [Connections setup](/setup/connections/)
+- [Set up a second product](/admin/second-product/)
 - [Company mail](/admin/company-mail/)
 - [Install and manage agents](/admin/packages/)

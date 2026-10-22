@@ -96,6 +96,8 @@ export default defineConfig({
             { label: 'Install and manage agents', slug: 'admin/packages' },
             { label: 'Store', slug: 'admin/store' },
             { label: 'Products and knowledge', slug: 'admin/products-and-knowledge' },
+            { label: "A product's own rules", slug: 'admin/product-rules' },
+            { label: 'Set up a second product', slug: 'admin/second-product' },
             { label: 'AI providers and lanes', slug: 'admin/ai-providers-and-lanes' },
             { label: 'Use a ChatGPT subscription', slug: 'admin/chatgpt-subscription' },
             { label: 'Budget', slug: 'admin/budget' },

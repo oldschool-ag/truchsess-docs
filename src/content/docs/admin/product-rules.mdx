@@ -1,0 +1,104 @@
+---
+title: A product's own rules
+description: Give the box your company's own rules for a product (an AGENTS.md or a SKILL.md with its wiki). Every agent working for the product starts each task with them.
+---
+import NotYet from '~/components/NotYet.astro';
+
+If your company keeps its own rules for building a product, give them to the box. A playbook is an `AGENTS.md`, or a `SKILL.md` with the wiki pages it links to, in a GitHub repository. "Every agent working for this product starts each task with them." This includes Bob and its roles, and any other agent installed for the product.
+
+Your rules can make agents stricter, never give them more rights: "no rule can allow a merge, a deploy, sending or deleting."
+
+## Who can do this
+
+The administrator. The rules are set on **Settings** › **Advanced** › **Knowledge** (the link **Advanced (for experts)** at the bottom of **Settings**).
+
+## What you need
+
+- The product on the box. See [Add a product](/admin/products-and-knowledge/#add-a-product).
+- The playbook in a repository that the box's GitHub connection covers. With several GitHub organizations, it can be in any of them: see [Several GitHub organizations](/admin/connections/#several-github-organizations). Without a connection the panel says "Connect GitHub first: Settings > Advanced > Connections. The rules are read from a repository the connection covers."
+- The path of the entry file, for example `AGENTS.md` or `skills/our-product/SKILL.md`.
+
+## Steps
+
+### Attach the rules
+
+1. Open **Settings** › **Advanced** › **Knowledge**, panel **Products**.
+2. Press **Rules** on the product's row. The panel **Rules for ...** opens under the list.
+3. Under **Repository with the rules**, choose the repository.
+4. Under **Entry file**, keep `AGENTS.md` or type the path. "AGENTS.md, or SKILL.md (its name and description show here). Always the current default branch: only merged changes count."
+5. Leave **Reviews by another AI company than the coding tool (Claude Code)** ticked, unless you do not want it (see [Reviews by another AI company](#reviews-by-another-ai-company)).
+6. Press **Use these rules**.
+
+The box reads the rules at once and shows:
+
+- "Rules: ..." with the title, the repository and the entry file;
+- for a `SKILL.md`, "Skill: ..." with its name and description;
+- "Last change: ..." with the commit;
+- "Last read: ..." with the time.
+
+### Link the people the rules name
+
+If the rules name people by their GitHub handle (for example who decides, who merges, who deploys), the panel lists them under **People the rules name**.
+
+1. For each `@handle`, choose the person on the box, or keep **Nobody on this box**.
+2. Press **Save rules**.
+
+"Link each GitHub handle to a person on this box: the product's approval and merge requests go to their Needs you. Agents never merge or deploy."
+
+### Reviews by another AI company
+
+With **Reviews by another AI company than the coding tool (Claude Code)** ticked, Bob's QA Reviewer, Security Reviewer and Merge Gate review the product's work only on an AI model from another company than Anthropic. The box checks this before the review starts.
+
+- Set at least the **Standard** lane to such a model: **Settings** › **Advanced** › **AI**, panel **Model lanes**. See [Model lanes](/admin/ai-providers-and-lanes/#model-lanes).
+- A review that runs starts with a line that names both companies: "Reviewed by: ..., .... Coder: Anthropic."
+- If the lane is from Anthropic, the review does not run and says why: "... did not review: reviews for ... must come from another AI company than ...". Home tells the administrators which lane to set, for example "Set the standard lane to another AI company than Anthropic".
+
+### Let Claude Code follow the same rules
+
+The coding tool can read the same playbook in your code repository. Open **The coding tool follows the same rules** in the panel and follow its five steps:
+
+1. In the product's code repository, add the workflow shown in the panel as `.github/workflows/claude-code.yml`. **Copy the workflow** copies it.
+2. Install the Claude GitHub App on that repository.
+3. Add the secret `CLAUDE_CODE_OAUTH_TOKEN`: a Claude Pro or Max subscription token, with no per-use cost. If the company pays per use, add `ANTHROPIC_API_KEY` instead.
+4. Create a key pair. Add the public key to the playbook's repository as a read-only deploy key, and the private key to the code repository as the secret `PLAYBOOK_DEPLOY_KEY`.
+5. Label an issue "claude": Claude Code reads these rules as a skill, works on a branch and links a pull request. A person merges.
+
+The box does not push the workflow to GitHub. You add it.
+
+## What you see afterwards
+
+- Every task for the product starts with the rules, always as merged on the default branch. Agents read the pages the rules link to when they need them, from that repository only.
+- Agents follow the rules where they are stricter than their own instructions, and they name a conflict once in their result.
+- Agents run no script from the rules. They map its steps to their roles and give deploys and anything touching live data to a person, with the steps drafted.
+- The product's approval requests appear in **Needs you** of the people you linked.
+- When the entry file changes, the administrators see one line on **Home**: "The rules for ... changed: ..." with the commit's title, once per commit. Today this line is shown under **Today**, in the group **Mail**, tagged **Warning**, with the line written for suspicious mail under it; the title is what counts. A change to a linked page shows no line; agents read it at their next task.
+- The rules never leave the box, and agents of other products never see them.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "The rules could not be read: .... Tasks for ... do not start until they can be read again." | Check that the repository is still covered by the GitHub connection and that the entry file exists on the default branch. Then press **Check now**. |
+| A task for the product: "The rules for ... could not be read (...), so this task did not start. Nothing ran." | The same. Tasks of other products run normally. |
+| "The GitHub connection covers no repository yet" in the repository list. | Choose the repositories on GitHub for the connection first: [Connections](/admin/connections/). |
+| A review says it did not review and names the lane. | Set that lane to a model of another AI company, then press **Apply to installed agents**. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Use these rules** / **Save rules** | Attaches the rules, or saves a change. | When the product has a playbook. | Yes: **Remove rules**. |
+| **Check now** | Reads the rules again. | After you fixed a problem. | n/a |
+| **Remove rules** | Asks again ("Remove: agents work without these rules"); a second press removes them. | When the product no longer has a playbook. | Attach them again. |
+| **Reviews by another AI company than the coding tool** | Lets the reviews run only on another AI company than the coding tool's. | Leave it on when Claude Code writes the code. | Yes: untick and save. |
+
+<NotYet>
+Agents cannot change the rules themselves. Change them in the repository yourself, or ask an agent that may write to that repository to open a pull request, and merge it yourself.
+</NotYet>
+
+## Related pages
+
+- [Set up a second product](/admin/second-product/)
+- [Products and knowledge](/admin/products-and-knowledge/)
+- [Software delivery (Bob)](/agents/software-delivery/)
+- [Model lanes](/admin/ai-providers-and-lanes/#model-lanes)

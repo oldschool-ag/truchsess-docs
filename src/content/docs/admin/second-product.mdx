@@ -1,0 +1,115 @@
+---
+title: Set up a second product
+description: Give a second product its own GitHub organization, its own Bob with its own name, and its own rules, in the order you do it.
+---
+import NotYet from '~/components/NotYet.astro';
+
+This page walks through setting up a second product on one box, for example a second company or app whose code lives in its own GitHub organization. You do it in this order:
+
+1. Add the product.
+2. Connect the product's GitHub organization.
+3. Add a second Bob for the product, with its own name.
+4. Attach the product's own rules (its playbook).
+5. Check the lane for reviews.
+
+Each step links to the page with every detail.
+
+## Who can do this
+
+The administrator, in the office, on **https://truchsess.local/**. Connections can only be changed there.
+
+## What you need
+
+- You are an owner of the product's organization on GitHub. GitHub lets only an owner create an App there.
+- Bob (Software delivery) is installed for your first product, and the store sells a second copy of it. Without that, the card shows no **Add another copy**.
+- The playbook, if the product has one: an `AGENTS.md` or a `SKILL.md` in a repository of the product's GitHub organization.
+- For reviews by another AI company: an AI model from a company other than Anthropic for the **Standard** lane (see step 5).
+
+## Steps
+
+### 1. Add the product
+
+1. Open **Settings** › **Advanced** › **Knowledge** (the link **Advanced (for experts)** at the bottom of **Settings**), panel **Add a product**.
+2. Enter **Product id** and **Product name**, for example the product's own name.
+3. Press **Add product**.
+
+See [Products and knowledge](/admin/products-and-knowledge/#add-a-product).
+
+### 2. Connect the product's GitHub organization
+
+Each GitHub organization gets its own GitHub App on the box. Your first organization stays as it is.
+
+1. Open **Settings** › **Advanced** › **Connections**, panel **GitHub**. Your first organization is listed first, as "Connected: ..." with its number of repositories.
+2. Under the list, type the new organization's GitHub name under **GitHub organisation**.
+3. Press **Connect another GitHub organisation**.
+4. GitHub opens the page **Create GitHub App** for that organization. Leave everything as it is and press **Create GitHub App**.
+5. GitHub sends you back to the box. Press **Choose the repositories on GitHub**.
+6. On GitHub, choose **Only select repositories**, pick the product's repositories (the code and the playbook) and press **Install**.
+7. Back on the box, the new organization has its own block: "Connected: ..." with its name and the number of repositories.
+
+An agent works in the repositories of one GitHub organization. See [Several GitHub organizations](/admin/connections/#several-github-organizations).
+
+### 3. Add a second Bob with its own name
+
+One Bob works for one product. The second Bob comes with all its roles and costs the price of the function again.
+
+1. Open **Agents** and click Bob's card.
+2. Under **For administrators**, part **Another copy**, press **Add another copy**. The page says which agents come with it: "All ... agents of ... come with it, paid as one copy: ...".
+3. Under **Its name**, type the name, for example "Bob" and the product's name. The box proposes one as soon as you choose the product.
+4. Choose the product you added in step 1.
+5. Tick the product's repositories, at most 10, all in the new organization: "Tick every repository of this product it works on (at most 10). It reaches these and no others."
+6. Press **Next**, read the price and your new monthly total, and press the button that names the price.
+7. Press **Open the payment page** and pay.
+
+The box installs the lead and every role one after the other: "Installing … ... more of its agents to go." Then "Added. ... is in your agents." The new Bob is its own card, and its roles carry its name, for example "... - QA Reviewer". See [A second Bob](/admin/packages/#a-second-bob-for-a-second-product).
+
+To give the first Bob a clearer name too, open its card, and under **For administrators**, **Name**, type the new name and press **Rename**. See [Name and rename an agent](/admin/packages/#name-and-rename-an-agent).
+
+### 4. Attach the product's rules
+
+1. Open **Settings** › **Advanced** › **Knowledge**, panel **Products**, and press **Rules** on the product's row.
+2. Under **Repository with the rules**, choose the playbook's repository.
+3. Under **Entry file**, keep `AGENTS.md` or type the path of your `SKILL.md`.
+4. Keep **Reviews by another AI company than the coding tool (Claude Code)** ticked.
+5. Press **Use these rules**. The box reads them at once and shows "Rules: ...", "Last change: ..." and "Last read: ...".
+6. Under **People the rules name**, choose the person on the box for each GitHub handle, then press **Save rules**.
+
+From now on every task for this product starts with these rules. See [A product's own rules](/admin/product-rules/).
+
+### 5. Check the lane for reviews
+
+With **Reviews by another AI company than the coding tool** ticked, the second Bob's QA Reviewer, Security Reviewer and Merge Gate review only on an AI model from another company than Anthropic.
+
+1. Open **Settings** › **Advanced** › **AI**, panel **Model lanes**.
+2. Check that the **Standard** lane holds a model from another company, for example OpenAI.
+3. Press **Save lanes**, then **Apply to installed agents**.
+
+If the lane is wrong, a review does not run and says why, and Home says which lane to set, for example "Set the standard lane to another AI company than Anthropic". See [Model lanes](/admin/ai-providers-and-lanes/#model-lanes).
+
+## What you see afterwards
+
+- **Settings** › **Advanced** › **Connections** shows one block per GitHub organization, each with its own **Disconnect**.
+- **Agents** shows two Bobs, each with its own name. Each one reaches only its own repositories and hands work only to its own roles.
+- **Settings** › **Plan and costs** shows one line per Bob with its name and price.
+- A task for the second product starts with its rules. A review starts with a line that names both AI companies, in the form "Reviewed by: ..., .... Coder: Anthropic." with the review's company and model.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| GitHub refuses to create the App. | You must be an owner of that organization on GitHub. Ask an owner to do step 2. |
+| A card says "Needs GitHub (...) from the admin". | That organization is not connected, or was disconnected. Do step 2 for it. |
+| "The repositories of one answer must all be in one GitHub organization." | Untick the repositories of the other organization. |
+| "Tick at most 10 repositories." | Untick some. |
+| "Another agent on this box is called .... Choose another name." | Choose a name no other agent on the box has. |
+| No **Add another copy** on Bob's card. | The store does not sell a second copy yet. Ask support. |
+| The rules panel says "The rules could not be read: ...". | Check that the playbook's repository is ticked in that organization's GitHub App (step 2, **Change repositories**), then press **Check now**. |
+| A review says it did not review because it must come from another AI company. | Do step 5. |
+
+## Related pages
+
+- [Connections](/admin/connections/#several-github-organizations)
+- [Install and manage agents](/admin/packages/#a-second-bob-for-a-second-product)
+- [A product's own rules](/admin/product-rules/)
+- [Software delivery (Bob)](/agents/software-delivery/)
+- [Products and knowledge](/admin/products-and-knowledge/)

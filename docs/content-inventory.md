@@ -707,6 +707,27 @@ Not as on `fded8b8`:
   Rename are #151, not merged; the docs say only that an agent whose name is still the old package
   name takes the new one.
 
+Part 7c, third step: release **Truchsess 2026.10.22-fded8b8** (Train 2, published 2026-10-22
+07:23 UTC) is out and is now the current release on /releases/. Then Train 3 (#172) merged as
+master `552abbb`: #152 (T112, several GitHub organizations), #151 (T111, naming agents and a second
+Bob) and #157 (T116, a product's own rules). Checked against `552abbb`; its release is not out
+yet. With #151 merged, "A name a person chose stays" (#170) is now true and documented.
+New pages: /admin/second-product/ (the setup in the order a person does it, for box 1 and
+LoreLuna) and /admin/product-rules/.
+Not as on `552abbb`, or not checkable from the box's code:
+- #157: "If the rules cannot be read, that product's tasks wait and say why." The task does not
+  wait: it does not start ("... so this task did not start. Nothing ran."). The docs follow the code.
+- #157: the Home lines "The rules for <product> changed: <commit>" and "Set the <lane> lane to
+  another AI company than <company>" are written as Home items of kind `warning`. Home files that
+  kind under Today > Mail as a suspicious mail, tagged Warning, and prints "Do not open the link.
+  Delete it in your mailbox." under the title. The docs say so plainly; a portal fix is needed.
+- #151: the whole-function copy needs the store change named in #151 (FAIVR: a second install on
+  one subscription must get a new installation id, else `409 installation_id_reused`). The box's
+  code cannot show whether the live store has it.
+- #151: ticking several repositories needs the package version from truchsess-agent-sources G25
+  (Bob's repository questions marked `multiple`). Until a box has it, each role asks for one
+  repository. The docs say "where every agent that asks it takes several repositories".
+
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
 Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
@@ -807,6 +828,10 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #170 | T127: polish batch 5 (app passwords on every mailbox form, HTML-only mails, plain AI page, What is new, Store card, names, answer files and mail links) (Train 2, master fded8b8) | yes | /use/email/, /use/private-mailbox/, /admin/company-mail/, /setup/ai-providers/, /admin/ai-providers-and-lanes/, /admin/chatgpt-subscription/, /setup/first-run/, /admin/budget/, /admin/updates/, /use/home/, /admin/store/, /admin/packages/, /use/follow-a-run/, /agents/company-mail/ |
 | #169 | T128: design inventory 2026-10 (documents and screenshots only) (Train 2) | none (nothing a person sees) | none |
 | #171 | Train 2: T128, T127 (merge of #169 and #170) | #170's sections | none of its own |
+| #152 | T112: one box, several GitHub organizations (Train 3, master 552abbb) | yes | /admin/connections/ (Several GitHub organizations), /admin/second-product/ (new), /agents/software-delivery/ |
+| #151 | T111: name your agents, and a second Bob for a second product (Train 3) | yes | /admin/packages/ (Name and rename an agent, A second Bob), /admin/store/, /admin/second-product/, /agents/software-delivery/ |
+| #157 | T116: bring your own playbook (a product's own rules for every agent working for it) (Train 3) | yes | /admin/product-rules/ (new), /admin/products-and-knowledge/, /admin/second-product/, /agents/software-delivery/ |
+| #172 | Train 3: T112, T111, T116 (merge of #152, #151 and #157) | the three sections below | none of its own |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1655,3 +1680,22 @@ none (documents and screenshots only)
 #### #171 Train 2: T128, T127
 
 #170's sections above.
+
+#### #152 T112: one box, several GitHub organizations
+
+- Connections page: "One GitHub App per organization. Use 'Connect another GitHub organisation' to add one; each organization has its own Disconnect."
+- Agents: "An agent works in the repositories of one GitHub organization."
+
+#### #151 T111: name your agents, and a second Bob for a second product
+
+**Naming and renaming agents.** When you add an agent, give it a name or keep the proposal ("Bob (Catering)"). To rename it later, go to Agents, click the card, then For administrators, Name, type the new name and press Rename. Names are unique on the box. Renaming keeps the agent's memory, work, history, permissions and subscription. When you rename a Bob, each of its roles keeps its role after the new name.
+
+**A second Bob.** One Bob works for one product. For a second product, open Bob's card and press Add another copy. Give it a name, choose the product, and tick that product's repositories (up to 10). Then confirm the price. The new Bob and its six roles appear as one card. Each Bob reaches only its own repositories and hands work only to its own roles. To stop it, open its card and press Stop this copy; the subscription ends at the end of the paid period, and its finished work stays readable.
+
+#### #157 T116: bring your own playbook (a product's own rules for every agent working for it)
+
+**Your own rules for a product.** If your company keeps its own rules for building a product (an `AGENTS.md`, or a `SKILL.md` with a wiki), give them to the box: Settings > Advanced > Knowledge, Rules next to the product, then choose the repository and the entry file. Every agent working for that product starts each task with them and reads the pages they link to. Only merged changes count. Your rules can make agents stricter, never give them more rights. If the rules cannot be read, that product's tasks wait and say why. A change to the entry file is shown on Home. Link the GitHub handles your rules name to people on the box, and their approvals go to them. To have Claude Code follow the same rules in your code repository, copy the workflow shown under Rules and follow the five steps there.
+
+#### #172 Train 3: T112, T111, T116
+
+The three sections above, as in #172's body.

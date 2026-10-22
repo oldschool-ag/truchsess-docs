@@ -56,6 +56,7 @@ Click a card to open the agent's settings: a panel beside the page, or the whole
 
 An administrator also sees the part **For administrators**:
 
+- **Name**: the agent's name and **Rename** (see [Name and rename an agent](#name-and-rename-an-agent)).
 - **Who may use it**: choose **Everyone** or **These people**. **Everyone** also covers people you add later: "Every person on this box may use ..., also people you add later." With **These people**, the list shows each person with **Remove**; choose a person and press **Add** to add one. Truchsess is always for everyone: "Truchsess is for everyone on this box".
 - **Allowed without asking**: the agent's standing approvals, read only. They are changed in **Settings** › **Advanced** › **Agent rules**.
 - **Its install answers**: what you answered at install.
@@ -100,7 +101,7 @@ A function with a lead answers as one agent. You talk to the lead, for example B
 
 The function's settings list its agents by role, each with its own "What ... may do". Only the lead has **Start a chat**. An administrator has **Test this role alone** on each other role: it opens **Chat** with that one role, for testing. A member who sends a task to one role reads "Ask ... decides which role takes the task and hands it on." and nothing starts.
 
-A function has one lead. Installing a second lead is refused with a sentence that names the first one, "... already has a lead: ...", and says to remove that lead from this box first.
+A function has one lead per copy. Installing a second lead outside a new copy is refused with a sentence that names the first one, "... already has a lead: ...", and says to remove that lead from this box first.
 
 **Settings** › **Advanced** › **AI**, panel **Costs in detail**, part **Per agent this period**, lists the function's tasks one line each, with the chain and its cost.
 
@@ -183,7 +184,7 @@ Some agents ask questions at install, under "This agent asks you to choose:".
 
 | Kind | What you choose | Notes |
 | --- | --- | --- |
-| Repository | One repository from your GitHub connection. | If GitHub is not connected, the box says so and offers **Open Connections**. GitHub is in **Settings** › **Advanced** › **Connections**. |
+| Repository | One repository from your GitHub connection, listed as `organization/repository`. Some agents, such as Bob's roles, take several: you tick the product's repositories, at most 10, all in one GitHub organization. | If GitHub is not connected, the box says so and offers **Open Connections**. GitHub is in **Settings** › **Advanced** › **Connections**. |
 | Product | One of the box's products. | If the list is empty, add a product first in **Settings** › **Advanced** › **Knowledge**, **Add a product**. |
 | Website | One website address, for example `www.example.com`. | The agent reaches exactly this host. Wildcards, IP addresses and local names are refused. |
 
@@ -227,9 +228,30 @@ An uploaded file that you did not install is listed under "Uploaded, not install
 
 A signed package file can be installed several times, for example one agent per website. Upload the file again in **One file in detail**. The inspection says "Already installed as ...". Enter another **Name for this install** and press **Install another**. Each install has its own answers, workspace and memory. All installs of the package are listed on its card in **Installed agents in detail**.
 
+## Name and rename an agent
+
+When you add an agent from the store, the form asks for its **Name** and proposes one, for example "Bob (Catering)" once you choose the product Catering. The name shows on **Home**, in **Chat**, on the card and in **Settings** › **Plan and costs**. The function, for example "Software delivery", stays the line under it.
+
+To rename it later:
+
+1. Open **Agents** and click the agent's card.
+2. Under **For administrators**, part **Name**, type the new name.
+3. Press **Rename**.
+
+"Renamed to .... Its memory, its work and its runs stay." Its permissions and its subscription stay too. Names are unique on the box. A function of several agents is renamed whole: "Each of its agents keeps its role after the name.", for example "Bob Truchsess - QA Reviewer".
+
+A name you chose stays through every update. An agent whose name is still the package's own name takes the package's new name when the publisher renames it.
+
+| What you see | What to do |
+| --- | --- |
+| "Type the new name first." | Type a name that differs from the current one. |
+| "Another agent on this box is called .... Choose another name." | Choose another name. |
+| "A name of at most ... characters leaves room for the names of its roles (... is too long)." | Choose a shorter name. |
+| "The name could not be changed. Nothing was changed." | Press **Rename** again. |
+
 ## Add another copy
 
-A second copy of a store agent works on its own: its own name, its own answers (for example another product or another website) and its own work. It costs the same price again. The box offers it only when the store sells copies of the agent's function, and only for a function of one agent. When the store does not, you do not see **Add another copy** at all.
+A second copy of a store agent works on its own: its own name, its own answers (for example another product or another website) and its own work. It costs the same price again. The box offers it only when the store sells copies of the agent's function. When the store does not, you do not see **Add another copy** at all. For a function of several agents, such as Bob, see [A second Bob](#a-second-bob-for-a-second-product).
 
 1. Open **Agents** and click the agent's card.
 2. Under **For administrators**, part **Another copy**, press **Add another copy**.
@@ -249,6 +271,25 @@ The box waits ("Waiting for the payment …") and installs the copy as soon as t
 To end a copy, open its card and press **Stop this copy** (the button names the price per month), then confirm. That copy stops working at once, its price ends with the period already paid for, and its finished work stays readable. The first copy is not touched.
 
 A signed package file can be installed several times without the store: see [Install the same package again](#install-the-same-package-again).
+
+### A second Bob for a second product
+
+One Bob works for one product. For a second product, add another copy of the whole function: the lead and its six roles come together, as one card and one subscription.
+
+1. Open **Agents** and click Bob's card.
+2. Under **For administrators**, part **Another copy**, press **Add another copy**. "All ... agents of ... come with it, paid as one copy: ...".
+3. Under **Its name**, give it a name. Choosing the product proposes one, for example "Bob (Catering)".
+4. Answer the questions under "Its agents ask you to choose:", each once for all of its agents: choose the product, and tick that product's repositories (at most 10, all in one GitHub organization).
+5. Press **Next**, check the price and the new monthly total, press the button that names the price, then **Open the payment page** and pay.
+
+After the payment the box installs the lead and every role one after the other: "Installing … ... more of its agents to go." The new Bob and its roles appear as one card, the roles named after it, for example "Bob (Catering) - QA Reviewer".
+
+- Each Bob reaches only its own repositories, and hands work only to its own roles.
+- When an agent for a product hands work to Bob, it reaches the Bob of that product. If that is not clear, the person is asked.
+- **Settings** › **Plan and costs** shows one line per Bob with its name, for example "Bob (Catering): CHF ...".
+- To stop it, open its card and press **Stop this copy**: the subscription ends at the end of the paid period, and its finished work stays readable. The first Bob is not touched.
+
+The whole setup, with the GitHub organization and the product's rules, in order: [Set up a second product](/admin/second-product/).
 
 ## Agents that work on a schedule
 
@@ -291,7 +332,7 @@ When **Install updates automatically** is on in **Settings** › **Updates**, "B
 
 A progress line shows each agent. A failed update never stops the others; the agent keeps running on its version: "... could not be updated; it runs version ... as before."
 
-An agent keeps its name through an update. If the publisher renamed the agent and its name on the box is still the old package name, it takes the new name with the update. A new name that another agent on the box already has is not taken; the old one stays.
+An agent keeps its name through an update. A name you chose stays. If the publisher renamed the agent and its name on the box is still the old package name, it takes the new name with the update. A new name that another agent on the box already has is not taken; the old one stays.
 
 An agent installed from a file whose package the store sells offers **Get updates from the store** on its card, once. Press it, then **Get updates from the store** in the window: "Its answers, what it may do, its files and its history stay."
 
@@ -444,6 +485,7 @@ You cannot go back to an earlier version of an agent, add a second copy of a sto
 - [Agent rules explained](/admin/agent-rules/)
 - [Autonomy levels](/admin/autonomy-levels/)
 - [Connections](/admin/connections/)
+- [Set up a second product](/admin/second-product/)
 - [AI providers and lanes](/admin/ai-providers-and-lanes/)
 - [Agents](/agents/)
 - [Company mail (Penn)](/agents/company-mail/)
