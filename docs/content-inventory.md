@@ -710,8 +710,10 @@ Not as on `fded8b8`:
 Part 7c, third step: release **Truchsess 2026.10.22-fded8b8** (Train 2, published 2026-10-22
 07:23 UTC) is out and is now the current release on /releases/. Then Train 3 (#172) merged as
 master `552abbb`: #152 (T112, several GitHub organizations), #151 (T111, naming agents and a second
-Bob) and #157 (T116, a product's own rules). Checked against `552abbb`; its release is not out
-yet. With #151 merged, "A name a person chose stays" (#170) is now true and documented.
+Bob) and #157 (T116, a product's own rules). Checked against `552abbb`. Its release
+**Truchsess 2026.10.22-552abbb** came out on 2026-10-22 12:59 UTC, followed by **2026.10.22-d1e3744**
+(T129, 21:43 UTC) and **2026.10.23-a7f21e0** (Train 5, 2026-10-23 08:59 UTC). /releases/ lists all
+three; what d1e3744 and a7f21e0 changed for users is for the next docs part. With #151 merged, "A name a person chose stays" (#170) is now true and documented.
 New pages: /admin/second-product/ (the setup in the order a person does it, for box 1 and
 LoreLuna) and /admin/product-rules/.
 Not as on `552abbb`, or not checkable from the box's code:
@@ -722,8 +724,9 @@ Not as on `552abbb`, or not checkable from the box's code:
   kind under Today > Mail as a suspicious mail, tagged Warning, and prints "Do not open the link.
   Delete it in your mailbox." under the title. The docs say so plainly; a portal fix is needed.
 - #151: the whole-function copy needs the store change named in #151 (FAIVR: a second install on
-  one subscription must get a new installation id, else `409 installation_id_reused`). The box's
-  code cannot show whether the live store has it.
+  one subscription must get a new installation id, else `409 installation_id_reused`). It is live
+  since 2026-10-22 (FAIVR F25, store PR #95, production deployment `0b4733a`), and box 1 installed
+  all 7 of Bob's agents on one subscription on 2026-10-23.
 - #151: ticking several repositories needs the package version from truchsess-agent-sources G25
   (Bob's repository questions marked `multiple`). Until a box has it, each role asks for one
   repository. The docs say "where every agent that asks it takes several repositories".
