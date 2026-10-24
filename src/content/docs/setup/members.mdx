@@ -1,40 +1,51 @@
 ---
 title: 'Step 5: Members'
-description: Add your colleagues to the box, and choose who may use which agent.
+description: Invite your colleagues to the box with a link, and choose who may use which agent.
 ---
 
 ## Who can do this
 
-The administrator adds the people. Each member then signs in once and sets a password.
+The administrator invites the people. Each person then opens the invitation link once and sets a password.
 
 ## What you need
 
 - The name and work e-mail of each person.
-- You are in the office, on **https://truchsess.local/**. People cannot be added from the remote address.
+- You are in the office, on **https://truchsess.local/**. People cannot be invited from the remote address.
 
 ## Steps
 
 ### Add a person
 
-1. Open **Settings** › **People**.
-2. Under **Add a person**, enter the **Name** and the **Work email**.
-3. Press **Add the person**.
-4. The box shows "One-time password for ... Copy it now; it is not shown again." Press **Copy** next to the password.
-5. Give the one-time password to the person in a safe way (in person, or by phone), with the box's address. Do not send it in the same e-mail as the address of the box.
+1. Open **Settings** › **People and access**.
+2. Under **Add a person**, enter the **Name** and the **Work e-mail**.
+3. Keep **Member: uses the agents**. For a second administrator, choose **Administrator: also manages people, costs and the box** and type **Your own password, to invite an administrator**.
+4. Tick the agents this person may use. Truchsess is always included.
+5. Press **Invite** and the first name, for example **Invite Anna**.
+6. Press **Send from my e-mail** or **Copy the invitation**. The box sends no e-mail: you send the invitation yourself, from your own e-mail or in a chat. The link works once, for 7 days.
 
-### The member's first sign-in
+More about invitations, **Send again** and **Withdraw**: [People](/admin/users/#add-a-person).
 
-1. The member opens **https://truchsess.local/** in the office.
-2. On **Sign in**, the member enters the **Work email** and the one-time **Password**.
-3. The page **Change your temporary password** opens.
-4. The member enters the **Temporary password**, then a **New password** (at least 12 characters, upper-case and lower-case letters and a number).
-5. The member presses **Change password**.
+### The invitation page
 
-If [remote access](/admin/remote-access/#use-the-remote-address-everyone) is on, a member can also sign in on the remote address with their e-mail and a one-time code. No password is needed there. The temporary password is still changed in the office, at the first sign-in on **https://truchsess.local/**.
+1. The person opens the link from the invitation in the office, on the box's network.
+2. The page says "Welcome," and their first name.
+3. They type a password under **Your password** and again under **The same password again**: "Use at least 12 characters, upper- and lower-case letters, and a number."
+4. They press **Set my password**.
+
+From then on they sign in with their e-mail address and that password. If [remote access](/admin/remote-access/#use-the-remote-address-everyone) is on, they can also sign in on the remote address with their e-mail and a one-time code.
+
+A link that no longer works says why, always with what to do:
+
+- "This invitation has expired. Ask your administrator for a new invitation."
+- "This invitation was already used to set a password. Sign in with your e-mail address and that password, or ask your administrator for a new invitation."
+- "This invitation was withdrawn. Ask your administrator for a new invitation."
+- "This invitation link is not valid. Ask your administrator for a new invitation."
+
+For a new invitation, the administrator presses **Send again** on the person's row.
 
 ### Choose who may use an agent
 
-A new person sees the company's agents at once. To limit one agent to some people:
+A new person gets Truchsess and the agents you ticked. To change who may use one agent later:
 
 1. Open **Agents** and press the agent's card. Its settings open.
 2. Under **For administrators**, **Who may use it**, choose **These people** and pick the people. **Everyone** also covers people you add later.
@@ -43,7 +54,7 @@ A member who wants an agent they cannot use yet presses **Add this agent** on it
 
 ## What you see afterwards
 
-- The new person appears in **Settings** › **People** with the role **Member** and, until the first sign-in, the state "Not signed in yet".
+- The new person appears in **Settings** › **People and access** with the role **Member** and, until they use the link, the state "Invited (the link works until ...)".
 - The member sees **Home**, **Chat** and **Agents** in the menu.
 - The member opens **Your account** (for example to change their password) with the picture with their initials at the top right.
 
@@ -51,7 +62,7 @@ A member who wants an agent they cannot use yet presses **Add this agent** on it
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Add the person** | Creates a member account. | For each colleague. | Yes: **Remove** in the person's row (see [Users](/admin/users/#remove-a-person)). |
+| **Invite** | Adds the person and makes an invitation link for 7 days. | For each colleague. | Yes: **Withdraw**, or **Remove** in the person's row (see [People](/admin/users/#remove-a-person)). |
 | **Who may use it**: **Everyone** | Every person on the box may use the agent, also people added later. | Default. | Yes. |
 | **Who may use it**: **These people** | Only the people you pick may use the agent. | An agent only some people need. | Yes. |
 | Product access **Member** or **Owner** | Who sees which product. A box set up with this release shows every product to everyone. Change it under **Settings** › **Advanced** › **Knowledge**, panel **Assign product access**. **Advanced** is the link **Advanced (for experts)** at the bottom of **Settings**. | Only when a product is not for everyone. | Yes: **Remove** in the panel **Product access**. |

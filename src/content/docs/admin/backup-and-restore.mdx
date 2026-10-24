@@ -5,7 +5,7 @@ description: The recovery sheet, nightly safety copies, downloading a copy, and 
 import NotYet from '~/components/NotYet.astro';
 import { Aside } from '@astrojs/starlight/components';
 
-Safety copies (backups) are on **Settings** › **Safety copies**. The history of copies, key changes and restores is for experts: **Settings** › **Advanced** › **Box**, panel **Version and log**, **Backup history**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+Safety copies (backups) are on **Settings** › **Updates and safety copies**, section **Safety copies**. The history of copies, key changes and restores is for experts: **Settings** › **Advanced** › **Box**, panel **Version and log**, **Backup history**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
 
 ## Who can do this
 
@@ -20,7 +20,7 @@ The administrator, in the office on **https://truchsess.local/**. Safety copies 
 
 The box makes no safety copy until a recovery sheet exists: "No recovery sheet yet: the box makes no safety copy until it exists."
 
-1. Open **Settings** › **Safety copies**, part **Recovery sheet**.
+1. Open **Settings** › **Updates and safety copies**, section **Safety copies**, part **Recovery sheet**.
 2. Press **Make the recovery sheet**.
 3. Save the key: **Copy**, or **Download as a file**. "The box shows this only once. Save it now, away from the box (a password manager, or printed and locked away)."
 4. Press **I have saved it**.
@@ -31,13 +31,24 @@ The box keeps only the key's public half.
 
 ## Nightly safety copies
 
-- Every night at 03:30 by the box's clock, the box makes a locked (encrypted) safety copy.
+- Every night at 03:30 in your company's time zone (**Settings** › **Your company**, **Time zone**), the box makes a locked (encrypted) safety copy.
 - Nightly and manual copies together: the newest 7 are kept.
 - In a copy: tasks and their history, people (their passwords only in protected form), installed agents and their answers, settings, the owner policy, the agents' workspaces, the SSH keys.
 - Never in a copy: the AI provider key, connection secrets (GitHub, API keys), the store enrolment, the remote access code.
 - Tasks that are running when a copy starts are waited for up to 5 minutes. After that, the copy notes that their unfinished files may be incomplete.
 
 **Back up now** (at the top of **Safety copies**) makes a copy at once, for example before an update.
+
+## The copy in France
+
+Once your storage in France is set up, the box also sends each night's copy there, locked with the same recovery sheet. Until then nothing leaves the box: the part **Copy in France** says "Not set up yet: the copy outside the box starts once your storage in France is set up."
+
+After the first copy there, the part says, for example, "Last safety copy: today, tested on 3 November" and "Stored encrypted at our data centre in France". About once a month the box opens the newest copy in France to test it.
+
+- Only your recovery sheet opens these copies: "without it nobody, Truchsess included, can open the copies."
+- If the copy could not be sent for two nights, the part says "Your safety copy could not be sent for two nights. Your data is still on the box."
+- If the monthly test did not pass: "The monthly test of your safety copy did not pass. Your data is still on the box."
+- If the space is nearly used up: "The space for your safety copies is almost full. Old copies are thinned on their own; ask us for more space if this stays."
 
 ## Download a safety copy
 
@@ -51,7 +62,7 @@ If the connection breaks, the line says "The download broke ..." and nothing is 
 "A restore puts the box back to the copy's state: tasks, agents, people and settings made after it are gone, and everyone signs in again."
 </Aside>
 
-1. On **Settings** › **Safety copies**, part **Restore**, choose the **Safety copy**: one of the box's copies, or **A backup file from this computer** and then the **Safety copy file**.
+1. On **Settings** › **Updates and safety copies**, section **Safety copies**, part **Restore**, choose the **Safety copy**: one of the box's copies, the copy in France (for example **The copy in France from 3 November, 03:30**) once your storage there is set up, or **A backup file from this computer** and then the **Safety copy file**.
 2. Paste **The key from your recovery sheet**, or choose it under **or the recovery sheet file**.
 3. Press **Restore**, then **Confirm restore** within 10 seconds.
 4. Follow the steps: "Open the backup with the recovery key", "Check the release and every file", "Keep a safety copy of the box", "Stop the services", "Put the backup in place", "Update the database to this release", "Start the services", "Check that everything runs".
@@ -67,12 +78,12 @@ Use this when you move to a new box or replace a broken one.
 1. Install the new box. See [Unbox and connect](/setup/unbox-and-connect/).
 2. Open **https://truchsess.local/**. On "Welcome to your Truchsess box", press **I am moving from another Truchsess box**. Do not create an account first.
 3. If the page asks for it, enter the code (**Code from the card**, or **Code from the installer**).
-4. Choose the **Backup file**.
+4. Choose the **Backup file**. If the new box already has your storage in France, you can tick **Use the newest copy in France instead of a file** instead.
 5. Paste the **Recovery key**, or choose it under **or the recovery key file**.
 6. Press **Restore**.
 7. When it is done, read **Enter these again** and press **Sign in**. Sign in with an account from the copy.
 
-On a box that is already set up this is refused. Restore there under **Settings** › **Safety copies** instead.
+On a box that is already set up this is refused. Restore there under **Settings** › **Updates and safety copies** instead.
 
 ## What you see afterwards
 
@@ -104,7 +115,7 @@ The table **Enter these again** lists only what this box does not hold. Enter ea
 - "The disk is full: the restore stopped and the box was put back. Free some space and try again."
 
 <NotYet>
-You cannot choose the time of the nightly copy or keep more than 7 copies. Copies are not sent to a place outside the box: download them yourself and keep them safe. A copy file can be up to 16 GiB for an upload.
+You cannot choose the time of the nightly copy or keep more than 7 copies on the box. The storage in France is set up for each box by Truchsess in a later update; until then, download your copies and keep them safe. A copy file can be up to 16 GiB for an upload.
 </NotYet>
 
 ## Related pages

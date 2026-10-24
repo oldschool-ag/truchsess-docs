@@ -21,6 +21,7 @@ export const REQUIRED_PAGES = [
   '/use/follow-a-run/',
   '/use/phone-and-voice/',
   '/use/approvals-and-checks/',
+  '/use/plans/',
   '/use/knowledge/',
   '/use/workboard/',
   '/use/report-a-problem/',

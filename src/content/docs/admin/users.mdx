@@ -1,10 +1,10 @@
 ---
 title: People
-description: Add a person, reset a forgotten password, change a name or e-mail, remove a person, and give product access.
+description: Invite a person, reset a forgotten password, change a name or e-mail, remove a person, and give product access.
 ---
 import NotYet from '~/components/NotYet.astro';
 
-Everything about people is on **Settings** › **People**: "Everyone who can sign in to this box. A new person sees the company's agents at once." The section holds the table of people and **Add a person**.
+Everything about people is on **Settings** › **People and access**, section **People**: "Everyone who can sign in to this box. A new person gets Truchsess and the agents you tick." The section holds the table of people and **Add a person**. The same page holds **Reach the box from home**, see [Remote access](/admin/remote-access/).
 
 Product access is for experts. It is on **Settings** › **Advanced** › **Knowledge**, panels **Assign product access** and **Product access**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
 
@@ -19,13 +19,20 @@ The administrator. Some actions work only in the office on **https://truchsess.l
 
 ## Steps
 
-### Create an account
+### Add a person
 
-1. Open **Settings** › **People**, part **Add a person**.
-2. Enter **Name** and **Work email**.
-3. Press **Add the person**.
-4. The box shows the one-time password: "One-time password for ... Copy it now; it is not shown again." Press **Copy**.
-5. Give it to the person safely, with the box's address. At the first sign-in they choose their own password. See [Members](/setup/members/#the-members-first-sign-in).
+1. Open **Settings** › **People and access**, part **Add a person**.
+2. Enter **Name** and **Work e-mail**.
+3. Keep **Member: uses the agents**. Choose **Administrator: also manages people, costs and the box** only if they should also manage people, costs and the box; then type **Your own password, to invite an administrator**.
+4. Under "Which agents may ... use?", tick the agents. Truchsess is always ticked: "Included for everyone".
+5. Press **Invite** and the first name, for example **Invite Anna**. "Anna is invited. Send the invitation now: the link works once, for 7 days."
+6. Press **Send from my e-mail** (it opens your mail program with the invitation written) or **Copy the invitation** (paste it into an e-mail or a chat). "The box sends no e-mail."
+
+With the link, the person sets a password only they know, in the office. See [The invitation page](/setup/members/#the-invitation-page).
+
+Until the link is used, the person's row says "Invited (the link works until ...)". **Send again** makes a new link; the earlier one stops working. **Withdraw** stops the link: "The link stops working and ... cannot sign in. Send again invites ... anew."
+
+The old way, a person with a one-time password, is for support only: **Settings** › **Advanced** › **Support access**, "Add a person with a one-time password (for support only)".
 
 ### Give product access
 
@@ -42,7 +49,7 @@ Assigning again with another **Access** changes the access.
 
 ### Reset a forgotten password
 
-1. On **Settings** › **People**, press **Reset password** on the person's row.
+1. On **Settings** › **People and access**, press **Reset password** on the person's row.
 2. Press **Confirm reset**. "Every session of this person ends now."
 3. A small window opens: "New one-time password for ...". The password is in its own field. Press **Copy**. The window says "Copied."
 4. Press **Done**. The password is shown only once: copy it before you press **Done**.
@@ -52,7 +59,7 @@ Every browser where the person is signed in is signed out at once. Failed sign-i
 
 ### Remove a person
 
-1. On **Settings** › **People**, press **Remove** on the person's row.
+1. On **Settings** › **People and access**, press **Remove** on the person's row.
 2. Type the person's e-mail address in the field.
 3. Press **Confirm remove**.
 
@@ -75,7 +82,7 @@ There is no **Disable** button any more. **Enable** shows only on the row of a p
 
 ## What you see afterwards
 
-- **Settings** › **People** lists every account: **Name**, **Email**, **Role** (Administrator or Member), **State**, **Last login**, and the buttons.
+- **Settings** › **People and access** lists every account: **Name**, **Email**, **Role** (Administrator or Member), **State**, **Last login**, and the buttons.
 - **Settings** › **Advanced** › **Knowledge**, panel **Product access** lists every assignment: **Person**, **Product**, **Access**, **Assigned**.
 - **Settings** › **Advanced** › **Activity and audit trail**, panel **Recent activity** records each change with your name.
 
@@ -84,7 +91,10 @@ The **State** column:
 | State | Meaning | Buttons |
 | --- | --- | --- |
 | Active | The person signs in with their own password. | **Reset password**, **Change name or e-mail**, **Remove** |
-| Not signed in yet | A new account, or a password was reset. The person must choose a new password at the next sign-in. | **Reset password**, **Change name or e-mail**, **Remove** |
+| Invited (the link works until ...) | The person has an invitation and has not set a password yet. | **Send again**, **Withdraw**, **Remove** |
+| Invitation expired | The 7 days passed before the person used the link. | **Send again**, **Remove** |
+| Invitation withdrawn | You withdrew the invitation. | **Send again**, **Remove** |
+| Not signed in yet | A password was reset, or the person was added with a one-time password. The person must choose a new password at the next sign-in. | **Reset password**, **Change name or e-mail**, **Remove** |
 | Disabled | An older version of the box disabled the person. They cannot sign in. | **Change name or e-mail**, **Enable**, **Remove** |
 | Removed | The account is closed for good. | None |
 
@@ -96,7 +106,7 @@ Settings open on the remote address only while **Allow Settings on the remote ad
 
 | Works on the remote address | Only in the office, on https://truchsess.local/ |
 | --- | --- |
-| **Remove** (it only takes access away) | **Add the person**, **Reset password**, **Enable**, **Change name or e-mail** |
+| **Remove** (it only takes access away) | **Invite**, **Send again**, **Reset password**, **Enable**, **Change name or e-mail** |
 | **Assign access**, **Remove** in **Product access** | |
 
 In the office-only cases the box says "For safety, passwords, keys and other secrets are entered only in the office." and names the local address.
@@ -115,7 +125,9 @@ In the office-only cases the box says "For safety, passwords, keys and other sec
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
-| **Add the person** | A new member account. | A new colleague. | Yes: **Remove**. |
+| **Invite** | A new person, with an invitation link for 7 days. | A new colleague. | Yes: **Withdraw**, or **Remove**. |
+| **Send again** | A new invitation link; the earlier one stops working. | The person lost the link, or it expired. | n/a |
+| **Withdraw** | Stops the invitation link. | You invited the wrong person, or too early. | Yes: **Send again**. |
 | **Member** access | The person sees the product. | Default. | Yes. |
 | **Owner** access | The same as Member in this release. Also given automatically to a person whose product request you approve. | The person is responsible for the product. | Yes. |
 | **Remove** (product access) | Removes the person from the product. | The person leaves the product. | Yes: assign again. |

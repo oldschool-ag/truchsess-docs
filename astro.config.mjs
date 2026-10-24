@@ -75,6 +75,7 @@ export default defineConfig({
             { label: 'Let an agent read a website', slug: 'use/websites' },
             { label: 'Use it on your phone', slug: 'use/phone-and-voice' },
             { label: 'Approvals and checks', slug: 'use/approvals-and-checks' },
+            { label: "A product owner's plan", slug: 'use/plans' },
             { label: 'When an agent needs something first', slug: 'use/agent-needs-something' },
             { label: 'Connect your company mailbox', slug: 'use/email' },
             { label: 'Add a private mailbox', slug: 'use/private-mailbox' },

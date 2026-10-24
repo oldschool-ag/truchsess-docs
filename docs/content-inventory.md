@@ -748,6 +748,36 @@ where its strings are unchanged. Not as in #173's "For the user docs":
 - "contact Truchsess support": the box sends nothing to support by itself; the store's answer is in
   the activity trail ("... not installed: store answered <status> <code>") and the journal.
 
+Part 7d: Train 5 (#176) merged as master `a7f21e0`: #153 (test harness only), #146 (T110, safety copies
+in France), #150 (T109, add a person in one step with an invitation) and #174 (T130, a product owner's
+plan, approved once). Release **Truchsess 2026.10.23-a7f21e0** (published 2026-10-23 08:59 UTC).
+Checked against `2bb4bff`, so the places are named as since Train 7 (#181: **People and access**,
+**Updates and safety copies**). New page: /use/plans/. Not as in the train's text, or not checkable
+from the box's code:
+- #146: "If a copy could not be sent for two nights, Home says so." The box builds that Home item
+  (kind `offbox`, `box.items`), but Home draws only the box tiles and the new-administrator items, so
+  it does not show on Home. It shows in the part **Copy in France** of the Safety copies section.
+  The docs say so; a portal fix is needed (like #163).
+- #146: the storage in France can be set today only under Advanced › Box, "Safety copy storage
+  (test)"; the store sets it for every box in part 2. "Use the newest copy in France instead of a
+  file" on a new box shows only when that box already has a storage. Where the data centre is
+  (the provider) is not in the box's code.
+- #150: "Settings > People > Add a person" is **Settings** › **People and access** since Train 7. The
+  button is "Invite" and the first name. The old one-time-password form is **Settings** ›
+  **Advanced** › **Support access**, "Add a person with a one-time password (for support only)".
+- #150, seen in the code, not in the text: the remote address signs in any account whose stored
+  status is active (`remote_login`), and an invited person's account is active from the start. So
+  a person who has not used the link yet, or whose link expired, can sign in on the remote address
+  with the e-mail code (and the row then reads Active, without a password). **Withdraw** disables the
+  account, so a withdrawn person cannot. The docs say the remote address works before the link is
+  used; whether an expired invitation should still allow it is a question for the product.
+- #174: the Needs you item is "<name>'s plan: <title>" with its own line "4 steps, 3 agents, 2
+  questions." and **Open the plan**; the risk words are "sign-in", "rights and roles", "deleting
+  data", "a schema or data migration", "payments", "security". A member gets no Home item for her
+  own plan (she opens it by its link). Writing plans needs Product Owner 1.4.0 (truchsess-agent-sources
+  G31), outside the box's code; /agents/product-ownership/ still names 1.2.0 and says a later version
+  writes plans.
+
 Part 7d: Train 6 (#178) merged as master `d009df5`: #180 (the shipped-box clock check, nothing a
 person sees), #175 (T131, merges inside an approved plan) and #177 (T136, polish batch 6). Release
 **Truchsess 2026.10.23-d009df5** (published 2026-10-23 15:12 UTC). Checked against `2bb4bff`. Not as in
@@ -873,6 +903,11 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #157 | T116: bring your own playbook (a product's own rules for every agent working for it) (Train 3) | yes | /admin/product-rules/ (new), /admin/products-and-knowledge/, /admin/second-product/, /agents/software-delivery/ |
 | #172 | Train 3: T112, T111, T116 (merge of #152, #151 and #157) | the three sections below | none of its own |
 | #173 | T129: "Install all" finishes every agent of a function, or says why it stopped (Train 4, master d1e3744) | yes | /admin/store/ (Install all, An agent was not installed), /admin/packages/ (Functions with several agents, A second Bob), /admin/second-product/, /setup/first-agent/, /releases/ |
+| #153 | Test harness fixes (Train 5, master a7f21e0) | none (no product change) | none |
+| #146 | T110: safety copies in France (Train 5) | yes (written in the train body) | /admin/backup-and-restore/ (The copy in France), /setup/backup/, /releases/ |
+| #150 | T109: add a person in one step, with an invitation (Train 5) | yes | /admin/users/ (Add a person), /setup/members/ (The invitation page), /setup/first-run/ (Your team), /start/member/, /admin/remote-access/, /setup/remote-access/, /troubleshooting/, /releases/ |
+| #174 | T130: a product owner's plan, approved once (Train 5) | yes | /use/plans/ (new), /use/home/ (Needs you), /agents/product-ownership/, /start/glossary/ (Plan), /use/approvals-and-checks/, /releases/ |
+| #176 | Train 5: #153, #146, #150 (+ #174) | the sections below | none of its own |
 | #180 | The shipped-box clock check checks the helper's time zone (Train 6, master d009df5) | none (no product change) | none |
 | #175 | T131: merges inside an approved plan (Train 6) | yes (no bold subject until the Merge Gate's store update is in the store) | /admin/product-rules/ (Merges inside an approved plan), /agents/software-delivery/ (Merge Gate), /not-yet/ (G41), /releases/ |
 | #177 | T136: polish batch 6 (updates without a reload, old assistant conversations, card names, install questions, skipped questions, allow list) (Train 6) | yes | /admin/updates/, /use/your-account/, /admin/audit-and-status/, /admin/store/, /admin/packages/, /releases/ |
@@ -1775,3 +1810,27 @@ The train adds: no bold subject until the Merge Gate's store update (G32) is sig
 #### #178 Train 6: #180, #175, #177
 
 The three sections above, as in #178's body; its "What is new in this release": "Check for updates", "Update now".
+
+#### #153 Test harness fixes
+
+Nothing (no product change).
+
+#### #146 T110: safety copies in France (section written in #176's body)
+
+**Safety copies in France.** Every night after the copy on the box, the box also sends a locked copy to our data centre in France, once your storage there is set up. Until then nothing leaves the box. The night copy runs at 03:30 in your company's time zone (Settings > Your company). Settings > Safety copies shows when the last copy was made and when the box last tested it ("Last safety copy: today, tested on 3 November"); once a month the box opens the newest copy to check it. Only your recovery sheet opens the copies: without it nobody, Truchsess included, can open them. If a copy could not be sent for two nights, Home says so: "Your safety copy could not be sent for two nights. Your data is still on the box." To restore, Settings > Safety copies > Restore offers the copy in France next to the copies on this box and a file you upload. A new box offers "the newest copy in France" at setup.
+
+#### #150 T109: add a person in one step, with an invitation
+
+**People: add a person.** Settings > People > Add a person: type the name and work e-mail. Leave "Member" unless they should also manage people, costs and the box (then type your own password once more). Tick the agents they may use (Truchsess is always included) and press "Invite <name>". Send the invitation with "Send from my e-mail" or "Copy the invitation"; the box sends no e-mail. The link works once, for 7 days. "Send again" makes a new link and "Withdraw" stops it.
+**Your team (first setup, step 5).** Type each colleague's name and work e-mail and press "Add colleagues": each gets an invitation to send from your own e-mail or to copy. Or press "Skip for now" and invite them later under Settings > People.
+**The invitation page.** Open the link at the office, type your password twice (at least 12 characters, upper- and lower-case letters and a number) and press "Set my password". From then on, sign in with your e-mail address and that password. An expired, used or withdrawn link says so: ask your administrator for a new invitation.
+
+#### #174 T130: a product owner's plan, approved once
+
+**A product owner's plan, and approving it once.** Give your product owner (Alden) the request in Chat. When the work needs other agents, or access they do not have yet, Alden writes one plan instead of starting right away. The plan appears in Home under Needs you: "Alden's plan: Add a new language. 7 steps, 4 agents, 2 questions." Open it to see: what will be done, and by whom; the access each agent gets, in plain words; what nobody gets; Alden's questions; which steps will ask you again before they go live (sign-in, rights, deleting data, data migrations, payments, security). Answer the questions and press **Approve**. From then on, each agent in the plan has exactly the access the plan lists, only for this plan's work, for 14 days. Alden starts at once and tells you when every step is finished. His report keeps three things apart: built and tested, checked against real data, and delivered. **Change** sends Alden a message. The changed plan comes back for a new approval, and nothing new is allowed before that. **Not now** allows nothing. **Stop this plan** ends all its access at once. Only administrators approve. A member who asked for the work can follow her own plan and stop it.
+
+The train adds: "The Product Owner package that writes plans is G31 (oldschool-ag/truchsess-agent-sources#36, faivr.agent.product-owner 1.4.0). It builds only once T130 is on master."
+
+#### #176 Train 5: #153, #146, #150 (+ #174)
+
+The sections above, as in #176's body.

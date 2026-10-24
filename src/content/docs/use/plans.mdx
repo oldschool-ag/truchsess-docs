@@ -1,0 +1,83 @@
+---
+title: A product owner's plan
+description: When work needs several agents or access they do not have yet, your product owner writes one plan. You read it, answer its questions and approve it once.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Give your product owner (for example Alden) a request in **Chat**. When the work needs other agents, or access they do not have yet, the product owner writes one plan instead of starting right away. You read the plan and approve it once. From then on, each agent in the plan has exactly the access the plan lists, only for this plan's work, for 14 days.
+
+A plan allows nothing before it is approved.
+
+## Who can do this
+
+- Only administrators approve, change, refuse or stop a plan.
+- A member who asked for the work can open her own plan and stop it. She gets no item on **Home** for it.
+
+## What you need
+
+- A product owner agent whose version writes plans. Its permission reads "Write plans for its product that an administrator approves once (a plan allows nothing before that)".
+
+## Steps
+
+### Read a plan
+
+1. Open **Home**. In **Needs you**, the plan shows with its title and one line, for example "Alden's plan: Add a new language" and "4 steps, 3 agents, 2 questions."
+2. Press **Open the plan**.
+
+The plan has these parts:
+
+- **The request**, in the words of the person who asked.
+- **What will be done**: one line per step, and who does it. A step that asks a person a second time before it goes live says so, for example "Asks again before it goes live: sign-in."
+- **The access each agent gets**, in plain words: "Only for this plan's tasks, until ...".
+- **What nobody gets**.
+- The product owner's questions.
+- **Asks again before it goes live**: the steps that ask a second time. These are steps about sign-in, rights and roles, deleting data, a schema or data migration, payments or security.
+- **Cost and notes**, with the box's estimate from these agents' recent tasks.
+
+### Approve a plan
+
+1. Answer each of the product owner's questions. Until then **Approve** says "Answer the questions first."
+2. Press **Approve**. "Approved. Alden starts now; the access ends on ..."
+
+The product owner starts at once and tells you when every step is finished. When the plan belongs to a GitHub issue, the box notes the approval on it.
+
+### Change, refuse or stop a plan
+
+- **Change**: "What should change?" Type it and send. "Sent to Alden. The plan comes back as a new version." Nothing new is allowed before you approve the new version.
+- **Not now**: "Not now. Nothing in the plan is allowed."
+- **Stop this plan**, after you approved it: "Every access of this plan ends now. Tasks already going on keep only their own access." Then "Stopped. Every access of the plan ended."
+
+## What you see afterwards
+
+The plan keeps a report under the product owner's name. Its lines keep three things apart, as the box writes them: "built and tested, not delivered", "checked against the data of ... on ...", and "delivered on ..., release ...". "Built, checked and delivered are never mixed."
+
+A plan can also let the box merge its pull requests, see [Merges inside an approved plan](/admin/product-rules/#merges-inside-an-approved-plan). A merged step shows **Merged**.
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| **Approve** says "Answer the questions first." | Answer every question in the plan, then press **Approve**. |
+| "GitHub needs to allow this first" in the plan | Press **Open Connections** and give the GitHub connection what the plan needs. "The merge step cannot merge until then." |
+| "The approval could not be noted on ..." | The plan is approved anyway. Note it on the GitHub issue yourself if you want. |
+| No plan comes, the product owner starts the work | The work needs no new access, or the product owner's version does not write plans yet. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Approve** | Gives each agent the plan's access for this plan's work, for 14 days. | The plan is right and its questions are answered. | Yes: **Stop this plan**. |
+| **Change** | Sends the product owner what should change; the plan comes back as a new version. | Something in the plan is wrong. | n/a |
+| **Not now** | Allows nothing. | You do not want the work now. | Ask the product owner again later. |
+| **Stop this plan** | Ends every access of the plan at once. | The work should stop. | No: ask for a new plan. |
+
+<NotYet>
+A plan lasts 14 days from the approval; it cannot be extended. For more time, ask the product owner for a new plan.
+</NotYet>
+
+## Related pages
+
+- [Home](/use/home/)
+- [Approvals and checks](/use/approvals-and-checks/)
+- [Product ownership](/agents/product-ownership/)
+- [A product's own rules](/admin/product-rules/)
