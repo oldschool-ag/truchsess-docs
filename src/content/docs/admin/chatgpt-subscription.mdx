@@ -1,0 +1,111 @@
+---
+title: Use a ChatGPT subscription
+description: Run the agents on a ChatGPT plan instead of the box's AI key, on a box where the operator switched the ChatGPT sign-in on. The data rule it needs, the test before the switch, and what it costs.
+---
+import NotYet from '~/components/NotYet.astro';
+
+On a box where the operator switched it on, the agents can run on a ChatGPT plan instead of the box's AI key. You sign in to ChatGPT once, and the box moves its three model lanes to ChatGPT models after a short test. Tasks on ChatGPT are not charged to the box's budget: they count against the plan's own limits.
+
+The ChatGPT sign-in is off on every box. Only the operator can switch it on. When it is off, the section described here is not on the page.
+
+## Who can do this
+
+The administrator, in the office, on **https://truchsess.local/**.
+
+## What you need
+
+- A box where the operator switched the ChatGPT sign-in on.
+- A ChatGPT plan: Business, Enterprise or Edu, or a personal Plus or Pro plan.
+- For Plus or Pro: in ChatGPT, under Settings, Data controls, "Improve the model for everyone" is switched off. The box cannot check this setting; you confirm it.
+- The data rule set to **Never trained on**. Read [The data rule decides](#the-data-rule-decides) first.
+- A phone or computer where you can sign in to ChatGPT.
+
+## The data rule decides
+
+ChatGPT keeps conversations for a while. So ChatGPT never meets the rule **Never kept, never trained on**, the box's default. It meets **Never trained on**: for Business, Enterprise and Edu always, for Plus and Pro once you confirm that training is switched off. This is your choice, with a consequence either way:
+
+| Your data rule | What it means for ChatGPT | The consequence |
+| --- | --- | --- |
+| Keep **Never kept, never trained on** | ChatGPT cannot be used. **Use ChatGPT on all lanes** answers "ChatGPT sign-in is not 'never kept'. To use it on this box, set the data rule to 'never trained on'." and nothing changes. | No provider may keep your data. The agents stay on the box's AI key, and their tasks are charged to the box's budget. |
+| Change to **Never trained on** | ChatGPT can be used. | ChatGPT, and every other provider, may keep your data for a while, for example to watch for abuse. No provider may train on it. |
+
+The data rule is the panel **Which AI providers may see your data** under **Settings** › **Advanced** › **Agent rules**. See [The data rule](/admin/ai-providers-and-lanes/#the-data-rule). Agents that read your code, knowledge, mail or credentials always run at least at **Never trained on**, whatever you choose.
+
+## Steps
+
+The section is on the page **The AI for your box**: open **Settings** › **Advanced** › **AI** (the link **Advanced (for experts)** at the bottom of **Settings**), and in the panel **Own AI key** press **Change AI provider**. Scroll to "Sign in with ChatGPT (operator only)".
+
+### Sign in
+
+1. Press **Sign in with ChatGPT**. The page says "Asking OpenAI for a sign-in code…".
+2. The page shows a link to OpenAI's page and a code: "Open ... on any device, sign in to ChatGPT there and enter this code:". Under it: when the code expires.
+3. Open the link on any phone or computer, sign in to ChatGPT there, and enter the code.
+4. Wait. The box never sees your ChatGPT password. When the sign-in is done, the page says "Signed in as ..." with the e-mail address, the plan, and how much of the plan's usage windows is used.
+
+### Confirm training is off (Plus or Pro only)
+
+For a personal plan, the page says "This is a personal ChatGPT plan (...). OpenAI may train on it unless training is switched off in ChatGPT, Settings, Data controls. The box cannot check this."
+
+1. In ChatGPT, under Settings, Data controls, switch off "Improve the model for everyone".
+2. On the box, tick "I switched off 'Improve the model for everyone' for ..." with your address.
+3. Press **Confirm**.
+
+Business, Enterprise and Edu need nothing more.
+
+### Move the lanes to ChatGPT
+
+1. Set the data rule to **Never trained on** and press **Save data rule** (see [The data rule decides](#the-data-rule-decides)).
+2. Back on **The AI for your box**, press **Use ChatGPT on all lanes**.
+3. The page says "Testing ChatGPT with one short message per lane…". The box sends ChatGPT one short test message for each lane. This can take a few minutes.
+4. When ChatGPT answered for every lane, the page says "Lanes set to the ChatGPT subscription. Apply them to installed packages to rewrite their models."
+5. Open **Settings** › **Advanced** › **AI**, panel **Model lanes**, and press **Apply to installed agents**. See [Model lanes](/admin/ai-providers-and-lanes/#model-lanes).
+
+If ChatGPT does not answer, the lanes do not change: the previous AI stays, and the page says why in one line (see below).
+
+## What you see afterwards
+
+- The lanes **Cheap**, **Standard** and **Frontier** hold ChatGPT models, each one that answered the test.
+- **Settings** › **Advanced** › **AI**, panel **Costs in detail**, says "ChatGPT subscription, not metered: plan ...", and "Lanes on ChatGPT models count against the plan's own limits, not this budget."
+- Tasks on ChatGPT are not charged to the box's budget. The test messages are not charged either; they count against the plan's limits like every ChatGPT message.
+- When the plan's limit is reached, a task stops with "Your ChatGPT plan's usage limit is reached. It resets at ..." with the time.
+- When the sign-in expires, a task stops with "The ChatGPT sign-in has expired. Sign in with ChatGPT again under Settings > Advanced > AI." Sign in again in the same section.
+- In both cases sending the task again does not help: wait, or sign in again. See [When a task fails](/use/follow-a-run/#when-a-task-fails).
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| "ChatGPT sign-in is not 'never kept'. To use it on this box, set the data rule to 'never trained on'." | The data rule is **Never kept, never trained on**. Change it to **Never trained on** if you accept the consequence, then press **Use ChatGPT on all lanes** again. |
+| "ChatGPT sign-in cannot serve ...: a personal ChatGPT plan may be used for training..." | Switch off training in ChatGPT and confirm it on the page (see [Confirm training is off](#confirm-training-is-off-plus-or-pro-only)). |
+| "Waiting for the code to be entered at OpenAI… If OpenAI rejects the code, switch on 'Device code login' in ChatGPT, Settings, Security." | Enter the code at OpenAI. If OpenAI rejects it, switch on "Device code login" in ChatGPT under Settings, Security, then press **Sign in with ChatGPT** again. |
+| "The sign-in did not finish." | Press **Sign in with ChatGPT** again. |
+| "ChatGPT answered: this model is not in your plan. Choose a ChatGPT model under Settings > Advanced > AI." | The plan offers no model that answered for a lane. Keep the previous AI, or choose a ChatGPT model under **Model lanes**. |
+| "Your ChatGPT plan's usage limit is reached. Try again when it resets." | Wait until the plan's limit resets, then press **Use ChatGPT on all lanes** again. |
+| "The ChatGPT sign-in has expired. Sign in with ChatGPT again under Settings > Advanced > AI." | Press **Sign in with ChatGPT** and sign in again. |
+| "The box cannot reach ChatGPT." | Check that the box reaches the internet, then try again. |
+| "ChatGPT did not answer the test: ..." | Try again later. The previous AI stays. |
+| "The test did not finish. The previous AI stays." | Press **Use ChatGPT on all lanes** again. |
+| "The test is out of date. Press the button again." | Press **Use ChatGPT on all lanes** again. |
+| "Sign in with ChatGPT first." | Sign in, then press the button. |
+| The section "Sign in with ChatGPT (operator only)" is not on the page. | The ChatGPT sign-in is off on this box. Only the operator can switch it on. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **Sign in with ChatGPT** | Connects the box to your ChatGPT plan. Nothing changes for the agents yet. | Before you use ChatGPT. | Yes: **Sign out**. |
+| **Confirm** (Plus or Pro) | Records that training is switched off in ChatGPT. | Only after you switched it off. | Sign out ends it. |
+| **Use ChatGPT on all lanes** | Tests ChatGPT once per lane, then moves all three lanes to ChatGPT models. | When you want the agents to run on the plan. | Yes: choose other models under **Model lanes**, or **Change AI provider**. |
+| **Refresh** | Reads the plan and how much of its limits is used. | To see when a limit resets. | n/a |
+| **Sign out** | Ends the sign-in. The lanes keep their ChatGPT models, and their tasks fail until you sign in again or choose other models under **Model lanes**. | When you stop using ChatGPT. | Sign in again. |
+
+<NotYet>
+You cannot switch the ChatGPT sign-in on yourself. Use the box's AI key or your own AI key under **Change AI provider** (see [AI providers and lanes](/admin/ai-providers-and-lanes/)), or ask support.
+</NotYet>
+
+## Related pages
+
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)
+- [Agent rules explained](/admin/agent-rules/)
+- [Budget](/admin/budget/)
+- [Follow a run](/use/follow-a-run/#when-a-task-fails)

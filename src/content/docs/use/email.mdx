@@ -13,7 +13,7 @@ For a mailbox only you should see, for example your private Gmail, see [Add a pr
 ## What you need
 
 - Your company e-mail address. It must be in one of the company's mail domains, or on the administrator's list of company mailboxes. The administrator sets these: see [Company mail](/admin/company-mail/).
-- The password of that mailbox. Some providers need an app password instead: the page says so.
+- The password of that mailbox. Gmail, Google Workspace and some other providers need an app password instead: the form says so and shows the steps. See [When the form asks for an app password](#when-the-form-asks-for-an-app-password).
 - You are in the office, on **https://truchsess.local/**. On the remote address the box refuses: "For safety, passwords, keys and other secrets are entered only in the office."
 
 ## Steps
@@ -24,7 +24,7 @@ For a mailbox only you should see, for example your private Gmail, see [Add a pr
 2. Scroll to **Your connections**, panel **Email inbox**. The form **Connect your company mailbox** is open.
 3. Type your address under **Email address**. If it is your sign-in address, it is already filled in.
 4. Check the **Mail server**. It shows "Set by your administrator". You cannot change it.
-5. Type the mailbox password under **Password**. It is "Stored encrypted on the box."
+5. Type the mailbox password under **Password**. It is "Stored encrypted on the box." For a company domain on Gmail or Google Workspace, the field is **App password (16 characters from Google)** instead: see [below](#gmail-or-google-workspace-the-app-password).
 6. Press **Test and connect**.
 
 "Truchsess tests the connection before saving it." The button reads "Testing the connection" while it works.
@@ -33,12 +33,40 @@ For a mailbox only you should see, for example your private Gmail, see [Add a pr
 
 You can connect several company mailboxes, one per address, for example your own address and a shared one like the office address.
 
-1. On **Your account** › **Email inbox**, press **Add another company mailbox**.
+1. On **Your account** › **Email inbox**, press **Add another company mailbox**. It is below the list of your mailboxes, next to **Add a private mailbox (only you)**. (With no company mailbox yet, it reads **Add a company mailbox**.)
 2. Type the address under **Email address**.
-3. Type its password under **Password**.
+3. Type its password, or the app password the form asks for.
 4. Press **Test and connect**.
 
 Only addresses in the company's mail domains can be connected, and never another person's address.
+
+### When the form asks for an app password
+
+Some mail providers do not let other programs use your normal password. For them the form names the password it needs, shows the provider's steps and a link, and says "Type it only here, never into a chat." This is the same on every mailbox form: company and private, for members and administrators.
+
+| Provider | The field | What to do |
+| --- | --- | --- |
+| Gmail and Google Workspace | **App password (16 characters from Google)** | See [Gmail or Google Workspace](#gmail-or-google-workspace-the-app-password) below. |
+| iCloud Mail | **App-specific password (from Apple)** | At account.apple.com, choose Sign-In and Security, then App-Specific Passwords, and create one. |
+| Yahoo Mail | **App password (from Yahoo)** | At login.yahoo.com/account/security, choose Generate app password, and create one. |
+| AOL Mail | **App password (from AOL)** | At login.aol.com/account/security, choose Generate app password, and create one. |
+| GMX | **Password or app password (from GMX)** | In GMX, open the settings, POP3/IMAP access, and allow access over IMAP. With two-factor sign-in, create an application-specific password there; without it, use your GMX password. |
+| WEB.DE | **Password or app password (from WEB.DE)** | The same as GMX, in WEB.DE's settings. |
+
+Microsoft 365 and Outlook do not use an app password: they get **Connect with Microsoft**, which is coming soon (see below).
+
+### Gmail or Google Workspace: the app password
+
+Gmail and Google Workspace need an app password, not your Google password. This holds for a company mailbox on Google Workspace and for a private Gmail.
+
+1. In your Google account, turn on 2-Step Verification, if it is not on yet.
+2. Open **myaccount.google.com/apppasswords** (the link is on the form) and sign in.
+3. Type a name, for example Truchsess, and press **Create**.
+4. Copy the 16 characters Google shows.
+5. On **Your account** › **Email inbox**, type your address, and paste the 16 characters into **App password (16 characters from Google)**.
+6. Press **Test and connect**.
+
+Type the app password only into the box, never into a chat, a task or an e-mail.
 
 ### Disconnect a mailbox
 
@@ -73,8 +101,9 @@ When the administrator collects signature samples for the company standard, your
 | "The administrator has not set the company's mail domains yet, so no company mailbox can be connected." | Ask your administrator to set the company mail domains: [Company mail](/admin/company-mail/). |
 | "... is not a company address (...). For your own mailbox, use Add a private mailbox (only you)." | The address is not in a company domain. For a private address, use [Add a private mailbox](/use/private-mailbox/). |
 | "... is already connected." | The mailbox is on your page already. |
-| "The mailbox could not be connected." | Check the password and press **Test and connect** again. |
-| "Enter the mailbox password." | Type the password, then press **Test and connect**. |
+| "The mailbox could not be connected." | Check the password and press **Test and connect** again. For Gmail or Google Workspace: use an app password, not your Google password. |
+| "Enter the mailbox password." or "Enter the app password." | Type the password or the app password, then press **Test and connect**. |
+| The test fails for a Google Workspace mailbox, although you pasted a new app password. | Your Google Workspace administrator may have switched app passwords off. They switch them on in the Google Admin console. |
 | Card: "The connection stopped working (for example after a password change). Connect again to let agents use your mailbox." | You changed the mailbox password. Disconnect the mailbox and connect it again with the new password. |
 | Card: "The company changed its mail server. Connect it again so agents can use it." | Press **Connect again** and type the password. **Remove** takes it off the list. |
 | "For safety, passwords, keys and other secrets are entered only in the office." | Connect the mailbox in the office, on **https://truchsess.local/**. |

@@ -73,8 +73,14 @@ Every box has its own name, `truchsess-` followed by four characters and `.local
 | "The AI provider refused this box's key. Agents wait until it works again; the box checks it by itself." | Wait: the box checks the key again by itself. The administrator can press **Check the key again** in the banner. If it stays, ask support. |
 | "Budget exhausted: ..." and **Send** is greyed out. | Wait for the next period, or the administrator raises the **Monthly limit** in **Settings** › **Plan and costs**, or requests a top-up. See [Budget](/admin/budget/). |
 | **Send** is greyed out with a note about the data rule. | The agent's model does not meet the box's data rule. The administrator changes the lane's model or the rule. See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes). |
-| "... is larger than 48 KB; put a link to it in the message instead." | Attach smaller text files, or put a link in the message. |
-| "... is not a text file; the work chat takes text files up to 48 KB." | Only text files can be attached. |
+| "... cannot be attached. Chat takes PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx), text (.txt, .md, .csv, .json) and pictures (.png, .jpg, .webp)." | Save the file in one of these formats; an old `.doc`, `.xls` or `.ppt` as `.docx`, `.xlsx` or `.pptx`. See [Attach files in Chat](/use/attach-files/#if-it-does-not-work). |
+| "...; a file can be at most 25 MB." or "The files of one message can be at most 50 MB together; ..." | Attach smaller files, or send them in several messages. |
+| "The agent read pages ... of ... of ...; the rest did not fit into one task." | The agent reads about 80,000 characters of files per message. Send another message about the later pages. See [How much the agent reads](/use/attach-files/#how-much-the-agent-reads). |
+| "... is a picture; the agent's model reads text only, so it did not see it." | Describe the picture in the message, or attach the text as a PDF or Word file. |
+| "The AI service could not be reached. Nothing was charged. Try again in a minute." | Wait a minute, then press **Try again** on the task. See [When a task fails](/use/follow-a-run/#when-a-task-fails). |
+| "This conversation is too long for one message to the AI. ..." | Press **Start a new conversation** and send a shorter text or fewer attachments. |
+| "Your ChatGPT plan's usage limit is reached. It resets at ..." | Wait until that time. Sending again before then does not help. |
+| "The ChatGPT sign-in has expired. ..." | An administrator signs in again. See [Use a ChatGPT subscription](/admin/chatgpt-subscription/). |
 | "That message is too long. Shorten it and try again." | A message can have up to 12,000 characters. |
 | A run shows "Failed:" and "Request timed out before a response was generated." | The step took too long. Split the task into smaller tasks. |
 | A run shows "Refused by ...". | The administrator refused an action. Read the reason. |

@@ -463,6 +463,8 @@ Closed in docs part 7a (release Truchsess 2026.10.21-84a4137): G5 (who may use a
 its card, #141), G19 (store installs update, #85 and #134), G22 (updates at night, #149). Added in
 part 7a: G37 to G40 (mail and calendars). Closed in docs part 7b: G34 and G35 (the box activates
 with the code from the card and gets its starter credit in the guided first setup, #143 and #147).
+Closed in docs part 7c: G25 (PDF, Word, Excel, PowerPoint and pictures as Chat attachments, #164;
+an agent still cannot see pictures, which /use/attach-files/ says).
 
 | # | Area | Gap | Workaround today | Who to ask |
 | --- | --- | --- | --- | --- |
@@ -481,7 +483,6 @@ with the code from the card and gets its starter credit in the guided first setu
 | G21 | The box | Change the box's name or address (always `truchsess.local`; `myai.local` also works). | None. | Support. |
 | G23 | The box | Choose the backup time or how many backups are kept, or back up to another place automatically. | Backups run at 03:30 and 7 are kept. Download a backup and keep it elsewhere. | Administrator. |
 | G24 | The box | A model running on the box ("On this box only"). | No local model ships yet; this choice refuses every run. Use PHOENIQS (Switzerland) for "Switzerland only". | Administrator. |
-| G25 | Tasks | Images, PDFs or other binary files as task attachments. | Text files only, up to 48 KB. Put a link in the message instead. | Administrator. |
 | G26 | The box | Remote sign-in for secrets (passwords, keys, updates, knowledge import). | Do these in the office on the local address. | Administrator. |
 | G27 | Agents and the store | The LinkedIn posting agent. | Planned, not in the store yet. | Support. |
 | G28 | Agents and the store | Change the owner policy for an already installed agent. | Use "Change" for the install questions, or uninstall and install again. | Administrator. |
@@ -672,6 +673,64 @@ never goes missing) merged as master 7b0c440, checked there; its release is not 
 /releases/ waits. Still not merged, not documented: #146, #150, #151, #152, #153, #157, and the
 open #163 to #167.
 
+Part 7c: release **Truchsess 2026.10.21-7b0c440** (published 2026-10-21 18:18 UTC) carries #161;
+it is the current release on /releases/. Then Train 1 (#168) merged as master `5e03941`: #166
+(T125), #165 (T124), #164 (T123) and #163 (T122). Part 7c is checked against `5e03941`. Its
+release is not out yet, so /releases/ has no entry for it; it will be named after `5e03941`. Not
+merged, not documented: #146, #150, #151, #152, #153, #157, #167 (T126, Chat remembers for the
+company by default), #169 (T128). From #164's text, the T126 note is left out for that reason.
+Not as on `5e03941`:
+- #166: "Sign in with ChatGPT" is not on Settings > Advanced > AI itself but on the page "Choose
+  the appliance AI", opened there with Change AI provider (section "Sign in with ChatGPT (operator
+  only)"). The docs say so.
+- #163: "A failed routine or a task nobody started is shown to the administrators on Home." The
+  box builds that item ("A routine of <agent> did not finish", "Open the task") into Home's data
+  (`box.items`), but the portal draws only the Box tiles, so nothing shows. The docs send the
+  administrator to the run history instead.
+- #164: "Nothing goes into the company knowledge unless you press Remember this." Remember this
+  keeps only the sentence the person writes (a lesson), never a file's text. The docs say nothing
+  from the files goes into knowledge, and what Remember this keeps.
+
+Part 7c, second step: release **Truchsess 2026.10.21-5e03941** (Train 1, published 2026-10-21
+21:04 UTC) is out and is now the current release on /releases/. Box 1 confirmed on 22 Oct 2026 that
+a PDF in Chat works. Then Train 2 (#171) merged as master `fded8b8`: #170 (T127, polish batch 5)
+and #169 (T128, design inventory: documents and screenshots only, nothing a person sees). #167
+(T126, Chat remembers) left the train and is not on master: not documented. Train 2's pages are
+checked against `fded8b8`; its release is not out yet, so /releases/ has no entry for it.
+Since `fded8b8` the page "Choose the appliance AI" is "The AI for your box" (#170), so the #166 note
+above now reads: "Sign in with ChatGPT" is on the page "The AI for your box".
+Not as on `fded8b8`:
+- #170: "Outlook and Microsoft 365 use the "Sign in with Microsoft" button instead." On master the
+  button is "Connect with Microsoft", and it is still not switched on (Coming soon, as since part
+  7a). The docs keep "Coming soon".
+- #170: "Names after an update": "A name a person chose stays." Naming an agent at install and
+  Rename are #151, not merged; the docs say only that an agent whose name is still the old package
+  name takes the new one.
+
+Part 7c, third step: release **Truchsess 2026.10.22-fded8b8** (Train 2, published 2026-10-22
+07:23 UTC) is out and is now the current release on /releases/. Then Train 3 (#172) merged as
+master `552abbb`: #152 (T112, several GitHub organizations), #151 (T111, naming agents and a second
+Bob) and #157 (T116, a product's own rules). Checked against `552abbb`. Its release
+**Truchsess 2026.10.22-552abbb** came out on 2026-10-22 12:59 UTC, followed by **2026.10.22-d1e3744**
+(T129, 21:43 UTC) and **2026.10.23-a7f21e0** (Train 5, 2026-10-23 08:59 UTC). /releases/ lists all
+three; what d1e3744 and a7f21e0 changed for users is for the next docs part. With #151 merged, "A name a person chose stays" (#170) is now true and documented.
+New pages: /admin/second-product/ (the setup in the order a person does it, for box 1 and
+LoreLuna) and /admin/product-rules/.
+Not as on `552abbb`, or not checkable from the box's code:
+- #157: "If the rules cannot be read, that product's tasks wait and say why." The task does not
+  wait: it does not start ("... so this task did not start. Nothing ran."). The docs follow the code.
+- #157: the Home lines "The rules for <product> changed: <commit>" and "Set the <lane> lane to
+  another AI company than <company>" are written as Home items of kind `warning`. Home files that
+  kind under Today > Mail as a suspicious mail, tagged Warning, and prints "Do not open the link.
+  Delete it in your mailbox." under the title. The docs say so plainly; a portal fix is needed.
+- #151: the whole-function copy needs the store change named in #151 (FAIVR: a second install on
+  one subscription must get a new installation id, else `409 installation_id_reused`). It is live
+  since 2026-10-22 (FAIVR F25, store PR #95, production deployment `0b4733a`), and box 1 installed
+  all 7 of Bob's agents on one subscription on 2026-10-23.
+- #151: ticking several repositories needs the package version from truchsess-agent-sources G25
+  (Bob's repository questions marked `multiple`). Until a box has it, each role asks for one
+  repository. The docs say "where every agent that asks it takes several repositories".
+
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
 Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
@@ -764,6 +823,18 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #162 | T121: the update check can never roll back a night update | none (nothing a person sees) | /releases/ (one line, release Truchsess 2026.10.21-abe4009) |
 | #161 | T120: an agent's face never goes missing on one box | none (the PR has no such section; its "For the CEO" names the changes) | /admin/packages/ (one line on faces, the "Installed from a file" line); /releases/ once its release is out |
 | #160 | T119: Truchsess gets his own face | none (the PR has no such section; its "For the CEO" names the places) | /agents/truchsess/, /use/home/, /use/ask-truchsess/, /setup/first-run/, /releases/ (release Truchsess 2026.10.21-4f542d0) |
+| #166 | T125: a ChatGPT subscription turn works, or fails once with one plain line (Train 1, master 5e03941) | yes | /admin/chatgpt-subscription/ (new), /admin/ai-providers-and-lanes/, /use/follow-a-run/, /troubleshooting/ |
+| #165 | T124: a follow-up after a long text works, and no failure shows internal words (Train 1) | yes | /use/follow-a-run/ (When a task fails), /use/start-a-task/, /troubleshooting/ |
+| #164 | T123: real files in Chat (PDF, Word, Excel, PowerPoint, text, pictures), read on the box (Train 1) | yes | /use/attach-files/ (new), /use/start-a-task/, /start/member/, /troubleshooting/; closes G25 |
+| #163 | T122: an agent's card shows only your own work (Train 1) | yes | /use/home/, /admin/packages/ |
+| #168 | Train 1: T125, T124, T123, T122 (merge of #163 to #166) | the four sections above | none of its own |
+| #170 | T127: polish batch 5 (app passwords on every mailbox form, HTML-only mails, plain AI page, What is new, Store card, names, answer files and mail links) (Train 2, master fded8b8) | yes | /use/email/, /use/private-mailbox/, /admin/company-mail/, /setup/ai-providers/, /admin/ai-providers-and-lanes/, /admin/chatgpt-subscription/, /setup/first-run/, /admin/budget/, /admin/updates/, /use/home/, /admin/store/, /admin/packages/, /use/follow-a-run/, /agents/company-mail/ |
+| #169 | T128: design inventory 2026-10 (documents and screenshots only) (Train 2) | none (nothing a person sees) | none |
+| #171 | Train 2: T128, T127 (merge of #169 and #170) | #170's sections | none of its own |
+| #152 | T112: one box, several GitHub organizations (Train 3, master 552abbb) | yes | /admin/connections/ (Several GitHub organizations), /admin/second-product/ (new), /agents/software-delivery/ |
+| #151 | T111: name your agents, and a second Bob for a second product (Train 3) | yes | /admin/packages/ (Name and rename an agent, A second Bob), /admin/store/, /admin/second-product/, /agents/software-delivery/ |
+| #157 | T116: bring your own playbook (a product's own rules for every agent working for it) (Train 3) | yes | /admin/product-rules/ (new), /admin/products-and-knowledge/, /admin/second-product/, /agents/software-delivery/ |
+| #172 | Train 3: T112, T111, T116 (merge of #152, #151 and #157) | the three sections below | none of its own |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1549,3 +1620,85 @@ Confidence: 0.85 against the stub and Microsoft's documentation. The real-tenant
 #### #159 T114: the exact version on Settings > Updates, and "Newest" always says where she stands
 
 none
+
+#### #166 T125: a ChatGPT subscription turn works, or fails once with one plain line
+
+**For the user docs, "Using your ChatGPT subscription":**
+1. The operator switches the ChatGPT sign-in on. Then, in Settings > Advanced > AI, press "Sign in with ChatGPT", open OpenAI's page and enter the code.
+2. The data rule must be "never trained on", not "never kept", because ChatGPT keeps conversations for a while. For a Plus or Pro plan, switch off "Improve the model for everyone" in ChatGPT and confirm it on the AI page. Business and Enterprise need nothing more.
+3. Press "Use ChatGPT on all lanes". The box sends ChatGPT one short test message per lane and switches only if ChatGPT answers. If it does not, your previous AI stays, and the page says why in one line.
+4. Tasks on ChatGPT are not charged to the box's budget. They count against your plan's own limits. When the limit is reached, a task says so and when it resets. When the sign-in expires, a task says so: sign in again on the same page.
+
+#### #165 T124: a follow-up after a long text works, and no failure shows internal words
+
+**For the user docs, "When a message fails":** If the AI service cannot be reached, Truchsess says "The AI service could not be reached. Nothing was charged. Try again in a minute." Press **Try again** to send the same message once more. If your conversation is too long for one message, press **Start a new conversation** and send a shorter text or fewer attachments. With a ChatGPT plan, Truchsess tells you when the plan's limit is reached and when it resets, or that you need to sign in to ChatGPT again under Settings > Advanced > AI. In those cases waiting or signing in helps; sending again does not. Nothing is charged for a message that failed before the AI answered.
+
+#### #163 T122: an agent's card shows only your own work
+
+**For the user docs, "What does the red "Problem" tag on an agent card mean?":** one of your own tasks with this agent did not finish. The tag says why in a few words. "Open the task" shows what happened, and "Ask Truchsess why" explains it. You only ever see this for your own tasks. A failed routine or a task nobody started is shown to the administrators on Home.
+
+#### #164 T123: real files in Chat (PDF, Word, Excel, PowerPoint, text, pictures), read on the box
+
+**For the user docs, "Attaching files in Chat":**
+- Drop files on the message box, paste them, or press Attach. Each file shows as a chip with its name and size; Remove takes it off again.
+- Chat takes PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx), text (.txt, .md, .csv, .json) and pictures (.png, .jpg, .webp). Up to 25 MB a file, 10 files and 50 MB a message. Older .doc, .xls and .ppt files: save them in the new format first.
+- The box reads the text of your files itself; no file goes to an outside service. The agent gets the text with the file name and the page, sheet or slide, so it can say where an answer comes from.
+- A long document: the agent reads about 80,000 characters per message (roughly 27 pages of ordinary text, about 20 pages of dense small print; a 30-page contract fits). A long typed message leaves a little less room for the files. A line under the chat says which part it read, for example "pages 1 to 27 of 40". For the rest, send another message about the later pages, or attach a shorter extract.
+- Pictures are attached and named, but today's models on the box read text only; a line says so.
+- A file the box cannot read (damaged, a scan without text, too complex) gets one line; the rest of your message still goes to the agent.
+- Your files are yours: other people on the box cannot use them. The file itself is deleted once the agent has its text; the text stays with the task and is deleted with it. Nothing goes into the company knowledge unless you press "Remember this". (This changes with T126: Chat will remember for the company by default, with a checkbox to keep a message private.)
+
+#### #168 Train 1: T125, T124, T123, T122
+
+The four sections above, from #168's body.
+
+#### #170 T127: polish batch 5 (app passwords on every mailbox form, HTML-only mails, plain AI page, What is new, Store card, names, answer files and mail links)
+
+### Connecting a Gmail or Google Workspace mailbox (app password)
+
+Gmail and Google Workspace need an app password, not your Google password. This is the same for your company mailbox and for your private one.
+
+1. In your Google account, turn on 2-Step Verification, if it is not on yet.
+2. Open https://myaccount.google.com/apppasswords and sign in.
+3. Type a name, for example Truchsess, and press Create.
+4. Copy the 16 characters Google shows.
+5. In Truchsess, go to Your account > Email inbox, type your address, and paste the 16 characters into "App password (16 characters from Google)". Press Test and connect.
+
+Type the app password only into the box, never into a chat.
+
+- **Your company's administrator** puts the company domain on "Gmail or Google Workspace" once (Settings > Advanced > Connections > Company mail). The webmail address https://mail.google.com is filled in, and the administrator can change it.
+- **If the test fails**, your Google Workspace administrator may have switched off app passwords; they switch them on in the Google Admin console.
+- **iCloud, Yahoo, AOL, GMX and WEB.DE** show their own steps and link in the same place. **Outlook and Microsoft 365** use the "Sign in with Microsoft" button instead.
+
+### What is new after an update
+
+After an update, Home shows "What is new in the <month> update" with a few plain lines about what changed, once. Close it when you have read it. The same lines appear in Settings > Updates next to an update that is waiting. The lines come from the changes in that release. A release without such lines shows no "What is new".
+
+The supervisor's list for the docs (22 Oct 2026) also names, from the PR's report: HTML-only mails readable, the AI page "The AI for your box" with Back to Settings, the store card's installed/available line, names after an update, "Open the mail" links and hidden internal files.
+
+#### #169 T128: design inventory 2026-10
+
+none (documents and screenshots only)
+
+#### #171 Train 2: T128, T127
+
+#170's sections above.
+
+#### #152 T112: one box, several GitHub organizations
+
+- Connections page: "One GitHub App per organization. Use 'Connect another GitHub organisation' to add one; each organization has its own Disconnect."
+- Agents: "An agent works in the repositories of one GitHub organization."
+
+#### #151 T111: name your agents, and a second Bob for a second product
+
+**Naming and renaming agents.** When you add an agent, give it a name or keep the proposal ("Bob (Catering)"). To rename it later, go to Agents, click the card, then For administrators, Name, type the new name and press Rename. Names are unique on the box. Renaming keeps the agent's memory, work, history, permissions and subscription. When you rename a Bob, each of its roles keeps its role after the new name.
+
+**A second Bob.** One Bob works for one product. For a second product, open Bob's card and press Add another copy. Give it a name, choose the product, and tick that product's repositories (up to 10). Then confirm the price. The new Bob and its six roles appear as one card. Each Bob reaches only its own repositories and hands work only to its own roles. To stop it, open its card and press Stop this copy; the subscription ends at the end of the paid period, and its finished work stays readable.
+
+#### #157 T116: bring your own playbook (a product's own rules for every agent working for it)
+
+**Your own rules for a product.** If your company keeps its own rules for building a product (an `AGENTS.md`, or a `SKILL.md` with a wiki), give them to the box: Settings > Advanced > Knowledge, Rules next to the product, then choose the repository and the entry file. Every agent working for that product starts each task with them and reads the pages they link to. Only merged changes count. Your rules can make agents stricter, never give them more rights. If the rules cannot be read, that product's tasks wait and say why. A change to the entry file is shown on Home. Link the GitHub handles your rules name to people on the box, and their approvals go to them. To have Claude Code follow the same rules in your code repository, copy the workflow shown under Rules and follow the five steps there.
+
+#### #172 Train 3: T112, T111, T116
+
+The three sections above, as in #172's body.

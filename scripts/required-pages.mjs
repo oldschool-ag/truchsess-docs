@@ -17,6 +17,7 @@ export const REQUIRED_PAGES = [
   '/setup/backup/',
   '/setup/remote-access/',
   '/use/start-a-task/',
+  '/use/attach-files/',
   '/use/follow-a-run/',
   '/use/phone-and-voice/',
   '/use/approvals-and-checks/',
@@ -39,6 +40,9 @@ export const REQUIRED_PAGES = [
   '/admin/store/',
   '/admin/products-and-knowledge/',
   '/admin/ai-providers-and-lanes/',
+  '/admin/chatgpt-subscription/',
+  '/admin/second-product/',
+  '/admin/product-rules/',
   '/admin/budget/',
   '/admin/connections/',
   '/admin/company-mail/',
@@ -94,7 +98,7 @@ export const MOVED_PAGES = {
   '/workers/visibility-in-ai-search/': '/agents/visibility-in-ai-search/',
   '/workers/linkedin-posting/': '/agents/linkedin-posting/',
   '/setup/first-worker/': '/setup/first-agent/',
-  '/operator/chatgpt-personal-plan/': '/setup/ai-providers/',
+  '/operator/chatgpt-personal-plan/': '/admin/chatgpt-subscription/',
 };
 
 // Every address the FAIVR docs may link to (the fixed list of the manual's first release, plus the

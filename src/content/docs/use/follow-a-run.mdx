@@ -53,13 +53,34 @@ The full list of every run is for experts: **Settings** › **Advanced** › **A
 
 ## What you see afterwards
 
-- A finished run shows "Finished", the agent's reply, the result and its files.
+- A finished run shows "Finished", the agent's reply, the result and its files. Files an agent keeps only for itself (its state, logs, ledgers and counts) are not listed.
+- When an agent's answer names a mail or a draft, it shows **Open the mail** or **Open the draft**: the link opens it in your webmail. Only the person whose mailbox it is sees such an answer.
 - The card shows the run's [autonomy level](/admin/autonomy-levels/) as a colored label, and notices as "Told you after: ...".
 - A cancelled run shows "Cancelled" with the reason.
-- A failed run shows "Failed:" and the reason in the box's own words.
+- A failed run shows "Failed:" and the reason in plain words, with **Try again** or **Start a new conversation** when that helps. See [When a task fails](#when-a-task-fails).
   When it failed without a result, "The agent's last message" shows what the agent said last, as plain text without links.
 - When the agent could not open a website, the card says why in one sentence: the agent cannot read websites you name, your company rules do not allow it yet, or the website is not one the agent is set up for. An administrator sees where to change it; a member sees whom to ask. See [Let an agent read a website](/use/websites/#if-it-does-not-work).
 - A task that read websites shows **Pages read** and the screenshots the agent took. A finished run offers "Download the report:" with **PDF**, **Markdown** and **HTML**. See [Let an agent read a website](/use/websites/).
+
+### When a task fails
+
+A failed task says why in one plain line, never in the box's internal words. The error as the box recorded it stays behind **Details** on the card, under "Error as recorded", for support. Under the line there is at most one button:
+
+- **Try again** sends the same message once more, with the same links and files, as a new task. The button then says "Sent again". Only the person who sent the message can send it again.
+- **Start a new conversation** does what **New conversation** does and puts the cursor in the message box. Send a shorter text, or fewer attachments.
+
+| The line | What it means | What helps |
+| --- | --- | --- |
+| "The AI service could not be reached. Nothing was charged. Try again in a minute." | The box did not reach the AI service. | Wait a minute, then press **Try again**. |
+| "The task stopped because of a problem in the box. Nothing was charged. Try again; if it happens again, tell your administrator." | Something in the box stopped the task. | Press **Try again**. If it happens again, tell your administrator. |
+| "This conversation is too long for one message to the AI. Start a new conversation with a shorter text or fewer attachments. Nothing was charged." | Your text and the files' text are too long for one message. | Press **Start a new conversation** and send a shorter text or fewer attachments. |
+| "This conversation is too long for the AI model. Start a new conversation with a shorter text. Nothing was charged." | The AI model cannot take this much text at once. | Press **Start a new conversation** and send a shorter text. |
+| "Your ChatGPT plan's usage limit is reached. It resets at ..." | The box runs on a ChatGPT subscription, and its limit is used up. | Wait until the time it names. Sending again before then does not help. |
+| "The ChatGPT sign-in has expired. Sign in with ChatGPT again under Settings > Advanced > AI." | The box's ChatGPT sign-in ended. | An administrator signs in again. See [Use a ChatGPT subscription](/admin/chatgpt-subscription/). |
+| "ChatGPT answered: this model is not in your plan. Choose a ChatGPT model under Settings > Advanced > AI." | The lane's model is not part of the ChatGPT plan. | An administrator chooses another model. See [Model lanes](/admin/ai-providers-and-lanes/#model-lanes). |
+| "The AI provider no longer accepts the box's sign-in. Check the AI in Settings > Advanced > AI. Nothing was charged." | The AI provider refused the box. | Tell your administrator. |
+
+Nothing is charged for a message that failed before the AI answered. With the ChatGPT lines, waiting or signing in again helps; sending the same message again does not, so these have no button.
 
 ### What the states mean
 
@@ -73,7 +94,7 @@ The full list of every run is for experts: **Settings** › **Advanced** › **A
 | Waiting for your answer | The agent asked you a question. Answer it on the card or in the message box. |
 | Needs something | The task cannot go on without something, for example a connection. The card shows one line and the button that solves it. See [When an agent needs something first](/use/agent-needs-something/). |
 | Finished | Done. Read the result. |
-| Failed | Stopped with an error. The reason is on the card. |
+| Failed | Stopped with an error. The reason is on the card. See [When a task fails](#when-a-task-fails). |
 | Cancelled | Someone cancelled it. |
 
 ### Hand-offs between agents
@@ -98,10 +119,22 @@ With your own AI key, when the provider reports no cost, "(estimated)" means the
 "(partly estimated)" means this for some of the agent's steps.
 "price unknown" means neither is known; the box never shows 0.00 instead.
 
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| A failed task with **Try again**. | Press **Try again**. See [When a task fails](#when-a-task-fails). |
+| A failed task with **Start a new conversation**. | Press it and send a shorter text or fewer attachments. |
+| "That task is not yours to send again." | Only the person who sent the message can send it again. Send your own message instead. |
+| "Only a task that failed can be sent again." | The task did not fail. Read its result, or send a new message. |
+| A line under the chat about your files, for example "The agent read pages 1 to 12 of 40 of ...". | See [Attach files in Chat](/use/attach-files/#how-much-the-agent-reads). |
+
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |
 | --- | --- | --- | --- |
+| **Try again** | Sends the same message, links and files once more, as a new task. | Under a task that failed because the AI service could not be reached or the box had a problem. | Cancel the new run. |
+| **Start a new conversation** | The same as **New conversation**, with the cursor in the message box. Nothing is deleted. | Under a task whose conversation was too long. | n/a |
 | **Cancel run** | Stops the agent. Nothing is retried. | The task is wrong or no longer needed. | No. Start a new task instead. |
 | **Needs you**, **Active**, **Finished**, **Failed or cancelled**, **Routines** (Run history) | Shows only the runs in that state. **All** shows every run again. | To find a run quickly. | Yes: press **All**. |
 | "Search tasks" (Run history) | Shows only the runs whose task or agent name contains your words. | To find one task. | Yes: clear the field. |
@@ -113,6 +146,7 @@ You cannot continue a finished run, reply to an agent inside a run (except to an
 
 ## Related pages
 
+- [Attach files in Chat](/use/attach-files/)
 - [Let an agent read a website](/use/websites/)
 - [When an agent needs something first](/use/agent-needs-something/)
 - [Use it on your phone](/use/phone-and-voice/)

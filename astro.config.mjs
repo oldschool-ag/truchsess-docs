@@ -22,7 +22,7 @@ export default defineConfig({
     '/workers/visibility-in-ai-search/': '/agents/visibility-in-ai-search/',
     '/workers/linkedin-posting/': '/agents/linkedin-posting/',
     '/setup/first-worker/': '/setup/first-agent/',
-    '/operator/chatgpt-personal-plan/': '/setup/ai-providers/',
+    '/operator/chatgpt-personal-plan/': '/admin/chatgpt-subscription/',
   },
   integrations: [
     starlight({
@@ -70,6 +70,7 @@ export default defineConfig({
           items: [
             { label: 'Home', slug: 'use/home' },
             { label: 'Start a task', slug: 'use/start-a-task' },
+            { label: 'Attach files in Chat', slug: 'use/attach-files' },
             { label: 'Follow a run', slug: 'use/follow-a-run' },
             { label: 'Let an agent read a website', slug: 'use/websites' },
             { label: 'Use it on your phone', slug: 'use/phone-and-voice' },
@@ -95,7 +96,10 @@ export default defineConfig({
             { label: 'Install and manage agents', slug: 'admin/packages' },
             { label: 'Store', slug: 'admin/store' },
             { label: 'Products and knowledge', slug: 'admin/products-and-knowledge' },
+            { label: "A product's own rules", slug: 'admin/product-rules' },
+            { label: 'Set up a second product', slug: 'admin/second-product' },
             { label: 'AI providers and lanes', slug: 'admin/ai-providers-and-lanes' },
+            { label: 'Use a ChatGPT subscription', slug: 'admin/chatgpt-subscription' },
             { label: 'Budget', slug: 'admin/budget' },
             { label: 'Connections', slug: 'admin/connections' },
             { label: 'Company mail', slug: 'admin/company-mail' },
