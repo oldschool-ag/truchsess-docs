@@ -801,8 +801,9 @@ the train's text, or not checkable from the box's code:
 Part 7d: Train 7 (#188) merged (squash) as master `2bb4bff`: #185 (CI only), #182 (T138, an agent runs
 on the AI its job needs, second opinions), #181 (T132, the Settings redesign, one menu), #183 (T139,
 long messages in Chat) and #189 (a test only). #167 (T126) and #179 moved to Train 8. Checked against
-`2bb4bff`; its release **Truchsess 2026.10.24-2bb4bff** is not out yet, so /releases/ has no entry for
-it. New page: /admin/agent-ai/. #181 has no section of its own; the conductor wrote one in #188's body.
+`2bb4bff`. Its release **Truchsess 2026.10.24-2bb4bff** came out on 2026-10-24 15:06 UTC and is the
+current release on /releases/; its What is new names "AI for this agent", "Second opinions", "One menu
+on every page", "The Settings overview", "Long messages in Chat" and "Longer than the AI reads". New page: /admin/agent-ai/. #181 has no section of its own; the conductor wrote one in #188's body.
 Not as in the train's text, or not checkable from the box's code:
 - #181: "with the count of what needs you": the count sits on **Home**, not on Settings. Each Settings
   card has two short lines, not one. Not in the text but in the code: remote access moved to **People
