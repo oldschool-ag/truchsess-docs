@@ -496,6 +496,7 @@ an agent still cannot see pictures, which /use/attach-files/ says).
 | G38 | Mail and calendars | Proton Mail or Tuta mail. | Not possible: their mail is end-to-end encrypted. Use another mailbox. | Support. |
 | G39 | Mail and calendars | An agent sends, deletes or moves mail. | Never: agents read mail and write drafts. You read each draft and send it yourself. | Administrator. |
 | G40 | Mail and calendars | An agent creates, changes or answers a meeting. | Never: agents only read calendars. Make the change in your calendar yourself. | Administrator. |
+| G41 | Approvals and autonomy | The box merges the pull requests of an approved plan by itself. | Coming with the Merge Gate's next store update. Until then a person merges each pull request. | Administrator. |
 
 ## 16. Workers (store functions)
 
@@ -747,6 +748,26 @@ where its strings are unchanged. Not as in #173's "For the user docs":
 - "contact Truchsess support": the box sends nothing to support by itself; the store's answer is in
   the activity trail ("... not installed: store answered <status> <code>") and the journal.
 
+Part 7d: Train 6 (#178) merged as master `d009df5`: #180 (the shipped-box clock check, nothing a
+person sees), #175 (T131, merges inside an approved plan) and #177 (T136, polish batch 6). Release
+**Truchsess 2026.10.23-d009df5** (published 2026-10-23 15:12 UTC). Checked against `2bb4bff`. Not as in
+the train's text, or not checkable from the box's code:
+- The train names "Check for updates" and "Update now" as the release's What is new. The published
+  release's notes say only "Small fixes and improvements.": the release job could not read the pull
+  requests (`.github/scripts/whats_new.py`). /releases/ lists the changes and says so.
+- #175: the box merges only once the Merge Gate's next store update (truchsess-agent-sources G32) is
+  in the store; that is outside the box's code. The docs say "once the Merge Gate's next store update
+  is installed", and gap G41 lists it. The checks are set in the product's **Rules** panel, block
+  **Merges inside an approved plan** (not under Settings > Advanced > Knowledge: since Train 7 the
+  products are under **Settings** › **Your company**). At least one check must have run
+  ("Not merged: no check has run on this commit yet."). A draft pull request gets "Not merged: GitHub
+  refused it."
+- #177: "The box keeps the previous version, so it can always go back.": the question says "so it can
+  go back", and Roll back goes one step back. "Choose one" starts only a required repository
+  question; an optional question starts at "Skip (the permission is declined)". The name is proposed
+  from the copy's agents only when one of them was renamed. "Sloane" and "Strategy and challenge" are
+  store data.
+
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
 Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
@@ -852,6 +873,10 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #157 | T116: bring your own playbook (a product's own rules for every agent working for it) (Train 3) | yes | /admin/product-rules/ (new), /admin/products-and-knowledge/, /admin/second-product/, /agents/software-delivery/ |
 | #172 | Train 3: T112, T111, T116 (merge of #152, #151 and #157) | the three sections below | none of its own |
 | #173 | T129: "Install all" finishes every agent of a function, or says why it stopped (Train 4, master d1e3744) | yes | /admin/store/ (Install all, An agent was not installed), /admin/packages/ (Functions with several agents, A second Bob), /admin/second-product/, /setup/first-agent/, /releases/ |
+| #180 | The shipped-box clock check checks the helper's time zone (Train 6, master d009df5) | none (no product change) | none |
+| #175 | T131: merges inside an approved plan (Train 6) | yes (no bold subject until the Merge Gate's store update is in the store) | /admin/product-rules/ (Merges inside an approved plan), /agents/software-delivery/ (Merge Gate), /not-yet/ (G41), /releases/ |
+| #177 | T136: polish batch 6 (updates without a reload, old assistant conversations, card names, install questions, skipped questions, allow list) (Train 6) | yes | /admin/updates/, /use/your-account/, /admin/audit-and-status/, /admin/store/, /admin/packages/, /releases/ |
+| #178 | Train 6: #180, #175, #177 | the sections below | none of its own |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1725,3 +1750,28 @@ The three sections above, as in #172's body.
 **Installing a function with several agents.** Some functions are a team: "Software delivery: Bob" is Bob and six roles. You subscribe once, then install the whole team with one button. 1. Go to Agents > Store and find the function. It says "Subscribed" once the payment went through. 2. Answer the questions once: the product, the repository. A question several agents ask is asked once. 3. Type a name for the team, for example "Bob Bakery". Bob is called "Bob Bakery", and each role gets "Bob Bakery - QA Reviewer" and so on. 4. Press **Install all**. The box installs Bob first, then each role. If one agent cannot be installed, the others still are. The Agents page shows the team as one card. If agents are missing, the card says so, for example "5 of 7 installed. Install the rest". Click the line to go back to the Store. Bob may hand work to his own roles; that comes with the team. You can take a hand-off away under the agent's settings, "What Bob may do", and allow it again there.
 
 **What "was not installed" means.** After Install all, the Store card may show a line such as "Bob Bakery - Issue Writer was not installed: the store refused it. Press Install all again. If it happens again, contact Truchsess support." The other agents are installed and working. Press Install all again: it installs only the missing agents, with the same name and answers, and never asks you to pay again. If the same line comes back, contact Truchsess support. The box keeps what the store answered.
+
+#### #180 The shipped-box clock check
+
+Nothing (no product change).
+
+#### #175 T131: merges inside an approved plan
+
+**Merges inside an approved plan.** When Alden writes a plan with a merge step for Bob - Merge Gate and an administrator approves it, the box merges that plan's pull requests itself. It merges only when: the review says SHIP on exactly the pull request's latest commit, from an AI of another company than the one that wrote the code; every check the product requires is green on that commit (set the checks under Settings > Advanced > Knowledge, the product's Rules; if none are listed, every check must be green); the pull request belongs to the plan and goes into the main branch; the plan is still in force. The box merges exactly the reviewed commit and notes it on the pull request ("Merged by … for plan …"). The plan shows "Merged". If something is missing, the plan says in one line why not, for example "Not merged: 2 checks are not green yet." Nothing else changes: without such a plan a person merges, and nothing goes live. Merged means built and tested, not delivered.
+
+The train adds: no bold subject until the Merge Gate's store update (G32) is signed and in the store; until then a person merges.
+
+#### #177 T136: polish batch 6
+
+**Check for updates.** Settings > Updates > Check for updates says "Checking for updates…" and shows the result as soon as the check is done. No reload is needed.
+**Update now.** Update now asks once, in a row of its own: "Update the box to the ...?" with "Yes, update" and Cancel. Update now cannot be pressed again meanwhile. The box keeps the previous version, so it can always go back.
+**What is new.** Settings > Updates and Home list what a new version brings. For a version that brings only small changes, it says "Small fixes and improvements."
+**Old assistant conversations.** What you wrote to the old built-in assistant is yours: open or download it under Your account > Your old assistant conversations. An administrator sees only who wrote how many messages (Settings > Advanced > Box). They can delete one person's messages or everyone's, with Undo for 15 minutes; they never read them.
+**Agent cards.** A card shows the agent's name with its function under it, for example "Sloane" with "Strategy and challenge" under it.
+**Installing from the Store.** A question about a repository starts with nothing chosen ("Choose one"). Install all waits, with the line "Choose an answer to each question above first.", until every required question has an answer. The name is proposed from the agents of that copy already on the box.
+**A question skipped at install.** When an agent was installed without an answer to one of its questions (for example Strategy's website), its card says "1 question to answer". The button opens the question right on the card: type the answer and press Save, and the agent may use it at once. The same field is in the agent's "What Strategy may do". A member reads that an administrator answers it.
+**Allowing what the company rules did not allow.** After an install, the Store lists what your company rules did not allow, each with "Allow for <agent>". Each line you allow now says "Allowed for <agent> only", the count above goes down, and the list goes away when nothing is left.
+
+#### #178 Train 6: #180, #175, #177
+
+The three sections above, as in #178's body; its "What is new in this release": "Check for updates", "Update now".

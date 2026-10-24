@@ -40,10 +40,10 @@ A box that was installed from the installer and never updated has no version lin
 ### Update by hand
 
 1. Open **Settings**, section **Updates**.
-2. Press **Check for updates**.
-3. If there is something new, **Newest** shows its name, its version and how much it downloads, for example "Version 2026.10.21-84a4137 · 2.2 MB to download, only what changed", then **What is new**: up to six plain lines about what changed for people. An update without such lines shows no **What is new**.
+2. Press **Check for updates**. The page says "Checking for updates…" and shows the result as soon as the check is done. No reload is needed.
+3. If there is something new, **Newest** shows its name, its version and how much it downloads, for example "Version 2026.10.21-84a4137 · 2.2 MB to download, only what changed", then **What is new**: up to six plain lines about what changed for people. A release that brings only small changes says "Small fixes and improvements."
 4. Press **Update now to the** and the update's name, for example **Update now to the October 2026 update**.
-5. Confirm. The page asks: "Update the box to the ... ? Truchsess restarts during the switch; the box keeps the previous version, so it can go back."
+5. Confirm. A question opens in its own row: "Update the box to the ...? Truchsess restarts during the switch; the box keeps the previous version, so it can go back." Press **Yes, update**, or **Cancel**. **Update now** cannot be pressed again while the question is open.
 6. Wait. "The update is running. It takes about 5 minutes; this page reconnects by itself."
 
 **Update now** is there only when there is something to install. If **Home** shows "An update is ready", its **Update now** does the same.
@@ -73,7 +73,7 @@ An agent whose new version may do something more never updates at night. **Home*
 - **On this box**: the new update's name and "Version ..., installed ...".
 - **Newest**: "You have the newest version." and "Checked ..." with the date and time.
 - "The last update worked" with the time.
-- **Home** shows "What is new in the October 2026 update (version ...)" once, with a few plain lines about what changed. **Close** hides it. The lines come from the changes in that release; a release without them shows no "What is new". The build's own technical text is never shown.
+- **Home** shows "What is new in the October 2026 update (version ...)" once, with a few plain lines about what changed. **Close** hides it. The lines come from the changes in that release; a release with only small changes says "Small fixes and improvements." The build's own technical text is never shown.
 - An open page shows "A new version of Truchsess is running." Press **Reload**.
 - "A restart finishes it: Settings > Advanced > Box, Restart the box." Restart when convenient.
 
@@ -104,6 +104,7 @@ The office address is **https://truchsess.local/**; `myai.local` keeps working o
 | --- | --- |
 | **Newest**: "The last check did not work" | Press **Check for updates** again later. |
 | **Newest**: "Not checked yet" | Press **Check for updates**. |
+| "The check did not finish within two minutes. Try Check for updates again later." | Press **Check for updates** again later. |
 | "Updates come through the store. Connect this box to the store (Agents > Store) to receive updates." | Connect the box to the store: [Store](/admin/store/). |
 | "The last update did not work. The box went back to the version before; Settings > Advanced > Box has the details." | Nothing is lost. Send **Details (update log)** from **Settings** › **Advanced** › **Box** to support. |
 | "A newer update came out after this page showed the last one. Nothing was installed. ..." | Press **Update now** again to install the newest one. |

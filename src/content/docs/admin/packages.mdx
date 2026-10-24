@@ -75,6 +75,7 @@ On the page **Agents** an administrator also has the button **Store**. See [Stor
 - When your own last task with it failed: "Problem:" and the reason, with **Open the task** and **Ask Truchsess why**. A card shows only your own tasks, for administrators too; a colleague's failed task is not on your card. An agent you have not used yet has no tag.
 - For administrators: the agent's cost this month, "This month" and the amount in your budget's currency, or "No cost recorded". It is the same amount as in **Settings** › **Advanced** › **AI**, panel **Costs in detail**.
 - For administrators: what the agent needs from you, at most one line, for example a repository it cannot reach, with the buttons that fix it. The fix applies to every agent of the function that needs it.
+- For administrators: a question skipped at install, for example "Strategy has no website to look at yet. 1 question to answer." The button, for example **Choose Strategy's website**, opens the question on the card. Type the answer and press **Save**: "Saved. Strategy may use it now." The same question is in the agent's "What ... may do": "This question was skipped when the agent was installed. Answer it below to allow it." A member reads that an administrator chooses it.
 
 ### What an agent may do
 
@@ -85,7 +86,7 @@ On the page **Agents** an administrator also has the button **Store**. See [Stor
 | "Allowed" | Your company rules allow it. |
 | "Allowed for this agent only" | An administrator allowed it for this agent alone. |
 | "Not allowed by your company rules" | The owner policy does not allow it. |
-| "Declined at install" | It was declined when the agent was installed, for example a skipped question. |
+| "Declined at install" | It was declined when the agent was installed, for example a skipped question. An administrator answers a skipped question right there. |
 | "Needs a connection" | It needs a connection first, for example your mailbox. |
 
 - **Administrator:** press **Allow for** and the agent's name on a line, then confirm. Only this agent gets it, at once. A protected permission (publishing, sending messages, spending, passwords and keys, deploying) asks you to tick a second line first: "I understand this and allow it for ... only." **Remove** takes it back: "The company rules apply to ... again."
@@ -192,7 +193,7 @@ Some agents ask questions at install, under "This agent asks you to choose:".
 | Product | One of the box's products. | If the list is empty, add a product first in **Settings** › **Advanced** › **Knowledge**, **Add a product**. |
 | Website | One website address, for example `www.example.com`. | The agent reaches exactly this host. Wildcards, IP addresses and local names are refused. |
 
-An optional question offers **Skip (the permission is declined)**. The Install button stays greyed out until every required question is answered: "Answer the questions above first."
+A required repository question starts with nothing chosen: "Choose one". An optional question offers **Skip (the permission is declined)**. The Install button stays greyed out until every required question is answered, and says why, for example "Choose an answer to each question above first." or "Enter the website first."
 
 When you install all agents of a function at once with **Install all**, a question that several of them ask (the same repository or the same product) is asked once. See [Store](/admin/store/#install-all-agents-of-a-function).
 

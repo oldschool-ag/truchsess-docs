@@ -77,6 +77,8 @@ A subscribed function's card lists each of its agents. An agent that is not inst
 
 The agent then says "Installed". When every agent of the function is installed, the card says "Installed". A greyed-out **Install** says why next to it, for example "Subscribe first."
 
+If your company rules do not allow everything the agent asks for, the install result lists it, for example "Installed without 2 permissions your company rules do not allow. Allow each one for ... only:", each line with **Allow for** and the agent's name. A line you allow says "Allowed for ... only", the count goes down, and when nothing is left: "Done. Everything it asked for is allowed for ... only." See [What an agent may do](/admin/packages/#what-an-agent-may-do).
+
 **Install** installs an agent once. If it is already installed, the card says "... is already installed on this box." For a second copy, use **Add another copy** in the agent's settings, when the store sells copies. The agent now has its card on **Agents**, where you choose **Who may use it**. Each install in detail: [Installed agents in detail](/admin/packages/#installed-agents-in-detail).
 
 ### Install all agents of a function
@@ -84,8 +86,8 @@ The agent then says "Installed". When every agent of the function is installed, 
 Some functions are a team: Software delivery is Bob and six roles. You subscribe once, then install the whole team with one button. A function of two or more agents offers one form for all of them while any of its agents is missing: "Install all ... agents".
 
 1. Answer the questions. "Each question is asked once, also when several agents need it." A shared question, for example the repository or the product, names the agents that ask it. The product question is for the whole team, for example "(for Bob and all its roles)". Where every agent that asks it takes several repositories, you tick them (at most 10, of one GitHub organization).
-2. Check **Name**: the name of the team. The lead gets it, and each role gets it before its role, for example "Bob (Catering) - QA Reviewer".
-3. Press **Install all**. The button shows how many agents it installs, for example **Install all (7)**.
+2. Check **Name**: the name of the team. The lead gets it, and each role gets it before its role, for example "Bob (Catering) - QA Reviewer". When agents of this team are already on the box under a name you chose, the box proposes that name.
+3. Press **Install all**. The button shows how many agents it installs, for example **Install all (7)**. A required repository question starts with "Choose one"; until every required question has an answer, the button stays greyed out with "Choose an answer to each question above first."
 4. The box installs the lead first, then each role. If one agent cannot be installed, the others still are.
 
 The lead may hand work to its own roles; that comes with the install. You can take a hand-off away in the agent's settings, see [Functions with several agents](/admin/packages/#functions-with-several-agents).

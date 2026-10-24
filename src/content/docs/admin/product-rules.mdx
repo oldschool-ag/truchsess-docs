@@ -6,7 +6,7 @@ import NotYet from '~/components/NotYet.astro';
 
 If your company keeps its own rules for building a product, give them to the box. A playbook is an `AGENTS.md`, or a `SKILL.md` with the wiki pages it links to, in a GitHub repository. "Every agent working for this product starts each task with them." This includes Bob and its roles, and any other agent installed for the product.
 
-Your rules can make agents stricter, never give them more rights: "no rule can allow a merge, a deploy, sending or deleting."
+Your rules can make agents stricter, never give them more rights: "no rule can allow a merge, a deploy, sending or deleting." Only a plan you approve can let the box merge, see [Merges inside an approved plan](#merges-inside-an-approved-plan).
 
 ## Who can do this
 
@@ -52,6 +52,25 @@ With **Reviews by another AI company than the coding tool (Claude Code)** ticked
 - Set at least the **Standard** lane to such a model: **Settings** › **Advanced** › **AI**, panel **Model lanes**. See [Model lanes](/admin/ai-providers-and-lanes/#model-lanes).
 - A review that runs starts with a line that names both companies: "Reviewed by: ..., .... Coder: Anthropic."
 - If the lane is from Anthropic, the review does not run and says why: "... did not review: reviews for ... must come from another AI company than ...". Home tells the administrators which lane to set, for example "Set the standard lane to another AI company than Anthropic".
+
+### Merges inside an approved plan
+
+The same **Rules** panel has a block **Merges inside an approved plan**. It decides when the box may merge a pull request of a plan you approved. It works once the Merge Gate's next store update is installed; until then a person merges.
+
+1. Under **Checks that must be green (one per line, as GitHub names them)**, list the checks. "Leave the list empty to require every check on the commit." At least one check must have run.
+2. Under **How the box merges**, choose **A merge commit**, **Squash into one commit** or **Rebase**.
+3. Press **Save merge settings**.
+
+When a plan with a merge step for Bob - Merge Gate is approved, the box merges each of the plan's pull requests itself, and only when:
+
+- the review says SHIP on exactly the pull request's latest commit, from an AI of another company than the one that wrote the code;
+- every required check is green on that commit;
+- the pull request belongs to the plan and goes into the repository's main branch;
+- the plan is still in force.
+
+The box merges exactly the reviewed commit and notes it on the pull request ("Merged by ... for plan ..."). The plan shows **Merged** and "Merged #12 (abc1234)." If something is missing, the plan says in one line why not, for example "Not merged: 2 checks are not green yet." or "Not merged: new changes came after the review." Merged means built and tested, not delivered: nothing goes live by a merge.
+
+Without such a plan, a person merges.
 
 ### Let Claude Code follow the same rules
 
