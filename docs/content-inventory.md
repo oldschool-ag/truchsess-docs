@@ -731,6 +731,22 @@ Not as on `552abbb`, or not checkable from the box's code:
   (Bob's repository questions marked `multiple`). Until a box has it, each role asks for one
   repository. The docs say "where every agent that asks it takes several repositories".
 
+Part 7d: Train 4 is #173 (T129, "Install all" finishes every agent of a function), merged alone as
+master `d1e3744`, release **Truchsess 2026.10.22-d1e3744**. Checked against master `2bb4bff` (Train 7),
+where its strings are unchanged. Not as in #173's "For the user docs":
+- "It says "Subscribed" once the payment went through." A Store card of a running subscription has
+  no status line; "Subscribed, not installed yet" and "Subscribed · ... of ... agents installed" are on
+  the function's card in **Installed agents in detail**. The docs do not promise a Store line.
+- "under the agent's settings, "What Bob may do"": the lead's fold is "What Lead may do" (the role
+  name), and the hand-offs are one line "Hand work to other agents" with **Details**, each with
+  **Remove**; **Allow for** gives one back. The docs say so.
+- The button reads **Install all (7)** with the number, and its heading "Install all 7 agents". The
+  form shows while any agent of a function of two or more is missing (before T129: two or more not
+  installed).
+- "5 of 7 installed. Install the rest" is shown to administrators only.
+- "contact Truchsess support": the box sends nothing to support by itself; the store's answer is in
+  the activity trail ("... not installed: store answered <status> <code>") and the journal.
+
 Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
 master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
 Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
@@ -835,6 +851,7 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #151 | T111: name your agents, and a second Bob for a second product (Train 3) | yes | /admin/packages/ (Name and rename an agent, A second Bob), /admin/store/, /admin/second-product/, /agents/software-delivery/ |
 | #157 | T116: bring your own playbook (a product's own rules for every agent working for it) (Train 3) | yes | /admin/product-rules/ (new), /admin/products-and-knowledge/, /admin/second-product/, /agents/software-delivery/ |
 | #172 | Train 3: T112, T111, T116 (merge of #152, #151 and #157) | the three sections below | none of its own |
+| #173 | T129: "Install all" finishes every agent of a function, or says why it stopped (Train 4, master d1e3744) | yes | /admin/store/ (Install all, An agent was not installed), /admin/packages/ (Functions with several agents, A second Bob), /admin/second-product/, /setup/first-agent/, /releases/ |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1702,3 +1719,9 @@ none (documents and screenshots only)
 #### #172 Train 3: T112, T111, T116
 
 The three sections above, as in #172's body.
+
+#### #173 T129: "Install all" finishes every agent of a function, or says why it stopped
+
+**Installing a function with several agents.** Some functions are a team: "Software delivery: Bob" is Bob and six roles. You subscribe once, then install the whole team with one button. 1. Go to Agents > Store and find the function. It says "Subscribed" once the payment went through. 2. Answer the questions once: the product, the repository. A question several agents ask is asked once. 3. Type a name for the team, for example "Bob Bakery". Bob is called "Bob Bakery", and each role gets "Bob Bakery - QA Reviewer" and so on. 4. Press **Install all**. The box installs Bob first, then each role. If one agent cannot be installed, the others still are. The Agents page shows the team as one card. If agents are missing, the card says so, for example "5 of 7 installed. Install the rest". Click the line to go back to the Store. Bob may hand work to his own roles; that comes with the team. You can take a hand-off away under the agent's settings, "What Bob may do", and allow it again there.
+
+**What "was not installed" means.** After Install all, the Store card may show a line such as "Bob Bakery - Issue Writer was not installed: the store refused it. Press Install all again. If it happens again, contact Truchsess support." The other agents are installed and working. Press Install all again: it installs only the missing agents, with the same name and answers, and never asks you to pay again. If the same line comes back, contact Truchsess support. The box keeps what the store answered.

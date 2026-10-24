@@ -95,11 +95,15 @@ All hand-offs of one agent are one line, with **Allow all hand-offs for** and th
 
 ### Functions with several agents
 
-Some store functions have several agents that work together, for example Bob for software delivery. They are one card. You add, remove and allow them together, as the store sells them as one.
+Some store functions have several agents that work together, for example Bob for software delivery. They are one card, named after the team, with the function's name under it. You add, remove and allow them together, as the store sells them as one. To install the whole team, see [Install all agents of a function](/admin/store/#install-all-agents-of-a-function).
+
+The card stays one card while some of its agents are missing. Administrators then see a line such as "5 of 7 installed. Install the rest". Click it to open the **Store** at that function.
 
 A function with a lead answers as one agent. You talk to the lead, for example Bob, and Bob decides which of his roles takes the task, and can hand it to several in turn. In **Chat** the function is one entry. The run shows the chain, for example "Bob → QA Reviewer → Merge Gate", what each role did and what it cost, and the total. A role that would change a repository still waits for your approval.
 
-The function's settings list its agents by role, each with its own "What ... may do". Only the lead has **Start a chat**. An administrator has **Test this role alone** on each other role: it opens **Chat** with that one role, for testing. A member who sends a task to one role reads "Ask ... decides which role takes the task and hands it on." and nothing starts.
+The function's settings list its agents by role, each with its own "What ... may do". The lead may hand work to the roles of its own team; that comes with the install. In the lead's "What Lead may do", the line "Hand work to other agents" has **Details**: each hand-off is listed there with **Remove**. "It comes with ...: the lead hands work to the roles of its own team. Remove takes it away." After you remove one, it reads "An administrator took this away. Allow gives it back.", and **Allow for** gives it back. An update or **Apply the rules** keeps a removed hand-off away. Hand-offs to agents outside the team stay under your [agent rules](/admin/agent-rules/).
+
+Only the lead has **Start a chat**. An administrator has **Test this role alone** on each other role: it opens **Chat** with that one role, for testing. A member who sends a task to one role reads "Ask ... decides which role takes the task and hands it on." and nothing starts.
 
 A function has one lead per copy. Installing a second lead outside a new copy is refused with a sentence that names the first one, "... already has a lead: ...", and says to remove that lead from this box first.
 
@@ -282,7 +286,7 @@ One Bob works for one product. For a second product, add another copy of the who
 4. Answer the questions under "Its agents ask you to choose:", each once for all of its agents: choose the product, and tick that product's repositories (at most 10, all in one GitHub organization).
 5. Press **Next**, check the price and the new monthly total, press the button that names the price, then **Open the payment page** and pay.
 
-After the payment the box installs the lead and every role one after the other: "Installing … ... more of its agents to go." The new Bob and its roles appear as one card, the roles named after it, for example "Bob (Catering) - QA Reviewer".
+After the payment the box installs the lead and every role one after the other: "Installing … ... more of its agents to go." If one agent cannot be installed, the others still are, and a line says why (see [An agent was not installed](/admin/store/#an-agent-was-not-installed)). The new Bob and its roles appear as one card, the roles named after it, for example "Bob (Catering) - QA Reviewer".
 
 - Each Bob reaches only its own repositories, and hands work only to its own roles.
 - When an agent for a product hands work to Bob, it reaches the Bob of that product. If that is not clear, the person is asked.

@@ -81,14 +81,28 @@ The agent then says "Installed". When every agent of the function is installed, 
 
 ### Install all agents of a function
 
-A function with two or more agents not installed yet offers one form for all of them: "Install all ... agents".
+Some functions are a team: Software delivery is Bob and six roles. You subscribe once, then install the whole team with one button. A function of two or more agents offers one form for all of them while any of its agents is missing: "Install all ... agents".
 
-1. Answer the questions. "Each question is asked once, also when several agents need it." A shared question, for example the repository or the product, names the agents that ask it. Where every agent that asks it takes several repositories, you tick them (at most 10, of one GitHub organization).
-2. Check **Name**: the name of the lead. Each role gets it before its role, for example "Bob (Catering) - QA Reviewer".
-3. Press **Install all**.
-4. The box installs the agents one after the other.
+1. Answer the questions. "Each question is asked once, also when several agents need it." A shared question, for example the repository or the product, names the agents that ask it. The product question is for the whole team, for example "(for Bob and all its roles)". Where every agent that asks it takes several repositories, you tick them (at most 10, of one GitHub organization).
+2. Check **Name**: the name of the team. The lead gets it, and each role gets it before its role, for example "Bob (Catering) - QA Reviewer".
+3. Press **Install all**. The button shows how many agents it installs, for example **Install all (7)**.
+4. The box installs the lead first, then each role. If one agent cannot be installed, the others still are.
+
+The lead may hand work to its own roles; that comes with the install. You can take a hand-off away in the agent's settings, see [Functions with several agents](/admin/packages/#functions-with-several-agents).
 
 Each agent can still be changed or uninstalled on its own afterwards. To install only one of them, open "Install only this agent" under it.
+
+### An agent was not installed
+
+After **Install all**, the card may say how far it got, for example "6 of 7 agents are installed.", and one line for each agent it could not install:
+
+"Bob Bakery - Issue Writer was not installed: the store refused it. Press Install all again. If it happens again, contact Truchsess support."
+
+- The other agents are installed and working.
+- Press **Install all** again. It installs only the missing agents, with the same name and answers, and never opens a payment page again.
+- If the same line comes back, contact Truchsess support. The box keeps what the store answered: it is in **Settings** › **Advanced** › **Activity and audit trail**, as "... not installed: store answered ...".
+
+Other reasons the line can give: "the store could not be reached", "the subscription is not active", "its publisher is not trusted on this box", "this box could not set it up", "something went wrong".
 
 ### An install the store still holds
 
@@ -169,7 +183,7 @@ When a subscription has ended and none of its agents is installed, the function 
 | **Allow agents from** the publisher | Trusts the store's publisher on this box. | Before the first install from the store. | Yes: **Remove** under **Trusted publishers**. |
 | **Subscribe** | Starts a monthly subscription. | You want the function's agents. | Yes: cancel. |
 | **Install** | Installs one agent of the function. | After subscribing. | Yes: **Uninstall** (the workspace is deleted). |
-| **Install all** | Installs every agent of the function that is not installed yet. Shared questions are asked once. | You want the whole function. | Yes: **Remove from this box**, or **Uninstall** each agent. |
+| **Install all** | Installs every agent of the function that is not installed yet. Shared questions are asked once. A second press installs the ones still missing. | You want the whole function. | Yes: **Remove from this box**, or **Uninstall** each agent. |
 | **Update** | Moves the agent to the store's newer version. A new permission asks first. | "Update available" on a card. | No direct way back. |
 | **Manage subscription** | Opens the store's page for invoices and payment method. | Billing questions. | n/a |
 | **Cancel subscription** | Ends the function at the period end. | No agent of it is installed and you do not need it. | Subscribe again. |
