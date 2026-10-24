@@ -26,6 +26,13 @@ Truchsess is developed with Truchsess. The company's own box, box 1, runs the ag
 ## Updates
 
 - A merge builds a new release. It lists what changed on [Releases](/releases/).
+- **Every release goes through the boxes in one order:** box 0, box 2, box 1, then customers.
+  1. **Box 0 first** (staging). It moves on only when the update worked there, the self-tests and the acceptance checks are green, and a few real agent runs succeeded.
+  2. **Then box 2**, the first live test, with test data: at least 24 hours of normal use and no new errors.
+  3. **Then box 1**, the box that builds Truchsess. It updates late on purpose, so a broken release never stops the work on its own fix.
+  4. **Then the customers**, through the store's stable channel.
+- **A security fix** may go through all steps on the same day, but it never skips box 0.
+- **For now the CEO updates each box by hand**, in this order. While box 0 still runs the first version of the box, box 2 goes first.
 - **Box 1 updates only when the CEO presses Update now.** The box never updates itself from this work.
 - **Customers get a release only when the CEO publishes it in the store.**
 
