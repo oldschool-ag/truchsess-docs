@@ -1,0 +1,36 @@
+---
+title: Building Truchsess from box 1
+description: "How Truchsess itself is developed from the company's own box: a plan the CEO approves once, one issue per pull request, Claude Code on GitHub, reviews by two AI companies, and who merges."
+---
+
+Truchsess is developed with Truchsess. The company's own box, box 1, runs the agents that plan and review the work; Claude Code on GitHub writes the code. Every agent on box 1 follows one playbook, kept in the Truchsess source next to the code it governs.
+
+## From a request to a pull request
+
+1. **P.O. Truchsess writes a plan.** For each request, the product owner writes one plan: what changes for people, the pull requests (one task, one branch, one pull request each), who does what, the tests, and the open questions. A second AI checks the plan before it goes to the CEO.
+2. **The CEO approves it once.** The approval covers the whole plan and nothing outside it. A pull request outside the plan needs a new approval. See [A product owner's plan](/use/plans/).
+3. **Bob opens one issue per pull request.** Each issue says why, what to check first, what to build, the tests, and what the user docs will say.
+4. **Claude Code on GitHub builds each one.** Bob's label on the issue starts it. It works on its own branch and opens one pull request; it never pushes to the main branch.
+
+## Tests and reviews
+
+- **Tests before every push:** the builder runs the box's own tests first, and the full box test (the installer built and installed on a test machine, and an update) must pass before any merge.
+- **Two AI companies review:** a quality reviewer and a security reviewer read every pull request. Each serious finding is checked by an AI of another company. The Merge Gate then says ship, fix or hold. Nothing ships without a review.
+
+## Who merges
+
+- **The CEO, during the pilot.** No agent merges.
+- **After the pilot,** the Merge Gate may merge a low-risk pull request that is inside the approved plan, reviewed and fully tested.
+- **Some changes always wait for the CEO:** sign-in and accounts, permissions, the network, keys, updates and installs, sandboxing, data migrations, and the rules themselves.
+
+## Updates
+
+- A merge builds a new release. It lists what changed on [Releases](/releases/).
+- **Box 1 updates only when the CEO presses Update now.** The box never updates itself from this work.
+- **Customers get a release only when the CEO publishes it in the store.**
+
+## Related pages
+
+- [A product's own rules](/admin/product-rules/): how any company gives its own playbook to its agents.
+- [Software delivery](/agents/software-delivery/): Bob and its roles.
+- [Releases](/releases/)

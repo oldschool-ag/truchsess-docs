@@ -132,6 +132,7 @@ export default defineConfig({
         { label: 'Not possible yet', slug: 'not-yet' },
         { label: 'Troubleshooting', slug: 'troubleshooting' },
         { label: 'Releases', slug: 'releases' },
+        { label: 'Building Truchsess from box 1', slug: 'building-truchsess' },
       ],
     }),
   ],

@@ -824,6 +824,13 @@ Not as in the train's text, or not checkable from the box's code:
   sent again in full with every follow-up" need T126's conversation history (#167, Train 8); on
   `2bb4bff` each message is its own run. Both are left out of the docs.
 
+Part 7d, last step: #190 (T140) merged as master `9d37809`. It changes no box code, only the rules
+the agents on box 1 follow (`docs/process/truchsess-playbook.md`), so it has no release entry. New page
+/building-truchsess/ from its "For the user docs", checked against the merged playbook: the plan, one
+issue per pull request, Claude Code on GitHub, the full box test before any merge, reviews by two AI
+companies, the CEO merges during the pilot, the risk classes always wait for the CEO, box 1 updates
+only on Update now and customers only from the store.
+
 Where every page and setting is since Train 7 (#181, T132; before it T102 and T103, #141): the menu is
 **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat, Agents). On a computer the menu is on
 the left, with your initials, name and role at the bottom (they open **Your account**); on a phone the
@@ -950,6 +957,7 @@ administrators" with the administrator's name. What waits for a person is on **H
 | #183 | T139: long messages in Chat (Train 7) | yes | /use/start-a-task/ (Long messages), /use/attach-files/, /use/follow-a-run/, /troubleshooting/ |
 | #189 | A test only (Train 7) | none (no product change) | none |
 | #188 | Train 7: #185, #182, #181, #183, #189 | the sections below | none of its own |
+| #190 | T140: Truchsess playbook, Claude Code on GitHub, branch rules (master 9d37809) | yes | /building-truchsess/ (new) |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1901,3 +1909,9 @@ Nothing (no product change).
 #### #188 Train 7: #185, #182, #181, #183, #189
 
 The sections above, as in #188's body (its #182 text is a shorter part of #182's own).
+
+#### #190 T140: Truchsess playbook, Claude Code on GitHub, branch rules
+
+- **Building Truchsess from box 1:** P.O. Truchsess writes a plan, the CEO approves it once, Bob opens one issue per pull request, and Claude Code on GitHub builds each one.
+- **Who merges:** the CEO, during the pilot. Changes that touch sign-in, permissions, the network, keys, updates and installs, sandboxing, data migrations or the rules themselves always wait for the CEO.
+- **Updates:** box 1 updates only when the CEO presses **Update now**; customers get a release only when the CEO publishes it in the store.

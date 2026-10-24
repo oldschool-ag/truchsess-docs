@@ -68,6 +68,7 @@ export const REQUIRED_PAGES = [
   '/not-yet/',
   '/troubleshooting/',
   '/releases/',
+  '/building-truchsess/',
 ];
 
 // Pages that link to the FAIVR store docs, with the exact addresses they must contain.
