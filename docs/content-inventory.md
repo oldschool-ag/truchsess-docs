@@ -798,14 +798,45 @@ the train's text, or not checkable from the box's code:
   from the copy's agents only when one of them was renamed. "Sloane" and "Strategy and challenge" are
   store data.
 
-Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
-master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
-Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
-inbox, Calendars) and **What Truchsess has learned**; **Settings** has five sections, **People**,
-**Plan and costs**, **Safety copies**, **Updates**, **Your company**, and one link **Advanced (for
-experts)**; **Advanced** is one page with **Agent rules**, **AI**, **Agents**, **Connections**,
-**Knowledge**, **Box**, **Support access**, **Activity and audit trail**. Runs, Approvals and
-Administration are gone; what waits for a person is on **Home**, **Needs you**.
+Part 7d: Train 7 (#188) merged (squash) as master `2bb4bff`: #185 (CI only), #182 (T138, an agent runs
+on the AI its job needs, second opinions), #181 (T132, the Settings redesign, one menu), #183 (T139,
+long messages in Chat) and #189 (a test only). #167 (T126) and #179 moved to Train 8. Checked against
+`2bb4bff`; its release **Truchsess 2026.10.24-2bb4bff** is not out yet, so /releases/ has no entry for
+it. New page: /admin/agent-ai/. #181 has no section of its own; the conductor wrote one in #188's body.
+Not as in the train's text, or not checkable from the box's code:
+- #181: "with the count of what needs you": the count sits on **Home**, not on Settings. Each Settings
+  card has two short lines, not one. Not in the text but in the code: remote access moved to **People
+  and access** ("Reach the box from home"); products, archived products, Add a product, the catalog
+  and Import documents moved from Advanced › Knowledge to **Your company**, **Products and documents**
+  (**Open** on a product shows the panels); the mail domains moved from Advanced › Connections to
+  **Your company**, **Company mail** (Microsoft 365 and Google Workspace stay in Advanced ›
+  Connections, panel Company mail); **Ask the memory** is on **Your company**, **What the box knows**;
+  the status line is hidden. The docs follow the code everywhere.
+- #182: the second-opinion rows are numbered "1." to "3." with **No second opinion**; there are no
+  labels "Second opinions 1, 2 and 3". A task's **Details** row is **Models** and shows the model id
+  as the AI reported it (for example `openai/gpt-6-astra`), not a display name. Whether an agent says
+  that a review did not run depends on its own instructions (truchsess-agent-sources G33).
+- #183: "The message box never refuses it": the composer does not, but the portal refuses a message
+  over 4,000,000 characters (about 1,300 pages): "This message is about ... pages long. No AI on this
+  box reads that much at once. ...". "If the conversation has become too long with your new message,
+  the task says so and offers Start a new conversation" and "a long text you pasted earlier is not
+  sent again in full with every follow-up" need T126's conversation history (#167, Train 8); on
+  `2bb4bff` each message is its own run. Both are left out of the docs.
+
+Where every page and setting is since Train 7 (#181, T132; before it T102 and T103, #141): the menu is
+**Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat, Agents). On a computer the menu is on
+the left, with your initials, name and role at the bottom (they open **Your account**); on a phone the
+top bar has the logo, **Ask Truchsess** and your initials, with the tabs under it. The status line at
+the bottom of the menu is hidden. **Your account** holds **Your connections** (Email inbox,
+Calendars), **What Truchsess has learned** and, for people who wrote to it, **Your old assistant
+conversations**. **Settings** opens with four cards, each with two short lines: **People and access**
+(People, **Reach the box from home**), **The AI and costs** (section Plan and costs), **Updates and
+safety copies** (Updates, Safety copies) and **Your company** (About the company, **Company mail**
+with the mail domains, **Products and documents**, **What the box knows**); then one link **Advanced
+(for experts)**. **Advanced** is one page with **Agent rules**, **AI**, **Agents**, **Connections**,
+**Knowledge** (now Import from V1, product access, What Truchsess has learned), **Box**, **Support
+access**, **Activity and audit trail**. A member who opens a Settings address reads "Only for
+administrators" with the administrator's name. What waits for a person is on **Home**, **Needs you**.
 
 ### 25.1 The list
 
@@ -912,6 +943,12 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #175 | T131: merges inside an approved plan (Train 6) | yes (no bold subject until the Merge Gate's store update is in the store) | /admin/product-rules/ (Merges inside an approved plan), /agents/software-delivery/ (Merge Gate), /not-yet/ (G41), /releases/ |
 | #177 | T136: polish batch 6 (updates without a reload, old assistant conversations, card names, install questions, skipped questions, allow list) (Train 6) | yes | /admin/updates/, /use/your-account/, /admin/audit-and-status/, /admin/store/, /admin/packages/, /releases/ |
 | #178 | Train 6: #180, #175, #177 | the sections below | none of its own |
+| #185 | CI only (Train 7, master 2bb4bff) | none (no product change) | none |
+| #182 | T138: an agent runs on the AI its job needs, second opinions (Train 7) | yes | /admin/agent-ai/ (new), /admin/packages/, /admin/ai-providers-and-lanes/, /admin/chatgpt-subscription/, /admin/budget/, /use/home/, /use/follow-a-run/, /start/glossary/ |
+| #181 | T132: the Settings redesign and one menu (Train 7) | yes (written in #188's body) | every page that names a place (Settings paths, products, company mail, remote access, the menu, the status line) |
+| #183 | T139: long messages in Chat (Train 7) | yes | /use/start-a-task/ (Long messages), /use/attach-files/, /use/follow-a-run/, /troubleshooting/ |
+| #189 | A test only (Train 7) | none (no product change) | none |
+| #188 | Train 7: #185, #182, #181, #183, #189 | the sections below | none of its own |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1786,6 +1823,30 @@ The three sections above, as in #172's body.
 
 **What "was not installed" means.** After Install all, the Store card may show a line such as "Bob Bakery - Issue Writer was not installed: the store refused it. Press Install all again. If it happens again, contact Truchsess support." The other agents are installed and working. Press Install all again: it installs only the missing agents, with the same name and answers, and never asks you to pay again. If the same line comes back, contact Truchsess support. The box keeps what the store answered.
 
+#### #153 Test harness fixes
+
+Nothing (no product change).
+
+#### #146 T110: safety copies in France (section written in #176's body)
+
+**Safety copies in France.** Every night after the copy on the box, the box also sends a locked copy to our data centre in France, once your storage there is set up. Until then nothing leaves the box. The night copy runs at 03:30 in your company's time zone (Settings > Your company). Settings > Safety copies shows when the last copy was made and when the box last tested it ("Last safety copy: today, tested on 3 November"); once a month the box opens the newest copy to check it. Only your recovery sheet opens the copies: without it nobody, Truchsess included, can open them. If a copy could not be sent for two nights, Home says so: "Your safety copy could not be sent for two nights. Your data is still on the box." To restore, Settings > Safety copies > Restore offers the copy in France next to the copies on this box and a file you upload. A new box offers "the newest copy in France" at setup.
+
+#### #150 T109: add a person in one step, with an invitation
+
+**People: add a person.** Settings > People > Add a person: type the name and work e-mail. Leave "Member" unless they should also manage people, costs and the box (then type your own password once more). Tick the agents they may use (Truchsess is always included) and press "Invite <name>". Send the invitation with "Send from my e-mail" or "Copy the invitation"; the box sends no e-mail. The link works once, for 7 days. "Send again" makes a new link and "Withdraw" stops it.
+**Your team (first setup, step 5).** Type each colleague's name and work e-mail and press "Add colleagues": each gets an invitation to send from your own e-mail or to copy. Or press "Skip for now" and invite them later under Settings > People.
+**The invitation page.** Open the link at the office, type your password twice (at least 12 characters, upper- and lower-case letters and a number) and press "Set my password". From then on, sign in with your e-mail address and that password. An expired, used or withdrawn link says so: ask your administrator for a new invitation.
+
+#### #174 T130: a product owner's plan, approved once
+
+**A product owner's plan, and approving it once.** Give your product owner (Alden) the request in Chat. When the work needs other agents, or access they do not have yet, Alden writes one plan instead of starting right away. The plan appears in Home under Needs you: "Alden's plan: Add a new language. 7 steps, 4 agents, 2 questions." Open it to see: what will be done, and by whom; the access each agent gets, in plain words; what nobody gets; Alden's questions; which steps will ask you again before they go live (sign-in, rights, deleting data, data migrations, payments, security). Answer the questions and press **Approve**. From then on, each agent in the plan has exactly the access the plan lists, only for this plan's work, for 14 days. Alden starts at once and tells you when every step is finished. His report keeps three things apart: built and tested, checked against real data, and delivered. **Change** sends Alden a message. The changed plan comes back for a new approval, and nothing new is allowed before that. **Not now** allows nothing. **Stop this plan** ends all its access at once. Only administrators approve. A member who asked for the work can follow her own plan and stop it.
+
+The train adds: "The Product Owner package that writes plans is G31 (oldschool-ag/truchsess-agent-sources#36, faivr.agent.product-owner 1.4.0). It builds only once T130 is on master."
+
+#### #176 Train 5: #153, #146, #150 (+ #174)
+
+The sections above, as in #176's body.
+
 #### #180 The shipped-box clock check
 
 Nothing (no product change).
@@ -1811,26 +1872,31 @@ The train adds: no bold subject until the Merge Gate's store update (G32) is sig
 
 The three sections above, as in #178's body; its "What is new in this release": "Check for updates", "Update now".
 
-#### #153 Test harness fixes
+#### #185 CI only
 
 Nothing (no product change).
 
-#### #146 T110: safety copies in France (section written in #176's body)
+#### #182 T138: an agent runs on the AI its job needs, second opinions
 
-**Safety copies in France.** Every night after the copy on the box, the box also sends a locked copy to our data centre in France, once your storage there is set up. Until then nothing leaves the box. The night copy runs at 03:30 in your company's time zone (Settings > Your company). Settings > Safety copies shows when the last copy was made and when the box last tested it ("Last safety copy: today, tested on 3 November"); once a month the box opens the newest copy to check it. Only your recovery sheet opens the copies: without it nobody, Truchsess included, can open them. If a copy could not be sent for two nights, Home says so: "Your safety copy could not be sent for two nights. Your data is still on the box." To restore, Settings > Safety copies > Restore offers the copy in France next to the copies on this box and a file you upload. A new box offers "the newest copy in France" at setup.
+**AI for this agent.** Every agent works on the box's level (Cheap, Standard or Frontier) unless an administrator names an AI model for it. In the agent's details, under For administrators, **AI for this agent** lists the box's AI models. While you are signed in with ChatGPT, it also lists your plan's models. Choose one, and for a model that reasons choose normal, high or highest reasoning. Press **Save**; it applies from the agent's next task. The box checks your data rule when you save and before every task. A model that does not meet it is not offered. Everyone sees one grey line on the card, for example "AI: GPT-5.6 Sol on your ChatGPT plan, highest reasoning". Members see the line, not the choice. Chat's header names the agent's lane and the AI behind it, for example "Frontier lane: GPT-6 Astra on your ChatGPT plan". A task's Details name the AI it ran on, even after the lane changed. A task from before this update may say "not recorded". If your ChatGPT plan is signed out, an agent set to one of its models stops with "Its AI is not available: the ChatGPT plan is signed out". It never uses another AI on its own. Sign in again, or choose another AI for it. Tasks on your ChatGPT plan cost nothing on the box's budget. Costs in detail counts them per agent ("12 runs on your ChatGPT plan").
 
-#### #150 T109: add a person in one step, with an invitation
+**Second opinions.** An administrator can give an agent up to three other AIs it may ask for a short second opinion, in the same place (Second opinions 1, 2 and 3). The other AI gets only the text the agent sends: no tools, no memory, no files. Its answer comes back marked as information, not as instructions. The box checks your data rule for each one, charges its cost to the agent, and records which AI answered. When your ChatGPT plan's limit is reached, the agent says the review did not run and when to try again.
 
-**People: add a person.** Settings > People > Add a person: type the name and work e-mail. Leave "Member" unless they should also manage people, costs and the box (then type your own password once more). Tick the agents they may use (Truchsess is always included) and press "Invite <name>". Send the invitation with "Send from my e-mail" or "Copy the invitation"; the box sends no e-mail. The link works once, for 7 days. "Send again" makes a new link and "Withdraw" stops it.
-**Your team (first setup, step 5).** Type each colleague's name and work e-mail and press "Add colleagues": each gets an invitation to send from your own e-mail or to copy. Or press "Skip for now" and invite them later under Settings > People.
-**The invitation page.** Open the link at the office, type your password twice (at least 12 characters, upper- and lower-case letters and a number) and press "Set my password". From then on, sign in with your e-mail address and that password. An expired, used or withdrawn link says so: ask your administrator for a new invitation.
+#### #181 T132: the Settings redesign and one menu (section written in #188's body)
 
-#### #174 T130: a product owner's plan, approved once
+**One menu on every page.** On a phone, the top bar has the logo, Ask Truchsess and your initials, and the tab bar under it has Home, Chat, Agents and, for an administrator, Settings, with the count of what needs you. On a computer, the menu is on the left, with your name and role at the bottom.
+**The Settings overview.** Settings opens with four cards: People and access, The AI and costs, Updates and safety copies, and Your company, each with one line on how things stand. Advanced (for experts) is at the end.
+**Your company.** Your company's name, language and time zone; the company's mail domains (Microsoft 365 and Google open their webmail); company addresses at a free mail service, one by one; your products with their documents; and what the box knows, with Find and what the company has learned.
+A member who opens a Settings address reads "Only for administrators", with the administrator's name.
 
-**A product owner's plan, and approving it once.** Give your product owner (Alden) the request in Chat. When the work needs other agents, or access they do not have yet, Alden writes one plan instead of starting right away. The plan appears in Home under Needs you: "Alden's plan: Add a new language. 7 steps, 4 agents, 2 questions." Open it to see: what will be done, and by whom; the access each agent gets, in plain words; what nobody gets; Alden's questions; which steps will ask you again before they go live (sign-in, rights, deleting data, data migrations, payments, security). Answer the questions and press **Approve**. From then on, each agent in the plan has exactly the access the plan lists, only for this plan's work, for 14 days. Alden starts at once and tells you when every step is finished. His report keeps three things apart: built and tested, checked against real data, and delivered. **Change** sends Alden a message. The changed plan comes back for a new approval, and nothing new is allowed before that. **Not now** allows nothing. **Stop this plan** ends all its access at once. Only administrators approve. A member who asked for the work can follow her own plan and stop it.
+#### #183 T139: long messages in Chat
 
-The train adds: "The Product Owner package that writes plans is G31 (oldschool-ag/truchsess-agent-sources#36, faivr.agent.product-owner 1.4.0). It builds only once T130 is on master."
+**Long messages in Chat.** You can paste a long text into Chat: hundreds of lines, a whole contract. The message box never refuses it. From about four pages, a line under the box says how long the text is and how much the agent's AI reads at once, for example "About 52 pages (300 lines). Example Agent's AI reads about 107 pages at once." If the text is longer than the agent's AI can read, the task stops before anything is sent and says so with both sizes. Nothing is charged. Send the part you need, or attach the text as a file: the agent then reads as much as fits, and the task says which part. If the conversation has become too long with your new message, the task says so and offers **Start a new conversation**. In a conversation, a long text you pasted earlier is not sent again in full with every follow-up: the agent gets its beginning and finds the rest in memory. Limits that stay: a hand-off to another agent carries at most 16 KiB of text, and a routine's instruction at most 4,000 characters.
 
-#### #176 Train 5: #153, #146, #150 (+ #174)
+#### #189 A test only
 
-The sections above, as in #176's body.
+Nothing (no product change).
+
+#### #188 Train 7: #185, #182, #181, #183, #189
+
+The sections above, as in #188's body (its #182 text is a shorter part of #182's own).

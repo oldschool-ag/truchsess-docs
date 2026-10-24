@@ -22,6 +22,7 @@ export const REQUIRED_PAGES = [
   '/use/phone-and-voice/',
   '/use/approvals-and-checks/',
   '/use/plans/',
+  '/admin/agent-ai/',
   '/use/knowledge/',
   '/use/workboard/',
   '/use/report-a-problem/',

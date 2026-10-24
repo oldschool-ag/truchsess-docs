@@ -100,6 +100,7 @@ export default defineConfig({
             { label: "A product's own rules", slug: 'admin/product-rules' },
             { label: 'Set up a second product', slug: 'admin/second-product' },
             { label: 'AI providers and lanes', slug: 'admin/ai-providers-and-lanes' },
+            { label: "Choose an agent's AI", slug: 'admin/agent-ai' },
             { label: 'Use a ChatGPT subscription', slug: 'admin/chatgpt-subscription' },
             { label: 'Budget', slug: 'admin/budget' },
             { label: 'Connections', slug: 'admin/connections' },

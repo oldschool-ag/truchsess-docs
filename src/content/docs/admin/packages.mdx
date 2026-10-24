@@ -52,11 +52,13 @@ Click a card to open the agent's settings: a panel beside the page, or the whole
 - **Works on its own**, when the agent offers work on a schedule (see [Agents that work on a schedule](#agents-that-work-on-a-schedule));
 - "Your connections ... uses", when the agent uses one of your connections;
 - **How it works with you**: what the agent learned from you;
+- **Its AI**: the AI the agent works on, for example "AI: the box's level (Standard: Kimi K2.6)";
 - **Remove from my agents**, which takes it off your own row. You can add it again under **More agents on this box**. An agent that is open to everyone stays in your agents.
 
 An administrator also sees the part **For administrators**:
 
 - **Name**: the agent's name and **Rename** (see [Name and rename an agent](#name-and-rename-an-agent)).
+- **AI for this agent**: the AI model and its reasoning, and up to three second opinions. See [Choose an agent's AI](/admin/agent-ai/).
 - **Who may use it**: choose **Everyone** or **These people**. **Everyone** also covers people you add later: "Every person on this box may use ..., also people you add later." With **These people**, the list shows each person with **Remove**; choose a person and press **Add** to add one. Truchsess is always for everyone: "Truchsess is for everyone on this box".
 - **Allowed without asking**: the agent's standing approvals, read only. They are changed in **Settings** › **Advanced** › **Agent rules**.
 - **Its install answers**: what you answered at install.
@@ -70,6 +72,7 @@ On the page **Agents** an administrator also has the button **Store**. See [Stor
 - The agent's name and one line under it: the store function it belongs to. An agent installed from a file shows the store function its package belongs to, or the package's own title.
 - The agent's face: the picture of its store function, however the agent was installed. The box refreshes the store's list and its pictures once a day by itself; a picture that could not be loaded is fetched again the next day. Until then the card shows the agent's first letter.
 - An agent installed from a file says so on its card and at the top of its settings: "Installed from a file, not from the store: no updates from the store."
+- One grey line with the AI it works on, for example "AI: GPT-5.6 Sol on your ChatGPT plan, highest reasoning". See [Choose an agent's AI](/admin/agent-ai/).
 - A tag with its state, for example "Idle", or "Working on: ..." with what was asked while it works.
 - Its last line: when it last finished a task and what was asked, for example "Last task finished 13 Oct: Check example-bakery.ch". It never shows the agent's own answer. Open the task or **Home** › **Recent results** for that.
 - When your own last task with it failed: "Problem:" and the reason, with **Open the task** and **Ask Truchsess why**. A card shows only your own tasks, for administrators too; a colleague's failed task is not on your card. An agent you have not used yet has no tag.
@@ -190,7 +193,7 @@ Some agents ask questions at install, under "This agent asks you to choose:".
 | Kind | What you choose | Notes |
 | --- | --- | --- |
 | Repository | One repository from your GitHub connection, listed as `organization/repository`. Some agents, such as Bob's roles, take several: you tick the product's repositories, at most 10, all in one GitHub organization. | If GitHub is not connected, the box says so and offers **Open Connections**. GitHub is in **Settings** › **Advanced** › **Connections**. |
-| Product | One of the box's products. | If the list is empty, add a product first in **Settings** › **Advanced** › **Knowledge**, **Add a product**. |
+| Product | One of the box's products. | If the list is empty, add a product first in **Settings** › **Your company**, part **Products and documents**, **Add a product**. |
 | Website | One website address, for example `www.example.com`. | The agent reaches exactly this host. Wildcards, IP addresses and local names are refused. |
 
 A required repository question starts with nothing chosen: "Choose one". An optional question offers **Skip (the permission is declined)**. The Install button stays greyed out until every required question is answered, and says why, for example "Choose an answer to each question above first." or "Enter the website first."
@@ -235,7 +238,7 @@ A signed package file can be installed several times, for example one agent per 
 
 ## Name and rename an agent
 
-When you add an agent from the store, the form asks for its **Name** and proposes one, for example "Bob (Catering)" once you choose the product Catering. The name shows on **Home**, in **Chat**, on the card and in **Settings** › **Plan and costs**. The function, for example "Software delivery", stays the line under it.
+When you add an agent from the store, the form asks for its **Name** and proposes one, for example "Bob (Catering)" once you choose the product Catering. The name shows on **Home**, in **Chat**, on the card and in **Settings** › **The AI and costs**. The function, for example "Software delivery", stays the line under it.
 
 To rename it later:
 
@@ -271,7 +274,7 @@ The box waits ("Waiting for the payment …") and installs the copy as soon as t
 
 - If you stop before paying, nothing is installed: "If you stop here, nothing is installed and your answers are kept for the next try." **Add another copy** opens again with your answers.
 - A copy you paid for while the page was closed is installed the next time an administrator opens **Agents**.
-- **Settings** › **Plan and costs** lists each paid copy as its own line, for example "Product Owner, second copy: CHF 249", and the agents' total per month.
+- **Settings** › **The AI and costs** lists each paid copy as its own line, for example "Product Owner, second copy: CHF 249", and the agents' total per month.
 
 To end a copy, open its card and press **Stop this copy** (the button names the price per month), then confirm. That copy stops working at once, its price ends with the period already paid for, and its finished work stays readable. The first copy is not touched.
 
@@ -291,7 +294,7 @@ After the payment the box installs the lead and every role one after the other: 
 
 - Each Bob reaches only its own repositories, and hands work only to its own roles.
 - When an agent for a product hands work to Bob, it reaches the Bob of that product. If that is not clear, the person is asked.
-- **Settings** › **Plan and costs** shows one line per Bob with its name, for example "Bob (Catering): CHF ...".
+- **Settings** › **The AI and costs** shows one line per Bob with its name, for example "Bob (Catering): CHF ...".
 - To stop it, open its card and press **Stop this copy**: the subscription ends at the end of the paid period, and its finished work stays readable. The first Bob is not touched.
 
 The whole setup, with the GitHub organization and the product's rules, in order: [Set up a second product](/admin/second-product/).
@@ -331,9 +334,9 @@ When a newer version of an agent is ready, its card on **Agents** says "Update a
 2. If the new version may do more than before, a window says what: "... may then also:" and each new permission in plain words. Nothing changes until you press **Allow and update**.
 3. **Not now** closes the window. The agent keeps its version.
 
-With two or more updates waiting, **Update all** at the top of **Agents** updates every waiting agent one after the other; its window says **Allow and update all**. **Settings** › **Updates** names the agents' updates too. See [Updates](/admin/updates/).
+With two or more updates waiting, **Update all** at the top of **Agents** updates every waiting agent one after the other; its window says **Allow and update all**. **Settings** › **Updates and safety copies** names the agents' updates too. See [Updates](/admin/updates/).
 
-When **Install updates automatically** is on in **Settings** › **Updates**, "Box and agents update at night, between 02:00 and 05:00 your time." See [Updates](/admin/updates/).
+When **Install updates automatically** is on in **Settings** › **Updates and safety copies**, "Box and agents update at night, between 02:00 and 05:00 your time." See [Updates](/admin/updates/).
 
 A progress line shows each agent. A failed update never stops the others; the agent keeps running on its version: "... could not be updated; it runs version ... as before."
 

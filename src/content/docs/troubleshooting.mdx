@@ -72,17 +72,17 @@ Every box has its own name, `truchsess-` followed by four characters and `.local
 | "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." | The administrator presses **Request top-up** or **Use my own AI key** in the banner. See [Budget](/admin/budget/). |
 | "The AI key of this box has no credit left. New runs are paused. ..." | The administrator presses **Request top-up** or **Use my own AI key** in the banner. Ask support. |
 | "The AI provider refused this box's key. Agents wait until it works again; the box checks it by itself." | Wait: the box checks the key again by itself. The administrator can press **Check the key again** in the banner. If it stays, ask support. |
-| "Budget exhausted: ..." and **Send** is greyed out. | Wait for the next period, or the administrator raises the **Monthly limit** in **Settings** › **Plan and costs**, or requests a top-up. See [Budget](/admin/budget/). |
+| "Budget exhausted: ..." and **Send** is greyed out. | Wait for the next period, or the administrator raises the **Monthly limit** in **Settings** › **The AI and costs**, or requests a top-up. See [Budget](/admin/budget/). |
 | **Send** is greyed out with a note about the data rule. | The agent's model does not meet the box's data rule. The administrator changes the lane's model or the rule. See [AI providers and lanes](/admin/ai-providers-and-lanes/#model-lanes). |
 | "... cannot be attached. Chat takes PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx), text (.txt, .md, .csv, .json) and pictures (.png, .jpg, .webp)." | Save the file in one of these formats; an old `.doc`, `.xls` or `.ppt` as `.docx`, `.xlsx` or `.pptx`. See [Attach files in Chat](/use/attach-files/#if-it-does-not-work). |
 | "...; a file can be at most 25 MB." or "The files of one message can be at most 50 MB together; ..." | Attach smaller files, or send them in several messages. |
-| "The agent read pages ... of ... of ...; the rest did not fit into one task." | The agent reads about 80,000 characters of files per message. Send another message about the later pages. See [How much the agent reads](/use/attach-files/#how-much-the-agent-reads). |
+| "The agent read pages ... of ... of ...; the rest did not fit into one task." | The agent reads as much of the files as its AI reads at once. Send another message about the later pages. See [How much the agent reads](/use/attach-files/#how-much-the-agent-reads). |
 | "... is a picture; the agent's model reads text only, so it did not see it." | Describe the picture in the message, or attach the text as a PDF or Word file. |
 | "The AI service could not be reached. Nothing was charged. Try again in a minute." | Wait a minute, then press **Try again** on the task. See [When a task fails](/use/follow-a-run/#when-a-task-fails). |
 | "This conversation is too long for one message to the AI. ..." | Press **Start a new conversation** and send a shorter text or fewer attachments. |
 | "Your ChatGPT plan's usage limit is reached. It resets at ..." | Wait until that time. Sending again before then does not help. |
 | "The ChatGPT sign-in has expired. ..." | An administrator signs in again. See [Use a ChatGPT subscription](/admin/chatgpt-subscription/). |
-| "That message is too long. Shorten it and try again." | A message can have up to 12,000 characters. |
+| "This message is about ... pages long. ...'s AI reads about ... pages at once. Attach it as a file, or send the part you need. Nothing was charged." | Send the part you need, or attach the text as a file. See [Long messages](/use/start-a-task/#long-messages). |
 | A run shows "Failed:" and "Request timed out before a response was generated." | The step took too long. Split the task into smaller tasks. |
 | A run shows "Refused by ...". | The administrator refused an action. Read the reason. |
 | A run stays "Waiting for your approval". | The administrator decides on **Home**, in **Needs you**, or on the run card in **Chat**. See [Approvals and checks](/use/approvals-and-checks/). |
@@ -108,23 +108,23 @@ Every box has its own name, `truchsess-` followed by four characters and `.local
 | "Answer the questions above first." | Answer every required install question. |
 | "GitHub is not connected on this box. Connect it under Settings > Advanced > Connections, then install again." | Connect GitHub first. |
 | "The GitHub connection lists no repositories yet. Press Refresh under Settings > Advanced > Connections." | Choose repositories on GitHub, then **Refresh**. |
-| "This box has no products yet. Add one under Settings > Advanced > Knowledge, then install again." | Add a product under **Settings** › **Advanced** › **Knowledge**, panel **Add a product**. |
+| "This box has no products yet. Add one under Settings > Advanced > Knowledge, then install again." | Add a product under **Settings** › **Your company**, part **Products and documents**, **Add a product**. |
 | An install shows "failed" and "Not running". | Read the error on its row in **Settings** › **Advanced** › **Agents**, panel **Installed agents in detail**. Press **Retry**, or **Remove** it and start again. See [Install and manage agents](/admin/packages/#failed-install-retry-or-remove). |
 | An agent says "Not installed here yet: the store still holds an install from this box that never finished." | Press **Install** on that agent in the store (**Store** on **Agents**): it takes that install over with your answers. See [Store](/admin/store/#an-install-the-store-still-holds). |
 | A removed store install says "The store could not be reached to check whether it still holds this install." | Press **Check with the store again** when the box is online. |
 | Chat says "The subscription for ... has ended. Subscribe again to use this agent." | The function's subscription ended; the agent is stopped and its files are kept. The administrator subscribes again. See [Store](/admin/store/#what-happens-to-an-installed-agent). |
 | "GitHub has not granted ... to this box yet." | Follow the steps on the card. See [Connections](/admin/connections/#when-the-box-asks-for-new-github-permissions). |
-| "Check for updates first: the last check is too old to know the newest release." | In **Settings** › **Updates**, press **Check for updates**, then **Update now**. |
+| "Check for updates first: the last check is too old to know the newest release." | In **Settings** › **Updates and safety copies**, press **Check for updates**, then **Update now**. |
 | "An update is already running or waiting; wait for it to finish." | Wait. |
 | "The download of the release is too slow or stopped. Nothing was changed. Try again later." | Try again later. |
 | "Portal restarting, reconnecting" | Normal during an update or a restore. Wait. |
-| "No recovery key yet: create it under Settings > Safety copies. Without it the box makes no backup." | Make the recovery sheet in **Settings** › **Safety copies**, **Recovery sheet**: press **Make the recovery sheet**. See [Backup](/setup/backup/). |
+| "No recovery key yet: create it under Settings > Safety copies. Without it the box makes no backup." | Make the recovery sheet in **Settings** › **Updates and safety copies**, **Recovery sheet**: press **Make the recovery sheet**. See [Backup](/setup/backup/). |
 | "This recovery key does not open this backup. ..." | Use the key that was current when the backup was made. |
 | "This backup comes from a newer release (...). Update this box first, then restore." | Update the box, then restore. |
 | An upload (a backup file, a package file or knowledge files) is refused. | The box says why in words, for example a wrong setup code, or that you are not signed in. Fix it, then try again. A file above the upload limit can still end with a connection error. |
 | "The download broke ...: the connection to the box was lost. Nothing was saved." | Check that the computer is still on the office network, then press **Download** again. |
 | After a restore, **Enter these again** lists "The AI provider key". | Press **Change AI provider** under **Settings** › **Advanced** › **AI**, panel **Own AI key**. |
-| "Tick “I have read what passes through the remote service” to switch it on." | In **Settings** › **Your company**, **Reach your box from home**, tick the box, then **Switch on**. |
+| "Tick “I have read what passes through the remote service” to switch it on." | In **Settings** › **People and access**, **Reach the box from home**, tick the box, then **Switch on**. |
 | **Not from a run (unattributed)** (**Settings** › **Advanced** › **AI**, **Costs in detail**) is above 0. | AI use happened outside a task. Tell support. |
 
 ## Activation and AI

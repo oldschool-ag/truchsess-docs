@@ -64,6 +64,8 @@ The full list of every run is for experts: **Settings** › **Advanced** › **A
 
 ### When a task fails
 
+**Details** on a task's card also has the row **Models**: the model each step ran on, as the AI reported it, for example `openai/gpt-6-astra`. A task from before this update may say "not recorded".
+
 A failed task says why in one plain line, never in the box's internal words. The error as the box recorded it stays behind **Details** on the card, under "Error as recorded", for support. Under the line there is at most one button:
 
 - **Try again** sends the same message once more, with the same links and files, as a new task. The button then says "Sent again". Only the person who sent the message can send it again.
@@ -73,7 +75,10 @@ A failed task says why in one plain line, never in the box's internal words. The
 | --- | --- | --- |
 | "The AI service could not be reached. Nothing was charged. Try again in a minute." | The box did not reach the AI service. | Wait a minute, then press **Try again**. |
 | "The task stopped because of a problem in the box. Nothing was charged. Try again; if it happens again, tell your administrator." | Something in the box stopped the task. | Press **Try again**. If it happens again, tell your administrator. |
-| "This conversation is too long for one message to the AI. Start a new conversation with a shorter text or fewer attachments. Nothing was charged." | Your text and the files' text are too long for one message. | Press **Start a new conversation** and send a shorter text or fewer attachments. |
+| "This message is about ... pages long. ...'s AI reads about ... pages at once. Attach it as a file, or send the part you need. Nothing was charged." (or "This message and its files are about ... pages long. ...") | The text is longer than the agent's AI reads at once. The task did not start. | Send the part you need, or attach the text as a file: the agent then reads as much as fits. |
+| "This message is about ... pages long. No AI on this box reads that much at once. Attach it as a file, or send the part you need. Nothing was charged." | The message is longer than any AI on the box reads (about 1,300 pages). | Send the part you need, or attach it as a file. |
+| "Its AI is not available: the ChatGPT plan is signed out. ..." | The agent works on a model of your ChatGPT plan, and the box is signed out of ChatGPT. Nothing ran. | An administrator signs in with ChatGPT again, or chooses another AI for the agent (see [Choose an agent's AI](/admin/agent-ai/)). Then press **Try again**. |
+| "This conversation is too long for one message to the AI. Start a new conversation with a shorter text or fewer attachments. Nothing was charged." (tasks from before this update) | Your text and the files' text are too long for one message. | Press **Start a new conversation** and send a shorter text or fewer attachments. |
 | "This conversation is too long for the AI model. Start a new conversation with a shorter text. Nothing was charged." | The AI model cannot take this much text at once. | Press **Start a new conversation** and send a shorter text. |
 | "Your ChatGPT plan's usage limit is reached. It resets at ..." | The box runs on a ChatGPT subscription, and its limit is used up. | Wait until the time it names. Sending again before then does not help. |
 | "The ChatGPT sign-in has expired. Sign in with ChatGPT again under Settings > Advanced > AI." | The box's ChatGPT sign-in ended. | An administrator signs in again. See [Use a ChatGPT subscription](/admin/chatgpt-subscription/). |
