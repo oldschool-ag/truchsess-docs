@@ -1,0 +1,198 @@
+{
+ "source": "oldschool-ag/truchsess#186 at 12e6bb7",
+ "places": {
+  "note": "T135 addendum (the CEO, 24 Oct): the one list of Settings' places. The overview's cards, Advanced's topic and section cards, the left menu, the help map's test and the completeness check read this block (company_os_settings_places.py). A topic with one section opens it at the topic's address. 'until' names the part that moves a topic out of Advanced. 'oldPlaces': the names messages still use for places that moved, and where each leads.",
+  "pages": [
+   {
+    "key": "people",
+    "title": "People and access",
+    "href": "/#settings/people"
+   },
+   {
+    "key": "ai",
+    "title": "The AI and costs",
+    "href": "/#settings/plan"
+   },
+   {
+    "key": "updates",
+    "title": "Updates and safety copies",
+    "href": "/#settings/updates"
+   },
+   {
+    "key": "company",
+    "title": "Your company",
+    "href": "/#settings/company"
+   },
+   {
+    "key": "advanced",
+    "title": "Advanced",
+    "href": "/#advanced",
+    "topics": [
+     {
+      "key": "ai",
+      "title": "Your own AI",
+      "lead": "models",
+      "sections": [
+       {
+        "key": "models",
+        "title": "Models"
+       },
+       {
+        "key": "private-ai",
+        "title": "A private AI company"
+       },
+       {
+        "key": "chatgpt",
+        "title": "ChatGPT sign-in"
+       }
+      ]
+     },
+     {
+      "key": "files",
+      "title": "Agents from files",
+      "lead": "install-from-file",
+      "sections": [
+       {
+        "key": "install-from-file",
+        "title": "Install from a file"
+       },
+       {
+        "key": "publishers",
+        "title": "Trusted publishers"
+       },
+       {
+        "key": "test-store",
+        "title": "Private test store"
+       }
+      ]
+     },
+     {
+      "key": "apps",
+      "title": "Your own apps at Microsoft, Google and GitHub",
+      "lead": "microsoft",
+      "sections": [
+       {
+        "key": "microsoft",
+        "title": "Microsoft 365"
+       },
+       {
+        "key": "google",
+        "title": "Google"
+       },
+       {
+        "key": "github",
+        "title": "GitHub"
+       },
+       {
+        "key": "mailboxes",
+        "title": "Mailboxes connected through these apps"
+       }
+      ]
+     },
+     {
+      "key": "older",
+      "title": "Older data",
+      "lead": "old-conversations",
+      "sections": [
+       {
+        "key": "import",
+        "title": "Import from an older box"
+       },
+       {
+        "key": "old-conversations",
+        "title": "Old assistant conversations"
+       }
+      ]
+     },
+     {
+      "key": "activity",
+      "title": "Activity",
+      "lead": "tasks",
+      "sections": [
+       {
+        "key": "tasks",
+        "title": "Tasks"
+       },
+       {
+        "key": "recent-changes",
+        "title": "Recent changes"
+       }
+      ]
+     },
+     {
+      "key": "support",
+      "title": "For support",
+      "lead": "ssh",
+      "sections": [
+       {
+        "key": "tests",
+        "title": "Tests"
+       },
+       {
+        "key": "ssh",
+        "title": "Remote access for support (SSH)"
+       },
+       {
+        "key": "update-log",
+        "title": "Update log"
+       }
+      ]
+     },
+     {
+      "key": "costs",
+      "title": "AI key, data and costs",
+      "lead": "costs",
+      "until": "T134",
+      "sections": [
+       {
+        "key": "own-key",
+        "title": "Own AI key"
+       },
+       {
+        "key": "managed-ai",
+        "title": "AI of this box"
+       },
+       {
+        "key": "costs",
+        "title": "Costs in detail"
+       },
+       {
+        "key": "data-rule",
+        "title": "Which AI providers may see your data"
+       }
+      ]
+     },
+     {
+      "key": "products",
+      "title": "Product access",
+      "lead": "product-access",
+      "until": "T134",
+      "sections": [
+       {
+        "key": "product-access",
+        "title": "Product access"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "oldAddresses": {
+   "/#advanced/agents": "/#advanced/files",
+   "/#advanced/connections": "/#advanced/apps",
+   "/#advanced/knowledge": "/#settings/company",
+   "/#advanced/box": "/#advanced/support",
+   "/#advanced/rules": "/#advanced/costs/data-rule"
+  },
+  "oldPlaces": {
+   "Settings > Advanced > Agent rules": "/#advanced/costs/data-rule",
+   "Settings > Advanced > AI": "/#advanced/costs",
+   "Settings > Advanced > Agents": "/#advanced/files",
+   "Settings > Advanced > Connections": "/#advanced/apps",
+   "Settings > Advanced > Knowledge": "/#settings/company",
+   "Settings > Advanced > Box": "/#advanced/support",
+   "Settings > Advanced > Support access": "/#advanced/support/ssh",
+   "Settings > Advanced > Activity and audit trail": "/#advanced/activity"
+  }
+ }
+}

@@ -34,3 +34,6 @@ jobs:
 
       - name: Every fixed page address and every required store link is present
         run: npm run check:pages
+
+      - name: "Every place of the box's Settings list has its help (docs/settings-places.json)"
+        run: npm run check:anchors

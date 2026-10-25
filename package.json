@@ -15,7 +15,9 @@
     "check:not-yet": "node scripts/sync-not-yet.mjs --check",
     "check:text": "node scripts/check-text.mjs",
     "check:pages": "node scripts/check-pages.mjs",
-    "test": "npm run check:not-yet && npm run build && npm run check:text && npm run check:pages"
+    "check:anchors": "node scripts/check-settings-anchors.mjs",
+    "sync:settings-places": "node scripts/sync-settings-places.mjs",
+    "test": "npm run check:not-yet && npm run build && npm run check:text && npm run check:pages && npm run check:anchors"
   },
   "dependencies": {
     "@astrojs/starlight": "0.42.4",
