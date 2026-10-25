@@ -1,0 +1,54 @@
+---
+title: Agents from files
+description: "Help for Settings > Advanced > Agents from files: installing and updating agents from signed files, the publishers the box trusts, and a private test store."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Advanced** › **Agents from files**: "For developers. Agents from the Truchsess store need none of this."
+
+**Who sees it:** administrators only. Adding or removing a publisher works in the office only.
+
+Its card says what is installed from files, or "Nothing is installed from a file yet."
+
+<ComingNext>
+This topic comes with the next update, with the single file field, the publisher rows with **Remove**, and the private test store. In release 2026.10.24-2bb4bff the same functions are under **Advanced** › **Agents**.
+</ComingNext>
+
+## Install from a file [#install-from-file]
+
+**What it is for:** installing or updating an agent from a signed file (.tar) a developer gave you.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Agent file (.tar)** and **Upload and inspect** | Uploads one or more files and checks them. | For one file the box shows its name, version, publisher ("trusted" or "NOT trusted on this appliance"), signature and what it may do. For several files it shows, per file, whether it is new, an update or already up to date. Nothing is installed yet. |
+| **Name for this install** and **Install** | Installs the agent under that name. | The box shows the steps. A newer version says **Update the install to version** and the number. If the publisher is not trusted, the button is grey and says why. |
+| **Update all from these files** | Updates every agent the files update. | New permissions ask first (**Allow and update all**). Each agent says which version it runs afterwards; one that failed keeps its version. |
+| **discard** | Drops an uploaded file that was not installed. | |
+
+More: [Install and manage agents](/admin/packages/).
+
+## Trusted publishers [#publishers]
+
+**What it is for:** "The box installs a file only when it is signed by a publisher on this list."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Public key (PEM, from the .pub file)**, **Label**, **Add publisher** | Adds a publisher's key. | "is trusted." The change is recorded in the activity record. In the office only. |
+| **Remove** | Removes a publisher. | The box asks first: "Agents signed with its key can no longer be installed or updated; installed agents keep running." This cannot be undone; add the key again. |
+| **Trust** a publisher the store offers | Shown when the store offers agents from a publisher this box does not trust yet, with its fingerprint. | Compare the fingerprint with the one the publisher gave you, then confirm. "Its agents can be installed now." |
+
+The store connection is shown here too: when the box connected to the store and when it last had contact. To connect, use [Updates and safety copies](/settings/updates/#updates).
+
+## Private test store [#test-store]
+
+**What it is for:** "For agent developers who test against their own store." It shows only when support has switched it on for your box.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Store address**, **Certificate of the test store (PEM)**, **Use this test store** | Points the box at your test store. | Saved at once: then connect it under Updates and safety copies with a code from that store. An empty address goes back: "The box uses the Truchsess store again." |
+
+More: [Store](/admin/store/).
+
+## Related pages
+
+- [Advanced](/settings/advanced/)

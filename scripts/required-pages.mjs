@@ -66,6 +66,22 @@ export const REQUIRED_PAGES = [
   '/not-yet/',
   '/troubleshooting/',
   '/releases/',
+  // The Settings help: each Settings page of the box links to one of these (settings-anchors.json)
+  '/settings/',
+  '/settings/people/',
+  '/settings/ai/',
+  '/settings/updates/',
+  '/settings/company/',
+  '/settings/account/',
+  '/settings/advanced/',
+  '/settings/advanced/ai/',
+  '/settings/advanced/files/',
+  '/settings/advanced/apps/',
+  '/settings/advanced/older/',
+  '/settings/advanced/activity/',
+  '/settings/advanced/support/',
+  '/settings/advanced/costs/',
+  '/settings/advanced/products/',
 ];
 
 // Pages that link to the FAIVR store docs, with the exact addresses they must contain.

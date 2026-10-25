@@ -1,0 +1,52 @@
+---
+title: For support
+description: "Help for Settings > Advanced > For support: the box's tests, remote access for support (SSH) that switches itself off after 24 hours, and the update log."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Advanced** › **For support**: what Truchsess support may ask you to open on a call.
+
+**When you need it:** support asks you to run a test, to switch SSH on or add a key, or to read the update log. Otherwise you do not need this page.
+
+**Who sees it:** administrators only. SSH and its keys are changed in the office only: "For safety, SSH access can only be changed in the office."
+
+<ComingNext>
+This topic comes with the next update, and so do the rows with the last run, the gateway test's question, **Full output**, and SSH switching itself off after 24 hours. In release 2026.10.24-2bb4bff the tests, SSH and the log are under **Advanced** › **Box** and **Support access**, and SSH stays on until you switch it off.
+</ComingNext>
+
+## Tests [#tests]
+
+**What it is for:** three tests support may ask you to run. Each row says when it last ran and how it ended ("Last run: passed, 21 October", or "Not run yet").
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Run** on **Sandbox test** | Runs the sandbox test. | Runs at once; the result shows under the list. |
+| **Run** on **Gateway test** | Runs the gateway test, which restarts the gateway for a minute. | The box asks first: "Run the gateway test? It restarts the gateway for a minute; chat waits meanwhile." **Yes, run** runs it. It is refused while a chat is answering. |
+| **Run** on **Connection secrecy test** | Runs the connection secrecy test. | Runs at once. |
+| **Full output** | The newest run's full output, for support. | Nothing changes. |
+
+## Remote access for support (SSH) [#ssh]
+
+**What it is for:** lets Truchsess support reach the box's system directly, with a key, on a call you started. "Add a key only when Truchsess support asks you, on a call you started."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **SSH** (switch) | Switches support access on or off. | Changes at once, without a question. Off: "It switches itself off 24 hours after you switch it on." On: "On until" a time, today or tomorrow. After 24 hours the box switches it off by itself and records that. While it is on, Home says "Truchsess support can reach your box until" that time, with **Switch off**. |
+| **Public key** or **Or take it from GitHub** | The key support gives you, or a GitHub user name whose keys the box fetches. | **Add key** adds it. At most 20 keys. |
+| **Remove** on a key | Removes one key. | The box asks first: "SSH sessions using it stop working." **Yes, remove** removes it. |
+
+Without a key, "the box is reachable on its console only."
+
+## Update log [#update-log]
+
+**What it is for:** which update the box has, when it was installed, and how updates come ("updates at night, 02:00 to 05:00" or "updates with Update now").
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Details** | The last 200 lines of the update log, for support. | Nothing changes. |
+
+## Related pages
+
+- [Updates and safety copies](/settings/updates/)
+- [Report a problem](/use/report-a-problem/)
+- [Advanced](/settings/advanced/)

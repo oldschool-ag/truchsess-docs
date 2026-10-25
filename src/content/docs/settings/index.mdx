@@ -1,0 +1,41 @@
+---
+title: Settings
+description: "Help for the Settings overview: its four cards, what each card's two lines tell you, Advanced, and where each page's help is."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** is where an administrator manages the box. It opens with four cards. Each card shows two lines on how that part stands; press the card to open its page.
+
+**Who sees it:** administrators only. Members have no **Settings** in the menu. A member who opens a Settings address sees "Only for administrators", with the name of the box's administrator to ask, and **Back to Home**.
+
+**On the remote address:** the note "You are on the remote address. Secrets, SSH and rolling back can only be changed in the office, on the local address." An administrator enters the box password once before Settings open ([Remote access](/admin/remote-access/)).
+
+Nothing on this page changes anything. If one card's lines cannot be read, that card says "Could not be read." and the others still show theirs.
+
+## The four cards [#cards]
+
+| Card | Its two lines | Help |
+| --- | --- | --- |
+| **People and access** | How many people have an account, and who has not signed in yet. Then whether reaching the box from home is on, being switched on, has a problem, or off. | [People and access](/settings/people/) |
+| **The AI and costs** | "The AI that came with your box." or "Your own AI key." Then this month's cost against the limit, for example "CHF 41.50 of CHF 500 this month.", with a bar. With your own key the amount is "estimated". | [The AI and costs](/settings/ai/) |
+| **Updates and safety copies** | When the last safety copy was made. Then which update the box has. A yellow line says when an agent's update waits for your yes; it opens Home. | [Updates and safety copies](/settings/updates/) |
+| **Your company** | The company's name, language and time zone. Then the company mail domains and how many products. | [Your company](/settings/company/) |
+
+The cards came with release 2026.10.24-2bb4bff.
+
+<ComingNext>
+The card **Updates and safety copies** says "Recovery sheet: not saved yet." as long as no recovery sheet exists. On a computer, Settings' pages also unfold beneath **Settings** in the left menu, and Advanced's topics beneath **Advanced**. Every entry is a link you can open in a new tab, bookmark or send to a colleague.
+</ComingNext>
+
+## Advanced (for experts) [#advanced-link]
+
+The link under the cards: "For developers, IT and support. You do not need it to set up or run the box." See [Advanced](/settings/advanced/).
+
+## Your account
+
+Your own password, mailboxes and calendars are not in Settings: they are in [Your account](/settings/account/), for everyone.
+
+## Related pages
+
+- [Roles: who can do what](/start/roles/)
+- [Remote access](/admin/remote-access/)

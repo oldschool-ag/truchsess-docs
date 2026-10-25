@@ -1,0 +1,61 @@
+---
+title: People and access
+description: "Help for Settings > People and access: who can sign in, inviting a person, resetting a password, removing someone, and reaching the box from home."
+---
+
+**Settings** › **People and access** is everyone who signs in to this box, and reaching the box from home.
+
+**When you need it:** a new colleague starts, someone leaves, a password is forgotten, or you want to reach the box from home.
+
+**Who sees it:** administrators only. Inviting, changing a person, resetting a password and switching remote access on work in the office only; the box says so on the remote address: "For safety, passwords, keys and other secrets are entered only in the office. Open the box's local address there."
+
+## People [#people-list]
+
+**What it is for:** "Everyone who can sign in to this box. A new person gets Truchsess and the agents you tick."
+
+The table shows each person's **Name**, **Email**, **Role** (**Administrator** or **Member**), **State** and **Last login**. The state is one of: **Active**, **Not signed in yet**, **Disabled**, **Removed**, **Invited** (with the date until the link works), **Invitation expired**, **Invitation withdrawn**.
+
+A button that changes something first turns into **Confirm** with a sentence that says what happens, and **Cancel**. It turns back by itself after 10 seconds.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Reset password** | Gives a member a new one-time password. | "Every session of this person ends now." The window shows the password once, with **Copy**. The person must change it at the next sign-in. |
+| **Change name or e-mail** | Corrects a member's name or e-mail address. | **Save** saves it. "A new e-mail address signs the person out; they sign in with the new one." |
+| **Enable** | Shown only for a person an older version of the box disabled. | They can sign in again, with the same password. |
+| **Remove** | Removes a member for good. | Type their e-mail address to confirm. They are signed out at once, the history keeps the name, and their personal memory is deleted. The e-mail address is free again. This cannot be undone. If the memory cannot be deleted just now, nothing is removed. |
+| **Send again** | Makes a new invitation for an invited person. | The earlier link stops working; send the new one. For an administrator the box first asks for your own password. |
+| **Withdraw** | Takes an invitation back. | "The link stops working" and the person cannot sign in. **Send again** invites them anew. |
+
+Administrators have no buttons in this table.
+
+## Add a person [#invite]
+
+**What it is for:** inviting a new colleague. The box makes an invitation that you send yourself.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Name**, **Work e-mail** | Who the invitation is for. | |
+| **Member or administrator?** | **Member: uses the agents** (the default), or **Administrator: also manages people, costs and the box**. | For an administrator, enter **Your own password, to invite an administrator**. |
+| Which agents the person may use | One tick per agent. Truchsess, and agents set to everyone, are always included. | You can change this later on each agent's card. |
+| **Invite** | Makes the invitation. | "Send the invitation now: the link works once, for 7 days." The box sends no e-mail itself: use **Send from my e-mail** (opens your mail program with the text) or **Copy the invitation** (paste it into an e-mail or a chat), then **Done**. With the link the person sets a password only they know. |
+
+More: [People](/admin/users/) and [Members](/setup/members/).
+
+## Reach the box from home [#remote]
+
+**What it is for:** using the box away from the office, with an e-mail code. "Reaching your box from home goes through our remote service. It checks the e-mail code and passes your pages between your browser and this box; while it is on, the service can read what you see and type on the home address." **Who runs the remote service** says: Cloudflare, Inc., for Truchsess.
+
+The state line says **Off**, **Connecting** or **Connected**, with the address and the last contact.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Code from support** | The code that switches remote access on. It is entered once and never shown again. | Tick **I have read what passes through the remote service**, then **Switch on**. In the office only. |
+| **Switch off** | Stops reaching the box from home, for everyone. | The box asks first. The stored code is deleted; switching on again needs a new code from support. |
+| **Allow Settings on the remote address** | On: "an administrator on the remote address enters the box password once per session before Settings open. Members only need the e-mail code." Off: "Settings are available in the office only. An administrator on the remote address works like a member." | Saved at once. Changed in the office only. |
+
+More: [Remote access](/admin/remote-access/).
+
+## Related pages
+
+- [Roles: who can do what](/start/roles/)
+- [Settings](/settings/)

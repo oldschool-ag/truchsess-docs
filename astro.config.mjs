@@ -118,6 +118,32 @@ export default defineConfig({
           ],
         },
         {
+          // T143: one page per Settings page; each Settings page of the box links here
+          label: 'Settings, page by page',
+          items: [
+            { label: 'Settings', slug: 'settings' },
+            { label: 'People and access', slug: 'settings/people' },
+            { label: 'The AI and costs', slug: 'settings/ai' },
+            { label: 'Updates and safety copies', slug: 'settings/updates' },
+            { label: 'Your company', slug: 'settings/company' },
+            { label: 'Your account', slug: 'settings/account' },
+            {
+              label: 'Advanced',
+              items: [
+                { label: 'Advanced (for experts)', slug: 'settings/advanced' },
+                { label: 'Your own AI', slug: 'settings/advanced/ai' },
+                { label: 'Agents from files', slug: 'settings/advanced/files' },
+                { label: 'Your own apps', slug: 'settings/advanced/apps' },
+                { label: 'Older data', slug: 'settings/advanced/older' },
+                { label: 'Activity', slug: 'settings/advanced/activity' },
+                { label: 'For support', slug: 'settings/advanced/support' },
+                { label: 'AI key, data and costs', slug: 'settings/advanced/costs' },
+                { label: 'Product access', slug: 'settings/advanced/products' },
+              ],
+            },
+          ],
+        },
+        {
           label: 'Agents in the store',
           items: [
             { label: 'All agents', slug: 'agents' },

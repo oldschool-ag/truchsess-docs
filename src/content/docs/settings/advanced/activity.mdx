@@ -1,0 +1,44 @@
+---
+title: Activity
+description: "Help for Settings > Advanced > Activity: every task of every agent, every change on the box, and Download the audit."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Advanced** › **Activity**: every task and every change on the box, for checking and for support.
+
+**When you need it:** to find out what an agent did or why a task failed, to see who changed a setting, or to give an auditor or support one file.
+
+**Who sees it:** administrators only. A task someone kept private, or one that read a private mailbox, shows only who, when, status and cost.
+
+<ComingNext>
+Advanced as cards, with this topic and its two parts, comes with the next update. In release 2026.10.24-2bb4bff the task list is a table under **Advanced** › **Activity and audit trail**, without **Download the audit**.
+</ComingNext>
+
+## Tasks [#tasks]
+
+**What it is for:** every task of every agent, newest first, up to the last 100.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **All**, **Needs you**, **Active**, **Finished**, **Failed or cancelled**, **Routines** | Shows only those tasks; each shows how many there are. | The list changes at once. |
+| **Agent** | Shows one agent's tasks, or **All agents**. | The list reloads. |
+| **Search tasks** | Finds a word in the task or the agent's name. | The list narrows as you type. |
+| **Show self-tests** | Also shows the box's own test runs. | Off by default. |
+| **Details** | Shows every step the box recorded for that task. | **Close** closes it. Not for private tasks. |
+| **Download the audit** | Saves one file (CSV) of every change and every task, newest first: when, kind, who, what, agent, status, cost. | Saved on your computer at once. The download itself is recorded as a change. Private tasks show only who, when, status and cost. |
+
+Each task's line says its agent, its state (for example "needs you since 09:12", "finished today 09:12", "failed 21 October 03:42"), its cost and its first result file.
+
+More: [Follow a run](/use/follow-a-run/) and [Audit and status](/admin/audit-and-status/).
+
+## Recent changes [#recent-changes]
+
+**What it is for:** the last 30 changes on the box, newest first, including connections (for example "GitHub connected").
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| A change | What changed and when. | **Details** shows who did it ("By" a person, or "By the box") and, when different, the text as recorded. Nothing changes. |
+
+## Related pages
+
+- [Advanced](/settings/advanced/)

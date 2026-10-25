@@ -1,0 +1,56 @@
+---
+title: Your own apps at Microsoft, Google and GitHub
+description: "Help for Settings > Advanced > Your own apps: your IT's own app registrations at Microsoft 365, Google and GitHub instead of the Truchsess apps, and the mailboxes connected through them."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Advanced** › **Your own apps at Microsoft, Google and GitHub**: "Only if your IT wants its own registration. Without it, the Truchsess apps are used."
+
+**Who sees it:** administrators only. Every change here works in the office only. After a save, the box shows the steps it works through.
+
+<ComingNext>
+This topic comes with the next update. In release 2026.10.24-2bb4bff the apps are cards in the **Company mail** panel under **Advanced** › **Connections**.
+</ComingNext>
+
+## Microsoft 365 [#microsoft]
+
+**What it is for:** mail through your own app at Microsoft. Without it: "Not set up: mail uses the Truchsess app at Microsoft."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Directory (tenant) ID**, **Application (client) ID**, **Client secret**, **Secret expires on** | Your app's details from Microsoft Entra. The box keeps no copy of the secret in the page. | **Save** (or **Replace**) saves them. The line then says the tenant and when the secret expires. Shortly before it expires, the part says so: make a new secret in Microsoft Entra and enter it here. |
+| **Remove** | Removes your app. | The box asks first: "Every mailbox connected through it is disconnected." |
+| **How to set this up** | Seven steps in Microsoft Entra, and the redirect address to enter exactly. | Nothing changes. |
+| **Another Truchsess app ID** | Only if Truchsess support gave you another one. | **Save** saves it; an empty field goes back to the usual one. |
+
+## Google [#google]
+
+**What it is for:** "Google Workspace needs your own app: your IT makes it once in the Google admin console."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Client ID**, **Client secret** | Your app's details from Google. | **Save** (or **Replace**) saves them. **Remove** asks first, as for Microsoft. |
+| **How to set this up** | Seven steps in the Google console, and the redirect address. | Nothing changes. |
+
+## GitHub [#github]
+
+**What it is for:** "Use an existing GitHub App instead of the Truchsess one."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **GitHub organisation**, **App ID**, **Installation ID**, **Private key (.pem)** | Your app's details from GitHub. | **Use this GitHub App** stores them; the form empties. The change is recorded in the activity record. |
+
+More: [Connections](/admin/connections/).
+
+## Mailboxes connected through these apps [#mailboxes]
+
+**What it is for:** which people's mailboxes run through your apps. It shows only when there is one.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| A mailbox | The person's name (never the address), the provider and the state. | **Remove** asks first, then removes that mailbox from the box. Its owner connects it again in Your account. |
+
+## Related pages
+
+- [Company mail](/admin/company-mail/)
+- [Advanced](/settings/advanced/)

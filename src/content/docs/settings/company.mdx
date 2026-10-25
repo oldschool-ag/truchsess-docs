@@ -1,0 +1,76 @@
+---
+title: Your company
+description: "Help for Settings > Your company: the company's name, language and time zone, the company mail domains, products and their documents, and what the box knows and has learned about the company."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Your company**: "What the box knows about" your company, "and the words your agents use."
+
+**When you need it:** after setting up the box, when the company gets a new mail domain, a new product or new documents, or when an agent learned something wrong about the company.
+
+**Who sees it:** administrators only. Company mail and importing documents are changed in the office only.
+
+## About the company [#about]
+
+**What it is for:** the name, the language and the time zone every agent uses.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Company name** | The name agents and pages use. | **Save** saves it: "Saved." |
+| **Language and dates** | The language of the agents' work and how dates look, for example **Deutsch (Schweiz), 09.10.2026**. | **Save** saves it. |
+| **Time zone** | The box's clock, for example **Zurich (Europe)**. | **Save** saves it. The nightly safety copy and the update check move with the new time. |
+
+"The box took the language and the time zone from your browser when you set it up."
+
+## Company mail [#mail]
+
+**What it is for:** "Mail addresses at these domains are company mailboxes. Each person connects their own in Your account; agents read the mail and write drafts, they never send."
+
+Each domain shows its provider (for example **Microsoft 365** or **Google Workspace**, or the mail server the box found) and how many people connected their mailbox.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Add another domain** | Adds or changes a mail domain: **Mail domain**, **Mail provider**, **Incoming mail server (IMAP)**, and optionally the webmail and drafts folder addresses. | **Save** saves it. "Changing a domain's server disconnects the mailboxes in that domain; their owners see "Connect again" on Home." In the office only. |
+| **The company uses a Gmail or other free address** | "A free address such as Gmail is never a company domain. Add each company address one by one, with the person it belongs to." | **Add this company address** adds one. **Remove** removes it, with **Undo**. |
+| Collect signature samples | A tick in the domain form: closing lines of people who agree are collected for the company mail standard. | Saved with the domain. |
+
+More: [Company mail](/admin/company-mail/).
+
+## Products and documents [#products]
+
+**What it is for:** "What you sell. Agents read the documents of a product when a task is about it."
+
+Each product shows how many documents it has, and **Open**.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Add a product** | Adds a product. | Type the **Product name** and press **Add product**: "Product" and its name, "added." |
+| **Rename** | Changes a product's name. | "Every page shows the new name; earlier history lines keep the old one." |
+| **Archive** | Takes a product out of use. | The box asks first: it leaves every list and menu, people lose access, open requests for it close, and no agent reads its knowledge. Runs, knowledge and history stay. If something still uses the product, the box says what and archives nothing. |
+| **Restore** | Brings an archived product back with its knowledge. | Nobody gets access by themselves: assign it again under [Product access](/settings/advanced/products/). |
+| **Import documents** | Adds files (.zip, .md or .txt) to a product. | **Upload and review** shows what was found; **Import selected** imports it, **Discard** imports nothing. In the office only. |
+
+<ComingNext>
+**Add a product** asks only for the name; the box makes the product's id by itself. In release 2026.10.24-2bb4bff the form also asks for a **Product id**.
+</ComingNext>
+
+More: [Products and knowledge](/admin/products-and-knowledge/).
+
+## What the box knows [#knows]
+
+**What it is for:** what every agent knows about the company. "Each person's own memory is in their Your account."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **The company memory** | How many facts on how many pages the box keeps about customers, suppliers and your products. "Checks and proposals arrive in Home > Needs you." | **Find** searches the pages, for example for a customer's name. **Ask the memory** answers a question, optionally as of a date. Nothing changes. |
+| **What the company has learned** | What agents learned for the whole company, for example from drafts people changed. | **Change** then **Save** corrects a lesson. **Delete** removes it, with **Undo**. |
+| **Rule change requests** | Shown only when the box refused a lesson because of what it holds. | **Rule handled** or **Dismiss** closes the request. |
+| **Sent back or declined, per agent and week** | How often tasks were sent back or declined. "Across all members, never per person." A week with fewer than three people behind an agent's tasks shows no number. | Nothing changes. |
+| **The company mail standard** | "Every mail draft from a company mailbox follows it." One rule per line. | **Save the standard**: "Saved. Every new mail draft follows it." |
+
+More: [Knowledge](/use/knowledge/) and [What Truchsess has learned](/use/what-truchsess-learned/).
+
+## Related pages
+
+- [Your account](/settings/account/)
+- [Settings](/settings/)
