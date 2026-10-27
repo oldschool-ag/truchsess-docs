@@ -6,9 +6,11 @@ import NotYet from '~/components/NotYet.astro';
 
 A [product](/start/glossary/#product) is a part of your company that work belongs to. Products decide which members see what, and which [knowledge](/start/glossary/#knowledge) an agent may read.
 
-Products are for experts. The administrator finds them on **Settings** › **Advanced** › **Knowledge**: the panels **Products**, **Archived products**, **Add a product**, **Product catalog**, **Import documents**, **Import from V1**, **Assign product access**, **Product access** and **What Truchsess has learned**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+The administrator finds the products on **Settings** › **Your company**, part **Products and documents**: "What you sell. Agents read the documents of a product when a task is about it." Each product is a row with **Open**. **Open** on a product, or **Add a product**, shows the panels **Products** (with **Rename**, **Archive** and **Rules**), **Archived products**, **Add a product**, **Product catalog** and **Import documents**.
 
-Besides the product documents, the box keeps one **company memory**: the company's standards, what each person taught the agents, facts agents found while working, and one knowledge page per person, company, product or project. The memory finds things by meaning, not only by the words you type. The administrator looks after it on **Settings** › **Advanced** › **Box**, panel **Memory**. What people taught the agents is explained on [What Truchsess has learned](/use/what-truchsess-learned/).
+For experts, **Settings** › **Advanced** › **Knowledge** keeps **Import from V1**, **Assign product access**, **Product access** and **What Truchsess has learned**. Advanced is the link **Advanced (for experts)** at the end of Settings.
+
+Besides the product documents, the box keeps one **company memory**: the company's standards, what each person taught the agents, facts agents found while working, and one knowledge page per person, company, product or project. The memory finds things by meaning, not only by the words you type. What the box knows about the company is on **Settings** › **Your company**, part **What the box knows**: **Find a page**, **Ask the memory**, **What the company has learned** and **The company mail standard**. The memory's figures and checks are for experts: **Settings** › **Advanced** › **Box**, panel **Memory**. What people taught the agents is explained on [What Truchsess has learned](/use/what-truchsess-learned/).
 
 ## Who can do this
 
@@ -26,13 +28,13 @@ Besides the product documents, the box keeps one **company memory**: the company
 
 ### Add a product
 
-1. Open **Settings**, press **Advanced (for experts)**, then go to **Knowledge**, panel **Add a product**.
+1. Open **Settings** › **Your company**, part **Products and documents** and press **Add a product**.
 2. Enter **Product id** and **Product name**.
 3. Press **Add product**. The product is active at once.
 
 ### Rename a product
 
-1. On **Settings** › **Advanced** › **Knowledge**, panel **Products**, press **Rename** on the product's row.
+1. On **Settings** › **Your company**, part **Products and documents**, press **Open** on the product. In the panel **Products**, press **Rename** on its row.
 2. Type the new name and press **Save**. "Every page shows the new name; earlier history lines keep the old one."
 
 The product id stays the same, so installed agents, knowledge and runs are not touched. History lines keep the name they were written with, followed by "(now: ...)" with the new name. The box refuses an empty name, the same name, or a name another product has ("Another product is already called ...").
@@ -59,7 +61,7 @@ After archiving:
 
 ### Restore a product
 
-1. Open the panel **Archived products**. It shows each archived product, when (**Archived**) and by whom (**By**).
+1. On **Settings** › **Your company**, part **Products and documents**, press the line with the number of archived products, for example "1 archived product". The panel **Archived products** opens. It shows each archived product, when (**Archived**) and by whom (**By**).
 2. Press **Restore**, then **Confirm restore**.
 
 The product comes back with its knowledge. "Nobody gets access on their own: assign it again under Settings > Advanced > Knowledge." See [Give product access](/admin/users/#give-product-access).
@@ -76,7 +78,7 @@ An approved product request makes the product active, and the requester becomes 
 
 ### Import documents
 
-1. Open **Settings** › **Advanced** › **Knowledge**, panel **Import documents**.
+1. Open **Settings** › **Your company**, part **Products and documents**, press **Open** on the product, then go to the panel **Import documents**.
 2. Choose the **Product**.
 3. Choose the **Files**: one `.zip`, or several `.md` and `.txt` files.
 4. Press **Upload and review**.
@@ -123,7 +125,7 @@ The scan blocks an item that holds a token or key, a password, a private key, an
 2. Read the figures: **Records**, **Last change**, **Index**, **Search by meaning**, **Waiting for a person**, **Due for review**, **Search, last 24 hours**, **Test set (last night)**, **Database**, **Last backup with the memory**, **Last check** and **Learning**. Each one says OK, Needs a look or Needs action, with one sentence on why.
 3. Press **Check now** to run the nightly check at once. It takes seconds.
 4. Under **Waiting for your check**, answer the memory checks: two different answers to one question, a fact due for review, a likely duplicate, a claim V1 marked as disputed. Press the button that fits: **Keep**, **Replace**, **Merge**, **Delete** or **Confirm**.
-5. To look something up, type it under **Ask the memory**. To see what the memory knew on a day, choose **As of (optional)**. Press **Search**.
+5. To look something up, open **Settings** › **Your company**, part **What the box knows**, and type it under **Ask the memory**. To see what the memory knew on a day, choose **As of (optional)**. Press **Search**.
 6. Under **Knowledge pages**, press **Open** on a page. Change a fact with **Edit**, remove it with **Delete** (**Undo** brings it back), add one with **Add a fact**, and change the free text with **Edit the notes**.
 
 The nightly check runs at 3 at night. It fixes only safe things by itself: it indexes missing records and merges exact copies. Nothing is deleted unless a person chooses it. **Home** shows one line per kind of check, for example "... memory facts are due for review", with the button **Check**.
@@ -161,7 +163,7 @@ To go back to an earlier text, import the earlier file again: it shows as "chang
 | "That upload is older than six hours and was removed. Upload the zip again." | Upload the zip again. |
 | "The import stopped: ... What was written stays; upload the zip again to import the rest (written items show as unchanged)." | Upload the same zip again and import the rest. |
 | An agent's memory shows "do not import" | No agent of that name is on this box. Choose an agent under **Place**, or leave it out. |
-| A memory figure says Needs a look or Needs action | Read its sentence. For the index, the nightly check and the test set, press **Check now**. For the backup, make a safety copy under **Settings** › **Safety copies**. If the test set stays red, tell support. |
+| A memory figure says Needs a look or Needs action | Read its sentence. For the index, the nightly check and the test set, press **Check now**. For the backup, make a safety copy under **Settings** › **Updates and safety copies**. If the test set stays red, tell support. |
 | "Search by meaning" stays at preparing | The model is still downloading, or the download waits for its next attempt. Wait; search works with the exact words meanwhile. |
 | Files are listed under **Skipped** after **Upload and review** | Each row says why. Fix the file and upload again. |
 

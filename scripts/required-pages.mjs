@@ -21,6 +21,8 @@ export const REQUIRED_PAGES = [
   '/use/follow-a-run/',
   '/use/phone-and-voice/',
   '/use/approvals-and-checks/',
+  '/use/plans/',
+  '/admin/agent-ai/',
   '/use/knowledge/',
   '/use/workboard/',
   '/use/report-a-problem/',
@@ -66,6 +68,7 @@ export const REQUIRED_PAGES = [
   '/not-yet/',
   '/troubleshooting/',
   '/releases/',
+  '/building-truchsess/',
 ];
 
 // Pages that link to the FAIVR store docs, with the exact addresses they must contain.

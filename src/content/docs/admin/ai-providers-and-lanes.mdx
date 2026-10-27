@@ -4,7 +4,7 @@ description: See which AI the box uses, switch to the managed AI, change the AI 
 ---
 import NotYet from '~/components/NotYet.astro';
 
-Everything on this page is in **Settings** › **Advanced**. Advanced is the link **Advanced (for experts)** at the bottom of **Settings**. The part **AI** has the panels **Own AI key** (with the button **Change AI provider**), **AI of this box** and **Model lanes**. The data rule is the panel **Which AI providers may see your data** in the part **Agent rules**. **Settings** › **Plan and costs** shows the AI in one line.
+Everything on this page is in **Settings** › **Advanced**. Advanced is the link **Advanced (for experts)** at the bottom of **Settings**. The part **AI** has the panels **Own AI key** (with the button **Change AI provider**), **AI of this box** and **Model lanes**. The data rule is the panel **Which AI providers may see your data** in the part **Agent rules**. **Settings** › **The AI and costs** shows the AI in one line.
 
 ## Who can do this
 
@@ -101,7 +101,7 @@ PHOENIQS bills you directly. The box does not meter it and does not show its cos
 
 ## Model lanes
 
-A [model lane](/start/glossary/#model-lane) decides which model an agent uses. Each agent has one lane permission. An agent without one runs in the fallback lane. The panel **Model lanes** is on **Settings** › **Advanced** › **AI**.
+A [model lane](/start/glossary/#model-lane) decides which model an agent uses. Each agent has one lane permission. An agent without one runs in the fallback lane. An agent an administrator gave its own AI ignores its lane: see [Choose an agent's AI](/admin/agent-ai/). The panel **Model lanes** is on **Settings** › **Advanced** › **AI**.
 
 1. For **Cheap**, **Standard** and **Frontier**, choose a model from the list. For a model that is not listed, choose **Other model...** and type its id.
 2. Choose the **Fallback lane (no lane permission)**.
@@ -113,7 +113,7 @@ A [model lane](/start/glossary/#model-lane) decides which model an agent uses. E
 
 ## What you see afterwards
 
-- The status line at the bottom of the menu shows the provider and model.
+- On the card **The AI and costs** on **Settings** says "The AI that came with your box." or "Your own AI key.", with this month's costs; the provider and the model are in **Settings** › **Advanced** › **AI**.
 - The panel **AI of this box** says whether the box uses the managed AI or your own key.
 - Each run card shows its lane, its model and its data rule.
 - A lane that does not meet the rule refuses its runs before any model call, with a message that names the lane.

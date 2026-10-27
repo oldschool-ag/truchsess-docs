@@ -6,7 +6,7 @@ import NotYet from '~/components/NotYet.astro';
 
 ## Who can do this
 
-- The administrator sets the monthly limit on **Settings** › **Plan and costs**. The details are on **Settings** › **Advanced** › **AI**, panel **Costs in detail**. Advanced is the link **Advanced (for experts)** at the bottom of **Settings**.
+- The administrator sets the monthly limit on **Settings** › **The AI and costs**. The details are on **Settings** › **Advanced** › **AI**, panel **Costs in detail**. Advanced is the link **Advanced (for experts)** at the bottom of **Settings**.
 - Members see the budget banner above the chat. When the budget is used up, **Home** shows their agent as paused, with **Ask your administrator**. The administrator answers on **Home** › **Needs you**: **Open Plan and costs** or **Not now**.
 
 ## What you need
@@ -21,7 +21,7 @@ Know your billing mode (see [AI providers](/setup/ai-providers/#your-choices)):
 
 ### Read the costs
 
-**Settings** › **Plan and costs** shows **AI cost this month** as a number and a bar, the **Monthly limit**, and the AI in one line. For the details:
+**Settings** › **The AI and costs** shows **AI cost this month** as a number and a bar, the **Monthly limit**, and the AI in one line. For the details:
 
 1. Open **Settings** › **Advanced** › **AI**, panel **Costs in detail**. The badge shows the state: "within budget", "warning", "paused: budget exhausted", "no limit" or "unknown".
 2. Press **Refresh usage** to read the newest numbers. With **Managed by Old School**, the box also refreshes by itself every 15 minutes.
@@ -33,14 +33,14 @@ Know your billing mode (see [AI providers](/setup/ai-providers/#your-choices)):
 | **Remaining** | What is left, the warn and stop levels, and the dates of the period. |
 | **Projected for the period** | The expected total at the current pace. |
 | **Not from a run (unattributed)** | AI use that belongs to no run. It should be 0. If it grows, tell support. |
-| **Per agent this period** | Runs, turns, tokens and cost per agent. "Metered" says whether the number is the provider's own or the box's estimate. |
+| **Per agent this period** | Runs, turns, tokens and cost per agent. "Metered" says whether the number is the provider's own or the box's estimate. Under an agent, for example "12 runs on your ChatGPT plan, 3 second opinions": tasks on your ChatGPT plan cost nothing on this budget, and a second opinion's cost counts for the agent that asked. |
 | **Budget events** | Warnings, stops and top-up requests, with the time. |
 
 ### Change the budget
 
 The monthly limit:
 
-1. Open **Settings** › **Plan and costs**.
+1. Open **Settings** › **The AI and costs**.
 2. Enter the **Monthly limit** (a whole amount).
 3. Press **Save**.
 
@@ -67,7 +67,7 @@ With **Managed by Old School** you can raise the limit only up to the metered ke
 
 A box that is switched to the managed AI with an activation code (see [AI providers and lanes](/admin/ai-providers-and-lanes/#switch-to-managed-ai-with-an-activation-code)) gets a one-time starter credit. Its amount comes from the store; the first setup shows it.
 
-- **Settings** › **Plan and costs** shows how much starter credit is left. The panel **Costs in detail** shows **Starter credit** instead of **Monthly limit**, and **Used since activation** instead of **Used this period**. The panel says "Starter credit: the AI credit that came with this box, used once, with no monthly reset."
+- **Settings** › **The AI and costs** shows how much starter credit is left. The panel **Costs in detail** shows **Starter credit** instead of **Monthly limit**, and **Used since activation** instead of **Used this period**. The panel says "Starter credit: the AI credit that came with this box, used once, with no monthly reset."
 - There is no monthly reset. **Remaining** shows the date of the activation and "no monthly reset". **Projected** shows nothing: "a starter credit has no period".
 - At 80 percent, everyone sees a yellow banner: "AI starter credit: ... percent is used ... New runs stop at ... percent. Request a top-up, or use your own AI key."
 - At 100 percent, everyone sees a red banner: "The AI starter credit is used up. New runs are paused. Request a top-up, or use your own AI key." The administrator sees two buttons in the banner: **Request top-up** and **Use my own AI key**.

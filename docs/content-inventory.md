@@ -496,6 +496,7 @@ an agent still cannot see pictures, which /use/attach-files/ says).
 | G38 | Mail and calendars | Proton Mail or Tuta mail. | Not possible: their mail is end-to-end encrypted. Use another mailbox. | Support. |
 | G39 | Mail and calendars | An agent sends, deletes or moves mail. | Never: agents read mail and write drafts. You read each draft and send it yourself. | Administrator. |
 | G40 | Mail and calendars | An agent creates, changes or answers a meeting. | Never: agents only read calendars. Make the change in your calendar yourself. | Administrator. |
+| G41 | Approvals and autonomy | The box merges the pull requests of an approved plan by itself. | Coming with the Merge Gate's next store update. Until then a person merges each pull request. | Administrator. |
 
 ## 16. Workers (store functions)
 
@@ -731,14 +732,119 @@ Not as on `552abbb`, or not checkable from the box's code:
   (Bob's repository questions marked `multiple`). Until a box has it, each role asks for one
   repository. The docs say "where every agent that asks it takes several repositories".
 
-Where every page and setting is since T102 and T103 (#141): `docs/product/settings-structure.md` on
-master. In short: the menu is **Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat,
-Agents); **Your account** is the picture at the top right and holds **Your connections** (Email
-inbox, Calendars) and **What Truchsess has learned**; **Settings** has five sections, **People**,
-**Plan and costs**, **Safety copies**, **Updates**, **Your company**, and one link **Advanced (for
-experts)**; **Advanced** is one page with **Agent rules**, **AI**, **Agents**, **Connections**,
-**Knowledge**, **Box**, **Support access**, **Activity and audit trail**. Runs, Approvals and
-Administration are gone; what waits for a person is on **Home**, **Needs you**.
+Part 7d: Train 4 is #173 (T129, "Install all" finishes every agent of a function), merged alone as
+master `d1e3744`, release **Truchsess 2026.10.22-d1e3744**. Checked against master `2bb4bff` (Train 7),
+where its strings are unchanged. Not as in #173's "For the user docs":
+- "It says "Subscribed" once the payment went through." A Store card of a running subscription has
+  no status line; "Subscribed, not installed yet" and "Subscribed · ... of ... agents installed" are on
+  the function's card in **Installed agents in detail**. The docs do not promise a Store line.
+- "under the agent's settings, "What Bob may do"": the lead's fold is "What Lead may do" (the role
+  name), and the hand-offs are one line "Hand work to other agents" with **Details**, each with
+  **Remove**; **Allow for** gives one back. The docs say so.
+- The button reads **Install all (7)** with the number, and its heading "Install all 7 agents". The
+  form shows while any agent of a function of two or more is missing (before T129: two or more not
+  installed).
+- "5 of 7 installed. Install the rest" is shown to administrators only.
+- "contact Truchsess support": the box sends nothing to support by itself; the store's answer is in
+  the activity trail ("... not installed: store answered <status> <code>") and the journal.
+
+Part 7d: Train 5 (#176) merged as master `a7f21e0`: #153 (test harness only), #146 (T110, safety copies
+in France), #150 (T109, add a person in one step with an invitation) and #174 (T130, a product owner's
+plan, approved once). Release **Truchsess 2026.10.23-a7f21e0** (published 2026-10-23 08:59 UTC).
+Checked against `2bb4bff`, so the places are named as since Train 7 (#181: **People and access**,
+**Updates and safety copies**). New page: /use/plans/. Not as in the train's text, or not checkable
+from the box's code:
+- #146: "If a copy could not be sent for two nights, Home says so." The box builds that Home item
+  (kind `offbox`, `box.items`), but Home draws only the box tiles and the new-administrator items, so
+  it does not show on Home. It shows in the part **Copy in France** of the Safety copies section.
+  The docs say so; a portal fix is needed (like #163).
+- #146: the storage in France can be set today only under Advanced › Box, "Safety copy storage
+  (test)"; the store sets it for every box in part 2. "Use the newest copy in France instead of a
+  file" on a new box shows only when that box already has a storage. Where the data centre is
+  (the provider) is not in the box's code.
+- #150: "Settings > People > Add a person" is **Settings** › **People and access** since Train 7. The
+  button is "Invite" and the first name. The old one-time-password form is **Settings** ›
+  **Advanced** › **Support access**, "Add a person with a one-time password (for support only)".
+- #150, seen in the code, not in the text: the remote address signs in any account whose stored
+  status is active (`remote_login`), and an invited person's account is active from the start. So
+  a person who has not used the link yet, or whose link expired, can sign in on the remote address
+  with the e-mail code (and the row then reads Active, without a password). **Withdraw** disables the
+  account, so a withdrawn person cannot. The docs say the remote address works before the link is
+  used; whether an expired invitation should still allow it is a question for the product.
+- #174: the Needs you item is "<name>'s plan: <title>" with its own line "4 steps, 3 agents, 2
+  questions." and **Open the plan**; the risk words are "sign-in", "rights and roles", "deleting
+  data", "a schema or data migration", "payments", "security". A member gets no Home item for her
+  own plan (she opens it by its link). Writing plans needs Product Owner 1.4.0 (truchsess-agent-sources
+  G31), outside the box's code; /agents/product-ownership/ still names 1.2.0 and says a later version
+  writes plans.
+
+Part 7d: Train 6 (#178) merged as master `d009df5`: #180 (the shipped-box clock check, nothing a
+person sees), #175 (T131, merges inside an approved plan) and #177 (T136, polish batch 6). Release
+**Truchsess 2026.10.23-d009df5** (published 2026-10-23 15:12 UTC). Checked against `2bb4bff`. Not as in
+the train's text, or not checkable from the box's code:
+- The train names "Check for updates" and "Update now" as the release's What is new. The published
+  release's notes say only "Small fixes and improvements.": the release job could not read the pull
+  requests (`.github/scripts/whats_new.py`). /releases/ lists the changes and says so.
+- #175: the box merges only once the Merge Gate's next store update (truchsess-agent-sources G32) is
+  in the store; that is outside the box's code. The docs say "once the Merge Gate's next store update
+  is installed", and gap G41 lists it. The checks are set in the product's **Rules** panel, block
+  **Merges inside an approved plan** (not under Settings > Advanced > Knowledge: since Train 7 the
+  products are under **Settings** › **Your company**). At least one check must have run
+  ("Not merged: no check has run on this commit yet."). A draft pull request gets "Not merged: GitHub
+  refused it."
+- #177: "The box keeps the previous version, so it can always go back.": the question says "so it can
+  go back", and Roll back goes one step back. "Choose one" starts only a required repository
+  question; an optional question starts at "Skip (the permission is declined)". The name is proposed
+  from the copy's agents only when one of them was renamed. "Sloane" and "Strategy and challenge" are
+  store data.
+
+Part 7d: Train 7 (#188) merged (squash) as master `2bb4bff`: #185 (CI only), #182 (T138, an agent runs
+on the AI its job needs, second opinions), #181 (T132, the Settings redesign, one menu), #183 (T139,
+long messages in Chat) and #189 (a test only). #167 (T126) and #179 moved to Train 8. Checked against
+`2bb4bff`. Its release **Truchsess 2026.10.24-2bb4bff** came out on 2026-10-24 15:06 UTC and is the
+current release on /releases/; its What is new names "AI for this agent", "Second opinions", "One menu
+on every page", "The Settings overview", "Long messages in Chat" and "Longer than the AI reads". New page: /admin/agent-ai/. #181 has no section of its own; the conductor wrote one in #188's body.
+Not as in the train's text, or not checkable from the box's code:
+- #181: "with the count of what needs you": the count sits on **Home**, not on Settings. Each Settings
+  card has two short lines, not one. Not in the text but in the code: remote access moved to **People
+  and access** ("Reach the box from home"); products, archived products, Add a product, the catalog
+  and Import documents moved from Advanced › Knowledge to **Your company**, **Products and documents**
+  (**Open** on a product shows the panels); the mail domains moved from Advanced › Connections to
+  **Your company**, **Company mail** (Microsoft 365 and Google Workspace stay in Advanced ›
+  Connections, panel Company mail); **Ask the memory** is on **Your company**, **What the box knows**;
+  the status line is hidden. The docs follow the code everywhere.
+- #182: the second-opinion rows are numbered "1." to "3." with **No second opinion**; there are no
+  labels "Second opinions 1, 2 and 3". A task's **Details** row is **Models** and shows the model id
+  as the AI reported it (for example `openai/gpt-6-astra`), not a display name. Whether an agent says
+  that a review did not run depends on its own instructions (truchsess-agent-sources G33).
+- #183: "The message box never refuses it": the composer does not, but the portal refuses a message
+  over 4,000,000 characters (about 1,300 pages): "This message is about ... pages long. No AI on this
+  box reads that much at once. ...". "If the conversation has become too long with your new message,
+  the task says so and offers Start a new conversation" and "a long text you pasted earlier is not
+  sent again in full with every follow-up" need T126's conversation history (#167, Train 8); on
+  `2bb4bff` each message is its own run. Both are left out of the docs.
+
+Part 7d, last step: #190 (T140) merged as master `9d37809`. It changes no box code, only the rules
+the agents on box 1 follow (`docs/process/truchsess-playbook.md`), so it has no release entry. New page
+/building-truchsess/ from its "For the user docs", checked against the merged playbook: the plan, one
+issue per pull request, Claude Code on GitHub, the full box test before any merge, reviews by two AI
+companies, the CEO merges during the pilot, the risk classes always wait for the CEO, box 1 updates
+only on Update now and customers only from the store.
+
+Where every page and setting is since Train 7 (#181, T132; before it T102 and T103, #141): the menu is
+**Home**, **Chat**, **Agents**, **Settings** (members: Home, Chat, Agents). On a computer the menu is on
+the left, with your initials, name and role at the bottom (they open **Your account**); on a phone the
+top bar has the logo, **Ask Truchsess** and your initials, with the tabs under it. The status line at
+the bottom of the menu is hidden. **Your account** holds **Your connections** (Email inbox,
+Calendars), **What Truchsess has learned** and, for people who wrote to it, **Your old assistant
+conversations**. **Settings** opens with four cards, each with two short lines: **People and access**
+(People, **Reach the box from home**), **The AI and costs** (section Plan and costs), **Updates and
+safety copies** (Updates, Safety copies) and **Your company** (About the company, **Company mail**
+with the mail domains, **Products and documents**, **What the box knows**); then one link **Advanced
+(for experts)**. **Advanced** is one page with **Agent rules**, **AI**, **Agents**, **Connections**,
+**Knowledge** (now Import from V1, product access, What Truchsess has learned), **Box**, **Support
+access**, **Activity and audit trail**. A member who opens a Settings address reads "Only for
+administrators" with the administrator's name. What waits for a person is on **Home**, **Needs you**.
 
 ### 25.1 The list
 
@@ -835,6 +941,23 @@ Administration are gone; what waits for a person is on **Home**, **Needs you**.
 | #151 | T111: name your agents, and a second Bob for a second product (Train 3) | yes | /admin/packages/ (Name and rename an agent, A second Bob), /admin/store/, /admin/second-product/, /agents/software-delivery/ |
 | #157 | T116: bring your own playbook (a product's own rules for every agent working for it) (Train 3) | yes | /admin/product-rules/ (new), /admin/products-and-knowledge/, /admin/second-product/, /agents/software-delivery/ |
 | #172 | Train 3: T112, T111, T116 (merge of #152, #151 and #157) | the three sections below | none of its own |
+| #173 | T129: "Install all" finishes every agent of a function, or says why it stopped (Train 4, master d1e3744) | yes | /admin/store/ (Install all, An agent was not installed), /admin/packages/ (Functions with several agents, A second Bob), /admin/second-product/, /setup/first-agent/, /releases/ |
+| #153 | Test harness fixes (Train 5, master a7f21e0) | none (no product change) | none |
+| #146 | T110: safety copies in France (Train 5) | yes (written in the train body) | /admin/backup-and-restore/ (The copy in France), /setup/backup/, /releases/ |
+| #150 | T109: add a person in one step, with an invitation (Train 5) | yes | /admin/users/ (Add a person), /setup/members/ (The invitation page), /setup/first-run/ (Your team), /start/member/, /admin/remote-access/, /setup/remote-access/, /troubleshooting/, /releases/ |
+| #174 | T130: a product owner's plan, approved once (Train 5) | yes | /use/plans/ (new), /use/home/ (Needs you), /agents/product-ownership/, /start/glossary/ (Plan), /use/approvals-and-checks/, /releases/ |
+| #176 | Train 5: #153, #146, #150 (+ #174) | the sections below | none of its own |
+| #180 | The shipped-box clock check checks the helper's time zone (Train 6, master d009df5) | none (no product change) | none |
+| #175 | T131: merges inside an approved plan (Train 6) | yes (no bold subject until the Merge Gate's store update is in the store) | /admin/product-rules/ (Merges inside an approved plan), /agents/software-delivery/ (Merge Gate), /not-yet/ (G41), /releases/ |
+| #177 | T136: polish batch 6 (updates without a reload, old assistant conversations, card names, install questions, skipped questions, allow list) (Train 6) | yes | /admin/updates/, /use/your-account/, /admin/audit-and-status/, /admin/store/, /admin/packages/, /releases/ |
+| #178 | Train 6: #180, #175, #177 | the sections below | none of its own |
+| #185 | CI only (Train 7, master 2bb4bff) | none (no product change) | none |
+| #182 | T138: an agent runs on the AI its job needs, second opinions (Train 7) | yes | /admin/agent-ai/ (new), /admin/packages/, /admin/ai-providers-and-lanes/, /admin/chatgpt-subscription/, /admin/budget/, /use/home/, /use/follow-a-run/, /start/glossary/ |
+| #181 | T132: the Settings redesign and one menu (Train 7) | yes (written in #188's body) | every page that names a place (Settings paths, products, company mail, remote access, the menu, the status line) |
+| #183 | T139: long messages in Chat (Train 7) | yes | /use/start-a-task/ (Long messages), /use/attach-files/, /use/follow-a-run/, /troubleshooting/ |
+| #189 | A test only (Train 7) | none (no product change) | none |
+| #188 | Train 7: #185, #182, #181, #183, #189 | the sections below | none of its own |
+| #190 | T140: Truchsess playbook, Claude Code on GitHub, branch rules (master 9d37809) | yes | /building-truchsess/ (new) |
 
 ### 25.2 The "For the user docs" sections, verbatim
 
@@ -1702,3 +1825,93 @@ none (documents and screenshots only)
 #### #172 Train 3: T112, T111, T116
 
 The three sections above, as in #172's body.
+
+#### #173 T129: "Install all" finishes every agent of a function, or says why it stopped
+
+**Installing a function with several agents.** Some functions are a team: "Software delivery: Bob" is Bob and six roles. You subscribe once, then install the whole team with one button. 1. Go to Agents > Store and find the function. It says "Subscribed" once the payment went through. 2. Answer the questions once: the product, the repository. A question several agents ask is asked once. 3. Type a name for the team, for example "Bob Bakery". Bob is called "Bob Bakery", and each role gets "Bob Bakery - QA Reviewer" and so on. 4. Press **Install all**. The box installs Bob first, then each role. If one agent cannot be installed, the others still are. The Agents page shows the team as one card. If agents are missing, the card says so, for example "5 of 7 installed. Install the rest". Click the line to go back to the Store. Bob may hand work to his own roles; that comes with the team. You can take a hand-off away under the agent's settings, "What Bob may do", and allow it again there.
+
+**What "was not installed" means.** After Install all, the Store card may show a line such as "Bob Bakery - Issue Writer was not installed: the store refused it. Press Install all again. If it happens again, contact Truchsess support." The other agents are installed and working. Press Install all again: it installs only the missing agents, with the same name and answers, and never asks you to pay again. If the same line comes back, contact Truchsess support. The box keeps what the store answered.
+
+#### #153 Test harness fixes
+
+Nothing (no product change).
+
+#### #146 T110: safety copies in France (section written in #176's body)
+
+**Safety copies in France.** Every night after the copy on the box, the box also sends a locked copy to our data centre in France, once your storage there is set up. Until then nothing leaves the box. The night copy runs at 03:30 in your company's time zone (Settings > Your company). Settings > Safety copies shows when the last copy was made and when the box last tested it ("Last safety copy: today, tested on 3 November"); once a month the box opens the newest copy to check it. Only your recovery sheet opens the copies: without it nobody, Truchsess included, can open them. If a copy could not be sent for two nights, Home says so: "Your safety copy could not be sent for two nights. Your data is still on the box." To restore, Settings > Safety copies > Restore offers the copy in France next to the copies on this box and a file you upload. A new box offers "the newest copy in France" at setup.
+
+#### #150 T109: add a person in one step, with an invitation
+
+**People: add a person.** Settings > People > Add a person: type the name and work e-mail. Leave "Member" unless they should also manage people, costs and the box (then type your own password once more). Tick the agents they may use (Truchsess is always included) and press "Invite <name>". Send the invitation with "Send from my e-mail" or "Copy the invitation"; the box sends no e-mail. The link works once, for 7 days. "Send again" makes a new link and "Withdraw" stops it.
+**Your team (first setup, step 5).** Type each colleague's name and work e-mail and press "Add colleagues": each gets an invitation to send from your own e-mail or to copy. Or press "Skip for now" and invite them later under Settings > People.
+**The invitation page.** Open the link at the office, type your password twice (at least 12 characters, upper- and lower-case letters and a number) and press "Set my password". From then on, sign in with your e-mail address and that password. An expired, used or withdrawn link says so: ask your administrator for a new invitation.
+
+#### #174 T130: a product owner's plan, approved once
+
+**A product owner's plan, and approving it once.** Give your product owner (Alden) the request in Chat. When the work needs other agents, or access they do not have yet, Alden writes one plan instead of starting right away. The plan appears in Home under Needs you: "Alden's plan: Add a new language. 7 steps, 4 agents, 2 questions." Open it to see: what will be done, and by whom; the access each agent gets, in plain words; what nobody gets; Alden's questions; which steps will ask you again before they go live (sign-in, rights, deleting data, data migrations, payments, security). Answer the questions and press **Approve**. From then on, each agent in the plan has exactly the access the plan lists, only for this plan's work, for 14 days. Alden starts at once and tells you when every step is finished. His report keeps three things apart: built and tested, checked against real data, and delivered. **Change** sends Alden a message. The changed plan comes back for a new approval, and nothing new is allowed before that. **Not now** allows nothing. **Stop this plan** ends all its access at once. Only administrators approve. A member who asked for the work can follow her own plan and stop it.
+
+The train adds: "The Product Owner package that writes plans is G31 (oldschool-ag/truchsess-agent-sources#36, faivr.agent.product-owner 1.4.0). It builds only once T130 is on master."
+
+#### #176 Train 5: #153, #146, #150 (+ #174)
+
+The sections above, as in #176's body.
+
+#### #180 The shipped-box clock check
+
+Nothing (no product change).
+
+#### #175 T131: merges inside an approved plan
+
+**Merges inside an approved plan.** When Alden writes a plan with a merge step for Bob - Merge Gate and an administrator approves it, the box merges that plan's pull requests itself. It merges only when: the review says SHIP on exactly the pull request's latest commit, from an AI of another company than the one that wrote the code; every check the product requires is green on that commit (set the checks under Settings > Advanced > Knowledge, the product's Rules; if none are listed, every check must be green); the pull request belongs to the plan and goes into the main branch; the plan is still in force. The box merges exactly the reviewed commit and notes it on the pull request ("Merged by … for plan …"). The plan shows "Merged". If something is missing, the plan says in one line why not, for example "Not merged: 2 checks are not green yet." Nothing else changes: without such a plan a person merges, and nothing goes live. Merged means built and tested, not delivered.
+
+The train adds: no bold subject until the Merge Gate's store update (G32) is signed and in the store; until then a person merges.
+
+#### #177 T136: polish batch 6
+
+**Check for updates.** Settings > Updates > Check for updates says "Checking for updates…" and shows the result as soon as the check is done. No reload is needed.
+**Update now.** Update now asks once, in a row of its own: "Update the box to the ...?" with "Yes, update" and Cancel. Update now cannot be pressed again meanwhile. The box keeps the previous version, so it can always go back.
+**What is new.** Settings > Updates and Home list what a new version brings. For a version that brings only small changes, it says "Small fixes and improvements."
+**Old assistant conversations.** What you wrote to the old built-in assistant is yours: open or download it under Your account > Your old assistant conversations. An administrator sees only who wrote how many messages (Settings > Advanced > Box). They can delete one person's messages or everyone's, with Undo for 15 minutes; they never read them.
+**Agent cards.** A card shows the agent's name with its function under it, for example "Sloane" with "Strategy and challenge" under it.
+**Installing from the Store.** A question about a repository starts with nothing chosen ("Choose one"). Install all waits, with the line "Choose an answer to each question above first.", until every required question has an answer. The name is proposed from the agents of that copy already on the box.
+**A question skipped at install.** When an agent was installed without an answer to one of its questions (for example Strategy's website), its card says "1 question to answer". The button opens the question right on the card: type the answer and press Save, and the agent may use it at once. The same field is in the agent's "What Strategy may do". A member reads that an administrator answers it.
+**Allowing what the company rules did not allow.** After an install, the Store lists what your company rules did not allow, each with "Allow for <agent>". Each line you allow now says "Allowed for <agent> only", the count above goes down, and the list goes away when nothing is left.
+
+#### #178 Train 6: #180, #175, #177
+
+The three sections above, as in #178's body; its "What is new in this release": "Check for updates", "Update now".
+
+#### #185 CI only
+
+Nothing (no product change).
+
+#### #182 T138: an agent runs on the AI its job needs, second opinions
+
+**AI for this agent.** Every agent works on the box's level (Cheap, Standard or Frontier) unless an administrator names an AI model for it. In the agent's details, under For administrators, **AI for this agent** lists the box's AI models. While you are signed in with ChatGPT, it also lists your plan's models. Choose one, and for a model that reasons choose normal, high or highest reasoning. Press **Save**; it applies from the agent's next task. The box checks your data rule when you save and before every task. A model that does not meet it is not offered. Everyone sees one grey line on the card, for example "AI: GPT-5.6 Sol on your ChatGPT plan, highest reasoning". Members see the line, not the choice. Chat's header names the agent's lane and the AI behind it, for example "Frontier lane: GPT-6 Astra on your ChatGPT plan". A task's Details name the AI it ran on, even after the lane changed. A task from before this update may say "not recorded". If your ChatGPT plan is signed out, an agent set to one of its models stops with "Its AI is not available: the ChatGPT plan is signed out". It never uses another AI on its own. Sign in again, or choose another AI for it. Tasks on your ChatGPT plan cost nothing on the box's budget. Costs in detail counts them per agent ("12 runs on your ChatGPT plan").
+
+**Second opinions.** An administrator can give an agent up to three other AIs it may ask for a short second opinion, in the same place (Second opinions 1, 2 and 3). The other AI gets only the text the agent sends: no tools, no memory, no files. Its answer comes back marked as information, not as instructions. The box checks your data rule for each one, charges its cost to the agent, and records which AI answered. When your ChatGPT plan's limit is reached, the agent says the review did not run and when to try again.
+
+#### #181 T132: the Settings redesign and one menu (section written in #188's body)
+
+**One menu on every page.** On a phone, the top bar has the logo, Ask Truchsess and your initials, and the tab bar under it has Home, Chat, Agents and, for an administrator, Settings, with the count of what needs you. On a computer, the menu is on the left, with your name and role at the bottom.
+**The Settings overview.** Settings opens with four cards: People and access, The AI and costs, Updates and safety copies, and Your company, each with one line on how things stand. Advanced (for experts) is at the end.
+**Your company.** Your company's name, language and time zone; the company's mail domains (Microsoft 365 and Google open their webmail); company addresses at a free mail service, one by one; your products with their documents; and what the box knows, with Find and what the company has learned.
+A member who opens a Settings address reads "Only for administrators", with the administrator's name.
+
+#### #183 T139: long messages in Chat
+
+**Long messages in Chat.** You can paste a long text into Chat: hundreds of lines, a whole contract. The message box never refuses it. From about four pages, a line under the box says how long the text is and how much the agent's AI reads at once, for example "About 52 pages (300 lines). Example Agent's AI reads about 107 pages at once." If the text is longer than the agent's AI can read, the task stops before anything is sent and says so with both sizes. Nothing is charged. Send the part you need, or attach the text as a file: the agent then reads as much as fits, and the task says which part. If the conversation has become too long with your new message, the task says so and offers **Start a new conversation**. In a conversation, a long text you pasted earlier is not sent again in full with every follow-up: the agent gets its beginning and finds the rest in memory. Limits that stay: a hand-off to another agent carries at most 16 KiB of text, and a routine's instruction at most 4,000 characters.
+
+#### #189 A test only
+
+Nothing (no product change).
+
+#### #188 Train 7: #185, #182, #181, #183, #189
+
+The sections above, as in #188's body (its #182 text is a shorter part of #182's own).
+
+#### #190 T140: Truchsess playbook, Claude Code on GitHub, branch rules
+
+- **Building Truchsess from box 1:** P.O. Truchsess writes a plan, the CEO approves it once, Bob opens one issue per pull request, and Claude Code on GitHub builds each one.
+- **Who merges:** the CEO, during the pilot. Changes that touch sign-in, permissions, the network, keys, updates and installs, sandboxing, data migrations or the rules themselves always wait for the CEO.
+- **Updates:** box 1 updates only when the CEO presses **Update now**; customers get a release only when the CEO publishes it in the store.

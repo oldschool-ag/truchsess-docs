@@ -3,19 +3,54 @@ title: Releases
 description: What changed for users in each box release, newest first.
 ---
 
-Each box release has an exact version like **2026.10.21-84a4137**: the build date, then a short code. Your box shows its version under **Settings** › **Updates**, **On this box**: the update's name, for example **October 2026 update**, then "Version 2026.10.21-84a4137". Give that number to support. To install a newer one, see [Updates](/admin/updates/).
+Each box release has an exact version like **2026.10.21-84a4137**: the build date, then a short code. Your box shows its version under **Settings** › **Updates and safety copies**, **On this box**: the update's name, for example **October 2026 update**, then "Version 2026.10.21-84a4137". Give that number to support. To install a newer one, see [Updates](/admin/updates/).
 
 Releases up to 20 October 2026 are named by their tag, like `truchsess-iso-20261020-35b75a6`; the version is the same date and code (2026.10.20-35b75a6).
 
 Only changes people can see or use are listed here. Each entry names the places as they were in that release.
 
+## Truchsess 2026.10.24-2bb4bff
+
+Published 24 October 2026. Release tag `truchsess-iso-20261024-2bb4bff`. The current release.
+
+- New: give one agent its own AI model and reasoning instead of the box's level, also a model of your ChatGPT plan. Every card shows one grey line with the agent's AI, Chat's header names it, and a task's **Details** name the model it ran on. See [Choose an agent's AI](/admin/agent-ai/).
+- New: up to three second opinions per agent: other AIs it may ask, with text only. The box checks your data rule for each one and charges the cost to the agent. See [Give an agent second opinions](/admin/agent-ai/#give-an-agent-second-opinions).
+- New: an agent set to a ChatGPT model never moves to another AI by itself: while the plan is signed out it stops with one plain line, and nothing is charged. Tasks on your ChatGPT plan cost nothing on the box's budget.
+- Changed: one menu on every page. On a computer it is on the left, with your initials, name and role at the bottom; on a phone the top bar has the logo, **Ask Truchsess** and your initials, with the tabs under it.
+- Changed: **Settings** opens with four cards: **People and access** (people and reaching the box from home), **The AI and costs**, **Updates and safety copies**, and **Your company** (the company, its mail domains, products and documents, what the box knows). **Advanced (for experts)** is at the end. See [Settings](/start/glossary/#settings).
+- Changed: you can paste a long text into **Chat**. From about four pages a line says how long it is and how much the agent's AI reads at once; a text longer than that does not start, and nothing is charged. See [Long messages](/use/start-a-task/#long-messages).
+
+## Truchsess 2026.10.23-d009df5
+
+Published 23 October 2026. Release tag `truchsess-iso-20261023-d009df5`. Its **What is new** on the box says only "Small fixes and improvements."; this is what it changes:
+
+- Changed: **Check for updates** shows "Checking for updates…" and the result as soon as the check is done, without a reload. **Update now** asks once, in a row of its own, with **Yes, update** and **Cancel**. See [Updates](/admin/updates/#update-by-hand).
+- Changed: a release with only small changes says "Small fixes and improvements." under **What is new**.
+- New: what you wrote to the old built-in assistant is yours: open or download it under **Your account**, **Your old assistant conversations**. Administrators see only who wrote how many messages, and can delete them with **Undo** for 15 minutes. See [Your account](/use/your-account/#your-old-assistant-conversations).
+- Changed: an agent's card shows its name with its function under it.
+- Changed: in the **Store**, a required repository question starts with "Choose one", and **Install all** waits until every required question has an answer. The team's name is proposed from its agents already on the box. See [Store](/admin/store/#install-all-agents-of-a-function).
+- New: a question skipped at install shows on the agent's card ("1 question to answer"); answer it there and press **Save**. See [What a card shows](/admin/packages/#what-a-card-shows).
+- Changed: after an install, the Store lists what your company rules did not allow, each with **Allow for** the agent; the list counts down and goes away when nothing is left.
+- Prepared: the box can merge the pull requests of a plan you approved, once the Merge Gate's next store update is installed. See [Merges inside an approved plan](/admin/product-rules/#merges-inside-an-approved-plan).
+
 ## Truchsess 2026.10.23-a7f21e0
 
-Published 23 October 2026. Release tag `truchsess-iso-20261023-a7f21e0`. The current release. What it changes for users comes with the next update of these docs.
+Published 23 October 2026. Release tag `truchsess-iso-20261023-a7f21e0`.
+
+- New: add a person with an invitation. Type the name and work e-mail, tick the agents, press **Invite** and send the invitation from your own e-mail or copy it. With the link, the person sets their own password; it works once, for 7 days. **Send again** and **Withdraw** on the person's row. See [People](/admin/users/#add-a-person) and [The invitation page](/setup/members/#the-invitation-page).
+- Changed: step 5 of the first setup, **Your team**, invites colleagues the same way.
+- New: the copy in France. Once your storage in France is set up, each night's safety copy also goes there, locked with your recovery sheet; the box tests it once a month, and you can restore from it. Until then nothing leaves the box. See [The copy in France](/admin/backup-and-restore/#the-copy-in-france).
+- Changed: the nightly safety copy runs at 03:30 in your company's time zone.
+- New: approve a product owner's plan once: the steps, who does them, the access each agent gets for 14 days, the questions, and what asks again before it goes live. It needs a product owner version that writes plans. See [A product owner's plan](/use/plans/).
 
 ## Truchsess 2026.10.22-d1e3744
 
-Published 22 October 2026. Release tag `truchsess-iso-20261022-d1e3744`. What it changes for users comes with the next update of these docs.
+Published 22 October 2026. Release tag `truchsess-iso-20261022-d1e3744`.
+
+- Fixed: **Install all** installs every agent of a function, lead first, or says for each agent in one plain line why it was not installed. The others are installed anyway. A second press installs only the missing ones, with the same name and answers, and never asks you to pay again. See [An agent was not installed](/admin/store/#an-agent-was-not-installed).
+- Changed: the name you type once reaches the lead and every role, and the product question is for the whole team.
+- Changed: a function of several agents is one card on **Agents** even while some agents are missing; administrators see "... of ... installed. Install the rest". See [Functions with several agents](/admin/packages/#functions-with-several-agents).
+- Changed: the lead's hand-offs to its own roles come with the install; you can remove each one and allow it again.
 
 ## Truchsess 2026.10.22-552abbb
 

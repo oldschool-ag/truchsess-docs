@@ -6,7 +6,9 @@ import NotYet from '~/components/NotYet.astro';
 
 Before anyone can connect a company mailbox, the box must know the company's mail domains and where the mail of each is. "Agents read mail and write drafts, never send."
 
-The panel is **Settings** › **Advanced** › **Connections**, panel **Company mail**. Advanced is the link **Advanced (for experts)** at the bottom of Settings.
+The company's mail domains are on **Settings** › **Your company**, part **Company mail**: "Mail addresses at these domains are company mailboxes." Each domain shows one plain line and how many people connected their mailbox there; a Microsoft 365 or Google Workspace domain has **Open webmail**.
+
+Microsoft 365 and Google Workspace sign-in for the company stays for experts: **Settings** › **Advanced** › **Connections**, panel **Company mail**. Advanced is the link **Advanced (for experts)** at the end of Settings.
 
 ## Who can do this
 
@@ -21,8 +23,8 @@ The administrator, in the office on **https://truchsess.local/**.
 
 ### Add a mail domain
 
-1. Open **Settings**, press **Advanced (for experts)**, then go to **Connections**, panel **Company mail**.
-2. Type the domain under **Mail domain**, for example `example.ch`. For a second domain press **Add a domain** first.
+1. Open **Settings** › **Your company**, part **Company mail**.
+2. Press **Add another domain** (on a new box, **Add a domain**). Type the domain under **Mail domain**, for example `example.ch`.
 3. Choose the provider under **Mail provider**: **Hostpoint**, **Infomaniak**, **cyon**, **METANET**, **green.ch**, **Swisscom (bluewin)**, **Gmail or Google Workspace (IMAP, app password)**, or **Another provider**.
 4. Check **Incoming mail server (IMAP)**. A provider fills it in. For **Another provider**, type the server your provider names for IMAP.
 5. Optional: **Webmail address (optional)** and **Drafts folder address (optional)**. With them, people get an **Open your drafts** button. For **Gmail or Google Workspace**, **Infomaniak** and **Hostpoint** the webmail address is filled in for you (`https://mail.google.com`, `https://mail.infomaniak.com`, `https://webmail.hostpoint.ch`). You can change it; an address you typed is never replaced. The webmail address is also where "Open the mail" in an agent's answer leads.
@@ -44,10 +46,10 @@ If your Google Workspace administrator switched app passwords off, the test fail
 
 For a company without its own domain, for example a Gmail address as the company's mail.
 
-1. In the same panel, under **Company mailboxes by address**, press **Add a company mailbox by address**.
+1. In the same part, press **The company uses a Gmail or other free address**. "A free address such as Gmail is never a company domain. Add each company address one by one, with the person it belongs to."
 2. Type the **Address**.
 3. Choose the person under **Belongs to**.
-4. Press **Save**.
+4. Press **Add this company address**.
 
 Free-mail domains such as gmail.com are never company domains: if gmail.com were one, every person's private Gmail would count as company mail. List each company address at a free-mail provider one by one instead. "Gmail, GMX, iCloud, Yahoo and bluewin addresses" can be listed this way.
 
@@ -66,7 +68,7 @@ Press **Remove domain** or **Remove address** on the row, then **Save**.
 
 People connect their own company mailbox on **Your account** › **Email inbox**: see [Connect your company mailbox](/use/email/). Only an address in one of your domains, or on your list, can be connected as a company mailbox. Any other address is the person's one private mailbox: see [Add a private mailbox](/use/private-mailbox/).
 
-You never see a person's mail, nor the address or the mail of a private mailbox. **Settings** › **Plan and costs** shows one line for all private mailboxes together, for example "Private mailboxes: CHF 1.20 this month".
+You never see a person's mail, nor the address or the mail of a private mailbox. **Settings** › **The AI and costs** shows one line for all private mailboxes together, for example "Private mailboxes: CHF 1.20 this month".
 
 ## The signature samples
 

@@ -1,0 +1,83 @@
+---
+title: Choose an agent's AI
+description: Give one agent its own AI model and reasoning instead of the box's level, and up to three other AIs it may ask for a short second opinion.
+---
+import NotYet from '~/components/NotYet.astro';
+
+Every agent works on the box's level (Cheap, Standard or Frontier, see [model lanes](/admin/ai-providers-and-lanes/#model-lanes)) unless an administrator names an AI model for it. You can give one agent its own AI, for example a stronger model for a reviewer, and up to three other AIs it may ask for a short second opinion.
+
+## Who can do this
+
+- The administrator chooses an agent's AI and its second opinions.
+- Everyone sees which AI an agent works on. Members see the line, not the choice.
+
+## What you need
+
+- The agent is installed. See [Install and manage agents](/admin/packages/).
+- For a model of your ChatGPT plan: the box is signed in with ChatGPT. See [Use a ChatGPT subscription](/admin/chatgpt-subscription/).
+
+## Steps
+
+### Give an agent its own AI
+
+1. Open **Agents**, click the agent's card, and go to **For administrators**, part **AI for this agent**. "Every agent works on the box's level unless you name an AI model for it here. The box checks your data rule when you save and before every task." A function of several agents, such as Bob, has one block for each of its agents.
+2. Under the agent's name, choose the model. The list has the default first, for example **The box's level (Standard: Kimi K2.6)**, then **Your ChatGPT plan** (while the box is signed in with ChatGPT) and **The box's AI**.
+3. For a model that reasons, choose **Normal reasoning**, **High reasoning** or **Highest reasoning**.
+4. Press **Save**. The box says, for example, "Bob - QA Reviewer now works on GPT-6 Astra on your ChatGPT plan, highest reasoning. From its next task on."
+
+To go back to the box's level, choose **The box's level (...)** and press **Save**.
+
+### Give an agent second opinions
+
+In the same block: "Second opinions: up to 3 other AIs this agent may ask for a short second opinion. They get only the text the agent sends: no tools, no memory, no files."
+
+1. In rows **1.** to **3.**, choose a model, or keep **No second opinion**. For a model that reasons, choose its reasoning.
+2. Press **Save**. "... It may ask for 2 second opinions. From its next task on."
+
+When the agent asks for a second opinion:
+
+- The other AI gets only the text the agent sends: no tools, no memory, no files.
+- Its answer comes back marked as information from another model, not as instructions.
+- The box checks your data rule for each second opinion, charges its cost to the agent that asked, and records which AI answered.
+
+## The data rule
+
+A model that does not meet your [data rule](/start/glossary/#data-rule) for this agent is not in the list. The box checks it again before every task. When the rule keeps your ChatGPT plan out, one line says why: "Your ChatGPT plan is not offered: ...".
+
+## What you see afterwards
+
+- **Cards:** every agent's card on **Agents** and on **Home** has one grey line with its AI, for example "AI: GPT-5.6 Sol on your ChatGPT plan, highest reasoning" or "AI: the box's level (Standard: Kimi K2.6)". A function whose roles work on different AIs says "AI: different for its roles (see its settings)".
+- **For members:** the agent's settings show the part **Its AI**, with the same line.
+- **Chat:** the header names the agent's lane and the AI behind it, for example "Frontier lane: GPT-6 Astra on your ChatGPT plan", or for an agent with its own AI "Own AI: GPT-5.6 Sol on your ChatGPT plan, highest reasoning".
+- **A task's Details:** the row **Models** names the model each step ran on, as the AI reported it, for example `openai/gpt-6-astra`, even after the lane changed. A task from before this update may say "not recorded".
+- **Costs:** tasks on your ChatGPT plan cost nothing on the box's budget. **Settings** › **Advanced** › **AI**, panel **Costs in detail**, shows under the agent, for example, "12 runs on your ChatGPT plan, 3 second opinions" and "nothing on this budget". See [Budget](/admin/budget/).
+
+## If it does not work
+
+| What you see | What to do |
+| --- | --- |
+| The agent's card: "Problem: its AI is not available: the ChatGPT plan is signed out" | Sign in with ChatGPT again under **Settings** › **Advanced** › **AI** (administrators: **Open AI settings** on the card), or choose another AI for the agent. The agent never uses another AI on its own. |
+| A message to the agent: "Its AI is not available: the ChatGPT plan is signed out. Sign in with ChatGPT again under Settings > Advanced > AI, or choose another AI for this agent. Nothing ran, so nothing was charged." | The same. Then press **Try again** under the task. |
+| "Your ChatGPT plan's usage limit is reached. It resets at ..." | Wait until the time it names. The task is not retried and not moved to another AI. |
+| A second opinion: "The OpenAI review did not run (plan limit), try again after ..." | The agent says the review did not run. Ask again after that time. |
+| "... is not on the box's list of models." | Choose a model from the list. |
+
+## Your choices
+
+| Choice | What it does | When to pick it | Can you undo it? |
+| --- | --- | --- | --- |
+| **The box's level (...)** | The agent works on its lane, like every other agent. | Default. | n/a |
+| A model under **Your ChatGPT plan** or **The box's AI** | The agent works on that model, from its next task. | A job that needs a stronger or a different AI. | Yes: choose the box's level again. |
+| **Normal reasoning**, **High reasoning**, **Highest reasoning** | How long a reasoning model thinks. Higher costs more, or uses more of your ChatGPT plan. | Reviews and hard questions: higher. | Yes. |
+| Second opinions **1.** to **3.** | Other AIs the agent may ask, with text only. | A reviewer that should check its findings with another AI company. | Yes: **No second opinion**. |
+
+<NotYet>
+An agent never moves to another AI by itself when its AI is not available: the task stops with a plain line. The box cannot say which reasoning the AI really used; it records the model the AI reports.
+</NotYet>
+
+## Related pages
+
+- [AI providers and lanes](/admin/ai-providers-and-lanes/)
+- [Use a ChatGPT subscription](/admin/chatgpt-subscription/)
+- [Install and manage agents](/admin/packages/)
+- [Budget](/admin/budget/)
