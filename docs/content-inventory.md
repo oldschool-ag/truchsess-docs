@@ -660,6 +660,50 @@ Audio goes only to the box ("Speech is turned into text on this box. The recordi
 
 An upload of a new version whose permissions or questions differ shows the change once for all installs ("Adds", "Removes", new questions, and per added permission what the owner policy would do). The button reads "Update and grant (all N installs)"; nothing changes until it is pressed; the installs keep running. After the update, grants are computed as at install. Activity: who confirmed, what was added and removed. Store installs are not updated from the box (G19).
 
+## 24a. Settings help, page by page (T143)
+
+Checked against oldschool-ag/truchsess#186 at `12e6bb7` (T135, Train 9, not yet in a published
+release) and against the published release 2026.10.24-2bb4bff. What #186 adds is inside
+`<ComingNext>` on each page.
+
+- **Pages:** `/settings/` (overview), `/settings/people/`, `/settings/ai/`, `/settings/updates/`,
+  `/settings/company/`, `/settings/account/`, `/settings/advanced/` and one page per Advanced
+  topic: `ai`, `files`, `apps`, `older`, `activity`, `support`, `costs`, `products`.
+- **Anchors:** every section of an Advanced topic is a heading whose anchor is its key in the box's
+  list (`docs/settings-places.json`, the copy of `SETTINGS_PLACES` at `12e6bb7`). The parts of the
+  other pages have fixed anchors too (for example `/settings/people/#invite`), but the box's list
+  has no entry for them yet.
+- **Your account** has no entry in the box's list; the box opens it at `#account` (and
+  `#account/mail`, `#account/calendars`, `#account/learned`, `#account/connections`). Its help
+  sections use the same words as anchors (`#mail`, `#calendars`, `#learned`, `#connections`).
+- **People and access, The AI and costs, Your account:** unchanged since 2bb4bff on #186. The
+  redesign of T133 and T134 is not built, so the pages describe what the box shows today.
+- **Who sees it:** every Settings page and every Advanced topic is for administrators only (menu
+  filter, the "Only for administrators" page, admin routes); Your account is for everyone.
+
+Box texts that still name old places (seen while checking, for the box side):
+
+| Where | Text | Where it leads now |
+| --- | --- | --- |
+| The AI and costs, the two AI lines | "Settings > Advanced > AI" (plain text) | AI key, data and costs (`/#advanced/costs`) |
+| Your company, archived products, Restore | "assign it again under Settings > Advanced > Knowledge" | Product access (`/#advanced/products`) |
+| Your account, Calendars, a choice not set up | "Set it up once under Settings > Advanced > Connections." | Your own apps (`/#advanced/apps`) |
+| Agents from files, a grey Install | "Allow the publisher under Settings > Advanced > Agents, Trusted publishers, first." | Agents from files, Trusted publishers |
+| The budget banner's top-up button | opens `#advanced/ai` and looks for the top-up field there | Costs in detail (`/#advanced/costs/costs`) |
+
+Other open points from the check:
+
+- Microsoft 365: the hint says "The box reminds you on Home 14 days before.", the set-up steps say
+  a month, and the part itself warns from 30 days; no Home reminder was found. The page says only
+  that the part warns shortly before the secret expires.
+- ChatGPT sign-in: after **Use ChatGPT on all lanes** the message says to apply the lanes to
+  installed agents, but Models has no separate Apply any more (its Save applies).
+- Trusted publishers: #186's description says the box trusts the store's own publisher by itself
+  once (its test `test_the_box_trusts_the_stores_own_publisher_once`); the part keeps a **Trust**
+  offer for a publisher the store offers that the box does not trust yet. The page describes only
+  the offer; the automatic trust was not traced in the page's code.
+- Download the audit shows no progress or error on the page.
+
 ## 25. Pull requests merged after 9 October 2026 (docs part 7)
 
 Checked against release **Truchsess 2026.10.21-84a4137** (`truchsess-iso-20261021-84a4137`, published

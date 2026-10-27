@@ -1,0 +1,56 @@
+---
+title: Your own AI
+description: "Help for Settings > Advanced > Your own AI: which model each lane uses, a private AI company, and ChatGPT sign-in."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Advanced** › **Your own AI**: "For experts with their own key. With the AI that came with the box, the box picks the models."
+
+**Who sees it:** administrators only.
+
+Its card shows the Standard lane's model, for example "Standard lane:" and the model's name, or "No AI is connected yet."
+
+<ComingNext>
+This topic comes with the next update. In release 2026.10.24-2bb4bff the lanes are the **Model lanes** panel, with **Save lanes** and a separate **Apply to installed agents**, and ChatGPT sign-in is on the AI provider page.
+</ComingNext>
+
+## Models [#models]
+
+**What it is for:** "Which model the box uses for each lane of work." The line also says what the data rule allows. Without an AI: "No AI is connected yet. Choose one in The AI and costs: it fills these lanes with its own models."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Cheap**, **Standard**, **Frontier** | The model for each lane, chosen from your provider's models. **other model…** lets you type one. | Next to each lane: "Meets the data rule" or "No provider meets the data rule". An automatic model is not allowed. |
+| **Lane for agents that ask for none** | The lane an agent uses when it does not ask for one. | Saved with the models. |
+| **Save the models** | Saves the lanes and applies them to every agent at once. | "Saved. Every agent uses these models." If an agent could not be changed, the message names it. The change is recorded in the activity record. To undo, choose the earlier models and save again. |
+
+The box checks the lanes against the data rule again by itself when the last check is more than an hour old.
+
+More: [AI providers and lanes](/admin/ai-providers-and-lanes/).
+
+## A private AI company [#private-ai]
+
+**What it is for:** "For an AI that runs at your own provider or in your own data center."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Name**, **Address of its API**, **Format of its API** (**Like OpenAI** or **Like Anthropic**) | Who the AI company is and how the box talks to it. | |
+| **Test and use** | Opens the AI setup with these filled in. | The setup asks for the key and the model, and the one data question, before the box uses it. Nothing is saved before that. In the office only. |
+
+## ChatGPT sign-in [#chatgpt]
+
+**What it is for:** "Uses a ChatGPT plan instead of an API key." It shows only when support has switched it on for your box; otherwise this part has no card.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Sign in with ChatGPT** | Starts the sign-in. | The box shows a code and a link: open the link on any device, sign in to ChatGPT there and enter the code before it expires. Then the line says "Signed in as" your e-mail and your plan. |
+| **Use ChatGPT on all lanes** | Proposes the plan's models for every lane. | The box first checks the data rule, then tests each lane with one short message. If the test fails, "The previous AI stays." |
+| Personal plan | For a personal Plus or Pro plan the box warns that OpenAI may train on it unless training is switched off in ChatGPT. | Tick that you switched off "Improve the model for everyone", then **Confirm**. The box cannot check this. |
+| **Refresh**, **Sign out** | Reads the state again, or ends the sign-in. | Each action is recorded in the activity record. In the office only. |
+
+More: [Use a ChatGPT subscription](/admin/chatgpt-subscription/).
+
+## Related pages
+
+- [AI key, data and costs](/settings/advanced/costs/)
+- [Advanced](/settings/advanced/)

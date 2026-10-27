@@ -1,0 +1,79 @@
+---
+title: Updates and safety copies
+description: "Help for Settings > Updates and safety copies: Update now, updates at night, the nightly safety copy, restoring a copy, the recovery sheet, Restart the box and going back to the previous update."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Updates and safety copies** keeps the box and its agents up to date, makes and restores safety copies, and has the two buttons for a bad day: **Restart the box** and going back to the previous update.
+
+**Who sees it:** administrators only. A member who opens the address sees "Only for administrators". On the remote address, an administrator enters the box password once before Settings open ([Remote access](/admin/remote-access/)).
+
+<ComingNext>
+This page, as described here, comes with the next update. In release 2026.10.24-2bb4bff the page still has a **Check for updates** button, **Back up now** and a table of copies, and **Restart the box** and **Roll back** are under **Advanced**.
+</ComingNext>
+
+## Updates [#updates]
+
+**What it is for:** the box's version, and one **Update now** for the box and its agents together.
+
+**When you need it:** a new version is ready, an agent's new version waits, or the box says it cannot check for updates.
+
+**What you see:**
+
+- A version line: "The box has the October 2026 update." (or "The box has the version it came with.") and a tag: **Up to date**, **Ready to install**, **Downloading**, **Installing** or **Cannot check for updates**.
+- When a new version is ready: "The November 2026 update is ready." (the month of that release), with up to three lines of what is new under it. A small release says "Small fixes and improvements."
+- The box asks the store by itself when you open the page and its last answer is more than an hour old. There is no button to check.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **What is new** | Opens a window with everything the new version brings, grouped. | **Close** (or Escape) closes it. Nothing changes on the box. |
+| **Update now** | Installs the new version of the box, and its agents' new versions right after it. | The page asks "Update the box and its agents to the November 2026 update now?". **Yes, update** starts it, **Cancel** keeps everything. The page shows the download ("Downloading: 40%"), then "Installing. The box restarts its services; this takes a few minutes." When only agents have new versions, the question names them. On the remote address, **Update now** installs only a version that is newer than the running one. |
+| **Cancel update** | Stops an update that is still downloading. | The page asks "Stop the update? It stops before switching: nothing changes on the box, and what was downloaded is kept." **Yes, stop** stops it. |
+| **Install updates automatically** | On: "the box installs updates at night, after the safety copy." Off: "a new version waits for **Update now**." | Saved at once, without a question. Press it again to change it back. The night window is between 02:00 and 05:00, box time. |
+| **Your agents** | One line per agent that has a new version. "A new version installs with the box: tonight, or now with **Update now**." | An agent whose new version asks for more waits for your yes: its line says what it also wants, and **Answer on Home** opens the question on Home. |
+| **Connect to the store again** | Shown only while the box cannot reach the store: "Updates and new agents wait until it is connected again." | Enter the **Code from Truchsess support** (it works once) and press **Connect to the store again**. In the office only. |
+
+Sometimes an update ends with "The update is installed. A restart finishes it: Restart the box, under If something goes wrong." Press **Restart the box** further down.
+
+More: [Updates](/admin/updates/).
+
+## Safety copies [#safety-copies]
+
+**What it is for:** the box makes a safety copy of everything every night. This part shows the last copy, makes one now, downloads one, and brings one back.
+
+**When you need it:** before a big change, to keep a copy outside the office, after a mistake, or to move everything to a new box.
+
+**What you see:**
+
+- "Last safety copy: last night, 03:30." (or "No safety copy yet; the first is made tonight."), then "The box makes one every night."
+- Without storage outside the box: "Your copies are kept on this box. Download one now and then and keep it outside your office: a fire or a theft takes the box and its copies."
+- With storage outside the box: the tag **Also kept outside the box** and "Every night's copy is also kept outside the box, locked, in a data center in France."
+- The newest three copies, each with **Download**, then how many older ones there are. "The file is locked. Only your recovery sheet opens it."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Make a safety copy now** | Makes a copy at once. "Useful before a big change." | "The box makes a safety copy now. It is in the list in a few minutes." It cannot be pressed without a recovery sheet. |
+| **Download** | Saves that copy as a locked file on your computer. | Nothing changes on the box. In the office only. |
+| **Restore a safety copy** | Brings the box back to a copy: one of the three shown, the newest copy outside the box, or **A file from this computer**. | Choose the copy, then enter **The key from your recovery sheet** or choose the recovery sheet file. The first **Restore** asks: "Restore this copy? Work done after it is replaced, the box restarts its services and everyone signs in again." Press **Restore** again to go on. Afterwards the window **Restored** says "The box is back as it was on" a date and time, and lists what to enter again (a safety copy never holds passwords), each line a link to its place. In the office only. This cannot be undone, except by restoring another copy. |
+| **Recovery sheet** | The key that opens your copies: "You need it to restore a copy, also on a new box." Without it the box makes no copy. | **Make the recovery sheet** shows the key once: **Copy**, **Download as a file**, then **I have saved it**. Keep it outside the box. **Make a new recovery sheet** asks first: "Older copies still need the old one: keep it as long as you keep them." In the office only. |
+
+More: [Safety copies and restore](/admin/backup-and-restore/).
+
+## If something goes wrong [#if-something-goes-wrong]
+
+**What it is for:** two actions when the box misbehaves.
+
+**When you need it:** the box is slow or stuck, an update says a restart finishes it, or a new version does not work as it should.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Restart the box** | Restarts the box's services. | The page asks "Restart the box now? It is back in about 2 minutes." **Yes, restart** restarts it; the page says "Restarting. This takes about 2 minutes." and then "The box has restarted and is back". It waits while an update or an agent's task is working, and says which. Also on the remote address. |
+| **Go back to the previous update** | Shown only when going back is possible; it names the version, for example **Go back to the October 2026 update**. | The page asks first: "Your company's data and chats stay as they are." **Yes, go back** installs the previous version again. In the office only. |
+
+If the box does not come back after 10 minutes, the page says so: check that it is switched on and connected. Its screen shows its address.
+
+## Related pages
+
+- [Updates](/admin/updates/)
+- [Safety copies and restore](/admin/backup-and-restore/)
+- [Settings](/settings/)

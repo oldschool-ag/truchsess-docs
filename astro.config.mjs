@@ -2,12 +2,17 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
+import { satteri } from '@astrojs/markdown-satteri';
+import { placeAnchors } from './src/plugins/place-anchors.mjs';
+import { settingsAnchors } from './src/integrations/settings-anchors.mjs';
 
 // The page addresses below are a contract: the FAIVR store docs link to them.
 // Never rename or remove one without adding a redirect in `redirects` (see CONTRIBUTING.md).
 export default defineConfig({
   site: 'https://docs.truchsess.com',
   trailingSlash: 'always',
+  // T143: fixed heading anchors for the Settings help (src/plugins/place-anchors.mjs)
+  markdown: { processor: satteri({ mdastPlugins: [placeAnchors] }) },
   redirects: {
     // Example of a redirect after a rename, kept as a pattern for maintainers:
     // '/setup/old-address/': '/setup/new-address/',
@@ -25,6 +30,8 @@ export default defineConfig({
     '/operator/chatgpt-personal-plan/': '/admin/chatgpt-subscription/',
   },
   integrations: [
+    // T143: dist/settings-anchors.json, the help address of every Settings place
+    settingsAnchors(),
     starlight({
       title: 'Truchsess',
       description: 'The manual for administrators and members of a Truchsess box.',
@@ -110,6 +117,32 @@ export default defineConfig({
             { label: 'Updates', slug: 'admin/updates' },
             { label: 'Remote access', slug: 'admin/remote-access' },
             { label: 'Audit and status', slug: 'admin/audit-and-status' },
+          ],
+        },
+        {
+          // T143: one page per Settings page; each Settings page of the box links here
+          label: 'Settings, page by page',
+          items: [
+            { label: 'Settings', slug: 'settings' },
+            { label: 'People and access', slug: 'settings/people' },
+            { label: 'The AI and costs', slug: 'settings/ai' },
+            { label: 'Updates and safety copies', slug: 'settings/updates' },
+            { label: 'Your company', slug: 'settings/company' },
+            { label: 'Your account', slug: 'settings/account' },
+            {
+              label: 'Advanced',
+              items: [
+                { label: 'Advanced (for experts)', slug: 'settings/advanced' },
+                { label: 'Your own AI', slug: 'settings/advanced/ai' },
+                { label: 'Agents from files', slug: 'settings/advanced/files' },
+                { label: 'Your own apps', slug: 'settings/advanced/apps' },
+                { label: 'Older data', slug: 'settings/advanced/older' },
+                { label: 'Activity', slug: 'settings/advanced/activity' },
+                { label: 'For support', slug: 'settings/advanced/support' },
+                { label: 'AI key, data and costs', slug: 'settings/advanced/costs' },
+                { label: 'Product access', slug: 'settings/advanced/products' },
+              ],
+            },
           ],
         },
         {

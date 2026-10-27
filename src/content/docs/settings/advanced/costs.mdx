@@ -1,0 +1,71 @@
+---
+title: AI key, data and costs
+description: "Help for Settings > Advanced > AI key, data and costs: your own AI key, the AI that came with the box, the costs in detail with top-ups, and which AI providers may see your data."
+---
+import ComingNext from '~/components/ComingNext.astro';
+
+**Settings** › **Advanced** › **AI key, data and costs**: the box's AI key, its costs in detail, and which AI providers may see your data.
+
+**When you need it:** to use your own AI key, to switch to the AI that comes with an activation code, to see the costs per agent or ask for more credit, or to change the data rule.
+
+**Who sees it:** administrators only.
+
+Its card shows how it stands in one line, for example "The box's own AI; data rule: never kept, never trained on; CHF 12.40 this month".
+
+<ComingNext>
+This topic comes with the next update. In release 2026.10.24-2bb4bff the same parts are under **Advanced** › **AI** and **Advanced** › **Agent rules**.
+</ComingNext>
+
+## Own AI key [#own-key]
+
+**What it is for:** "Use your own AI company and key instead of the AI that came with the box."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Change AI provider** | Opens the steps to choose an AI company and enter its key. | The box uses the new provider from the next task on. |
+
+More: [AI providers and lanes](/admin/ai-providers-and-lanes/).
+
+## AI of this box [#managed-ai]
+
+**What it is for:** the AI that comes with an activation code. Its first line says which AI the box uses now.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Activation code** | The code from the card that came with the box. | **Switch to managed AI**: "The code from the card enrols the box in the store if it is not enrolled yet and delivers the AI key with a starter credit. Your own key is replaced; you can go back to it at any time under "Change AI provider"." **Try again** after a failure. |
+
+## Costs in detail [#costs]
+
+**What it is for:** what the AI used this period, per agent, and asking for more credit.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| State | **within budget**, **warning**, **paused: budget exhausted**, **no limit** or **unknown**. | |
+| **Refresh usage** | Reads the newest numbers. | Nothing else changes. |
+| Tiles and **Per agent this period** | The limit, what was used, what remains, what is projected, and runs, tokens and cost per agent. | Nothing changes. |
+| **Request top-up** | Asks for more credit: **Top-up amount** and **Note (optional)**. | The request appears under **Top-up requests**: download the signed request and send it to Truchsess, or wait for the box to pass it on. **Cancel** withdraws an open request. |
+| **Edit the budget** | **Warn at (percent)**, **Stop new runs at (percent)**, **Period starts on day**, **Billing rate (CHF per USD metered)**. | **Save budget**: "Budget saved." The monthly limit itself is set on [The AI and costs](/settings/ai/#limit). |
+| **Budget events** | What happened to the budget, and when. | Nothing changes. |
+
+More: [Budget](/admin/budget/).
+
+## Which AI providers may see your data [#data-rule]
+
+**What it is for:** "Every model request of every agent goes only to providers that meet this rule." A task is refused before any AI is asked when no provider meets it.
+
+The line "Now:" says the rule in force, when it last changed and who changed it.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **What providers may do with your data** | **Never kept, never trained on** (the default), **Never trained on**, or **Any provider, may keep and train on your data**. | Nothing is saved until you press **Save data rule**. |
+| **Where your data may be processed** | **Any country**, **EU or Switzerland**, **Switzerland only**, or **On this box only**. | The same. |
+| **Save data rule** | Saves both choices. | "Data rule saved". It applies to the next request to the AI. The change is recorded in the activity record. |
+
+Agents that read or write your code or knowledge, read or draft your mail, or use stored passwords always run at least under "never trained on".
+
+More: [Agent rules explained](/admin/agent-rules/).
+
+## Related pages
+
+- [The AI and costs](/settings/ai/)
+- [Advanced](/settings/advanced/)

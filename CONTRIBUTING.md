@@ -137,7 +137,31 @@ For each published box release (`truchsess-iso-<date>-<code>`):
    see or use. Keep each entry short.
 5. Run `npm run sync:not-yet` and `npm test`, then open the pull request.
 
-## 7. Local preview
+## 7. Help for each Settings page
+
+Every Settings page of the box links to the page or section of this manual that explains it. The
+box reads the addresses from `https://docs.truchsess.com/settings-anchors.json`.
+
+- **Where:** `src/content/docs/settings/`: one page per Settings page (`/settings/people/`,
+  `/settings/ai/`, `/settings/updates/`, `/settings/company/`, `/settings/account/`), the
+  Advanced page (`/settings/advanced/`) and one page per Advanced topic
+  (`/settings/advanced/<topic>/`).
+- **The box's list:** `docs/settings-places.json` is a copy of the box's list of Settings places.
+  When the box's list changes, refresh it and name the commit in the pull request:
+  `npm run sync:settings-places -- <path to company-os-portal.html> "oldschool-ag/truchsess at <commit>"`.
+- **Section anchors:** a section of a topic is a heading that ends with its key from the box's
+  list in square brackets: `## Remote access for support (SSH) [#ssh]`. The key becomes the
+  heading's anchor and never shows to the reader.
+- **Anchors are stable.** When the box renames a key, write the new key first and keep the old
+  one after it: `## Remote access [#remote-access ssh]`. The old anchor still opens the section.
+  A page that moves keeps its old address with a redirect (section 2).
+- **Each section says:** what it is for, when you need it, what each switch or field does, what
+  happens when you change it, and who can see it. A new feature names the release it came with,
+  or sits in `<ComingNext>` until that release is published.
+- **The check:** `npm run check:anchors` (part of `npm test` and the docs CI) fails when a place in
+  the copy of the box's list has no page or section here.
+
+## 8. Local preview
 
 ```sh
 npm ci
