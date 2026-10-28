@@ -1,44 +1,65 @@
 ---
 title: The AI and costs
-description: "Help for Settings > The AI and costs: what the AI cost this month, the monthly limit, the starter credit, agents you pay for, and which AI the box uses."
+description: "Help for Settings > The AI and costs: which AI your agents use, this month's cost per agent, the monthly limit, what happened this month, more credit, and your own AI key."
 ---
 
-**Settings** › **The AI and costs**: "What the AI cost this month, and the most it may cost."
+**Settings** › **The AI and costs**: "Which AI your agents use, and what it costs this month."
 
-**When you need it:** to check this month's cost, to raise or lower the limit, or after the box says the limit is reached.
+**When you need it:** to see this month's cost, to raise or lower the limit, after the box says the limit is reached, to ask for more credit, or to use your own AI key.
 
 **Who sees it:** administrators only.
 
-## This month [#month]
+This page, as described here, came with release 2026.10.25-af84ac2.
 
-**What it is for:** how much of the month's limit the AI has used.
+## Your AI [#your-ai]
+
+**What it is for:** which AI your agents use now, marked **In use**.
+
+- **The AI that came with your box:** "It never keeps your data and never trains on it. The box picks the right model for each task."
+- **Your own key**, with the AI company's name.
+- While your ChatGPT plan is signed in, one line names its models: "An agent can run on it with" those models: "choose it in the agent's settings." See [Choose an agent's AI](/admin/agent-ai/).
 
 | Item | What it does | What happens when you use it |
 | --- | --- | --- |
-| **AI cost this month** | The amount, then "of" the limit "this month", with a bar. With a starter credit: "of the starter credit of" the amount, and "Starter credit left". | Nothing changes. The bar turns yellow near the limit and red at it. |
+| **Use your own AI key** | Uses your own key at an AI company instead of the AI that came with the box. | Choose **Which AI company?**, paste the key, and press **Test and use this key**. Before the box uses it, it asks once what that AI company keeps and whether it trains on your data (the one data question). **Cancel** changes nothing. |
+| **Use the AI that came with the box again** | Shown while you use your own key. | The box asks first: "Your agents use the AI that came with the box from their next task." **Yes, switch back** does it. |
+
+With your own key, every amount on this page is marked **estimated**: your AI company bills you directly, and "your limit still stops your agents at this estimate."
+
+## This month [#month]
+
+**What it is for:** what the AI cost this month, per agent, against the one monthly limit.
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| Amount and bar | What was used of the limit this month, and when it "starts again from zero". | Nothing changes. |
+| One row per agent | Each agent that had costs this month, the most expensive first: its name, what it does and its cost. **Truchsess** is the answers in **Ask Truchsess**; **Chat** is "Questions you and your team asked". | An agent's row also says how many of its runs your ChatGPT plan carried. Those runs cost nothing on the box's budget. |
 | **Agents you pay for** | Shown while you pay for extra copies of an agent: one line per copy, then the total. | Nothing changes. |
-| Private mailboxes | When people read private mailboxes with agents: "Included in the AI use above." | Nothing changes. |
 
 ## Monthly limit [#limit]
 
-**What it is for:** the most the AI may cost in a month.
+**What it is for:** the most the AI may cost in a month. "Your agents stop when the limit is reached. The box warns you on Home at 80%."
 
 | Item | What it does | What happens when you use it |
 | --- | --- | --- |
-| **Monthly limit (CHF, whole amount)** | The new limit. | **Save** saves it: "Budget saved." The change is recorded in the activity record. With the AI that came with your box, the limit cannot go above what your key allows; a higher limit needs more credit from Truchsess. With a starter credit there is no monthly limit to change. |
+| **Monthly limit** | The new limit, in your currency. | **Save** saves it. When the limit is reached, the page says "Your agents stopped" and when they start again; raising the limit starts them again at once. |
 
-More: [Budget](/admin/budget/) and [Budget at setup](/setup/budget/).
+More: [Budget](/admin/budget/).
 
-## Your AI and your data [#your-ai]
+## What happened [#events]
 
-Two lines say which AI the box uses and what the AI company may do with your data:
+**What it is for:** this month's warnings and stops, newest first: "Most of the limit is used.", "Limit reached. Agents stopped.", "The AI key was refused. Agents stopped.", "The AI key works again.", "More credit added." Without any: "No warnings and no stops this month."
 
-- "AI: the AI that came with your box, chosen and paid through Truchsess." or "AI: your own AI key. The box counts what it costs".
-- "Your data is never kept or used for training." or, when your data rule allows it, that the AI company may keep your data.
+## More credit [#credit]
 
-To change either, open [Advanced › AI key, data and costs](/settings/advanced/costs/). The lines still call that place "Settings > Advanced > AI".
+**What it is for:** "Credit for the AI that came with the box comes from Truchsess. Ask here; the answer shows on Home."
+
+| Item | What it does | What happens when you use it |
+| --- | --- | --- |
+| **Ask for more credit** | Asks Truchsess for more credit: **How much?** and a **Note for Truchsess (optional)**. | **Send the request**. The request shows here with its state, for example "Waiting for Truchsess". "You pay only when they add the credit." |
 
 ## Related pages
 
+- [AI key, data and costs](/settings/advanced/costs/)
 - [AI providers and lanes](/admin/ai-providers-and-lanes/)
 - [Settings](/settings/)

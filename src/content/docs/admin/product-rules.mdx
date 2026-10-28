@@ -97,10 +97,25 @@ The box does not push the workflow to GitHub. You add it.
 
 | What you see | What to do |
 | --- | --- |
-| "The rules could not be read: .... Tasks for ... do not start until they can be read again." | Check that the repository is still covered by the GitHub connection and that the entry file exists on the default branch. Then press **Check now**. |
+| "The rules could not be read:" with the reason and one step, then "Tasks for ... do not start until they can be read again." | Do the step the line names (see [When the rules cannot be read](#when-the-rules-cannot-be-read)), then press **Check now**. |
 | A task for the product: "The rules for ... could not be read (...), so this task did not start. Nothing ran." | The same. Tasks of other products run normally. |
 | "The GitHub connection covers no repository yet" in the repository list. | Choose the repositories on GitHub for the connection first: [Connections](/admin/connections/). |
 | A review says it did not review and names the lane. | Set that lane to a model of another AI company, then press **Apply to installed agents**. |
+
+### When the rules cannot be read
+
+**Rules** says the reason in one line, then the one step that fixes it. The saved repository always stays shown; when the GitHub connection's list does not name it, it is marked "not in the GitHub connection's list: press Refresh there".
+
+| Reason the box shows | The step it names |
+| --- | --- |
+| "the box has no GitHub connection for their repository's organisation" | Connect that organisation. |
+| "the box's GitHub App does not include their repository" | On GitHub, add the repository to the App (**Change repositories** on the GitHub connection), then press **Refresh** there. |
+| "GitHub refused the box's App for their repository's organisation" | Press **Refresh** on the GitHub connection; if that fails too, connect the organisation again. |
+| "GitHub does not show the box their repository" | Check the repository's name, then press **Refresh** on the GitHub connection. |
+| "GitHub did not answer" | Nothing to do: the box tries again in a few minutes. |
+| The entry file is not found | Check the entry file's name, or add the file to the repository. |
+
+With several GitHub organisations, the box reads each product's rules with the connection of that repository's own organisation (since release 2026.10.28-3ef8a18). The **Refresh** for a GitHub connection is on the card of an agent that uses it, under **Connections it uses** ([Connections](/admin/connections/#refresh-a-github-connection)).
 
 ## Your choices
 

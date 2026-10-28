@@ -3,15 +3,56 @@ title: Releases
 description: What changed for users in each box release, newest first.
 ---
 
-Each box release has an exact version like **2026.10.21-84a4137**: the build date, then a short code. Your box shows its version under **Settings** › **Updates and safety copies**, **On this box**: the update's name, for example **October 2026 update**, then "Version 2026.10.21-84a4137". Give that number to support. To install a newer one, see [Updates](/admin/updates/).
+Each box release has an exact version like **2026.10.21-84a4137**: the build date, then a short code. Your box names the update it has under **Settings** › **Updates and safety copies**, for example "The box has the October 2026 update." To install a newer one, see [Updates and safety copies](/settings/updates/#updates).
 
 Releases up to 20 October 2026 are named by their tag, like `truchsess-iso-20261020-35b75a6`; the version is the same date and code (2026.10.20-35b75a6).
 
 Only changes people can see or use are listed here. Each entry names the places as they were in that release.
 
+## Truchsess 2026.10.28-3ef8a18
+
+Published 28 October 2026. Release tag `truchsess-iso-20261028-3ef8a18`. The current release. Its **What is new** on the box says only "Small fixes and improvements."; this is what it changes:
+
+- Fixed: on a box with several GitHub organisations, a product's rules are read with that organisation's own GitHub connection. Before, the rules of a repository in the organisation connected second could not be read. Nothing to set again. See [A product's own rules](/admin/product-rules/).
+- Changed: when a product's rules cannot be read, **Rules** says the reason in one line, with the one step that fixes it, and always shows the saved repository. See [When the rules cannot be read](/admin/product-rules/#when-the-rules-cannot-be-read).
+- Changed: **Refresh** on a GitHub connection, also on an agent's card under **Connections it uses**, updates **Repositories read** and the "Checked" time. If GitHub refuses, the card keeps one plain line saying why and what to do, and the box still refreshes the other organisations. See [Connections](/admin/connections/#refresh-a-github-connection).
+
+## Truchsess 2026.10.25-3161da0
+
+Published 25 October 2026. Release tag `truchsess-iso-20261025-3161da0`.
+
+- New: **Settings** › **Updates and safety copies** holds everything about keeping the box up to date and safe. **Update now** installs the box and its agents together, with up to three lines of what is new. The box checks for a new version when you open the page. See [Updates and safety copies](/settings/updates/).
+- Changed: one **Update now** on Home. "An update is ready" is an item under **Needs you**. See [Home](/use/home/#needs-you).
+- Changed: agents update with the box. A new version that asks for more waits on Home under **Needs you**: **Allow** updates it, **Not now** keeps the old version.
+- New: safety copies: **Make a safety copy now**, the newest three copies with **Download**, **Restore a safety copy** in one window, and the recovery sheet shown once. **If something goes wrong**: **Restart the box**, or go back to the previous update. See [Safety copies](/settings/updates/#safety-copies).
+- Changed: **Advanced (for experts)** opens with cards, one per topic, each with one line on how it stands. A topic's parts are cards too, and each opens on its own page with its own address. See [Advanced](/settings/advanced/).
+- Changed: on a computer, Settings' pages unfold beneath **Settings** in the left menu, and Advanced's topics beneath **Advanced**. Every entry is a link.
+- New: **SSH for support** switches itself off after 24 hours; while it is on, Home says until when. See [For support](/settings/advanced/support/#ssh).
+- New: **Download the audit**: every change and every task in one file. See [Activity](/settings/advanced/activity/#tasks).
+- Changed: the box tidies up by itself: an agent that could not be installed is tried once more, then cleaned up, and an unfinished uninstall is finished. **Add a product** asks only for the name.
+
+## Truchsess 2026.10.25-af84ac2
+
+Published 25 October 2026. Release tag `truchsess-iso-20261025-af84ac2`.
+
+- New: Chat remembers your conversations. Each new message goes with the earlier ones of the same conversation; **New conversation** starts fresh. What you write, attach and decide is remembered for the company unless you untick **Remember this for the company**; **Forget this** on a task takes it out of company memory. See [What Truchsess remembers](/use/start-a-task/#what-truchsess-remembers).
+- New: the company memory learns by rules. A fact an agent learns in a clean task goes in at once, marked "not checked yet". A fact from a mail, a web page, pasted text or a file, one that contradicts what a person entered, and a judgment about a person wait for a person on an approval card. On Monday, Home says what the company learned that week, with **Undo** for each. See [How Truchsess learns](/use/knowledge/#how-truchsess-learns).
+- Changed: **Your account** with **Mail and calendars**: one row per mailbox and calendar, with its state. **Add a mailbox** asks for the address first and then only for what that mailbox needs. See [Your account](/settings/account/).
+- Changed: **The AI and costs** shows your AI, this month's cost per agent with the one monthly limit, what happened this month, and more credit. Before the box uses your own AI key, it asks once what that AI company keeps. See [The AI and costs](/settings/ai/).
+- Changed: **People and access**: one page per person, with the products they see, their sign-in and **Remove**. A removed person's private data is kept 30 days for **Undo**. See [People and access](/settings/people/).
+- New: Claude Opus 5.5 and GPT-6.1 Sol to choose. With OpenRouter as the box's AI, **AI for this agent** and the model lanes list what OpenRouter serves now, grouped by company; **Find a model** narrows a long list. See [New models from OpenRouter](/admin/agent-ai/#new-models-from-openrouter).
+
+## Truchsess 2026.10.24-94dbbf0
+
+Published 25 October 2026. Release tag `truchsess-iso-20261024-94dbbf0`.
+
+- Fixed: Home always loads. An item that cannot be shown reads "This item could not be shown", and everything else on Home is there.
+- Changed: the memory's summaries on Home, such as how many imported records need review, have one button, **Open the memory checks**.
+- New: [Building Truchsess from box 1](/building-truchsess/): how Truchsess itself is developed from the company's own box.
+
 ## Truchsess 2026.10.24-2bb4bff
 
-Published 24 October 2026. Release tag `truchsess-iso-20261024-2bb4bff`. The current release.
+Published 24 October 2026. Release tag `truchsess-iso-20261024-2bb4bff`.
 
 - New: give one agent its own AI model and reasoning instead of the box's level, also a model of your ChatGPT plan. Every card shows one grey line with the agent's AI, Chat's header names it, and a task's **Details** name the model it ran on. See [Choose an agent's AI](/admin/agent-ai/).
 - New: up to three second opinions per agent: other AIs it may ask, with text only. The box checks your data rule for each one and charges the cost to the agent. See [Give an agent second opinions](/admin/agent-ai/#give-an-agent-second-opinions).
