@@ -68,6 +68,18 @@ All on **Settings** › **Advanced** › **Connections**, panel **GitHub**, in e
 | **Refresh** | Reads the list of repositories again. Press it after **Change repositories**. |
 | **Disconnect** | Press **Disconnect**, then **Confirm disconnect**: "The stored key is removed from this appliance and every agent with repository permissions stops reaching GitHub." Then press **Delete the App on GitHub**. |
 
+### Refresh a GitHub connection
+
+Each GitHub organisation's block shows **Repositories read**, and "Checked" with the time of the last check. Since release 2026.10.25-3161da0 the blocks are on the card of each agent that uses them, under **Connections it uses**.
+
+- **Refresh** reads the list of repositories again and updates **Repositories read** and the "Checked" time on that card at once.
+- If GitHub refuses, the block keeps one line, "Refresh failed" with the time and the reason, until a **Refresh** works:
+  - GitHub no longer accepts the box's App key: connect the organisation again (**Disconnect**, then connect).
+  - The App is no longer installed in the organisation: press **Change repositories** and install it again.
+  - GitHub refused the App a token: on GitHub, open the App's installation in the organisation and accept any pending permission request, then press **Refresh** again.
+  - GitHub did not answer: try again in a few minutes.
+- With several organisations, one that fails does not stop the others: they are refreshed all the same.
+
 ## Company mail
 
 The panel **Company mail** holds Microsoft 365 and Google Workspace for the company's mail, and who connected which mailbox. "The company's mail domains are under Settings > Your company." See [Company mail](/admin/company-mail/).
