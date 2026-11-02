@@ -37,3 +37,6 @@ jobs:
 
       - name: "Every place of the box's Settings list has its help (docs/settings-places.json)"
         run: npm run check:anchors
+
+      - name: "The releases page anchors every release tag the box links, and keeps the old anchors"
+        run: npm run check:releases
