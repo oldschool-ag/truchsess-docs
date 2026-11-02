@@ -1,0 +1,20 @@
+---
+// The box releases from 25 October 2026 on, from src/data/releases.json (scripts/sync-releases.mjs
+// writes it from each release's "What is new" on GitHub). Each entry is anchored by its tag, the
+// address the box's Settings > Updates links: /releases/#truchsess-iso-20261030-3a29f20.
+import data from '../data/releases.json';
+
+const day = (value: string) =>
+  new Date(value).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+{data.releases.map((release) => (
+  <section class="box-release" id={release.tag}>
+    <h2>Truchsess {release.version}</h2>
+    <p>Published {day(release.publishedAt)}. Release tag <code>{release.tag}</code>.</p>
+    <ul>
+      {release.lines.map((line) => (
+        <li><strong>{line.title}</strong>: {line.text}</li>
+      ))}
+    </ul>
+  </section>
+))}

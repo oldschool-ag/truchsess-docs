@@ -17,7 +17,10 @@
     "check:pages": "node scripts/check-pages.mjs",
     "check:anchors": "node scripts/check-settings-anchors.mjs",
     "sync:settings-places": "node scripts/sync-settings-places.mjs",
-    "test": "npm run check:not-yet && npm run build && npm run check:text && npm run check:pages && npm run check:anchors"
+    "test": "npm run check:not-yet && npm run build && npm run check:text && npm run check:pages && npm run check:anchors && npm run check:releases",
+    "prebuild": "node scripts/sync-releases.mjs --soft",
+    "sync:releases": "node scripts/sync-releases.mjs",
+    "check:releases": "node scripts/sync-releases.mjs --check && node scripts/check-releases.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "0.42.4",
