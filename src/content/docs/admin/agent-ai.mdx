@@ -44,6 +44,16 @@ When the agent asks for a second opinion:
 
 A model that does not meet your [data rule](/start/glossary/#data-rule) for this agent is not in the list. The box checks it again before every task. When the rule keeps your ChatGPT plan out, one line says why: "Your ChatGPT plan is not offered: ...".
 
+## New models from OpenRouter
+
+Since release 2026.10.25-af84ac2, with OpenRouter as the box's AI (your own key or the AI that came with the box):
+
+- **AI for this agent**, its second opinions and the model lanes list the models OpenRouter serves now, grouped by company, for example "Anthropic on OpenRouter". A model OpenRouter adds shows within a few hours, without an update. Claude Opus 5.5 and GPT-6.1 Sol are among them.
+- A model is listed only when one of its providers is known to meet your data rule.
+- **A short list:** per company the 3 newest models from the last half year, plus any model an agent or a lane already uses.
+- **Find a model:** with a long list, type a name (for example "Opus") to narrow the lists. The model you chose stays visible.
+- **An OpenRouter account that requires zero retention:** do not switch the box's rule to "never kept, never trained on" just for that: the rule also turns off your ChatGPT plan's models and any lane on the plan. Under "never trained on", a model only OpenRouter's list names is offered only with a provider that keeps nothing.
+
 ## What you see afterwards
 
 - **Cards:** every agent's card on **Agents** and on **Home** has one grey line with its AI, for example "AI: GPT-5.6 Sol on your ChatGPT plan, highest reasoning" or "AI: the box's level (Standard: Kimi K2.6)". A function whose roles work on different AIs says "AI: different for its roles (see its settings)".

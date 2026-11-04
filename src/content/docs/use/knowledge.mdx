@@ -35,6 +35,14 @@ Administrators and members, through an agent that has permission to read the pro
 - An agent that may also write knowledge ("Write one product's knowledge") can save a new version of a document. The earlier version stays readable.
 - By default a knowledge write is at the level "Tells you after": the administrator gets a notice on **Home**, in **Recent results**. If the administrator raised it to "Asks you first", nothing is written until the administrator approves. See [Approvals and checks](/use/approvals-and-checks/#decide-a-held-write).
 
+## How Truchsess learns
+
+Since release 2026.10.25-af84ac2 the company memory learns by rules:
+
+- A fact an agent learns in a clean task goes into company memory at once, marked "not checked yet". It ranks below anything a person entered.
+- These wait for a person, on an approval card that says why: a fact from a mail, a web page, pasted text or an attached file; a fact that contradicts what a person entered; and a judgment about a person.
+- On Monday, administrators see "This week the company learned" so many facts on **Home**, with **Undo** for each.
+
 ## Your choices
 
 | Choice | What it does | When to pick it | Can you undo it? |

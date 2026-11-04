@@ -1,5 +1,5 @@
 {
- "source": "oldschool-ag/truchsess#186 at 12e6bb7",
+ "source": "oldschool-ag/truchsess at 3ef8a18 (release 2026.10.28-3ef8a18)",
  "places": {
   "note": "T135 addendum (the CEO, 24 Oct): the one list of Settings' places. The overview's cards, Advanced's topic and section cards, the left menu, the help map's test and the completeness check read this block (company_os_settings_places.py). A topic with one section opens it at the topic's address. 'until' names the part that moves a topic out of Advanced. 'oldPlaces': the names messages still use for places that moved, and where each leads.",
   "pages": [

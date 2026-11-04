@@ -2,7 +2,6 @@
 title: Your company
 description: "Help for Settings > Your company: the company's name, language and time zone, the company mail domains, products and their documents, and what the box knows and has learned about the company."
 ---
-import ComingNext from '~/components/ComingNext.astro';
 
 **Settings** › **Your company**: "What the box knows about" your company, "and the words your agents use."
 
@@ -50,9 +49,7 @@ Each product shows how many documents it has, and **Open**.
 | **Restore** | Brings an archived product back with its knowledge. | Nobody gets access by themselves: assign it again under [Product access](/settings/advanced/products/). |
 | **Import documents** | Adds files (.zip, .md or .txt) to a product. | **Upload and review** shows what was found; **Import selected** imports it, **Discard** imports nothing. In the office only. |
 
-<ComingNext>
-**Add a product** asks only for the name; the box makes the product's id by itself. In release 2026.10.24-2bb4bff the form also asks for a **Product id**.
-</ComingNext>
+Since release 2026.10.25-3161da0, **Add a product** asks only for the name; the box makes the product's id by itself.
 
 More: [Products and knowledge](/admin/products-and-knowledge/).
 

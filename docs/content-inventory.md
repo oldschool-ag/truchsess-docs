@@ -704,6 +704,35 @@ Other open points from the check:
   the offer; the automatic trust was not traced in the page's code.
 - Download the audit shows no progress or error on the page.
 
+## 24b. Docs part 7e: Trains 8 and 9, H1 and H2
+
+Checked against the current release 2026.10.28-3ef8a18 (`3ef8a18`). The releases 2026.10.24-94dbbf0
+(H1, #193), 2026.10.25-af84ac2 (Train 8, #195: #179 with #167, #184, #187, #194),
+2026.10.25-3161da0 (Train 9, #186) and 2026.10.28-3ef8a18 (H2, #199) are on `/releases/`. Every
+`ComingNext` box of the Settings help is now released text naming 2026.10.25-3161da0.
+`docs/settings-places.json` was synced from `3ef8a18`: the box's list is the same as at #186's
+`12e6bb7` (Advanced keeps **AI key, data and costs** and **Product access**).
+
+- **People and access, The AI and costs, Your account** (T134, T133 in Train 8): rewritten to the
+  released pages (a person's own page, Remove with 30 days of Undo, the one data question,
+  estimated own-key amounts, What happened, More credit; You, Mail and calendars with Undo for 8
+  seconds). The anchors of #13 are kept; new ones: `/settings/people/#person`,
+  `/settings/ai/#events`, `/settings/ai/#credit`, `/settings/account/#you`.
+- **H2:** `/admin/product-rules/#when-the-rules-cannot-be-read` (the reasons and steps from
+  `company_os_playbooks.py`), `/admin/connections/#refresh-a-github-connection` (the Refresh lines
+  from `company_os_connections.py`).
+
+Found while checking (for the box side):
+
+- The GitHub organisation blocks with **Refresh** show only on an agent's card, under
+  **Connections it uses**. Their old panel (`githubConnectionPanel`) is inside the hidden
+  `advancedOld` holder since Train 9.
+- H2's steps on the Rules panel name "Settings > Advanced > Connections". That place leads to
+  **Your own apps**, which has no GitHub organisation blocks and no **Refresh**.
+- Other pages of this manual still name "Settings > Advanced > Connections", "Advanced > Box" and
+  similar older places (for example `/use/start-a-task/`, `/use/knowledge/`, `/admin/connections/`).
+  A sweep of those names is a separate docs task.
+
 ## 25. Pull requests merged after 9 October 2026 (docs part 7)
 
 Checked against release **Truchsess 2026.10.21-84a4137** (`truchsess-iso-20261021-84a4137`, published
