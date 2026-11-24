@@ -57,7 +57,7 @@ The installer runs from a USB stick and is used in a browser on the same network
 | Box "Erase and install?": "Cancel", "Yes, erase this disk and continue" | Admin | Final confirmation. | "Cancel" closes it. After "Yes": No. |
 | Panels "State" and "Logs": "Log type", "Copy logs", "Download log file" | Admin | Shows progress and the logs for support. | n/a |
 | Panel "Installation complete" | Admin | Says: remove the USB installer; the box restarts by itself from the internal disk; if the installer appears again, choose "Linux Boot Manager" or the internal disk in the boot menu. Shows the bootstrap code. | n/a |
-| CEO bootstrap code `XXXX-XXXX-XXXX` | Admin | One-time code needed to create the first account. Printed at the end of the installation and in the install log. | Works once. A new code can be made on the console. |
+| CEO bootstrap code `XXXX-XXXX-XXXX` | Admin | One-time code needed to create the first account. Printed at the end of the installation and in the install log. Coming with the next update (truchsess IN1a, main line, not yet released): shown only on the box's own screen when the install is complete; never on the setup page, in `/api/status` or in any installer log; `sudo company-os-bootstrap-code show` on the installed box prints it again. | Works once. A new code can be made on the console. |
 
 Facts used by the pages:
 

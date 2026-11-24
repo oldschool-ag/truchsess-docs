@@ -3,6 +3,7 @@ title: 'Step 1: Unbox and connect'
 description: Connect the box to your office network and open it in your browser, by its own name or by its address in numbers.
 ---
 import NotYet from '~/components/NotYet.astro';
+import ComingNext from '~/components/ComingNext.astro';
 import { Aside } from '@astrojs/starlight/components';
 
 A box that comes with a card is ready to use: you plug it in and open the address on the card. A box that came with a USB installer stick instead is installed first; see [Install from the USB stick](#install-from-the-usb-stick).
@@ -57,6 +58,10 @@ Installing erases every file on the disk you choose. Do this only on a box that 
 14. Write down the **CEO bootstrap code** shown on the page. It looks like `ABCD-EFGH-JKLM`. You need it once, in the next step, where the box calls it **Code from the installer**.
 15. Remove the USB stick. The box restarts by itself from its own disk.
 16. Open the box at the address its screen shows, with `https://`. Continue in [Set up your box](/setup/first-run/).
+
+<ComingNext>
+The one-time **CEO bootstrap code** is shown only on **the box's own screen** when the install is complete. It is never on the setup page and never in a log. Keep a screen connected to the box during the install, and in step 14 write the code down from the box's screen. If you missed it, type `sudo company-os-bootstrap-code show` on the box's console: it prints the code again.
+</ComingNext>
 
 ### Use Wi-Fi instead of a cable
 
@@ -126,6 +131,10 @@ If a page says "This address now opens another Truchsess box", it has stopped an
 | "The WiFi network '...' requires a password." | Enter the Wi-Fi password and press **Connect WiFi** again. |
 | "Install failed. ..." | Press **Copy logs** or **Download log file** in the panel **Logs** and send the file to support. The log contains your bootstrap code; do not share it with anyone else. |
 | The installer appears again after the restart. | Open the boot menu and choose **Linux Boot Manager** or the internal disk. |
+
+<ComingNext>
+The install log no longer contains the bootstrap code, so you can send it to support as it is.
+</ComingNext>
 
 See also [The box is not reachable by name](/troubleshooting/#the-box-is-not-reachable-by-name).
 
