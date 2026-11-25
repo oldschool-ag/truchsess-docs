@@ -63,6 +63,15 @@ Installing erases every file on the disk you choose. Do this only on a box that 
 The one-time **CEO bootstrap code** is shown only on **the box's own screen** when the install is complete. It is never on the setup page and never in a log. Keep a screen connected to the box during the install, and in step 14 write the code down from the box's screen. If you missed it, type `sudo company-os-bootstrap-code show` on the box's console: it prints the code again.
 </ComingNext>
 
+<ComingNext>
+**The setup page asks for a code first.** Before it shows anything, the page **Truchsess setup** asks for the **Code from the box's screen**. The box's own screen shows it in the line "Code for the setup page:", two groups of three, for example `K7Q-M3P`. Type it and press **Open the setup page**. Someone else on the network sees only this question.
+
+- After a wrong code the page says "That is not the code on the box's screen." After three wrong codes from the same device, that device waits before the next try ("Too many wrong codes from this device. Wait ... seconds, then type the code from the box's screen."). Other devices are not affected.
+- For a new code, type `company-os-setup-code` on the box's second screen (press Alt+F2). The box's screen shows the new code, and every browser that typed the old one has to type the new one.
+
+**You type ERASE instead of ticking a box.** In step 10, type **ERASE** in the field "Every partition and file on the selected disk will be erased. Type **ERASE** to confirm." When Windows is on the disk, the page says so first: "Windows is on this disk. Installing erases Windows and every file on this disk."
+</ComingNext>
+
 ### Use Wi-Fi instead of a cable
 
 Only the installer from the USB stick can join a Wi-Fi. If it finds no cable network, it opens its own setup Wi-Fi. Its name is **Truchsess-Setup-** plus six characters. It has no password.
@@ -75,6 +84,18 @@ Only the installer from the USB stick can join a Wi-Fi. If it finds no cable net
 6. Press **Connect WiFi**. The setup Wi-Fi turns off after about 12 seconds.
 7. Join your office Wi-Fi again with your laptop and open the address the page showed you.
 8. Continue with step 8 above.
+
+<ComingNext>
+**The setup Wi-Fi gets a password.** It still opens by itself when no network cable has a connection about half a minute after the start, but it is never open:
+
+- The box's own screen shows, together at the top: "Setup Wi-Fi:" with its name, "Password:" with its password, and "Code for the setup page:" with the code the page asks for. On a bigger screen it also shows a QR code: scan it with your phone's camera to join the setup Wi-Fi.
+- The password is new each time. It is shown only on the box's screen, never on the setup page and never in a log.
+- The setup Wi-Fi switches itself off after 30 minutes, or when the install is complete. The screen says at what time: "Then open http://10.42.0.1/ (it switches itself off at ...)".
+- With a network cable connected, there is no setup Wi-Fi.
+- For another 30 minutes, type `company-os-setup-wifi` on the box's second screen (press Alt+F2). It shows the name and the new password.
+
+So in step 1 you join the setup Wi-Fi with the password from the box's screen, and in step 2 you open `http://10.42.0.1/` and type the code from the box's screen.
+</ComingNext>
 
 ## What you see afterwards
 
@@ -128,6 +149,8 @@ If a page says "This address now opens another Truchsess box", it has stopped an
 | A computer opens no address of the box at all, but others do. | The office has two networks, for example the cable from the internet router and a Wi-Fi from a second router. A `.local` name does not reach the other network. Use the address in numbers and bookmark it; or connect the computer to the box's network; or reserve the box's address in the router; or set the second router to access-point mode. |
 | `truchsess.local` opens the wrong box. | Two boxes share the network. Use each box's own name. See [Two boxes in one office](#two-boxes-in-one-office). |
 | "No built-in installable disk detected." | The box has no disk Truchsess can use. Ask support. |
+| The setup page asks for a code (coming with the next update). | Type the "Code for the setup page" from the box's own screen. A new code: `company-os-setup-code` on the box's second screen (Alt+F2). |
+| "Too many wrong codes from this device. Wait ... seconds" (coming with the next update). | Wait the seconds it says, then type the code exactly as the box's screen shows it. Another device can use the right code at once. |
 | "The WiFi network '...' requires a password." | Enter the Wi-Fi password and press **Connect WiFi** again. |
 | "Install failed. ..." | Press **Copy logs** or **Download log file** in the panel **Logs** and send the file to support. The log contains your bootstrap code; do not share it with anyone else. |
 | The installer appears again after the restart. | Open the boot menu and choose **Linux Boot Manager** or the internal disk. |
